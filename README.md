@@ -1,6 +1,6 @@
 # Pinnacle Thrive Coaching - Website
 
-This repository contains the source code for the Pinnacle Thrive Coaching website, a modern coaching and mentoring platform built with Next.js and Tailwind CSS.
+This repository contains the source code for the Pinnacle Thrive Coaching website, a modern coaching and mentoring platform built with Next.js and Tailwind CSS. test
 
 ## About Pinnacle Thrive Coaching
 

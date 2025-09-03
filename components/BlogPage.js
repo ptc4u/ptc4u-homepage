@@ -80,10 +80,10 @@ export default function BlogPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h1 className="text-5xl lg:text-6xl font-bold text-black mb-6">
             PTC <span className="font-tan-pearl text-purple-800">Blog</span>
           </h1>
-          <p className="text-xl text-slate-700 max-w-3xl mx-auto">
+          <p className="text-xl text-black max-w-3xl mx-auto">
             Insights, strategies, and wisdom to support your transformation journey
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function BlogPage() {
           {/* Left Column - Recent Blog Links */}
           <div className="lg:col-span-1">
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Recent Posts</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Recent Posts</h3>
               <div className="space-y-4">
                 {recentBlogs.map((blog) => (
                   <div
@@ -100,13 +100,13 @@ export default function BlogPage() {
                     className="p-4 rounded-xl border border-purple-100 hover:border-purple-300 transition-colors cursor-pointer"
                     onClick={() => setSelectedBlog(blog)}
                   >
-                    <h4 className="font-semibold text-slate-900 mb-2 line-clamp-2">
+                    <h4 className="font-semibold text-black mb-2 line-clamp-2">
                       {blog.title}
                     </h4>
-                    <p className="text-sm text-slate-600 mb-2 line-clamp-2">
+                    <p className="text-sm text-black mb-2 line-clamp-2">
                       {blog.excerpt}
                     </p>
-                    <div className="flex items-center justify-between text-xs text-slate-500">
+                    <div className="flex items-center justify-between text-xs text-black">
                       <span>{blog.category}</span>
                       <span>{new Date(blog.date).toLocaleDateString()}</span>
                     </div>
@@ -135,13 +135,13 @@ export default function BlogPage() {
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
               {selectedBlog ? (
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                  <h2 className="text-3xl font-bold text-black mb-4">
                     {selectedBlog.title}
                   </h2>
-                  <p className="text-slate-700 mb-6">
+                  <p className="text-black mb-6">
                     {selectedBlog.excerpt}
                   </p>
-                  <div className="text-sm text-slate-500 mb-4">
+                  <div className="text-sm text-black mb-4">
                     {selectedBlog.category} • {new Date(selectedBlog.date).toLocaleDateString()}
                   </div>
                   <button
@@ -153,14 +153,14 @@ export default function BlogPage() {
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                  <h2 className="text-3xl font-bold text-black mb-6">
                     {featuredBlog.title}
                   </h2>
                   <div className="prose prose-lg max-w-none">
                     <div dangerouslySetInnerHTML={{ __html: featuredBlog.content }} />
                   </div>
                   <div className="mt-8 pt-6 border-t border-purple-200">
-                    <div className="text-sm text-slate-500 mb-4">
+                    <div className="text-sm text-black mb-4">
                       By {featuredBlog.author} • {new Date(featuredBlog.date).toLocaleDateString()} • {featuredBlog.category}
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export default function BlogPage() {
           {/* Right Column - Search */}
           <div className="lg:col-span-1">
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Search Blog</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Search Blog</h3>
               <form onSubmit={handleSearch} className="space-y-4">
                 <div>
                   <input

@@ -130,7 +130,7 @@ export default function BlogsSection() {
 
         {/* Featured Blogs Preview */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+          <h3 className="text-2xl font-bold text-black mb-8 text-center">
             Featured <span className="font-tan-pearl text-purple-800">Articles</span>
           </h3>
           
@@ -148,7 +148,7 @@ export default function BlogsSection() {
                   <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
                     {categories.find(cat => cat.id === blog.category)?.name}
                   </span>
-                  <div className="flex items-center space-x-4 text-sm text-slate-500">
+                  <div className="flex items-center space-x-4 text-sm text-black">
                     <span>{blog.readTime}</span>
                     <span>•</span>
                     <span>{blog.date}</span>
@@ -156,7 +156,7 @@ export default function BlogsSection() {
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl font-bold text-slate-900 mb-4 leading-tight">
+                <h4 className="text-xl font-bold text-black mb-4 leading-tight">
                   {blog.title}
                 </h4>
 
@@ -166,7 +166,7 @@ export default function BlogsSection() {
                 </p>
 
                 {/* Author */}
-                <div className="text-sm text-slate-600 mb-4">
+                <div className="text-sm text-black mb-4">
                   By <span className="font-semibold">{blog.author}</span>
                 </div>
 
@@ -185,7 +185,7 @@ export default function BlogsSection() {
         {/* All Blogs Grid */}
         {filteredBlogs.length > 0 && (
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+            <h3 className="text-2xl font-bold text-black mb-8 text-center">
               All <span className="font-tan-pearl text-purple-800">Articles</span>
             </h3>
             
@@ -206,7 +206,7 @@ export default function BlogsSection() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-lg font-bold text-slate-900 mb-3 leading-tight">
+                  <h4 className="text-lg font-bold text-black mb-3 leading-tight">
                     {blog.title}
                   </h4>
 
@@ -216,7 +216,7 @@ export default function BlogsSection() {
                   </p>
 
                   {/* Meta */}
-                  <div className="flex items-center justify-between text-sm text-slate-500 mb-3">
+                  <div className="flex items-center justify-between text-sm text-black mb-3">
                     <span>{blog.readTime}</span>
                     <span>{blog.date}</span>
                   </div>
@@ -233,10 +233,10 @@ export default function BlogsSection() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-slate-900 mb-4">
+          <h3 className="text-2xl font-bold text-black mb-4">
             Ready for More <span className="font-tan-pearl text-purple-800">Insights</span>?
           </h3>
-          <p className="text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             Explore our complete blog repository for comprehensive articles, case studies, and expert guidance.
           </p>
           <a

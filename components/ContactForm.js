@@ -75,8 +75,8 @@ export default function ContactForm() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white p-12 rounded-2xl shadow-lg border border-emerald-200/50">
             <div className="text-6xl mb-6">🎉</div>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Thank You!</h2>
-            <p className="text-lg text-slate-600 mb-8">
+            <h2 className="text-3xl font-bold text-black mb-4">Thank You!</h2>
+            <p className="text-lg text-black mb-8">
               Your message has been sent successfully. We'll get back to you within 24 hours
               to schedule your free discovery call and discuss how we can help you reach your goals.
             </p>
@@ -200,7 +200,7 @@ export default function ContactForm() {
             {/* Additional Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="urgency" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="urgency" className="block text-sm font-medium text-black mb-2">
                   How urgent is your need?
                 </label>
                 <select
@@ -218,7 +218,7 @@ export default function ContactForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="timezone" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="timezone" className="block text-sm font-medium text-black mb-2">
                   Your Timezone
                 </label>
                 <input
@@ -235,7 +235,7 @@ export default function ContactForm() {
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                 Tell us about your goals and challenges *
               </label>
               <textarea
@@ -252,7 +252,7 @@ export default function ContactForm() {
 
             {/* Preferred Contact Method */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-3">
+              <label className="block text-sm font-medium text-black mb-3">
                 Preferred contact method
               </label>
               <div className="flex space-x-6">
@@ -265,7 +265,7 @@ export default function ContactForm() {
                     onChange={handleInputChange}
                     className="mr-2 text-purple-600 focus:ring-purple-500"
                   />
-                  <span className="text-slate-700">Email</span>
+                  <span className="text-black">Email</span>
                 </label>
                 <label className="flex items-center">
                   <input
@@ -276,7 +276,7 @@ export default function ContactForm() {
                     onChange={handleInputChange}
                     className="mr-2 text-purple-600 focus:ring-purple-500"
                   />
-                  <span className="text-slate-700">Phone</span>
+                  <span className="text-black">Phone</span>
                 </label>
               </div>
             </div>
@@ -303,7 +303,7 @@ export default function ContactForm() {
             </div>
 
             {/* Privacy Notice */}
-            <p className="text-sm text-slate-500 text-center">
+            <p className="text-sm text-black text-center">
               By submitting this form, you agree to receive communications from Pinnacle Thrive Coaching.
               We respect your privacy and will never share your information with third parties.
             </p>
@@ -313,10 +313,10 @@ export default function ContactForm() {
         {/* Request Call Back Section */}
         <div className="mt-12 text-center">
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">
+            <h3 className="text-2xl font-bold text-black mb-4">
               Prefer a <span className="font-tan-pearl text-purple-800">Call Back</span>?
             </h3>
-            <p className="text-lg text-slate-700 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-black mb-6 max-w-2xl mx-auto">
               If you'd prefer to speak with us directly, we're happy to call you back at your convenience.
             </p>
             <a
@@ -328,7 +328,7 @@ export default function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
-            <p className="text-sm text-slate-500 mt-4">
+            <p className="text-sm text-black mt-4">
               Or call us directly: <a href="tel:+919845106272" className="text-purple-600 hover:text-purple-700 font-semibold">+91 98451 06272</a>
             </p>
           </div>

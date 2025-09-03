@@ -56,10 +56,10 @@ export default function ToolsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
             <span className="font-tan-pearl text-purple-800">Tools</span> & Resources
           </h2>
-          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Access our curated collection of coaching tools, templates, and resources 
             to accelerate your personal and professional development journey.
           </p>
@@ -70,7 +70,7 @@ export default function ToolsSection() {
           {categories.map((category) => (
             <button
               key={category}
-              className="px-6 py-3 bg-white border border-purple-200 text-slate-700 rounded-xl hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 font-semibold"
+              className="px-6 py-3 bg-white border border-purple-200 text-black rounded-xl hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 font-semibold"
             >
               {category}
             </button>
@@ -93,10 +93,10 @@ export default function ToolsSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-slate-900 mb-4">{tool.title}</h3>
+              <h3 className="text-xl font-bold text-black mb-4">{tool.title}</h3>
 
               {/* Description */}
-              <p className="text-slate-700 mb-6 leading-relaxed">{tool.description}</p>
+              <p className="text-black mb-6 leading-relaxed">{tool.description}</p>
 
               {/* Download Button */}
               <button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -108,18 +108,18 @@ export default function ToolsSection() {
 
         {/* Additional Resources */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-slate-900 mb-6">
+          <h3 className="text-2xl font-bold text-black mb-6">
             More <span className="font-tan-pearl text-purple-800">Resources</span> Coming Soon
           </h3>
-          <p className="text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             We're constantly developing new tools and resources based on our coaching experience 
             and client feedback. Stay tuned for more valuable materials.
           </p>
           <div className="bg-white p-8 rounded-3xl border border-purple-200/50 shadow-xl max-w-2xl mx-auto">
-            <h4 className="text-xl font-bold text-slate-900 mb-4">
+            <h4 className="text-xl font-bold text-black mb-4">
               <span className="font-tan-pearl text-purple-800">Premium</span> Resources
             </h4>
-            <p className="text-slate-700 mb-6">
+            <p className="text-black mb-6">
               Get exclusive access to advanced coaching tools, video tutorials, and personalized 
               resources when you join our coaching programs.
             </p>

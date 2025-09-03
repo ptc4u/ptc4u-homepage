@@ -8,15 +8,12 @@ import { useState, useEffect } from 'react';
 export default function AboutCoachSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Updated image array with the available images
+  // Updated image array with the specific Sai images
   const saiImages = [
-    '/images/av1.png',
-    '/images/av2.png', 
-    '/images/av3.png',
-    '/images/av4.png',
-    '/images/av5.png',
-    '/images/av6.png',
-    '/images/av7.png'
+    '/Sai4.jpg',
+    '/Sai5.jpg', 
+    '/sai6.jpeg',
+    '/sai7.jpeg'
   ];
 
   useEffect(() => {
@@ -159,7 +156,7 @@ export default function AboutCoachSection() {
               <div className="relative overflow-hidden rounded-2xl shadow-lg">
                 <img
                   src={saiImages[currentImageIndex]}
-                  alt={`Sairam - Pinnacle Thrive Coaching ${currentImageIndex + 1}`}
+                  alt={`Sairam Bollapragada - Pinnacle Thrive Coaching ${currentImageIndex + 1}`}
                   className="w-full h-80 object-cover transition-all duration-500 ease-in-out"
                   onError={(e) => {
                     e.target.style.display = 'none';

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,9 +18,31 @@ html {
 }
 
 body {
-  @apply text-neutral-800 bg-neutral-50;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  @apply text-black;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
+  min-height: 100vh;
+  font-family: 'Georgia', serif;
+}
+
+/* Heading styles - Helvetica, Size 14-18, black color */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: black;
+}
+
+/* Subheading styles - Georgia, Size 12-14, black color */
+.subheading {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  color: black;
+  line-height: 1.5;
+}
+
+/* Chancery font for marquee */
+.font-chancery {
+  font-family: 'Dancing Script', cursive;
 }
 
 /* Custom animations */
@@ -48,6 +72,11 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Tan Pearl font class for Pinnacle text */
+.font-tan-pearl {
+  font-family: 'Playfair Display', serif;
 }
 
 /* Custom scrollbar */

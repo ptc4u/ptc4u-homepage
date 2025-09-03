@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
@@ -6,6 +7,13 @@ import ProcessSection from '../components/ProcessSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import ImageWatermark from '../components/ImageWatermark';
+import MarqueeSection from '../components/MarqueeSection';
+import QuickActionsSection from '../components/QuickActionsSection';
+import AboutCoachSection from '../components/AboutCoachSection';
+import BlogsSection from '../components/BlogsSection';
+import PhilosophySection from '../components/PhilosophySection';
+import JourneyFormSection from '../components/JourneyFormSection';
 
 /**
  * The home page of the Pinnacle Thrive Coaching website. It stitches together
@@ -44,11 +52,20 @@ export default function Home() {
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+
       </Head>
-      <div className="flex flex-col min-h-screen bg-neutral-50">
+      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
+      <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
+        <ImageWatermark />
         <NavBar />
+        <MarqueeSection />
         <main className="flex-grow">
           <HeroSection />
+          <QuickActionsSection />
+          <AboutCoachSection />
+          <BlogsSection />
+          <PhilosophySection />
+          <JourneyFormSection />
           <ServicesSection />
           <ProcessSection />
           <TestimonialsSection />

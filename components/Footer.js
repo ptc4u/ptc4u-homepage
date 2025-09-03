@@ -15,7 +15,9 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <span className="text-3xl">🏔️</span>
-              <span className="text-2xl font-bold text-emerald-400">Pinnacle Thrive</span>
+              <span className="text-2xl font-bold text-emerald-400">
+                <span className="font-tan-pearl">Pinnacle</span> Thrive
+              </span>
             </div>
             <p className="text-slate-300 mb-6 max-w-md">
               Transform your life and career with expert coaching. We help you break through barriers,

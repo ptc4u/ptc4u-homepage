@@ -8,49 +8,37 @@ export default function ProcessSection() {
   const steps = [
     {
       number: "01",
-      title: "Discovery & Assessment",
-      description: "We start with a comprehensive discovery session to understand your current situation, challenges, and aspirations.",
+      title: "Free Webinar",
+      description: "Start your journey with our complimentary webinar to understand our coaching approach and the 3R methodology.",
       details: [
-        "Initial consultation call",
-        "Goal assessment and clarification",
-        "Current state analysis",
-        "Challenge identification"
+        "Complimentary access to our webinar",
+        "Learn about the 3R Philosophy",
+        "Understand coaching methodologies",
+        "Meet our coaching team"
+      ],
+      icon: "🎓"
+    },
+    {
+      number: "02",
+      title: "Discovery Session",
+      description: "Book your free 30-minute discovery session to discuss your specific goals and see how we can help you achieve them.",
+      details: [
+        "Free 30-minute discovery call",
+        "Personal goal assessment",
+        "Challenge identification",
+        "Coaching approach discussion"
       ],
       icon: "🔍"
     },
     {
-      number: "02",
-      title: "Strategy & Planning",
-      description: "Together, we create a personalized coaching plan with clear objectives, milestones, and action steps.",
-      details: [
-        "Custom coaching plan development",
-        "Goal setting and prioritization",
-        "Timeline and milestone creation",
-        "Resource and support identification"
-      ],
-      icon: "📋"
-    },
-    {
       number: "03",
-      title: "Implementation & Coaching",
-      description: "Regular coaching sessions where we work through challenges, celebrate wins, and adjust strategies as needed.",
+      title: "Choose Your Path",
+      description: "Select between PTC Essentials (6 sessions) or PTC Pro (10 sessions) based on your transformation goals and timeline.",
       details: [
-        "Weekly or bi-weekly sessions",
-        "Progress tracking and accountability",
-        "Challenge resolution and support",
-        "Strategy refinement and adaptation"
-      ],
-      icon: "🚀"
-    },
-    {
-      number: "04",
-      title: "Transformation & Results",
-      description: "Achieve your goals and develop sustainable habits that continue to serve you long after coaching ends.",
-      details: [
-        "Goal achievement and celebration",
-        "Sustainable habit formation",
-        "Long-term success strategies",
-        "Ongoing support and resources"
+        "PTC Essentials: 6-session program",
+        "PTC Pro: 10-session program",
+        "Customized coaching plan",
+        "Flexible scheduling options"
       ],
       icon: "🎯"
     }
@@ -60,38 +48,38 @@ export default function ProcessSection() {
     <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="process">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Your Coaching Journey
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+            Your <span className="font-tan-pearl">Transformation</span> Journey
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
             Our proven coaching process is designed to create lasting transformation.
             Each step builds upon the previous one, ensuring sustainable results.
           </p>
         </div>
 
         {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Step Number */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-r from-emerald-600 to-purple-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-xl">
                 {step.number}
               </div>
 
               {/* Step Content */}
-              <div className="bg-white p-8 rounded-2xl border border-neutral-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 pt-12">
-                <div className="text-4xl mb-4 text-center">{step.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4 text-center">{step.title}</h3>
-                <p className="text-slate-600 mb-6 text-center leading-relaxed">{step.description}</p>
+              <div className="bg-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 pt-16">
+                <div className="text-5xl mb-6 text-center">{step.icon}</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">{step.title}</h3>
+                <p className="text-slate-700 mb-8 text-center leading-relaxed text-lg font-medium">{step.description}</p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start text-sm">
-                      <svg className="w-4 h-4 text-emerald-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <li key={detailIndex} className="flex items-start text-base">
+                      <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-slate-700">{detail}</span>
+                      <span className="text-slate-700 font-medium">{detail}</span>
                     </li>
                   ))}
                 </ul>

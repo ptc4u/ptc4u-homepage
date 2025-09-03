@@ -67,6 +67,8 @@ export default function ContactForm() {
     { value: 'high', label: 'High - Need immediate support' }
   ];
 
+
+
   if (submitStatus === 'success') {
     return (
       <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
@@ -80,7 +82,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={() => setSubmitStatus(null)}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Send Another Message
             </button>
@@ -94,9 +96,9 @@ export default function ContactForm() {
     <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Start Your Transformation Today
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+            Start Your <span className="font-tan-pearl">Transformation</span> Today
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below
@@ -105,7 +107,7 @@ export default function ContactForm() {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-emerald-200/50">
+        <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-xl border border-purple-200/50">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -120,7 +122,7 @@ export default function ContactForm() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                   placeholder="Your first name"
                 />
               </div>
@@ -135,7 +137,7 @@ export default function ContactForm() {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                   placeholder="Your last name"
                 />
               </div>
@@ -154,7 +156,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -168,7 +170,7 @@ export default function ContactForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -179,14 +181,14 @@ export default function ContactForm() {
               <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
                 Which service are you interested in? *
               </label>
-              <select
-                id="service"
-                name="service"
-                value={formData.service}
-                onChange={handleInputChange}
-                required
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-              >
+                              <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                >
                 {services.map((service) => (
                   <option key={service.value} value={service.value}>
                     {service.label}
@@ -225,7 +227,7 @@ export default function ContactForm() {
                   name="timezone"
                   value={formData.timezone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                   placeholder="e.g., EST, PST, GMT+5:30"
                 />
               </div>
@@ -243,7 +245,7 @@ export default function ContactForm() {
                 onChange={handleInputChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                 placeholder="Describe what you're looking to achieve and any challenges you're facing..."
               />
             </div>
@@ -261,7 +263,7 @@ export default function ContactForm() {
                     value="email"
                     checked={formData.preferredContact === 'email'}
                     onChange={handleInputChange}
-                    className="mr-2 text-emerald-600 focus:ring-emerald-500"
+                    className="mr-2 text-purple-600 focus:ring-purple-500"
                   />
                   <span className="text-slate-700">Email</span>
                 </label>
@@ -272,7 +274,7 @@ export default function ContactForm() {
                     value="phone"
                     checked={formData.preferredContact === 'phone'}
                     onChange={handleInputChange}
-                    className="mr-2 text-emerald-600 focus:ring-emerald-500"
+                    className="mr-2 text-purple-600 focus:ring-purple-500"
                   />
                   <span className="text-slate-700">Phone</span>
                 </label>
@@ -284,7 +286,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
@@ -307,6 +309,31 @@ export default function ContactForm() {
             </p>
           </form>
         </div>
+
+        {/* Request Call Back Section */}
+        <div className="mt-12 text-center">
+          <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">
+              Prefer a <span className="font-tan-pearl text-purple-800">Call Back</span>?
+            </h3>
+            <p className="text-lg text-slate-700 mb-6 max-w-2xl mx-auto">
+              If you'd prefer to speak with us directly, we're happy to call you back at your convenience.
+            </p>
+            <a
+              href="tel:+919845106272"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              📞 Request Call Back
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <p className="text-sm text-slate-500 mt-4">
+              Or call us directly: <a href="tel:+919845106272" className="text-purple-600 hover:text-purple-700 font-semibold">+91 98451 06272</a>
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );

@@ -7,54 +7,28 @@
 export default function ServicesSection() {
   const services = [
     {
-      icon: "🌟",
-      title: "Life Coaching",
-      description: "Transform your personal life with guidance on relationships, health, purpose, and overall well-being.",
-      features: [
-        "Personal goal setting and achievement",
-        "Relationship and communication skills",
-        "Health and wellness optimization",
-        "Life purpose and meaning discovery",
-        "Stress management and work-life balance"
-      ],
-      color: "emerald"
-    },
-    {
-      icon: "💼",
-      title: "Corporate Coaching",
-      description: "Elevate your professional performance with leadership development and career advancement strategies.",
-      features: [
-        "Executive leadership development",
-        "Team building and collaboration",
-        "Career transition and advancement",
-        "Communication and presentation skills",
-        "Strategic thinking and decision making"
-      ],
-      color: "purple"
-    },
-    {
-      icon: "🎯",
-      title: "Goal Achievement",
-      description: "Break through barriers and achieve your most ambitious goals with proven methodologies.",
-      features: [
-        "Goal clarity and vision setting",
-        "Action planning and accountability",
-        "Overcoming limiting beliefs",
-        "Progress tracking and celebration",
-        "Sustainable habit formation"
-      ],
-      color: "emerald"
-    },
-    {
       icon: "🚀",
-      title: "Performance Coaching",
-      description: "Maximize your potential in sports, business, or any area where peak performance matters.",
+      title: "PTC Essentials",
+      description: "Transform your life and career with our foundational 6-session coaching program designed for sustainable growth.",
       features: [
-        "Performance mindset development",
-        "Confidence and resilience building",
-        "Focus and concentration techniques",
-        "Recovery and stress management",
-        "Continuous improvement strategies"
+        "6 focused coaching sessions",
+        "Personal goal setting and achievement",
+        "Work-life balance strategies",
+        "Habit formation and behavior change",
+        "Stress management and wellness"
+      ],
+      color: "emerald"
+    },
+    {
+      icon: "⭐",
+      title: "PTC Pro",
+      description: "Comprehensive 10-session coaching program for deep transformation and lasting change in all areas of life.",
+      features: [
+        "10 comprehensive coaching sessions",
+        "Advanced leadership development",
+        "Strategic career planning",
+        "Complete life transformation",
+        "Ongoing support and accountability"
       ],
       color: "purple"
     }
@@ -64,37 +38,37 @@ export default function ServicesSection() {
     <section className="py-20 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Our Coaching Services
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+            <span className="font-tan-pearl">Professional</span> Coaching Services
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Choose the coaching service that best fits your needs. Each program is designed
+          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
+            Choose the coaching service that best fits your transformation journey. Each program is designed
             to help you break through barriers and achieve extraordinary results.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br from-${service.color}-50 to-white p-8 rounded-2xl border border-${service.color}-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+              className="bg-gradient-to-br from-purple-50 to-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="text-5xl mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
-              <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+              <div className="text-6xl mb-8">{service.icon}</div>
+              <h3 className="text-3xl font-bold text-slate-900 mb-6">{service.title}</h3>
+              <p className="text-slate-700 mb-8 leading-relaxed text-lg font-medium">{service.description}</p>
 
-              <ul className="space-y-3">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <svg className={`w-5 h-5 text-${service.color}-500 mt-0.5 mr-3 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-slate-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                              <ul className="space-y-4">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <svg className="w-6 h-6 text-purple-600 mt-0.5 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-slate-700 font-medium text-base">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
             </div>
           ))}
         </div>

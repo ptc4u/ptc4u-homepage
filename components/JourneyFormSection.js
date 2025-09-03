@@ -48,13 +48,13 @@ export default function JourneyFormSection() {
       case 'discovery':
         return (
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+            <h3 className="text-2xl font-bold text-black mb-6 text-center">
               Book Your <span className="font-tan-pearl text-purple-800">Discovery Session</span>
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Name *</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -64,7 +64,7 @@ export default function JourneyFormSection() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Contact # *</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Phone Contact # *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -74,7 +74,7 @@ export default function JourneyFormSection() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Email ID *</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Email ID *</label>
                   <input
                     type="email"
                     name="email"
@@ -84,7 +84,7 @@ export default function JourneyFormSection() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Location *</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Location *</label>
                   <input
                     type="text"
                     name="location"
@@ -94,7 +94,7 @@ export default function JourneyFormSection() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Time Zone *</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Time Zone *</label>
                   <select
                     name="timezone"
                     required
@@ -112,7 +112,7 @@ export default function JourneyFormSection() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">WhatsApp Contact #</label>
+                  <label className="block text-sm font-semibold text-black mb-2">WhatsApp Contact #</label>
                   <input
                     type="tel"
                     name="whatsapp"
@@ -122,7 +122,7 @@ export default function JourneyFormSection() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">One Line Problem Statement *</label>
+                <label className="block text-sm font-semibold text-black mb-2">One Line Problem Statement *</label>
                 <input
                   type="text"
                   name="problemStatement"
@@ -133,7 +133,7 @@ export default function JourneyFormSection() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Profession *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Profession *</label>
                 <input
                   type="text"
                   name="profession"

@@ -49,10 +49,10 @@ export default function ProcessSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-            Your <span className="font-tan-pearl">Transformation</span> Journey
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+            Your <span className="font-tan-pearl text-purple-800">Transformation</span> Journey
           </h2>
-          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Our proven coaching process is designed to create lasting transformation.
             Each step builds upon the previous one, ensuring sustainable results.
           </p>
@@ -70,8 +70,8 @@ export default function ProcessSection() {
               {/* Step Content */}
               <div className="bg-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 pt-16">
                 <div className="text-5xl mb-6 text-center">{step.icon}</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">{step.title}</h3>
-                <p className="text-slate-700 mb-8 text-center leading-relaxed text-lg font-medium">{step.description}</p>
+                <h3 className="text-2xl font-bold text-black mb-6 text-center">{step.title}</h3>
+                <p className="text-black mb-8 text-center leading-relaxed text-lg font-medium">{step.description}</p>
 
                 <ul className="space-y-3">
                   {step.details.map((detail, detailIndex) => (
@@ -79,7 +79,7 @@ export default function ProcessSection() {
                       <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-slate-700 font-medium">{detail}</span>
+                      <span className="text-black font-medium">{detail}</span>
                     </li>
                   ))}
                 </ul>
@@ -97,27 +97,27 @@ export default function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center p-6">
             <div className="text-4xl mb-4">⏱️</div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Flexible Scheduling</h3>
-            <p className="text-slate-600">Sessions that fit your busy lifestyle with options for in-person, virtual, or hybrid coaching.</p>
+            <h3 className="text-xl font-bold text-black mb-2">Flexible Scheduling</h3>
+            <p className="text-black">Sessions that fit your busy lifestyle with options for in-person, virtual, or hybrid coaching.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-4">🔒</div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Confidential & Safe</h3>
-            <p className="text-slate-600">Complete privacy and confidentiality in a supportive, judgment-free environment.</p>
+            <h3 className="text-xl font-bold text-black mb-2">Confidential & Safe</h3>
+            <p className="text-black">Complete privacy and confidentiality in a supportive, judgment-free environment.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-4">📱</div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Ongoing Support</h3>
-            <p className="text-slate-600">Access to resources, tools, and support between sessions to maintain momentum.</p>
+            <h3 className="text-xl font-bold text-black mb-2">Ongoing Support</h3>
+            <p className="text-black">Access to resources, tools, and support between sessions to maintain momentum.</p>
           </div>
         </div>
 
         {/* Call to Action */}
         <div className="text-center">
-          <h3 className="text-3xl font-bold text-slate-900 mb-4">
+          <h3 className="text-3xl font-bold text-black mb-4">
             Ready to Begin Your Journey?
           </h3>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             The first step is the most important. Book your free discovery call today and start your transformation.
           </p>
           <a

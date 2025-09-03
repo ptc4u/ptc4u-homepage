@@ -97,10 +97,10 @@ export default function ContactForm() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-            Start Your <span className="font-tan-pearl">Transformation</span> Today
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+            Start Your <span className="font-tan-pearl text-purple-800">Transformation</span> Today
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-black max-w-3xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below
             and we'll get back to you within 24 hours to schedule your free discovery call.
           </p>
@@ -112,7 +112,7 @@ export default function ContactForm() {
             {/* Personal Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="firstName" className="block text-sm font-medium text-black mb-2">
                   First Name *
                 </label>
                 <input
@@ -127,7 +127,7 @@ export default function ContactForm() {
                 />
               </div>
               <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="lastName" className="block text-sm font-medium text-black mb-2">
                   Last Name *
                 </label>
                 <input
@@ -146,7 +146,7 @@ export default function ContactForm() {
             {/* Contact Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                   Email Address *
                 </label>
                 <input
@@ -161,7 +161,7 @@ export default function ContactForm() {
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
                   Phone Number
                 </label>
                 <input
@@ -178,7 +178,7 @@ export default function ContactForm() {
 
             {/* Service Selection */}
             <div>
-              <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
+              <label htmlFor="service" className="block text-sm font-medium text-black mb-2">
                 Which service are you interested in? *
               </label>
                               <select

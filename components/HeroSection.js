@@ -31,7 +31,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg lg:text-xl text-slate-700 mb-12 leading-relaxed max-w-3xl mx-auto font-normal">
+          <p className="text-lg lg:text-xl text-black mb-12 leading-relaxed max-w-3xl mx-auto font-normal">
             Unlock your full potential with expert coaching guidance. Break through barriers,
             discover your true purpose, and create lasting transformation in every area of your life.
           </p>
@@ -86,8 +86,8 @@ export default function HeroSection() {
 
           {/* Trust Indicators */}
           <div className="mt-16 text-center">
-            <p className="text-slate-500 text-sm mb-4">Trusted by professionals worldwide</p>
-            <div className="flex items-center justify-center space-x-8 text-slate-400">
+            <p className="text-black text-sm mb-4">Trusted by professionals worldwide</p>
+            <div className="flex items-center justify-center space-x-8 text-black">
               <span className="text-xs">✓ 30+ Years Experience</span>
               <span className="text-xs">✓ Fortune 500 Leadership</span>
               <span className="text-xs">✓ Published Author</span>

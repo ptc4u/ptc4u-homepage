@@ -39,10 +39,10 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-            <span className="font-tan-pearl">Professional</span> Coaching Services
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+            <span className="font-tan-pearl text-purple-800">Professional</span> Coaching Services
           </h2>
-          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Choose the coaching service that best fits your transformation journey. Each program is designed
             to help you break through barriers and achieve extraordinary results.
           </p>
@@ -56,8 +56,8 @@ export default function ServicesSection() {
               className="bg-gradient-to-br from-purple-50 to-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="text-6xl mb-8">{service.icon}</div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-6">{service.title}</h3>
-              <p className="text-slate-700 mb-8 leading-relaxed text-lg font-medium">{service.description}</p>
+              <h3 className="text-3xl font-bold text-black mb-6">{service.title}</h3>
+              <p className="text-black mb-8 leading-relaxed text-lg font-medium">{service.description}</p>
 
                               <ul className="space-y-4">
                   {service.features.map((feature, featureIndex) => (
@@ -65,7 +65,7 @@ export default function ServicesSection() {
                       <svg className="w-6 h-6 text-purple-600 mt-0.5 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-slate-700 font-medium text-base">{feature}</span>
+                      <span className="text-black font-medium text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -75,10 +75,10 @@ export default function ServicesSection() {
 
         {/* Call to Action */}
         <div className="text-center bg-gradient-to-r from-emerald-50 to-purple-50 p-12 rounded-2xl border border-emerald-200/50">
-          <h3 className="text-3xl font-bold text-slate-900 mb-4">
+          <h3 className="text-3xl font-bold text-black mb-4">
             Ready to Start Your Transformation?
           </h3>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             Book a free discovery call to discuss your goals and find the perfect coaching program for you.
           </p>
           <a

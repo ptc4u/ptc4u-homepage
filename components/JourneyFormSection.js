@@ -29,6 +29,23 @@ export default function JourneyFormSection() {
     };
   }, [router.query.option]);
 
+  // Load Calendly script when discovery option is selected
+  useEffect(() => {
+    if (selectedOption === 'discovery') {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        // Cleanup script when component unmounts or option changes
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, [selectedOption]);
+
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -51,126 +68,8 @@ export default function JourneyFormSection() {
             <h3 className="text-2xl font-bold text-black mb-6 text-center">
               Book Your <span className="text-black">Discovery Session</span>
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Phone Contact # *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Email ID *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Location *</label>
-                  <input
-                    type="text"
-                    name="location"
-                    required
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Time Zone *</label>
-                  <select
-                    name="timezone"
-                    required
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  >
-                    <option value="">Select Time Zone</option>
-                    <option value="IST">IST (India)</option>
-                    <option value="EST">EST (US East Coast)</option>
-                    <option value="PST">PST (US West Coast)</option>
-                    <option value="GMT">GMT (UK)</option>
-                    <option value="CET">CET (Central Europe)</option>
-                    <option value="JST">JST (Japan)</option>
-                    <option value="AEST">AEST (Australia)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">WhatsApp Contact #</label>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-black mb-2">One Line Problem Statement *</label>
-                <input
-                  type="text"
-                  name="problemStatement"
-                  required
-                  onChange={handleInputChange}
-                  placeholder="e.g., Career plateau, Leadership challenges, Work-life balance"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-black mb-2">Profession *</label>
-                <input
-                  type="text"
-                  name="profession"
-                  required
-                  onChange={handleInputChange}
-                  placeholder="e.g., Software Engineer, Manager, Entrepreneur"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Tell us about your goals and challenges *</label>
-                <textarea
-                  name="goalsChallenges"
-                  required
-                  rows="4"
-                  onChange={handleInputChange}
-                  placeholder="Describe your current situation, what you want to achieve, and any specific challenges you're facing..."
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Requested Start Date *</label>
-                <input
-                  type="date"
-                  name="startDate"
-                  required
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Book Discovery Session
-              </button>
-            </form>
+            {/* Calendly inline widget */}
+            <div className="calendly-inline-widget" data-url="https://calendly.com/bsairam-2002/discovery-session" style={{minWidth: '320px', height: '700px'}}></div>
           </div>
         );
 

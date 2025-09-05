@@ -56,6 +56,33 @@ export default function HeroSection() {
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ Published Author</span>
             </div>
           </div>
+
+          {/* Rating and Repeatability Section */}
+          <div className="mt-16 text-center">
+            <div className="flex items-center justify-center space-x-12 text-black">
+              <div className="flex items-center space-x-2 bg-white/90 px-6 py-3 rounded-2xl shadow-lg border border-purple-200/50 backdrop-blur-sm">
+                <div className="flex items-center space-x-1">
+                  <span className="text-2xl">⭐</span>
+                  <span className="text-2xl">⭐</span>
+                  <span className="text-2xl">⭐</span>
+                  <span className="text-2xl">⭐</span>
+                  <span className="text-2xl">⭐</span>
+                </div>
+                <div className="ml-2">
+                  <span className="text-lg font-bold text-purple-800">4.65/5</span>
+                  <span className="text-sm text-slate-600 ml-1">Rating</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-2 bg-white/90 px-6 py-3 rounded-2xl shadow-lg border border-purple-200/50 backdrop-blur-sm">
+                <div className="text-2xl">🔄</div>
+                <div>
+                  <span className="text-lg font-bold text-purple-800">95%</span>
+                  <span className="text-sm text-slate-600 ml-1">Repeatability</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

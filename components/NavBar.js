@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 /**
  * Navigation bar component for Pinnacle Thrive Coaching.
@@ -9,9 +10,17 @@ import { useState } from 'react';
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Navigate to homepage function
+  const navigateToHomepage = () => {
+    router.push('/');
+    // Close mobile menu if open
+    setIsMenuOpen(false);
   };
 
   // Smooth scroll function
@@ -62,7 +71,7 @@ export default function NavBar() {
             <div className="w-1 h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-6 shadow-sm"></div>
             
             <button
-              onClick={() => scrollToSection('hero')}
+              onClick={navigateToHomepage}
               className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
             >
               <img 

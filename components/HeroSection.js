@@ -41,15 +41,13 @@ export default function HeroSection() {
               At PTC, we believe in your potential, your resilience, and your ability to rise higher than you ever imagined.
             </p>
             
-            <p className="font-semibold text-purple-800 mt-8">
+            <p className="font-semibold text-purple-800 mt-16">
               Your journey to Reflect, Reboot, and Reinvent starts here.
             </p>
           </div>
 
-
-
           {/* Trust Indicators and Rating/Repeatability */}
-          <div className="mt-20 text-center">
+          <div className="mt-32 text-center">
             <p className="text-black text-sm mb-6 font-medium">Trusted by professionals worldwide</p>
             <div className="flex items-center justify-center space-x-4 text-black flex-wrap gap-2">
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ 30+ Years Experience</span>

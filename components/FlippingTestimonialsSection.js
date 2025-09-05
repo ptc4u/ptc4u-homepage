@@ -109,7 +109,7 @@ export default function FlippingTestimonialsSection() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            Client <span className="text-black">Success</span> Stories
+            Client <span className="text-black">Testimonials</span>
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Hear from our clients who have transformed their lives and careers through

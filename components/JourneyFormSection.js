@@ -613,11 +613,11 @@ export default function JourneyFormSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-emerald-50" id="journey">
+    <section className="py-8 bg-gradient-to-br from-purple-50 via-white to-emerald-50" id="journey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+        <div className="text-center mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-2">
             Start Your <span className="text-white">Journey</span> Now!
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">

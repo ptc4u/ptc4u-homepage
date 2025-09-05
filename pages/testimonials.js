@@ -4,7 +4,7 @@ import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
-import FlippingTestimonialsSection from '../components/FlippingTestimonialsSection';
+import ThreeDGoldenPlaqueTestimonials from '../components/ThreeDGoldenPlaqueTestimonials.jsx';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
@@ -16,7 +16,7 @@ export default function TestimonialsPage() {
         <title>Client Testimonials - Pinnacle Thrive Coaching</title>
         <meta
           name="description"
-          content="Read inspiring success stories from our clients who have transformed their lives and careers through Pinnacle Thrive Coaching programs."
+          content="Read inspiring testimonials from our clients who have transformed their lives and careers through Pinnacle Thrive Coaching programs."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -28,7 +28,7 @@ export default function TestimonialsPage() {
         <PTCFactsSection />
         <GlobalCalendlyWidget />
         <main className="flex-grow pt-24 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
-          <FlippingTestimonialsSection />
+          <ThreeDGoldenPlaqueTestimonials />
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

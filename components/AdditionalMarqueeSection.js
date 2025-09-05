@@ -21,24 +21,17 @@ export default function AdditionalMarqueeSection() {
 
   return (
     <div className="fixed left-0 top-1/2 transform translate-y-56 z-40 hidden lg:block">
-      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-r-2xl shadow-2xl border-r-4 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '280px', height: '60px' }}>
-        {/* Header */}
-        <div className="bg-purple-600 px-4 py-2 text-center border-b border-purple-700">
-          <h3 className="text-white font-semibold text-sm tracking-wide button-text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
-            Transformational Messages
-          </h3>
-        </div>
-        
+      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-r-2xl shadow-2xl border-r-4 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '280px', height: '50px' }}>
         {/* Horizontal Scrolling Content */}
-        <div className="relative h-full overflow-hidden">
+        <div className="relative h-full overflow-hidden flex items-center justify-center">
           <div className="flex items-center animate-horizontal-marquee">
             {/* First set of messages */}
             {messages.map((message, index) => (
               <div
                 key={`first-${index}`}
-                className="flex-shrink-0 px-6 text-white"
+                className="flex-shrink-0 px-6 text-white flex items-center"
               >
-                <span className="text-sm font-medium button-text-white whitespace-nowrap" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <span className="font-bold italic button-text-white whitespace-nowrap flex items-center justify-center" style={{ fontFamily: 'Chancery, cursive', fontSize: '18px' }}>
                   {message}
                 </span>
               </div>
@@ -48,9 +41,9 @@ export default function AdditionalMarqueeSection() {
             {messages.map((message, index) => (
               <div
                 key={`second-${index}`}
-                className="flex-shrink-0 px-6 text-white"
+                className="flex-shrink-0 px-6 text-white flex items-center"
               >
-                <span className="text-sm font-medium button-text-white whitespace-nowrap" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <span className="font-bold italic button-text-white whitespace-nowrap flex items-center justify-center" style={{ fontFamily: 'Chancery, cursive', fontSize: '18px' }}>
                   {message}
                 </span>
               </div>
@@ -74,7 +67,7 @@ export default function AdditionalMarqueeSection() {
         }
         
         .animate-horizontal-marquee {
-          animation: horizontal-marquee 40s linear infinite;
+          animation: horizontal-marquee 35s linear infinite;
         }
         
         .animate-horizontal-marquee:hover {

@@ -47,8 +47,8 @@ export const useCalendly = (url) => {
         window.Calendly.initInlineWidget({
           url,
           parentElement,
-          minWidth: '320px',
-          height: '600px'
+          minWidth: '280px',
+          height: '500px'
         });
         console.log('Calendly widget initialized successfully');
       } catch (error) {

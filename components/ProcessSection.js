@@ -16,7 +16,6 @@ export default function ProcessSection() {
         "Understand coaching methodologies",
         "Meet our coaching team"
       ],
-      icon: "🎓"
     },
     {
       number: "02",
@@ -39,7 +38,6 @@ export default function ProcessSection() {
         "Customized coaching plan",
         "Flexible scheduling options"
       ],
-      icon: "🎯"
     }
   ];
 
@@ -62,13 +60,16 @@ export default function ProcessSection() {
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Step Number */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-xl">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-blue-300 via-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-2 border-blue-200/50 hover:scale-110 transition-all duration-300 z-50" style={{
+                background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 30%, #1d4ed8 70%, #1e40af 100%)',
+                boxShadow: '0 8px 32px rgba(59, 130, 246, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2)',
+                filter: 'drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3))'
+              }}>
                 {step.number}
               </div>
 
               {/* Step Content */}
               <div className="bg-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 pt-16">
-                <div className="text-5xl mb-6 text-center">{step.icon}</div>
                 <h3 className="text-2xl font-bold text-black mb-6 text-center">{step.title}</h3>
                 <p className="text-black mb-8 text-center leading-relaxed text-lg font-medium">{step.description}</p>
 

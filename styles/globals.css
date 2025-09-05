@@ -82,12 +82,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes revolve {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 /* Tan Pearl font class for Pinnacle text */
@@ -102,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 1px;
   background: linear-gradient(to right, transparent, #d1d5db, transparent);
   opacity: 0.6;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 
 .section-divider-thick {
@@ -110,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   background: linear-gradient(to right, transparent, #9ca3af, transparent);
   opacity: 0.8;
-  margin: 3rem 0;
+  margin: 1rem 0;
 }
 
 /* Custom scrollbar */
@@ -131,24 +141,102 @@ h1, h2, h3, h4, h5, h6 {
   background: #94a3b8;
 }
 
-/* Calendly Widget Background Fix */
+/* Calendly Widget Background Fix - Compact */
 .calendly-inline-widget {
   background-color: white !important;
   background: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .calendly-inline-widget iframe {
   background-color: white !important;
   background: white !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Override any Calendly default styling */
 [data-calendly-widget] {
   background-color: white !important;
   background: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 [data-calendly-widget] iframe {
   background-color: white !important;
   background: white !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Compact Calendly styling */
+.calendly-inline-widget iframe {
+  transform: scale(0.95) !important;
+  transform-origin: top left !important;
+}
+
+/* Adjust vertical gaps within Calendly widget */
+.calendly-inline-widget iframe {
+  line-height: 1.2 !important;
+}
+
+/* Target Calendly content for tighter spacing */
+.calendly-inline-widget iframe * {
+  line-height: 1.0 !important;
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+/* Specific spacing adjustments for Calendly elements */
+.calendly-inline-widget iframe .calendly-event {
+  margin-bottom: 2px !important;
+}
+
+.calendly-inline-widget iframe .calendly-event-title {
+  margin-bottom: 1px !important;
+}
+
+.calendly-inline-widget iframe .calendly-event-time {
+  margin-bottom: 1px !important;
+}
+
+.calendly-inline-widget iframe .calendly-event-duration {
+  margin-bottom: 2px !important;
+}
+
+/* Additional Calendly spacing controls */
+.calendly-inline-widget iframe .calendly-popup-content {
+  padding: 4px !important;
+}
+
+.calendly-inline-widget iframe .calendly-popup-content * {
+  margin: 0.5px 0 !important;
+}
+
+/* Hide name/header elements to reclaim space */
+.calendly-inline-widget iframe .calendly-popup-header,
+.calendly-inline-widget iframe .calendly-popup-header-content,
+.calendly-inline-widget iframe .calendly-popup-header-content h1,
+.calendly-inline-widget iframe .calendly-popup-header-content h2,
+.calendly-inline-widget iframe .calendly-popup-header-content h3,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text *,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text p,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text div,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text span,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text strong,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text b,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text em,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text i,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text .calendly-popup-header-text-content,
+.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text .calendly-popup-header-text-content * {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
 }

@@ -101,7 +101,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#testimonials" className="text-black hover:text-black transition-colors">
-                  Success Stories
+                  Client Testimonials
                 </a>
               </li>
               <li>

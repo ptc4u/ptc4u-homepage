@@ -33,11 +33,11 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-12 bg-white" id="services">
+    <section className="py-4 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl lg:text-3xl font-bold italic text-black mb-4">
             <span className="text-black">Professional</span> Coaching Services
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
@@ -54,7 +54,7 @@ export default function ServicesSection() {
               className="bg-gradient-to-br from-purple-50 to-white p-10 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="text-6xl mb-8">{service.icon}</div>
-              <h3 className="text-3xl font-bold text-black mb-6">{service.title}</h3>
+              <h3 className="text-xl italic text-black mb-6">{service.title}</h3>
               <p className="text-black mb-8 leading-relaxed text-lg font-medium">{service.description}</p>
 
                               <ul className="space-y-4">

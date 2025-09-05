@@ -26,11 +26,24 @@ export default function HeroSection() {
             Warm Greetings from <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-blue-900">Thrive Coaching</span>
           </h1>
 
-          {/* Subheading */}
-          <p className="text-lg lg:text-xl text-black mb-12 leading-relaxed max-w-3xl mx-auto font-normal">
-            Unlock your full potential with expert coaching guidance. Break through barriers,
-            discover your true purpose, and create lasting transformation in every area of your life.
-          </p>
+          {/* Welcome Message */}
+          <div className="text-lg lg:text-xl text-black mb-12 leading-relaxed max-w-4xl mx-auto font-normal space-y-4">
+            <p>
+              This is your space to pause, breathe, and rediscover yourself.
+            </p>
+            <p>
+              Here, we don't just talk about goals — we walk with you as you reshape your career, your leadership, and your life.
+            </p>
+            <p>
+              Every story of transformation begins with a single step, and yours can begin today.
+            </p>
+            <p>
+              At PTC, we believe in your potential, your resilience, and your ability to rise higher than you ever imagined.
+            </p>
+            <p className="font-semibold text-purple-800">
+              Your journey to Reflect, Reboot, and Reinvent starts here.
+            </p>
+          </div>
 
 
 

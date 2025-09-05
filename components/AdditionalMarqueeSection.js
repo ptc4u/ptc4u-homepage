@@ -1,8 +1,8 @@
 /**
  * Additional Marquee section component for Pinnacle Thrive Coaching.
  *
- * Displays rotating messages vertically on the left side of the page,
- * positioned below the main Coaching Facts/Figures marquee.
+ * Displays rotating messages horizontally on the left side of the page,
+ * positioned below the main Coaching Facts/Figures marquee with a one-line gap.
  */
 export default function AdditionalMarqueeSection() {
   const messages = [
@@ -15,29 +15,30 @@ export default function AdditionalMarqueeSection() {
     "Overcome limiting beliefs",
     "Develop emotional intelligence",
     "Accelerate career growth",
-    "Live with purpose"
+    "Live with purpose",
+    "PTC Facts: 103 clients, 95% success rate, 1000 coaching hours, 4.9 Client Rating"
   ];
 
   return (
-    <div className="fixed left-0 top-1/2 transform translate-y-32 z-40 hidden lg:block">
-      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-r-2xl shadow-2xl border-r-4 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '280px', height: '400px' }}>
+    <div className="fixed left-0 top-1/2 transform translate-y-56 z-40 hidden lg:block">
+      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-r-2xl shadow-2xl border-r-4 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '280px', height: '60px' }}>
         {/* Header */}
-        <div className="bg-purple-600 px-4 py-3 text-center border-b border-purple-700">
-          <h3 className="text-white font-semibold text-base tracking-wide button-text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
+        <div className="bg-purple-600 px-4 py-2 text-center border-b border-purple-700">
+          <h3 className="text-white font-semibold text-sm tracking-wide button-text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
             Transformational Messages
           </h3>
         </div>
         
-        {/* Scrolling Content */}
+        {/* Horizontal Scrolling Content */}
         <div className="relative h-full overflow-hidden">
-          <div className="flex flex-col animate-vertical-marquee-reverse">
+          <div className="flex items-center animate-horizontal-marquee">
             {/* First set of messages */}
             {messages.map((message, index) => (
               <div
                 key={`first-${index}`}
-                className="flex items-center px-4 py-4 text-white border-b border-purple-600/50 hover:bg-purple-600/30 transition-all duration-300"
+                className="flex-shrink-0 px-6 text-white"
               >
-                <span className="text-base font-medium leading-relaxed button-text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <span className="text-sm font-medium button-text-white whitespace-nowrap" style={{ fontFamily: 'Arial, sans-serif' }}>
                   {message}
                 </span>
               </div>
@@ -47,9 +48,9 @@ export default function AdditionalMarqueeSection() {
             {messages.map((message, index) => (
               <div
                 key={`second-${index}`}
-                className="flex items-center px-4 py-4 text-white border-b border-purple-600/50 hover:bg-purple-600/30 transition-all duration-300"
+                className="flex-shrink-0 px-6 text-white"
               >
-                <span className="text-base font-medium leading-relaxed button-text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <span className="text-sm font-medium button-text-white whitespace-nowrap" style={{ fontFamily: 'Arial, sans-serif' }}>
                   {message}
                 </span>
               </div>
@@ -58,25 +59,25 @@ export default function AdditionalMarqueeSection() {
         </div>
         
         {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-purple-500 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-purple-500 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-purple-500 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute top-0 right-0 w-8 h-full bg-gradient-to-l from-purple-500 to-transparent pointer-events-none z-10"></div>
       </div>
       
       <style jsx>{`
-        @keyframes vertical-marquee-reverse {
+        @keyframes horizontal-marquee {
           0% {
-            transform: translateY(-50%);
+            transform: translateX(0);
           }
           100% {
-            transform: translateY(0);
+            transform: translateX(-50%);
           }
         }
         
-        .animate-vertical-marquee-reverse {
-          animation: vertical-marquee-reverse 30s linear infinite;
+        .animate-horizontal-marquee {
+          animation: horizontal-marquee 40s linear infinite;
         }
         
-        .animate-vertical-marquee-reverse:hover {
+        .animate-horizontal-marquee:hover {
           animation-play-state: paused;
         }
       `}</style>

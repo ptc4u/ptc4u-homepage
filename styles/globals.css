@@ -130,3 +130,25 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Calendly Widget Background Fix */
+.calendly-inline-widget {
+  background-color: white !important;
+  background: white !important;
+}
+
+.calendly-inline-widget iframe {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Override any Calendly default styling */
+[data-calendly-widget] {
+  background-color: white !important;
+  background: white !important;
+}
+
+[data-calendly-widget] iframe {
+  background-color: white !important;
+  background: white !important;
+}

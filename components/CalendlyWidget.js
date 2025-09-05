@@ -39,12 +39,30 @@ const CalendlyWidget = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full bg-white">
       <div 
-        className="calendly-inline-widget w-full h-full" 
+        className="calendly-inline-widget w-full h-full bg-white" 
         data-url="https://calendly.com/bsairam-2002/30min"
-        style={{minWidth: '300px', height: '350px', fontSize: '13px'}}
+        style={{
+          minWidth: '300px', 
+          height: '350px', 
+          fontSize: '13px',
+          backgroundColor: 'white',
+          background: 'white'
+        }}
       ></div>
+      
+      <style jsx>{`
+        .calendly-inline-widget {
+          background-color: white !important;
+          background: white !important;
+        }
+        
+        .calendly-inline-widget iframe {
+          background-color: white !important;
+          background: white !important;
+        }
+      `}</style>
     </div>
   );
 };

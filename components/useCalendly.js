@@ -16,20 +16,9 @@ export const useCalendly = (url) => {
         return;
       }
 
-      // Load Calendly script if not already loaded
-      if (!document.querySelector('script[src*="calendly.com"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        script.onload = () => {
-          setIsLoaded(true);
-          setIsLoading(false);
-        };
-        script.onerror = () => {
-          setIsLoading(false);
-        };
-        document.head.appendChild(script);
-      } else {
+      // Calendly script is loaded via next/script in index.js
+      // Just wait for it to be available
+      if (document.querySelector('script[src*="calendly.com"]')) {
         // Script exists, wait for it to load
         const checkCalendly = setInterval(() => {
           if (window.Calendly) {

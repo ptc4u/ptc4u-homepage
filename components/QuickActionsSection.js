@@ -14,49 +14,45 @@ export default function QuickActionsSection() {
       id: 'discovery',
       title: 'Book Discovery Session',
       description: 'Free 30-minute consultation',
-      icon: '🔍',
-      color: 'from-blue-600 to-blue-700'
+      color: 'from-blue-500 to-blue-500'
     },
     {
       id: 'essentials',
       title: 'PTC Essentials Signup',
       description: '6-session coaching program',
-      icon: '🚀',
-      color: 'from-purple-600 to-purple-700'
+      color: 'from-blue-500 to-blue-500'
     },
     {
       id: 'pro',
       title: 'PTC Pro Signup',
       description: '10-session coaching program',
-      icon: '⭐',
-      color: 'from-emerald-600 to-emerald-700'
+      color: 'from-blue-500 to-blue-500'
     },
     {
       id: 'unsure',
       title: 'Unsure?',
       description: '30-min clarity conversation',
-      icon: '🤔',
-      color: 'from-orange-600 to-orange-700'
+      color: 'from-blue-500 to-blue-500'
     }
   ];
 
 
 
   return (
-    <section className="py-8 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
+    <section className="py-4 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 -mt-4">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4">
           {actions.map((action) => (
             <Link
               key={action.id}
               href={`/journey?option=${action.id}`}
-              className={`bg-white border-2 border-slate-200 hover:border-purple-300 text-slate-800 hover:text-purple-700 px-6 py-4 rounded-xl font-medium text-base shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 min-w-[180px] group`}
+              className={`bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-4 py-2 rounded-xl font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 min-w-[140px] group`}
             >
-              <div className="flex flex-col items-center space-y-3">
-                <div className="text-2xl group-hover:scale-110 transition-transform duration-300">{action.icon}</div>
+              <div className="flex flex-col items-center space-y-1">
+                <div className="text-lg group-hover:scale-110 transition-transform duration-300 button-text-white">{action.icon}</div>
                 <div className="text-center">
-                  <div className="font-semibold text-base">{action.title}</div>
-                  <div className="text-sm text-slate-600 group-hover:text-slate-700">{action.description}</div>
+                  <div className="font-semibold text-sm button-text-white">{action.title}</div>
+                  <div className="text-xs button-text-white">{action.description}</div>
                 </div>
               </div>
             </Link>

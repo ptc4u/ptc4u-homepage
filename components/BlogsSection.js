@@ -38,7 +38,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "6 min read",
       date: "March 18, 2024",
-      image: "🚀",
       featured: true
     },
     {
@@ -49,7 +48,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "7 min read",
       date: "March 15, 2024",
-      image: "🧘‍♀️",
       featured: true
     },
     {
@@ -131,7 +129,7 @@ export default function BlogsSection() {
         {/* Featured Blogs Preview */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-black mb-8 text-center">
-            Featured <span className="font-tan-pearl text-purple-800">Articles</span>
+            Featured <span className="text-black">Articles</span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -145,7 +143,7 @@ export default function BlogsSection() {
                 
                 {/* Category & Meta */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="inline-block bg-purple-100 text-black px-3 py-1 rounded-full text-sm font-semibold">
                     {categories.find(cat => cat.id === blog.category)?.name}
                   </span>
                   <div className="flex items-center space-x-4 text-sm text-black">
@@ -161,7 +159,7 @@ export default function BlogsSection() {
                 </h4>
 
                 {/* Excerpt */}
-                <p className="text-slate-700 mb-6 leading-relaxed text-lg font-medium">
+                <p className="text-black mb-6 leading-relaxed text-lg font-medium">
                   {blog.excerpt}
                 </p>
 
@@ -171,7 +169,7 @@ export default function BlogsSection() {
                 </div>
 
                 {/* Read More Button */}
-                <button className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold transition-colors">
+                <button className="inline-flex items-center text-black hover:text-black font-semibold transition-colors">
                   Read Full Article
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -186,7 +184,7 @@ export default function BlogsSection() {
         {filteredBlogs.length > 0 && (
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-black mb-8 text-center">
-              All <span className="font-tan-pearl text-purple-800">Articles</span>
+              All <span className="text-black">Articles</span>
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -200,7 +198,7 @@ export default function BlogsSection() {
                   
                   {/* Category */}
                   <div className="mb-3">
-                    <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="inline-block bg-purple-100 text-black px-3 py-1 rounded-full text-sm font-semibold">
                       {categories.find(cat => cat.id === blog.category)?.name}
                     </span>
                   </div>
@@ -211,7 +209,7 @@ export default function BlogsSection() {
                   </h4>
 
                   {/* Excerpt */}
-                  <p className="text-slate-700 mb-4 text-sm leading-relaxed">
+                  <p className="text-black mb-4 text-sm leading-relaxed">
                     {blog.excerpt}
                   </p>
 
@@ -222,7 +220,7 @@ export default function BlogsSection() {
                   </div>
 
                   {/* Read More Button */}
-                  <button className="text-purple-600 hover:text-purple-700 font-semibold text-sm transition-colors">
+                  <button className="text-black hover:text-black font-semibold text-sm transition-colors">
                     Read More →
                   </button>
                 </article>
@@ -234,14 +232,14 @@ export default function BlogsSection() {
         {/* CTA Section */}
         <div className="text-center">
           <h3 className="text-2xl font-bold text-black mb-4">
-            Ready for More <span className="font-tan-pearl text-purple-800">Insights</span>?
+            Ready for More <span className="text-black">Insights</span>?
           </h3>
           <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             Explore our complete blog repository for comprehensive articles, case studies, and expert guidance.
           </p>
           <a
             href="#blog-repository"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             Read More on Our Blog
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

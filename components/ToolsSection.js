@@ -22,21 +22,18 @@ export default function ToolsSection() {
     {
       title: "Time Management Matrix",
       description: "Eisenhower Matrix tool to prioritize tasks and manage your time more effectively.",
-      icon: "⏰",
       category: "Productivity",
       downloadUrl: "#"
     },
     {
       title: "Communication Framework",
       description: "Proven communication strategies for difficult conversations and team collaboration.",
-      icon: "💬",
       category: "Communication",
       downloadUrl: "#"
     },
     {
       title: "Stress Management Guide",
       description: "Practical techniques and exercises to manage stress and maintain work-life balance.",
-      icon: "🧘‍♀️",
       category: "Wellness",
       downloadUrl: "#"
     },
@@ -57,7 +54,7 @@ export default function ToolsSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            <span className="font-tan-pearl text-purple-800">Tools</span> & Resources
+            <span className="text-black">Tools</span> & Resources
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Access our curated collection of coaching tools, templates, and resources 
@@ -88,7 +85,7 @@ export default function ToolsSection() {
               <div className="text-5xl mb-6 text-center">{tool.icon}</div>
 
               {/* Category Badge */}
-              <div className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-block bg-purple-100 text-black px-3 py-1 rounded-full text-sm font-semibold mb-4">
                 {tool.category}
               </div>
 
@@ -99,7 +96,7 @@ export default function ToolsSection() {
               <p className="text-black mb-6 leading-relaxed">{tool.description}</p>
 
               {/* Download Button */}
-              <button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
                 Download Tool
               </button>
             </div>
@@ -109,7 +106,7 @@ export default function ToolsSection() {
         {/* Additional Resources */}
         <div className="text-center">
           <h3 className="text-2xl font-bold text-black mb-6">
-            More <span className="font-tan-pearl text-purple-800">Resources</span> Coming Soon
+            More <span className="text-black">Resources</span> Coming Soon
           </h3>
           <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
             We're constantly developing new tools and resources based on our coaching experience 
@@ -117,7 +114,7 @@ export default function ToolsSection() {
           </p>
           <div className="bg-white p-8 rounded-3xl border border-purple-200/50 shadow-xl max-w-2xl mx-auto">
             <h4 className="text-xl font-bold text-black mb-4">
-              <span className="font-tan-pearl text-purple-800">Premium</span> Resources
+              <span className="text-black">Premium</span> Resources
             </h4>
             <p className="text-black mb-6">
               Get exclusive access to advanced coaching tools, video tutorials, and personalized 
@@ -125,7 +122,7 @@ export default function ToolsSection() {
             </p>
             <a
               href="#journey"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-3 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Access Premium Resources
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

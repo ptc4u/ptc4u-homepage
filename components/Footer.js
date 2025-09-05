@@ -14,19 +14,18 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <span className="text-3xl">🏔️</span>
-              <span className="text-2xl font-bold text-emerald-400">
-                <span className="font-tan-pearl">Pinnacle</span> Thrive
+              <span className="text-2xl font-bold text-black">
+                <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-black">Thrive</span>
               </span>
             </div>
-            <p className="text-slate-300 mb-6 max-w-md">
+            <p className="text-black mb-6 max-w-md">
               Transform your life and career with expert coaching. We help you break through barriers,
               discover your potential, and create lasting change through personalized guidance.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-slate-400 hover:text-emerald-400 transition-colors"
+                className="text-black hover:text-black transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -36,7 +35,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-emerald-400 transition-colors"
+                className="text-black hover:text-black transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +44,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-emerald-400 transition-colors"
+                className="text-black hover:text-black transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +53,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-emerald-400 transition-colors"
+                className="text-black hover:text-black transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -66,25 +65,25 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-emerald-400">Services</h3>
+            <h3 className="text-lg font-semibold mb-6 text-black">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#services" className="text-black hover:text-black transition-colors">
                   Life Coaching
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#services" className="text-black hover:text-black transition-colors">
                   Corporate Coaching
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#services" className="text-black hover:text-black transition-colors">
                   Goal Achievement
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#services" className="text-black hover:text-black transition-colors">
                   Performance Coaching
                 </a>
               </li>
@@ -93,25 +92,25 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-emerald-400">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6 text-black">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#process" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#process" className="text-black hover:text-black transition-colors">
                   Our Process
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#testimonials" className="text-black hover:text-black transition-colors">
                   Success Stories
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#contact" className="text-black hover:text-black transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                <a href="#" className="text-black hover:text-black transition-colors">
                   Free Resources
                 </a>
               </li>
@@ -122,17 +121,17 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-slate-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-slate-400 text-sm mb-4 md:mb-0">
-              © {currentYear} Pinnacle Thrive Coaching. All rights reserved.
+            <div className="text-black text-sm mb-4 md:mb-0">
+              © {currentYear} <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-slate-400 hover:text-emerald-400 transition-colors">
+              <a href="#" className="text-black hover:text-black transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-slate-400 hover:text-emerald-400 transition-colors">
+              <a href="#" className="text-black hover:text-black transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-slate-400 hover:text-emerald-400 transition-colors">
+              <a href="#" className="text-black hover:text-black transition-colors">
                 Cookie Policy
               </a>
             </div>

@@ -49,7 +49,7 @@ export default function PhilosophySection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            PTC's <span className="font-tan-pearl text-black">3R</span> Pillars
+            PTC's <span className="text-black">3R</span> Pillars
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Our proven coaching methodology that transforms lives and careers through 
@@ -61,7 +61,7 @@ export default function PhilosophySection() {
         <div className="text-center mb-16">
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-black mb-6">
-              The <span className="font-tan-pearl text-black">Foundation</span> of Transformation
+              The <span className="text-black">Foundation</span> of Transformation
             </h3>
             <p className="text-lg text-black leading-relaxed mb-6">
               The 3R Philosophy is the cornerstone of our coaching approach, developed over three decades 
@@ -120,7 +120,7 @@ export default function PhilosophySection() {
         {/* How It Works */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-black mb-12 text-center">
-            How the <span className="font-tan-pearl text-black">3R</span> Process Works
+            How the <span className="text-black">3R</span> Process Works
           </h3>
           
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
@@ -158,24 +158,6 @@ export default function PhilosophySection() {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-black mb-4">
-            Ready to Experience the <span className="font-tan-pearl text-black">3R</span> Difference?
-          </h3>
-          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
-            Start your transformation journey with our proven 3R methodology and unlock your full potential.
-          </p>
-          <a
-            href="#journey"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            Start Your 3R Journey
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
   );

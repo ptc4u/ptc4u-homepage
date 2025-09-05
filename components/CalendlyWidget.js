@@ -4,36 +4,30 @@ const CalendlyWidget = () => {
   const calendlyRef = useRef(null);
 
   useEffect(() => {
-    // Load Calendly script only on client side
+    // Calendly script is loaded via next/script in index.js
+    // Just wait for it to be available
     if (typeof window !== 'undefined') {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.onload = () => {
-        // Script loaded, widget will initialize automatically
-        console.log('Calendly script loaded');
-      };
-      document.head.appendChild(script);
-
-      return () => {
-        // Cleanup script when component unmounts
-        const existingScript = document.querySelector('script[src*="calendly.com"]');
-        if (existingScript) {
-          existingScript.remove();
+      const checkCalendly = setInterval(() => {
+        if (window.Calendly) {
+          console.log('Calendly script loaded');
+          clearInterval(checkCalendly);
         }
-      };
+      }, 100);
+
+      // Cleanup after 10 seconds
+      setTimeout(() => {
+        clearInterval(checkCalendly);
+      }, 10000);
     }
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-        <div 
-          className="calendly-inline-widget" 
-          data-url="https://calendly.com/bsairam-2002/30min"
-          style={{minWidth: '320px', height: '600px'}}
-        ></div>
-      </div>
+    <div className="w-full h-full">
+      <div 
+        className="calendly-inline-widget w-full h-full" 
+        data-url="https://calendly.com/bsairam-2002/30min"
+        style={{minWidth: '300px', height: '450px', fontSize: '13px'}}
+      ></div>
     </div>
   );
 };

@@ -49,7 +49,7 @@ export default function JourneyFormSection() {
         return (
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
             <h3 className="text-2xl font-bold text-black mb-6 text-center">
-              Book Your <span className="font-tan-pearl text-purple-800">Discovery Session</span>
+              Book Your <span className="text-black">Discovery Session</span>
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -166,7 +166,7 @@ export default function JourneyFormSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Book Discovery Session
               </button>
@@ -177,8 +177,8 @@ export default function JourneyFormSection() {
       case 'transformation':
         return (
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
-              Sign Up for <span className="font-tan-pearl text-purple-800">My Transformation Journey</span>
+            <h3 className="text-2xl font-bold text-black mb-6 text-center">
+              Sign Up for <span className="text-white">My Transformation Journey</span>
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -293,7 +293,7 @@ export default function JourneyFormSection() {
                       value="essentials"
                       required
                       onChange={handleInputChange}
-                      className="mr-3 text-purple-600 focus:ring-purple-500"
+                      className="mr-3 text-black focus:ring-gray-500"
                     />
                     <span className="text-slate-700 font-medium">6-session PTC Essentials Coaching</span>
                   </label>
@@ -304,7 +304,7 @@ export default function JourneyFormSection() {
                       value="pro"
                       required
                       onChange={handleInputChange}
-                      className="mr-3 text-purple-600 focus:ring-purple-500"
+                      className="mr-3 text-black focus:ring-gray-500"
                     />
                     <span className="text-slate-700 font-medium">10-session PTC Pro Coaching</span>
                   </label>
@@ -322,7 +322,7 @@ export default function JourneyFormSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Start My Transformation Journey
               </button>
@@ -334,7 +334,7 @@ export default function JourneyFormSection() {
         return (
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
             <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
-              Need <span className="font-tan-pearl text-purple-800">Clarity</span>? Let's Talk!
+              Need <span className="text-black">Clarity</span>? Let's Talk!
             </h3>
             <p className="text-center text-slate-700 mb-6">
               Book a 30-minute conversation with PTC to discover your needs and get clarity on your next steps.
@@ -433,7 +433,7 @@ export default function JourneyFormSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Book Clarity Conversation
               </button>
@@ -445,7 +445,7 @@ export default function JourneyFormSection() {
         return (
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
             <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
-              Request a <span className="font-tan-pearl text-purple-800">Workshop</span>
+              Request a <span className="text-black">Workshop</span>
             </h3>
             <p className="text-center text-slate-700 mb-6">
               For academicians, corporate leaders, and team coaching workshops.
@@ -599,7 +599,7 @@ export default function JourneyFormSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Request Workshop
               </button>
@@ -617,10 +617,10 @@ export default function JourneyFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-            Start Your <span className="font-tan-pearl text-purple-800">Journey</span> Now!
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+            Start Your <span className="text-white">Journey</span> Now!
           </h2>
-          <p className="text-xl text-slate-700 max-w-4xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Choose the path that best fits your current needs and begin your transformation journey 
             with Pinnacle Thrive Coaching.
           </p>
@@ -636,7 +636,6 @@ export default function JourneyFormSection() {
                 : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
             }`}
           >
-            <div className="text-4xl mb-4">🔍</div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">Discovery Session</h3>
             <p className="text-sm text-slate-700">Book your next discovery session to explore coaching possibilities.</p>
           </button>
@@ -649,8 +648,7 @@ export default function JourneyFormSection() {
                 : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
             }`}
           >
-            <div className="text-4xl mb-4">🚀</div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Transformation Journey</h3>
+            <h3 className="text-lg font-bold text-white mb-2">Transformation Journey</h3>
             <p className="text-sm text-slate-700">Sign up for PTC Essentials (6 sessions) or PTC Pro (10 sessions).</p>
           </button>
 
@@ -662,7 +660,6 @@ export default function JourneyFormSection() {
                 : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
             }`}
           >
-            <div className="text-4xl mb-4">🤔</div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">Need Clarity?</h3>
             <p className="text-sm text-slate-700">30-minute conversation to discover your needs and get clarity.</p>
           </button>
@@ -696,7 +693,7 @@ export default function JourneyFormSection() {
                 setSelectedOption(null);
                 setFormData({});
               }}
-              className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold transition-colors"
+              className="inline-flex items-center text-black hover:text-black font-semibold transition-colors"
             >
               <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />

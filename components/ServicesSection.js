@@ -7,7 +7,6 @@
 export default function ServicesSection() {
   const services = [
     {
-      icon: "🚀",
       title: "PTC Essentials",
       description: "Transform your life and career with our foundational 6-session coaching program designed for sustainable growth.",
       features: [
@@ -20,7 +19,6 @@ export default function ServicesSection() {
       color: "emerald"
     },
     {
-      icon: "⭐",
       title: "PTC Pro",
       description: "Comprehensive 10-session coaching program for deep transformation and lasting change in all areas of life.",
       features: [
@@ -40,7 +38,7 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            <span className="font-tan-pearl text-purple-800">Professional</span> Coaching Services
+            <span className="text-black">Professional</span> Coaching Services
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Choose the coaching service that best fits your transformation journey. Each program is designed
@@ -62,7 +60,7 @@ export default function ServicesSection() {
                               <ul className="space-y-4">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <svg className="w-6 h-6 text-purple-600 mt-0.5 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-6 h-6 text-black mt-0.5 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       <span className="text-black font-medium text-base">{feature}</span>
@@ -74,23 +72,6 @@ export default function ServicesSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-emerald-50 to-purple-50 p-12 rounded-2xl border border-emerald-200/50">
-          <h3 className="text-3xl font-bold text-black mb-4">
-            Ready to Start Your Transformation?
-          </h3>
-          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
-            Book a free discovery call to discuss your goals and find the perfect coaching program for you.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-semibold text-lg"
-          >
-            Book Free Discovery Call
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
   );

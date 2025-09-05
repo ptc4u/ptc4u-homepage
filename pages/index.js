@@ -9,6 +9,7 @@ import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 import MarqueeSection from '../components/MarqueeSection';
+import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
 import QuickActionsSection from '../components/QuickActionsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
 import BlogsSection from '../components/BlogsSection';
@@ -59,18 +60,80 @@ export default function Home() {
         <ImageWatermark />
         <NavBar />
         <MarqueeSection />
-        <main className="flex-grow">
-          <HeroSection />
-          <QuickActionsSection />
-          <AboutCoachSection />
-          <BlogsSection />
-          <PhilosophySection />
-          <JourneyFormSection />
-          <ServicesSection />
-          <ProcessSection />
-          <TestimonialsSection />
-          <ContactForm />
+        <GlobalCalendlyWidget />
+        
+        <main className="flex-grow lg:pl-72 lg:pr-80">
+          <div id="hero">
+            <HeroSection />
+          </div>
+          
+          {/* Divider line after hero */}
+          <div className="section-divider"></div>
+          
+          <div id="quick-actions">
+            <QuickActionsSection />
+          </div>
+          
+          {/* Divider line after quick actions */}
+          <div className="section-divider"></div>
+          
+          <div id="about-coach">
+            <AboutCoachSection />
+          </div>
+          
+          {/* Divider line after about coach */}
+          <div className="section-divider"></div>
+          
+          <div id="blogs">
+            <BlogsSection />
+          </div>
+          
+          {/* Divider line after blogs */}
+          <div className="section-divider"></div>
+          
+          <div id="philosophy">
+            <PhilosophySection />
+          </div>
+          
+          {/* Divider line after philosophy */}
+          <div className="section-divider"></div>
+          
+          <div id="journey-form">
+            <JourneyFormSection />
+          </div>
+          
+          {/* Divider line after journey form */}
+          <div className="section-divider"></div>
+          
+          <div id="services">
+            <ServicesSection />
+          </div>
+          
+          {/* Divider line after services */}
+          <div className="section-divider"></div>
+          
+          <div id="process">
+            <ProcessSection />
+          </div>
+          
+          {/* Divider line after process */}
+          <div className="section-divider"></div>
+          
+          <div id="testimonials">
+            <TestimonialsSection />
+          </div>
+          
+          {/* Divider line after testimonials */}
+          <div className="section-divider"></div>
+          
+          <div id="contact">
+            <ContactForm />
+          </div>
         </main>
+        
+        {/* Divider line before footer */}
+        <div className="section-divider-thick"></div>
+        
         <Footer />
       </div>
     </>

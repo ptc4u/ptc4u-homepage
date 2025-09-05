@@ -81,7 +81,7 @@ export default function BlogPage() {
         {/* Page Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl lg:text-6xl font-bold text-black mb-6">
-            PTC <span className="font-tan-pearl text-purple-800">Blog</span>
+            PTC <span className="text-black">Blog</span>
           </h1>
           <p className="text-xl text-black max-w-3xl mx-auto">
             Insights, strategies, and wisdom to support your transformation journey
@@ -119,7 +119,7 @@ export default function BlogPage() {
                   href="https://www.linkedin.com/company/pinnacle-thrive-coaching/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300"
+                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300"
                 >
                   <span>View All Posts on LinkedIn</span>
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export default function BlogPage() {
                   </div>
                   <button
                     onClick={() => setSelectedBlog(null)}
-                    className="text-purple-600 hover:text-purple-700 font-semibold"
+                    className="text-black hover:text-black font-semibold"
                   >
                     ← Back to Featured Post
                   </button>
@@ -185,19 +185,19 @@ export default function BlogPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300"
                 >
                   Search
                 </button>
               </form>
               
               <div className="mt-8 pt-6 border-t border-purple-200">
-                <h4 className="font-semibold text-slate-900 mb-4">Popular Categories</h4>
+                <h4 className="font-semibold text-black mb-4">Popular Categories</h4>
                 <div className="space-y-2">
                   {['Leadership', 'Career Growth', 'Personal Development', 'Work-Life Balance', 'Goal Setting'].map((category) => (
                     <button
                       key={category}
-                      className="block w-full text-left px-3 py-2 text-sm text-slate-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                      className="block w-full text-left px-3 py-2 text-sm text-black hover:text-black hover:bg-purple-50 rounded-lg transition-colors"
                     >
                       {category}
                     </button>

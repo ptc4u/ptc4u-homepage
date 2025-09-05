@@ -82,7 +82,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={() => setSubmitStatus(null)}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Send Another Message
             </button>
@@ -98,7 +98,7 @@ export default function ContactForm() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            Start Your <span className="font-tan-pearl text-purple-800">Transformation</span> Today
+            Start Your <span className="text-black">Transformation</span> Today
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below
@@ -263,7 +263,7 @@ export default function ContactForm() {
                     value="email"
                     checked={formData.preferredContact === 'email'}
                     onChange={handleInputChange}
-                    className="mr-2 text-purple-600 focus:ring-purple-500"
+                    className="mr-2 text-black focus:ring-purple-500"
                   />
                   <span className="text-black">Email</span>
                 </label>
@@ -274,7 +274,7 @@ export default function ContactForm() {
                     value="phone"
                     checked={formData.preferredContact === 'phone'}
                     onChange={handleInputChange}
-                    className="mr-2 text-purple-600 focus:ring-purple-500"
+                    className="mr-2 text-black focus:ring-purple-500"
                   />
                   <span className="text-black">Phone</span>
                 </label>
@@ -286,7 +286,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
@@ -297,7 +297,7 @@ export default function ContactForm() {
                     Sending...
                   </span>
                 ) : (
-                  'Send Message & Book Free Discovery Call'
+                  'Send Message'
                 )}
               </button>
             </div>
@@ -314,7 +314,7 @@ export default function ContactForm() {
         <div className="mt-12 text-center">
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
             <h3 className="text-2xl font-bold text-black mb-4">
-              Prefer a <span className="font-tan-pearl text-purple-800">Call Back</span>?
+              Prefer a <span className="text-black">Call Back</span>?
             </h3>
             <p className="text-lg text-black mb-6 max-w-2xl mx-auto">
               If you'd prefer to speak with us directly, we're happy to call you back at your convenience.
@@ -329,7 +329,7 @@ export default function ContactForm() {
               </svg>
             </a>
             <p className="text-sm text-black mt-4">
-              Or call us directly: <a href="tel:+919845106272" className="text-purple-600 hover:text-purple-700 font-semibold">+91 98451 06272</a>
+              Or call us directly: <a href="tel:+919845106272" className="text-black hover:text-black font-semibold">+91 98451 06272</a>
             </p>
           </div>
         </div>

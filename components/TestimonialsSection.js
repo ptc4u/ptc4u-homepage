@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            Client <span className="font-tan-pearl text-purple-800">Success</span> Stories
+            Client <span className="text-black">Success</span> Stories
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Hear from our clients who have transformed their lives and careers through
@@ -117,7 +117,7 @@ export default function TestimonialsSection() {
               </blockquote>
 
               {/* Category Badge */}
-              <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-block bg-gray-100 text-black px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 {testimonial.category}
               </div>
 
@@ -154,7 +154,7 @@ export default function TestimonialsSection() {
             <div className="text-black">Clients Transformed</div>
           </div>
           <div className="text-center p-6">
-            <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
+            <div className="text-4xl font-bold text-white mb-2">95%</div>
             <div className="text-black">Success Rate</div>
           </div>
           <div className="text-center p-6">
@@ -162,30 +162,11 @@ export default function TestimonialsSection() {
             <div className="text-black">Coaching Hours</div>
           </div>
           <div className="text-center p-6">
-            <div className="text-4xl font-bold text-purple-600 mb-2">4.9/5</div>
+            <div className="text-4xl font-bold text-white mb-2">4.9/5</div>
             <div className="text-black">Client Rating</div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-emerald-50 to-purple-50 p-12 rounded-2xl border border-emerald-200/50">
-          <h3 className="text-3xl font-bold text-black mb-4">
-            Join Our Success Stories
-          </h3>
-          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
-            Ready to transform your life and career? Book your free discovery call
-            and start your journey to success today.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-semibold text-lg"
-          >
-            Start Your Success Story
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
   );

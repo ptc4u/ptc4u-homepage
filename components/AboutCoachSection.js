@@ -10,10 +10,10 @@ export default function AboutCoachSection() {
   
   // Updated image array with the specific Sai images
   const saiImages = [
-    '/Sai4.jpg',
-    '/Sai5.jpg', 
-    '/sai6.jpeg',
-    '/sai7.jpeg'
+    '/images/Sai4.jpg',
+    '/images/Sai5.jpg', 
+    '/images/sai6.jpeg',
+    '/images/sai7.jpeg'
   ];
 
   useEffect(() => {
@@ -45,13 +45,13 @@ export default function AboutCoachSection() {
           {/* Left Column - Coach Details */}
           <div>
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center lg:text-left">
-              About Your <span className="font-tan-pearl text-purple-800">Coach</span>
+              About Your <span className="text-black">Coach</span>
             </h2>
             
             <div className="space-y-8">
               <div>
                 <h3 className="text-3xl font-bold text-black mb-6">
-                  <span className="font-tan-pearl text-purple-800">Sairam</span> Bollapragada
+                  <span className="text-black">Sairam</span> Bollapragada
                 </h3>
                 
                 <div className="prose prose-lg text-black space-y-6">
@@ -76,35 +76,35 @@ export default function AboutCoachSection() {
               {/* Credentials & Achievements */}
               <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-2xl border border-slate-200/50">
                 <h4 className="text-xl font-bold text-black mb-4">
-                  <span className="font-tan-pearl text-purple-800">Key</span> Achievements
+                  <span className="text-black">Key</span> Achievements
                 </h4>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-black mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black font-medium">30+ years of cross-sector experience</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-black mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black font-medium">Former Scientist at Ministry of Defence</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-black mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black font-medium">Fortune 500 IT leadership experience</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-black mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black font-medium">Published author of "Being Your Best"</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-black mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black font-medium">Academic Professor & Board Member</span>
@@ -112,15 +112,6 @@ export default function AboutCoachSection() {
                 </ul>
               </div>
 
-              {/* CTA Button */}
-              <div className="text-center lg:text-left">
-                <button className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  Book Your Free Discovery Call
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </button>
-              </div>
             </div>
           </div>
 
@@ -141,7 +132,7 @@ export default function AboutCoachSection() {
                 href="https://www.amazon.in/Being-Your-Best-potential-exercises/dp/B0BZHY3N34/ref=sr_1_1?crid=18P5C1WXBHNUY&dib=eyJ2IjoiMSJ9.SdvunFSwWiSOlV6qhIh-Sw.8oYQaXqPHjOO-yDq-Qr0fp_g65Zji_6gGZMFdTy5EXM&dib_tag=se&keywords=being+your+best%2C+sairam&qid=1756609432&sprefix=being+your+best%2C+saira%2Caps%2C298&sr=8-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Get Your Copy
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,9 +157,8 @@ export default function AboutCoachSection() {
                 {/* Fallback if image doesn't load */}
                 <div className="w-full h-80 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center hidden">
                   <div className="text-center">
-                    <div className="text-6xl mb-4">👨‍💼</div>
                     <h3 className="text-xl font-bold text-black mb-2">
-                      <span className="font-tan-pearl text-purple-800">Sairam</span> - Your Coach
+                      <span className="text-black">Sairam</span> - Your Coach
                     </h3>
                     <p className="text-black font-medium">
                       Transformational Leadership Coach
@@ -180,7 +170,7 @@ export default function AboutCoachSection() {
               {/* Navigation Arrows */}
               <button
                 onClick={prevImage}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black hover:text-purple-600 p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black hover:text-black p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -189,7 +179,7 @@ export default function AboutCoachSection() {
               
               <button
                 onClick={nextImage}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black hover:text-purple-600 p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black hover:text-black p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

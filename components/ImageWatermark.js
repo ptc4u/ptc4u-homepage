@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageWatermark = ({ imageSrc, opacity = 0.18, size = '3xl' }) => {
+const ImageWatermark = ({ imageSrc, opacity = 0.25, size = '3xl' }) => {
   return (
     <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden">
       {/* Watermark container */}
@@ -80,7 +80,7 @@ const ImageWatermark = ({ imageSrc, opacity = 0.18, size = '3xl' }) => {
       
       {/* Additional subtle watermark text */}
       <div className="absolute bottom-8 right-8 text-blue-900 opacity-10 font-light text-sm pointer-events-none">
-        <span className="font-tan-pearl">Pinnacle</span> Thrive Coaching
+        <span className="font-tan-pearl text-purple-800">Pinnacle</span> Thrive Coaching
       </div>
     </div>
   );

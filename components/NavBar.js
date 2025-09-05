@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import useDeviceDetection from './useDeviceDetection';
 
 /**
  * Navigation bar component for Pinnacle Thrive Coaching.
@@ -11,6 +12,7 @@ export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const router = useRouter();
+  const { isMobile } = useDeviceDetection();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,7 +41,7 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Left Navigation Tabs */}
           <div className="hidden lg:flex items-center space-x-6">
             <button
@@ -68,7 +70,7 @@ export default function NavBar() {
           {/* Center Logo & Company Name */}
           <div className="flex-shrink-0 flex items-center">
             {/* Vertical line before logo */}
-            <div className="w-1 h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-6 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-3 sm:mr-6 shadow-sm"></div>
             
             <button
               onClick={navigateToHomepage}
@@ -77,22 +79,22 @@ export default function NavBar() {
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-16 w-auto object-contain"
+                className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
               />
               <div className="text-center">
-                <div className="text-2xl font-bold text-black">
-                  <span className="font-tan-pearl text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
+                <div className="text-sm sm:text-lg lg:text-2xl font-bold text-black">
+                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
                 </div>
                 <div className="text-xs text-black font-semibold mb-1">Reflect. Reboot. Reinvent</div>
-                <div className="text-sm text-black font-medium">Transform Your Life & Career</div>
+                <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
               </div>
             </button>
             
             {/* Vertical line after company name */}
-            <div className="w-1 h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-6 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
           </div>
 
-          {/* Right Navigation Tabs */}
+          {/* Right Navigation Tabs - Hidden on mobile */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => scrollToSection('philosophy')}

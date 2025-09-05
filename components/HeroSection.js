@@ -22,12 +22,12 @@ export default function HeroSection() {
           {/* Badge removed as requested */}
 
           {/* Main Heading */}
-          <h1 className="text-2xl lg:text-3xl font-bold text-blue-900 mb-8 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-900 mb-10 leading-tight">
             Warm Greetings from <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-blue-900">Thrive Coaching</span>
           </h1>
 
           {/* Welcome Message */}
-          <div className="text-lg lg:text-xl text-black mb-12 leading-relaxed max-w-4xl mx-auto font-normal space-y-4">
+          <div className="text-lg sm:text-xl lg:text-2xl text-black mb-16 leading-relaxed max-w-4xl mx-auto font-normal space-y-6">
             <p>
               This is your space to pause, breathe, and rediscover yourself.
             </p>
@@ -40,47 +40,23 @@ export default function HeroSection() {
             <p>
               At PTC, we believe in your potential, your resilience, and your ability to rise higher than you ever imagined.
             </p>
-            <p className="font-semibold text-purple-800">
+            
+            <p className="font-semibold text-purple-800 mt-8">
               Your journey to Reflect, Reboot, and Reinvent starts here.
             </p>
           </div>
 
 
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators and Rating/Repeatability */}
           <div className="mt-20 text-center">
             <p className="text-black text-sm mb-6 font-medium">Trusted by professionals worldwide</p>
-            <div className="flex items-center justify-center space-x-8 text-black">
+            <div className="flex items-center justify-center space-x-4 text-black flex-wrap gap-2">
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ 30+ Years Experience</span>
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ Fortune 500 Leadership</span>
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ Published Author</span>
-            </div>
-          </div>
-
-          {/* Rating and Repeatability Section */}
-          <div className="mt-16 text-center">
-            <div className="flex items-center justify-center space-x-12 text-black">
-              <div className="flex items-center space-x-2 bg-white/90 px-6 py-3 rounded-2xl shadow-lg border border-purple-200/50 backdrop-blur-sm">
-                <div className="flex items-center space-x-1">
-                  <span className="text-2xl">⭐</span>
-                  <span className="text-2xl">⭐</span>
-                  <span className="text-2xl">⭐</span>
-                  <span className="text-2xl">⭐</span>
-                  <span className="text-2xl">⭐</span>
-                </div>
-                <div className="ml-2">
-                  <span className="text-lg font-bold text-purple-800">4.65/5</span>
-                  <span className="text-sm text-slate-600 ml-1">Rating</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-2 bg-white/90 px-6 py-3 rounded-2xl shadow-lg border border-purple-200/50 backdrop-blur-sm">
-                <div className="text-2xl">🔄</div>
-                <div>
-                  <span className="text-lg font-bold text-purple-800">95%</span>
-                  <span className="text-sm text-slate-600 ml-1">Repeatability</span>
-                </div>
-              </div>
+              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">4.65/5 Rating</span>
+              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">95% Repeatability</span>
             </div>
           </div>
         </div>

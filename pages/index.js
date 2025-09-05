@@ -18,6 +18,8 @@ import AboutCoachSection from '../components/AboutCoachSection';
 import BlogsSection from '../components/BlogsSection';
 import PhilosophySection from '../components/PhilosophySection';
 import JourneyFormSection from '../components/JourneyFormSection';
+import MobileDropdown from '../components/MobileDropdown';
+import useDeviceDetection from '../components/useDeviceDetection';
 
 /**
  * The home page of the Pinnacle Thrive Coaching website. It stitches together
@@ -25,6 +27,8 @@ import JourneyFormSection from '../components/JourneyFormSection';
  * Head component. Each section is defined in the components folder.
  */
 export default function Home() {
+  const { isMobile, isLoading } = useDeviceDetection();
+  
   // Ensure page scrolls to hero section on every refresh
   useEffect(() => {
     // Scroll to top of the page on component mount (page refresh)
@@ -79,7 +83,7 @@ export default function Home() {
         <PTCFactsSection />
         <GlobalCalendlyWidget />
         
-        <main className="flex-grow lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>
@@ -150,6 +154,9 @@ export default function Home() {
         <div className="section-divider-thick"></div>
         
         <Footer />
+        
+        {/* Mobile Dropdown - Only show on mobile devices */}
+        {!isLoading && isMobile && <MobileDropdown />}
       </div>
     </>
   );

@@ -41,7 +41,7 @@ export default function AboutCoachSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-white" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Coach Details */}
           <div>
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center lg:text-left">

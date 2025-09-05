@@ -19,8 +19,16 @@ export default function ContactForm() {
     urgency: 'medium'
   });
 
+  const [callbackData, setCallbackData] = useState({
+    name: '',
+    countryCode: '+91',
+    phone: '',
+    message: ''
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [showCallbackForm, setShowCallbackForm] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +36,50 @@ export default function ContactForm() {
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleCallbackInputChange = (e) => {
+    const { name, value } = e.target;
+    setCallbackData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const generateWhatsAppMessage = (data) => {
+    const fullPhoneNumber = `${data.countryCode} ${data.phone}`;
+    const message = `Hi! I would like to request a callback from Pinnacle Thrive Coaching.
+
+Name: ${data.name}
+Phone: ${fullPhoneNumber}
+Message: ${data.message}
+
+Please call me back at your convenience. Thank you!`;
+    
+    return encodeURIComponent(message);
+  };
+
+  const handleCallbackSubmit = (e) => {
+    e.preventDefault();
+    if (!callbackData.name || !callbackData.phone) {
+      alert('Please fill in your name and phone number.');
+      return;
+    }
+    
+    const whatsappMessage = generateWhatsAppMessage(callbackData);
+    const whatsappUrl = `https://wa.me/919845106272?text=${whatsappMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
+    setCallbackData({
+      name: '',
+      countryCode: '+91',
+      phone: '',
+      message: ''
+    });
+    setShowCallbackForm(false);
   };
 
   const handleSubmit = async (e) => {
@@ -65,6 +117,33 @@ export default function ContactForm() {
     { value: 'low', label: 'Low - Just exploring options' },
     { value: 'medium', label: 'Medium - Ready to start soon' },
     { value: 'high', label: 'High - Need immediate support' }
+  ];
+
+  const countryCodes = [
+    { value: '+91', label: '+91 (India)', flag: '🇮🇳' },
+    { value: '+1', label: '+1 (USA/Canada)', flag: '🇺🇸' },
+    { value: '+44', label: '+44 (UK)', flag: '🇬🇧' },
+    { value: '+61', label: '+61 (Australia)', flag: '🇦🇺' },
+    { value: '+49', label: '+49 (Germany)', flag: '🇩🇪' },
+    { value: '+33', label: '+33 (France)', flag: '🇫🇷' },
+    { value: '+81', label: '+81 (Japan)', flag: '🇯🇵' },
+    { value: '+86', label: '+86 (China)', flag: '🇨🇳' },
+    { value: '+55', label: '+55 (Brazil)', flag: '🇧🇷' },
+    { value: '+7', label: '+7 (Russia)', flag: '🇷🇺' },
+    { value: '+971', label: '+971 (UAE)', flag: '🇦🇪' },
+    { value: '+966', label: '+966 (Saudi Arabia)', flag: '🇸🇦' },
+    { value: '+65', label: '+65 (Singapore)', flag: '🇸🇬' },
+    { value: '+60', label: '+60 (Malaysia)', flag: '🇲🇾' },
+    { value: '+66', label: '+66 (Thailand)', flag: '🇹🇭' },
+    { value: '+63', label: '+63 (Philippines)', flag: '🇵🇭' },
+    { value: '+84', label: '+84 (Vietnam)', flag: '🇻🇳' },
+    { value: '+62', label: '+62 (Indonesia)', flag: '🇮🇩' },
+    { value: '+880', label: '+880 (Bangladesh)', flag: '🇧🇩' },
+    { value: '+92', label: '+92 (Pakistan)', flag: '🇵🇰' },
+    { value: '+94', label: '+94 (Sri Lanka)', flag: '🇱🇰' },
+    { value: '+977', label: '+977 (Nepal)', flag: '🇳🇵' },
+    { value: '+975', label: '+975 (Bhutan)', flag: '🇧🇹' },
+    { value: '+960', label: '+960 (Maldives)', flag: '🇲🇻' }
   ];
 
 
@@ -319,15 +398,100 @@ export default function ContactForm() {
             <p className="text-lg text-black mb-6 max-w-2xl mx-auto">
               If you'd prefer to speak with us directly, we're happy to call you back at your convenience.
             </p>
-            <a
-              href="tel:+919845106272"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              📞 Request Call Back
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
+            
+            {!showCallbackForm ? (
+              <button
+                onClick={() => setShowCallbackForm(true)}
+                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                📞 Request Call Back
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+            ) : (
+              <div className="max-w-md mx-auto">
+                <form onSubmit={handleCallbackSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="callbackName" className="block text-sm font-medium text-black mb-2 text-left">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="callbackName"
+                      name="name"
+                      value={callbackData.name}
+                      onChange={handleCallbackInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="callbackPhone" className="block text-sm font-medium text-black mb-2 text-left">
+                      Phone Number *
+                    </label>
+                    <div className="flex space-x-2">
+                      <select
+                        name="countryCode"
+                        value={callbackData.countryCode}
+                        onChange={handleCallbackInputChange}
+                        className="px-3 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white min-w-[120px]"
+                      >
+                        {countryCodes.map((code) => (
+                          <option key={code.value} value={code.value}>
+                            {code.flag} {code.value}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        id="callbackPhone"
+                        name="phone"
+                        value={callbackData.phone}
+                        onChange={handleCallbackInputChange}
+                        required
+                        className="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="98765 43210"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="callbackMessage" className="block text-sm font-medium text-black mb-2 text-left">
+                      Message (Optional)
+                    </label>
+                    <textarea
+                      id="callbackMessage"
+                      name="message"
+                      value={callbackData.message}
+                      onChange={handleCallbackInputChange}
+                      rows={3}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Tell us briefly what you'd like to discuss..."
+                    />
+                  </div>
+                  
+                  <div className="flex space-x-3 pt-2">
+                    <button
+                      type="submit"
+                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                    >
+                      📱 Send via WhatsApp
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowCallbackForm(false)}
+                      className="px-6 py-3 border border-slate-300 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
+            
             <p className="text-sm text-black mt-4">
               Or call us directly: <a href="tel:+919845106272" className="text-black hover:text-black font-semibold">+91 98451 06272</a>
             </p>

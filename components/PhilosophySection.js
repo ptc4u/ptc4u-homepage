@@ -84,7 +84,7 @@ export default function PhilosophySection() {
             >
               {/* Letter Badge */}
               <div className="flex items-center justify-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg button-text-white">
                   {point.letter}
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function PhilosophySection() {
               <ul className="space-y-3">
                 {point.details.map((detail, detailIndex) => (
                   <li key={detailIndex} className="flex items-start">
-                    <svg className="w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-black text-sm font-medium">{detail}</span>
@@ -126,8 +126,8 @@ export default function PhilosophySection() {
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-purple-200/50">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-purple-600">1</span>
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
                 <h4 className="text-xl font-bold text-black mb-3">Assessment Phase</h4>
                 <p className="text-black text-sm">
@@ -136,8 +136,8 @@ export default function PhilosophySection() {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-purple-600">2</span>
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">2</span>
                 </div>
                 <h4 className="text-xl font-bold text-black mb-3">Coaching Sessions</h4>
                 <p className="text-black text-sm">
@@ -146,8 +146,8 @@ export default function PhilosophySection() {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-purple-600">3</span>
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">3</span>
                 </div>
                 <h4 className="text-xl font-bold text-black mb-3">Implementation</h4>
                 <p className="text-black text-sm">

@@ -194,7 +194,7 @@ export default function AboutCoachSection() {
                     onClick={() => setCurrentImageIndex(index)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                       index === currentImageIndex 
-                        ? 'bg-purple-600 scale-125' 
+                        ? 'bg-blue-600 scale-125' 
                         : 'bg-slate-300 hover:bg-slate-400'
                     }`}
                   />

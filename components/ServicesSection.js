@@ -33,10 +33,10 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-white" id="services">
+    <section className="py-12 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
             <span className="text-black">Professional</span> Coaching Services
           </h2>

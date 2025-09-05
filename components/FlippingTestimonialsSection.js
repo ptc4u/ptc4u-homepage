@@ -184,7 +184,7 @@ export default function FlippingTestimonialsSection() {
                 }, 300);
               }}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-purple-600' : 'bg-gray-300'
+                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
               }`}
             />
           ))}

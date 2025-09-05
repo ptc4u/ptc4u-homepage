@@ -27,7 +27,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "8 min read",
       date: "March 20, 2024",
-      image: "👑",
       featured: true
     },
     {
@@ -58,7 +57,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "9 min read",
       date: "March 12, 2024",
-      image: "👥",
       featured: false
     },
     {
@@ -69,7 +67,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "5 min read",
       date: "March 10, 2024",
-      image: "🎯",
       featured: false
     },
     {
@@ -80,7 +77,6 @@ export default function BlogsSection() {
       author: "Sairam Bollapragada",
       readTime: "10 min read",
       date: "March 8, 2024",
-      image: "💻",
       featured: false
     }
   ];
@@ -136,45 +132,36 @@ export default function BlogsSection() {
             {featuredBlogs.map((blog) => (
               <article
                 key={blog.id}
-                className="bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl border border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                {/* Blog Image */}
-                <div className="text-6xl mb-6 text-center">{blog.image}</div>
-                
                 {/* Category & Meta */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-block bg-purple-100 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="flex items-center justify-center mb-4">
+                  <span className="inline-block bg-gray-100 text-black px-3 py-1 rounded text-sm font-medium">
                     {categories.find(cat => cat.id === blog.category)?.name}
                   </span>
-                  <div className="flex items-center space-x-4 text-sm text-black">
+                </div>
+
+                {/* Title */}
+                <h4 className="text-xl font-bold text-black mb-4 leading-tight text-center">
+                  {blog.title}
+                </h4>
+
+                {/* Excerpt */}
+                <p className="text-gray-700 mb-6 leading-relaxed text-base">
+                  {blog.excerpt}
+                </p>
+
+                {/* Author & Meta */}
+                <div className="text-center">
+                  <div className="text-sm text-gray-600 mb-2">
+                    By <span className="font-semibold">{blog.author}</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
                     <span>{blog.readTime}</span>
                     <span>•</span>
                     <span>{blog.date}</span>
                   </div>
                 </div>
-
-                {/* Title */}
-                <h4 className="text-xl font-bold text-black mb-4 leading-tight">
-                  {blog.title}
-                </h4>
-
-                {/* Excerpt */}
-                <p className="text-black mb-6 leading-relaxed text-lg font-medium">
-                  {blog.excerpt}
-                </p>
-
-                {/* Author */}
-                <div className="text-sm text-black mb-4">
-                  By <span className="font-semibold">{blog.author}</span>
-                </div>
-
-                {/* Read More Button */}
-                <button className="inline-flex items-center text-black hover:text-black font-semibold transition-colors">
-                  Read Full Article
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
               </article>
             ))}
           </div>
@@ -187,42 +174,40 @@ export default function BlogsSection() {
               All <span className="text-black">Articles</span>
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredBlogs.map((blog) => (
                 <article
                   key={blog.id}
-                  className="bg-white p-6 rounded-2xl border border-purple-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  {/* Blog Image */}
-                  <div className="text-4xl mb-4 text-center">{blog.image}</div>
-                  
                   {/* Category */}
-                  <div className="mb-3">
-                    <span className="inline-block bg-purple-100 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="mb-3 text-center">
+                    <span className="inline-block bg-gray-100 text-black px-3 py-1 rounded text-sm font-medium">
                       {categories.find(cat => cat.id === blog.category)?.name}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-lg font-bold text-black mb-3 leading-tight">
+                  <h4 className="text-lg font-bold text-black mb-3 leading-tight text-center">
                     {blog.title}
                   </h4>
 
                   {/* Excerpt */}
-                  <p className="text-black mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-700 mb-4 text-sm leading-relaxed">
                     {blog.excerpt}
                   </p>
 
                   {/* Meta */}
-                  <div className="flex items-center justify-between text-sm text-black mb-3">
-                    <span>{blog.readTime}</span>
-                    <span>{blog.date}</span>
+                  <div className="text-center">
+                    <div className="text-sm text-gray-600 mb-2">
+                      By <span className="font-semibold">{blog.author}</span>
+                    </div>
+                    <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
+                      <span>{blog.readTime}</span>
+                      <span>•</span>
+                      <span>{blog.date}</span>
+                    </div>
                   </div>
-
-                  {/* Read More Button */}
-                  <button className="text-black hover:text-black font-semibold text-sm transition-colors">
-                    Read More →
-                  </button>
                 </article>
               ))}
             </div>
@@ -234,15 +219,15 @@ export default function BlogsSection() {
           <h3 className="text-2xl font-bold text-black mb-4">
             Ready for More <span className="text-black">Insights</span>?
           </h3>
-          <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
             Explore our complete blog repository for comprehensive articles, case studies, and expert guidance.
           </p>
           <a
             href="#blog-repository"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center justify-center bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white px-6 py-3 rounded-lg font-medium text-base shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 button-text-white"
           >
             Read More on Our Blog
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>

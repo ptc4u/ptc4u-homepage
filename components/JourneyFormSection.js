@@ -626,57 +626,7 @@ export default function JourneyFormSection() {
           </p>
         </div>
 
-        {/* Journey Options */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <button
-            onClick={() => setSelectedOption('discovery')}
-            className={`p-6 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
-              selectedOption === 'discovery'
-                ? 'border-purple-600 bg-purple-50 shadow-lg'
-                : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
-            }`}
-          >
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Discovery Session</h3>
-            <p className="text-sm text-slate-700">Book your next discovery session to explore coaching possibilities.</p>
-          </button>
-
-          <button
-            onClick={() => setSelectedOption('transformation')}
-            className={`p-6 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
-              selectedOption === 'transformation'
-                ? 'border-purple-600 bg-purple-50 shadow-lg'
-                : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
-            }`}
-          >
-            <h3 className="text-lg font-bold text-white mb-2">Transformation Journey</h3>
-            <p className="text-sm text-slate-700">Sign up for PTC Essentials (6 sessions) or PTC Pro (10 sessions).</p>
-          </button>
-
-          <button
-            onClick={() => setSelectedOption('unsure')}
-            className={`p-6 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
-              selectedOption === 'unsure'
-                ? 'border-purple-600 bg-purple-50 shadow-lg'
-                : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
-            }`}
-          >
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Need Clarity?</h3>
-            <p className="text-sm text-slate-700">30-minute conversation to discover your needs and get clarity.</p>
-          </button>
-
-          <button
-            onClick={() => setSelectedOption('workshop')}
-            className={`p-6 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
-              selectedOption === 'workshop'
-                ? 'border-purple-600 bg-purple-50 shadow-lg'
-                : 'border-purple-200 bg-white hover:border-purple-400 hover:shadow-md'
-            }`}
-          >
-            <div className="text-4xl mb-4">🎓</div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Workshop Request</h3>
-            <p className="text-sm text-slate-700">For academicians, corporate leaders, and team coaching.</p>
-          </button>
-        </div>
+        {/* Journey Options - Removed redundant buttons, using QuickActionsSection instead */}
 
         {/* Form Display */}
         {selectedOption && (

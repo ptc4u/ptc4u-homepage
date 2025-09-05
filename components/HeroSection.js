@@ -19,11 +19,7 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 py-20 lg:py-28">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-500/20 via-purple-600/20 to-blue-500/20 text-black rounded-full text-sm font-semibold mb-10 border border-purple-300/50 shadow-lg backdrop-blur-sm">
-            <span className="w-3 h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3 animate-pulse shadow-sm"></span>
-            Professional Life & Career Coaching
-          </div>
+          {/* Badge removed as requested */}
 
           {/* Main Heading */}
           <h1 className="text-2xl lg:text-3xl font-bold text-blue-900 mb-8 leading-tight">

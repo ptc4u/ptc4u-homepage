@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import { useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
@@ -9,6 +10,8 @@ import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 import MarqueeSection from '../components/MarqueeSection';
+import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
+import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
 import QuickActionsSection from '../components/QuickActionsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
@@ -22,6 +25,18 @@ import JourneyFormSection from '../components/JourneyFormSection';
  * Head component. Each section is defined in the components folder.
  */
 export default function Home() {
+  // Ensure page scrolls to hero section on every refresh
+  useEffect(() => {
+    // Scroll to top of the page on component mount (page refresh)
+    window.scrollTo(0, 0);
+    
+    // Also scroll the main content area to top
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.scrollTop = 0;
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -60,9 +75,11 @@ export default function Home() {
         <ImageWatermark />
         <NavBar />
         <MarqueeSection />
+        <AdditionalMarqueeSection />
+        <PTCFactsSection />
         <GlobalCalendlyWidget />
         
-        <main className="flex-grow lg:pl-72 lg:pr-80">
+        <main className="flex-grow lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>
@@ -70,12 +87,7 @@ export default function Home() {
           {/* Divider line after hero */}
           <div className="section-divider"></div>
           
-          <div id="quick-actions">
-            <QuickActionsSection />
-          </div>
-          
-          {/* Divider line after quick actions */}
-          <div className="section-divider"></div>
+          {/* QuickActionsSection is now fixed at bottom of page */}
           
           <div id="about-coach">
             <AboutCoachSection />
@@ -130,6 +142,9 @@ export default function Home() {
             <ContactForm />
           </div>
         </main>
+        
+        {/* Fixed QuickActionsSection at bottom */}
+        <QuickActionsSection />
         
         {/* Divider line before footer */}
         <div className="section-divider-thick"></div>

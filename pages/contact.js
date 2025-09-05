@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import MarqueeSection from '../components/MarqueeSection';
+import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
+import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
 import ContactForm from '../components/ContactForm';
 import QuickActionsSection from '../components/QuickActionsSection';
@@ -22,11 +24,16 @@ export default function ContactPage() {
         <ImageWatermark />
         <NavBar />
         <MarqueeSection />
+        <AdditionalMarqueeSection />
+        <PTCFactsSection />
         <GlobalCalendlyWidget />
-        <main className="flex-grow pt-24 lg:pl-72 lg:pr-80">
+        <main className="flex-grow pt-24 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
           <ContactForm />
-          <QuickActionsSection />
         </main>
+        
+        {/* Fixed QuickActionsSection at bottom */}
+        <QuickActionsSection />
+        
         <Footer />
       </div>
     </>

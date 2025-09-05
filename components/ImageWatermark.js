@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageWatermark = ({ imageSrc, opacity = 0.25, size = '3xl' }) => {
+const ImageWatermark = ({ imageSrc = '/rndPTClogo.png', opacity = 0.15, size = 'xl' }) => {
   return (
     <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden">
       {/* Watermark container */}
@@ -16,44 +16,44 @@ const ImageWatermark = ({ imageSrc, opacity = 0.25, size = '3xl' }) => {
             className="w-full h-full object-contain"
             style={{ 
               transform: 'rotate(0deg)',
-              maxWidth: size === 'xl' ? '24rem' : size === '3xl' ? '48rem' : '42rem',
-              maxHeight: size === 'xl' ? '24rem' : size === '3xl' ? '48rem' : '42rem'
+              maxWidth: size === 'xl' ? '20rem' : size === '3xl' ? '48rem' : '42rem',
+              maxHeight: size === 'xl' ? '20rem' : size === '3xl' ? '48rem' : '42rem'
             }}
           />
         ) : (
           // Fallback to SVG design
           <svg 
-            width="400" 
-            height="400" 
+            width="300" 
+            height="300" 
             viewBox="0 0 400 400" 
             className="w-full h-full"
             style={{ 
               transform: 'rotate(0deg)',
-              maxWidth: size === 'xl' ? '24rem' : size === '3xl' ? '48rem' : '42rem',
-              maxHeight: size === 'xl' ? '24rem' : size === '3xl' ? '48rem' : '42rem'
+              maxWidth: size === 'xl' ? '20rem' : size === '3xl' ? '48rem' : '42rem',
+              maxHeight: size === 'xl' ? '20rem' : size === '3xl' ? '48rem' : '42rem'
             }}
           >
             {/* Background circle */}
-            <circle cx="200" cy="200" r="180" fill="none" stroke="#1e40af" strokeWidth="1" opacity="0.1"/>
+            <circle cx="200" cy="200" r="180" fill="none" stroke="#60a5fa" strokeWidth="1" opacity="0.2"/>
             
-            {/* Central yellow circle */}
-            <circle cx="200" cy="200" r="8" fill="#fbbf24"/>
+            {/* Central light blue circle */}
+            <circle cx="200" cy="200" r="8" fill="#93c5fd"/>
             
             {/* Eight-pointed star petals */}
-            <g stroke="#ffffff" strokeWidth="2" fill="none">
+            <g stroke="#60a5fa" strokeWidth="2" fill="none">
               {/* Main star petals */}
-              <path d="M 200 200 L 200 120 M 200 200 L 280 200 M 200 200 L 200 280 M 200 200 L 120 200" opacity="0.3"/>
-              <path d="M 200 200 L 240 160 M 200 200 L 240 240 M 200 200 L 160 240 M 200 200 L 160 160" opacity="0.3"/>
+              <path d="M 200 200 L 200 120 M 200 200 L 280 200 M 200 200 L 200 280 M 200 200 L 120 200" opacity="0.4"/>
+              <path d="M 200 200 L 240 160 M 200 200 L 240 240 M 200 200 L 160 240 M 200 200 L 160 160" opacity="0.4"/>
               
               {/* Inner decorative elements */}
-              <circle cx="200" cy="140" r="15" opacity="0.2"/>
-              <circle cx="260" cy="200" r="15" opacity="0.2"/>
-              <circle cx="200" cy="260" r="15" opacity="0.2"/>
-              <circle cx="140" cy="200" r="15" opacity="0.2"/>
+              <circle cx="200" cy="140" r="15" opacity="0.3"/>
+              <circle cx="260" cy="200" r="15" opacity="0.3"/>
+              <circle cx="200" cy="260" r="15" opacity="0.3"/>
+              <circle cx="140" cy="200" r="15" opacity="0.3"/>
             </g>
             
             {/* Outer flowing patterns */}
-            <g stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.15">
+            <g stroke="#60a5fa" strokeWidth="1.5" fill="none" opacity="0.25">
               {/* Curved outer elements */}
               <path d="M 50 200 Q 100 150 150 200 Q 200 250 250 200 Q 300 150 350 200" />
               <path d="M 200 50 Q 150 100 200 150 Q 250 200 200 250 Q 150 300 200 350" />
@@ -64,7 +64,7 @@ const ImageWatermark = ({ imageSrc, opacity = 0.25, size = '3xl' }) => {
             </g>
             
             {/* Additional decorative circles */}
-            <g fill="#ffffff" opacity="0.1">
+            <g fill="#60a5fa" opacity="0.2">
               <circle cx="100" cy="100" r="8"/>
               <circle cx="300" cy="100" r="8"/>
               <circle cx="100" cy="300" r="8"/>
@@ -79,8 +79,8 @@ const ImageWatermark = ({ imageSrc, opacity = 0.25, size = '3xl' }) => {
       </div>
       
       {/* Additional subtle watermark text */}
-      <div className="absolute bottom-8 right-8 text-blue-900 opacity-10 font-light text-sm pointer-events-none">
-        <span className="font-tan-pearl text-purple-800">Pinnacle</span> Thrive Coaching
+      <div className="absolute bottom-8 right-8 text-blue-400 opacity-20 font-light text-sm pointer-events-none">
+        <span className="font-tan-pearl text-blue-500">Pinnacle</span> Thrive Coaching
       </div>
     </div>
   );

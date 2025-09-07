@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chancery:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,9 +57,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
-/* Chancery font for marquee */
+/* Chancery font for warm greetings */
 .font-chancery {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Chancery', 'Apple Chancery', 'Zapf Chancery', cursive;
 }
 
 /* Custom animations */

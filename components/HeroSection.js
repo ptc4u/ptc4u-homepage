@@ -22,8 +22,11 @@ export default function HeroSection() {
           {/* Badge removed as requested */}
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-900 mb-10 leading-tight">
-            Warm Greetings from <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-blue-900">Thrive Coaching</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-900 mb-10 leading-tight">
+            <div className="font-chancery">Warm Greetings from</div>
+            <div className="mt-2">
+              <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-blue-900">Thrive Coaching</span>
+            </div>
           </h1>
 
           {/* Welcome Message */}

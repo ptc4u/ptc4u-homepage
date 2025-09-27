@@ -39,15 +39,15 @@ export default function AboutCoachSection() {
   };
 
   return (
-    <section className="py-2 bg-gradient-to-br from-slate-50 to-white" id="about">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <h2 className="text-2xl lg:text-3xl font-bold text-black mb-2 text-center">
+        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center">
           About Your <span className="text-black">Coach</span>
         </h2>
         
         {/* Top Row - Picture and About Coach Section Side by Side */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Image Carousel */}
           <div className="relative h-96">
             <div className="relative overflow-hidden rounded-xl shadow-md h-full">
@@ -114,7 +114,7 @@ export default function AboutCoachSection() {
               <span className="text-black">Sairam</span> Bollapragada
             </h3>
             
-            <div className="prose prose-sm text-black space-y-3 flex-grow">
+            <div className="prose prose-sm text-black space-y-3 flex-grow overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200" style={{ scrollbarWidth: 'auto' }}>
               <p className="text-sm leading-relaxed">
                 <strong>Sairam Bollapragada</strong> is a distinguished digital transformation leader and coach with over three plus decades of cross-sector experience spanning the Ministry of Defence, Global technology enterprises, and Academia. Starting his career as a Scientist with the MoD, he went on to lead large-scale delivery operations for Fortune 500 IT giants, driving innovation, growth, and enterprise agility with his last stint as Professor in the academia.
               </p>
@@ -135,10 +135,10 @@ export default function AboutCoachSection() {
         </div>
 
         {/* Bottom Row - Achievements and Self Development Book Side by Side */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
           {/* Key Achievements */}
-          <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200/50 h-64 flex flex-col">
-            <h4 className="text-lg font-bold text-black mb-4">
+          <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-xl border border-slate-200/50 h-72 flex flex-col">
+            <h4 className="text-lg font-bold text-black mb-6">
               <span className="text-black">Key</span> Achievements
             </h4>
             <ul className="space-y-2 flex-grow">
@@ -176,7 +176,7 @@ export default function AboutCoachSection() {
           </div>
 
           {/* Self Development Book */}
-          <div className="bg-white rounded-xl shadow-md border border-slate-200/50 p-4 text-center flex flex-col justify-center h-64">
+          <div className="bg-white rounded-xl shadow-md border border-slate-200/50 p-6 text-center flex flex-col justify-center h-72">
             <div className="mb-4">
               <img 
                 src="/images/BYB.png" 

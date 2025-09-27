@@ -512,14 +512,14 @@ export default function JourneyFormSection() {
   };
 
   return (
-    <section className="py-8 bg-gradient-to-br from-purple-50 via-white to-emerald-50" id="journey">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-6 bg-gradient-to-br from-purple-50 via-white to-emerald-50 rounded-2xl shadow-lg" id="journey">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-4">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-2">
-            Start Your <span className="text-white">Journey</span> Now!
+        <div className="text-center mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-3">
+            Start Your <span className="text-black">Journey</span> Now!
           </h2>
-          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
+          <p className="text-lg text-black max-w-3xl mx-auto font-medium">
             Choose the path that best fits your current needs and begin your transformation journey 
             with Pinnacle Thrive Coaching.
           </p>

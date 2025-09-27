@@ -61,8 +61,8 @@ export default function TestimonialsSection() {
       avatar: "/images/av1.png"
     },
     {
-      name: "A Grateful Professional",
-      role: "Professional",
+      name: "A Senior Experienced Leader",
+      role: "Senior Leader",
       company: "Corporate",
       content: "I consider myself so fortunate to have got the opportunity to get coached by such a well-qualified professional like Sairam. As we walked through the coaching sessions, he helped me discover myself with so much compassion, honesty and love. He helped me look into the mirror to understand my own capabilities, and I was amazed at the way I resolved my two largest problems in the short time for which I had signed up with him. As they say, coaching is not about pointing out others' mistakes, it's about making someone realize his/her potentials, explore the true-self and prioritise their goals. This is what I accomplished through Sairam's coaching sessions. My respect to him for the humbleness you can experience when you are in a conversation with him, especially for the knowledge and experience, which probably helps you to explore yourself better. If you are at a crossroads (we are at some point in time in life), you should be blessed to have somebody like Sairam. I was lucky he was there when I needed this help most. Thank you Sir!!",
       rating: 5,
@@ -147,25 +147,6 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-emerald-600 mb-2">500+</div>
-            <div className="text-black">Clients Transformed</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-white mb-2">95%</div>
-            <div className="text-black">Success Rate</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-emerald-600 mb-2">1000+</div>
-            <div className="text-black">Coaching Hours</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-white mb-2">4.9/5</div>
-            <div className="text-black">Client Rating</div>
-          </div>
-        </div>
 
       </div>
     </section>

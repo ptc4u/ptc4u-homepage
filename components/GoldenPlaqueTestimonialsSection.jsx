@@ -66,8 +66,8 @@ export default function GoldenPlaqueTestimonialsSection() {
       avatar: "/images/av1.png"
     },
     {
-      name: "A Grateful Professional",
-      role: "Professional",
+      name: "A Senior Experienced Leader",
+      role: "Senior Leader",
       company: "Corporate",
       content: "I consider myself so fortunate to have got the opportunity to get coached by such a well-qualified professional like Sairam. As we walked through the coaching sessions, he helped me discover myself with so much compassion, honesty and love. He helped me look into the mirror to understand my own capabilities, and I was amazed at the way I resolved my two largest problems in the short time for which I had signed up with him.",
       rating: 5,
@@ -248,25 +248,6 @@ export default function GoldenPlaqueTestimonialsSection() {
           ))}
         </div>
 
-        {/* Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-          <div className="text-center p-6 bg-white/80 rounded-2xl shadow-lg border border-amber-200">
-            <div className="text-4xl font-bold text-amber-600 mb-2">102</div>
-            <div className="text-black font-semibold">Clients Served</div>
-          </div>
-          <div className="text-center p-6 bg-white/80 rounded-2xl shadow-lg border border-amber-200">
-            <div className="text-4xl font-bold text-amber-600 mb-2">95%</div>
-            <div className="text-black font-semibold">Success Rate</div>
-          </div>
-          <div className="text-center p-6 bg-white/80 rounded-2xl shadow-lg border border-amber-200">
-            <div className="text-4xl font-bold text-amber-600 mb-2">1000+</div>
-            <div className="text-black font-semibold">Coaching Hours</div>
-          </div>
-          <div className="text-center p-6 bg-white/80 rounded-2xl shadow-lg border border-amber-200">
-            <div className="text-4xl font-bold text-amber-600 mb-2">4.9</div>
-            <div className="text-black font-semibold">Client Rating</div>
-          </div>
-        </div>
 
       </div>
     </section>

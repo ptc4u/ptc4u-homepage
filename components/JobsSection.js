@@ -48,7 +48,7 @@ export default function JobsSection() {
             </svg>
             HIRING NOW
           </div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-black mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
             Join Our <span className="text-black">Team</span>
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">

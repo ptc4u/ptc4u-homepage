@@ -85,10 +85,9 @@ export default function Home() {
         <NavBar />
         <MarqueeSection />
         <AdditionalMarqueeSection />
-        <PTCFactsSection />
         <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto pt-24" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto pt-24 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>

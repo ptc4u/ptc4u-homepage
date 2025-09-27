@@ -62,6 +62,39 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Chancery', 'Apple Chancery', 'Zapf Chancery', cursive;
 }
 
+/* Custom scrollbar styles - Always visible */
+.scrollbar-thin {
+  scrollbar-width: auto;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  display: block;
+}
+
+.scrollbar-thumb-gray-400::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border-radius: 4px;
+  border: 1px solid #6b7280;
+}
+
+.scrollbar-track-gray-200::-webkit-scrollbar-track {
+  background-color: #e5e7eb;
+  border-radius: 4px;
+}
+
+/* Force scrollbar to always be visible */
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #9ca3af !important;
+  border-radius: 4px !important;
+  border: 1px solid #6b7280 !important;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #e5e7eb !important;
+  border-radius: 4px !important;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {

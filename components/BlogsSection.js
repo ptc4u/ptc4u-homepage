@@ -23,7 +23,7 @@ export default function BlogsSection() {
   // APPROVED WordPress content (only approved content appears to visitors)
   const wordpressContent = [
     {
-      id: 'wp-1',
+      id: 'cybersecurity-threats',
       title: "The Looming Shadow: Cybersecurity Threats and the Urgent Need for Robust Strategies",
       excerpt: "Data-Driven Insights into an Evolving Threat Landscape. The cyber threat landscape is not merely a theoretical concept; it is a tangible reality with quantifiable consequences.",
       category: 'Digital Transformation',
@@ -35,13 +35,55 @@ export default function BlogsSection() {
       wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/12/13/the-looming-shadow-cybersecurity-threats-and-the-urgent-need-for-robust-strategies/',
       coachingContext: 'Perfect for executives dealing with digital transformation challenges',
       status: 'approved' // Only approved content appears to visitors
+    },
+    {
+      id: 'innovation-resistance',
+      title: "Innovation in the Slowdown Part 6: Overcoming Innovation Resistance During a Recession",
+      excerpt: "How to overcome Innovation resistance during the recession. Innovation is a fundamental driver of business success and growth, irrespective of economic circumstances.",
+      category: 'Leadership',
+      author: "Sairam Bollapragada",
+      readTime: "6 min read",
+      date: "May 19, 2023",
+      featured: true,
+      source: 'wordpress',
+      wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/05/19/innovation-in-the-slowdown-part-6-overcoming-innovation-resistance-during-a-recession/',
+      coachingContext: 'Excellent for leaders navigating organizational change and innovation',
+      status: 'approved'
+    },
+    {
+      id: 'data-analytics-agriculture',
+      title: "The Power of Data Analytics in the Agricultural Industry",
+      excerpt: "Exploring how data analytics is revolutionizing agriculture through precision farming, predictive insights, and sustainable practices.",
+      category: 'Data Analytics',
+      author: "Sairam Bollapragada",
+      readTime: "7 min read",
+      date: "October 24, 2023",
+      featured: true,
+      source: 'wordpress',
+      wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/10/24/the-power-of-data-analytics-in-the-agricultural-industry/',
+      coachingContext: 'Good for leaders learning data-driven approaches',
+      status: 'approved'
+    },
+    {
+      id: 'predictive-analytics-healthcare',
+      title: "The Power of Predictive Analytics in Healthcare Transformation",
+      excerpt: "How predictive analytics is transforming healthcare delivery, patient outcomes, and operational efficiency.",
+      category: 'Healthcare Technology',
+      author: "Sairam Bollapragada",
+      readTime: "9 min read",
+      date: "October 24, 2023",
+      featured: true,
+      source: 'wordpress',
+      wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/10/24/the-power-of-predictive-analytics-in-healthcare-transformation/',
+      coachingContext: 'Valuable for leaders in healthcare and technology sectors',
+      status: 'approved'
     }
   ];
 
   // APPROVED LinkedIn content (only approved content appears to visitors)
   const linkedinContent = [
     {
-      id: 'li-1',
+      id: 'li-leadership-digital',
       title: "Leadership in Digital Transformation: Key Success Factors",
       excerpt: "Leading digital transformation requires more than just technology adoption. It demands visionary leadership, cultural change, and strategic execution.",
       category: 'Leadership',
@@ -52,7 +94,21 @@ export default function BlogsSection() {
       source: 'linkedin',
       linkedinUrl: 'https://www.linkedin.com/posts/sairam-bollapragada_digitaltransformation-leadership-innovation-activity-1234567890/',
       coachingContext: 'Essential for leaders driving digital change in their organizations',
-      status: 'approved' // Only approved content appears to visitors
+      status: 'approved'
+    },
+    {
+      id: 'li-data-driven-decisions',
+      title: "The Power of Data-Driven Decision Making in Leadership",
+      excerpt: "In today's complex business environment, leaders who harness data effectively gain significant competitive advantages and make better strategic decisions.",
+      category: 'Data Analytics',
+      author: "Sairam Bollapragada",
+      readTime: "4 min read",
+      date: "January 10, 2024",
+      featured: true,
+      source: 'linkedin',
+      linkedinUrl: 'https://www.linkedin.com/posts/sairam-bollapragada_leadership-dataanalytics-decisionmaking-activity-1234567890/',
+      coachingContext: 'Perfect for executives learning to leverage data for strategic advantage',
+      status: 'approved'
     }
   ];
 
@@ -145,11 +201,11 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
   };
 
   return (
-    <section className="py-20 bg-white" id="blogs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 bg-white rounded-2xl shadow-lg" id="blogs">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Fixed spacing to avoid navigation overlap */}
-        <div className="text-center mb-16 pt-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 font-helvetica">
+        <div className="text-center mb-8 pt-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4 font-helvetica">
             PTC Blogs and Insights
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
@@ -159,8 +215,8 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
         </div>
 
         {/* Search and Filter Section - Optimized Layout */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div className="mb-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             {/* Search Bar - Left aligned for better space utilization */}
             <div className="flex-1 max-w-lg">
               <div className="relative">
@@ -196,7 +252,7 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
           </div>
           
           {/* Results Counter */}
-          <div className="mt-4 text-center">
+          <div className="mt-2 text-center">
             <span className="text-sm text-gray-600">
               Showing {filteredBlogs.length} of {latestArticles.length} articles
               {searchTerm && ` matching "${searchTerm}"`}
@@ -206,8 +262,8 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
         </div>
 
         {/* Latest 6 Articles */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-black mb-8 text-center">
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-black mb-4 text-center">
             Latest <span className="text-black">Articles</span>
           </h3>
           
@@ -215,35 +271,35 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
             {filteredBlogs.map((blog) => (
               <article
                 key={blog.id}
-                className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col"
+                className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col"
                 onClick={() => handleArticleClick(blog)}
               >
                 {/* Content Source Indicator - Enhanced visibility */}
-                <div className="absolute top-4 right-4 z-10">
+                <div className="absolute top-3 right-3 z-10">
                   {blog.source === 'wordpress' && (
-                    <span className="bg-white border-2 border-blue-500 text-blue-700 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
+                    <span className="bg-white border-2 border-blue-500 text-blue-700 px-2 py-1 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-1">
                       <img 
                         src="/images/wp.png" 
                         alt="WordPress" 
-                        className="w-4 h-4 object-contain"
+                        className="w-3 h-3 object-contain"
                       />
                       WordPress
                     </span>
                   )}
                   {blog.source === 'linkedin' && (
-                    <span className="bg-white border-2 border-blue-600 text-blue-800 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <span className="bg-white border-2 border-blue-600 text-blue-800 px-2 py-1 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                       </svg>
                       LinkedIn
                     </span>
                   )}
                   {blog.source === 'ptc' && (
-                    <span className="bg-white border-2 border-purple-600 text-purple-700 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
+                    <span className="bg-white border-2 border-purple-600 text-purple-700 px-2 py-1 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-1">
                       <img 
                         src="/rndPTClogo.png" 
                         alt="PTC" 
-                        className="w-4 h-4 object-contain"
+                        className="w-3 h-3 object-contain"
                       />
                       PTC Original
                     </span>
@@ -251,35 +307,35 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
                 </div>
 
                 {/* Category */}
-                <div className="mb-4 text-center">
-                  <span className="inline-block bg-gray-100 text-black px-3 py-1 rounded text-sm font-medium">
+                <div className="mb-3 text-center">
+                  <span className="inline-block bg-gray-100 text-black px-2 py-1 rounded text-xs font-medium">
                     {blog.category}
                   </span>
                 </div>
 
                 {/* Clickable Title */}
-                <h4 className="text-lg font-bold text-black mb-4 leading-tight text-center hover:text-purple-600 transition-colors">
+                <h4 className="text-base font-bold text-black mb-3 leading-tight text-center hover:text-purple-600 transition-colors">
                   {blog.title}
                 </h4>
 
                 {/* Excerpt (Intro part only) - Flex grow to fill space */}
-                <p className="text-gray-700 mb-4 text-sm leading-relaxed flex-grow">
+                <p className="text-gray-700 mb-3 text-xs leading-relaxed flex-grow line-clamp-3">
                   {blog.excerpt}
                 </p>
 
                 {/* Click to read more indicator */}
-                <div className="text-center mb-4">
-                  <span className="text-purple-600 text-sm font-medium hover:text-purple-800 transition-colors">
+                <div className="text-center mb-3">
+                  <span className="text-purple-600 text-xs font-medium hover:text-purple-800 transition-colors">
                     Click to read full article →
                   </span>
                 </div>
 
                 {/* Author & Meta - Pushed to bottom */}
                 <div className="text-center mt-auto">
-                  <div className="text-sm text-gray-600 mb-2">
+                  <div className="text-xs text-gray-600 mb-1">
                     By <span className="font-semibold">{blog.author}</span>
                   </div>
-                  <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center justify-center space-x-3 text-xs text-gray-500">
                     <span>{blog.readTime}</span>
                     <span>•</span>
                     <span>{blog.date}</span>
@@ -292,10 +348,10 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
 
         {/* CTA Section */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-black mb-4">
+          <h3 className="text-2xl font-bold text-black mb-3">
             Ready for More <span className="text-black">Insights</span>?
           </h3>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
             Explore our complete blog repository for comprehensive articles, case studies, and expert guidance.
           </p>
           <a

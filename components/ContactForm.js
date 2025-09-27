@@ -172,14 +172,14 @@ Please call me back at your convenience. Thank you!`;
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
+    <section className="py-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
             Start Your <span className="text-black">Transformation</span> Today
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto">
+          <p className="text-lg text-black max-w-2xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below
             and we'll get back to you within 24 hours to schedule your free discovery call.
           </p>

@@ -65,8 +65,8 @@ export default function FlippingTestimonialsSection() {
       avatar: "/images/av1.png"
     },
     {
-      name: "A Grateful Professional",
-      role: "Professional",
+      name: "A Senior Experienced Leader",
+      role: "Senior Leader",
       company: "Corporate",
       content: "I consider myself so fortunate to have got the opportunity to get coached by such a well-qualified professional like Sairam. As we walked through the coaching sessions, he helped me discover myself with so much compassion, honesty and love. He helped me look into the mirror to understand my own capabilities, and I was amazed at the way I resolved my two largest problems in the short time for which I had signed up with him.",
       rating: 5,
@@ -190,25 +190,6 @@ export default function FlippingTestimonialsSection() {
           ))}
         </div>
 
-        {/* Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-emerald-600 mb-2">102</div>
-            <div className="text-black">Clients Served</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
-            <div className="text-black">Success Rate</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-emerald-600 mb-2">1000+</div>
-            <div className="text-black">Coaching Hours</div>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold text-purple-600 mb-2">4.65</div>
-            <div className="text-black">Client Rating</div>
-          </div>
-        </div>
 
         <style jsx>{`
           @keyframes flip {

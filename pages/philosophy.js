@@ -27,7 +27,7 @@ export default function PhilosophyPage() {
         <AdditionalMarqueeSection />
         <PTCFactsSection />
         <GlobalGoogleCalendarWidget />
-        <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24">
           <PhilosophySection />
         </main>
         

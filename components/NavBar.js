@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import useDeviceDetection from './useDeviceDetection';
 
 /**
@@ -13,6 +14,11 @@ export default function NavBar() {
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const router = useRouter();
   const { isMobile } = useDeviceDetection();
+
+  // Safety check for router - but don't prevent rendering
+  if (!router) {
+    console.warn('Router not available yet, using fallback navigation');
+  }
 
   // Track which sections have "New" content
   // To add a "NEW" callout to any menu item:
@@ -32,39 +38,56 @@ export default function NavBar() {
 
   // Navigate to homepage function
   const navigateToHomepage = () => {
-    console.log('Navigate to homepage clicked'); // Debug log
+    console.log('=== navigateToHomepage function called ===');
+    console.log('Navigate to homepage clicked');
+    console.log('Current pathname:', window.location.pathname);
+    console.log('Current URL:', window.location.href);
+    console.log('Window object available:', typeof window !== 'undefined');
+    
     // Close mobile menu if open
     setIsMenuOpen(false);
     
-    // Navigate to homepage
-    if (router.pathname === '/') {
-      // If already on homepage, scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      // Navigate to homepage
-      router.push('/');
+    // Always navigate to homepage - simplified logic
+    console.log('Navigating to homepage from:', window.location.pathname);
+    try {
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Navigation error:', error);
+      // Fallback
+      window.location.replace('/');
     }
   };
 
   // Smart navigation function that handles both scrolling and page navigation
   const navigateToSection = (sectionId, pagePath = null) => {
-    // If we're on the home page, try to scroll to the section
-    if (router.pathname === '/') {
+    console.log(`Navigation attempt: sectionId=${sectionId}, pagePath=${pagePath}, currentPath=${router?.pathname || 'unknown'}`);
+    
+    // Close mobile menu
+    setIsMenuOpen(false);
+    
+    // If we're on the home page, try to scroll to the section first
+    if (router?.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
+        console.log(`Found section element, scrolling to: ${sectionId}`);
         element.scrollIntoView({ 
           behavior: 'smooth',
           block: 'start'
         });
-        setIsMenuOpen(false);
         return;
+      } else {
+        console.log(`Section element not found: ${sectionId}, navigating to page: ${pagePath}`);
       }
     }
     
-    // If we're not on the home page or section doesn't exist, navigate to the page
+    // If we're not on the home page, section doesn't exist, or no element found, navigate to the page
     if (pagePath) {
-      router.push(pagePath);
-      setIsMenuOpen(false);
+      console.log(`Navigating to: ${pagePath}`);
+      
+      // Use window.location for more reliable navigation
+      if (window.location.pathname !== pagePath) {
+        window.location.href = pagePath;
+      }
     }
   };
 
@@ -75,28 +98,44 @@ export default function NavBar() {
           {/* Left Navigation Tabs */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
-              onClick={() => navigateToSection('about-coach', '/about')}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToSection('about-coach', '/about');
+              }}
               className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               About Your Coach
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button
-              onClick={() => navigateToSection('testimonials', '/testimonials')}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToSection('testimonials', '/testimonials');
+              }}
               className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               Client Testimonials
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button
-              onClick={() => navigateToSection('blogs', '/blogs')}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToSection('blogs', '/blogs');
+              }}
               className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               Blogs
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button
-              onClick={() => navigateToSection('philosophy', '/philosophy')}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToSection('philosophy', '/philosophy');
+              }}
               className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               PTC's 3R Pillars
@@ -109,13 +148,16 @@ export default function NavBar() {
             {/* Vertical line before logo */}
             <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-3 sm:mr-6 shadow-sm"></div>
             
-            <a
-              href="/"
+            <div
               onClick={(e) => {
+                console.log('Logo clicked - event triggered on page:', window.location.pathname);
                 e.preventDefault();
+                e.stopPropagation();
+                console.log('About to call navigateToHomepage');
                 navigateToHomepage();
               }}
               className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
+              style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
@@ -129,7 +171,7 @@ export default function NavBar() {
                 <div className="text-xs text-black font-semibold mb-1">Reflect. Reboot. Reinvent</div>
                 <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
               </div>
-            </a>
+            </div>
             
             {/* Vertical line after company name */}
             <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
@@ -138,9 +180,11 @@ export default function NavBar() {
           {/* Right Navigation Tabs - Hidden on mobile */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
-              onClick={() => {
-                router.push('/careers');
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 setIsMenuOpen(false);
+                window.location.href = '/careers';
               }}
               className="text-black hover:text-purple-600 px-4 py-2 pb-6 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 cursor-pointer relative group"
             >
@@ -154,7 +198,11 @@ export default function NavBar() {
             {/* Contact PTC Dropdown */}
             <div className="relative">
               <button
-                onClick={() => setContactDropdownOpen(!contactDropdownOpen)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setContactDropdownOpen(!contactDropdownOpen);
+                }}
                 className="text-black hover:text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 flex items-center relative group"
               >
                 Contact PTC
@@ -187,7 +235,11 @@ export default function NavBar() {
 
             {/* Start Your Journey Button */}
             <button
-              onClick={() => navigateToSection('journey-form', '/journey')}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToSection('journey-form', '/journey');
+              }}
               className="bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-6 py-2 rounded-xl font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 button-text-white min-w-[180px]"
             >
               Start Your PTC Journey Now!
@@ -278,28 +330,44 @@ export default function NavBar() {
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-neutral-200">
               <button
-                onClick={() => navigateToSection('about-coach', '/about')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('about-coach', '/about');
+                }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >
                 About Your Coach
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
-                onClick={() => navigateToSection('testimonials', '/testimonials')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('testimonials', '/testimonials');
+                }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >
                 Client Testimonials
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
-                onClick={() => navigateToSection('blogs', '/blogs')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('blogs', '/blogs');
+                }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >
                 Blogs
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
-                onClick={() => navigateToSection('philosophy', '/philosophy')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('philosophy', '/philosophy');
+                }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >
                 PTC's 3R Pillars
@@ -314,9 +382,11 @@ export default function NavBar() {
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </a>
               <button
-                onClick={() => {
-                  router.push('/careers');
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
                   setIsMenuOpen(false);
+                  window.location.href = '/careers';
                 }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 pb-6 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >

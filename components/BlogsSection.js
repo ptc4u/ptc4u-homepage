@@ -35,20 +35,6 @@ export default function BlogsSection() {
       wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/12/13/the-looming-shadow-cybersecurity-threats-and-the-urgent-need-for-robust-strategies/',
       coachingContext: 'Perfect for executives dealing with digital transformation challenges',
       status: 'approved' // Only approved content appears to visitors
-    },
-    {
-      id: 'wp-2',
-      title: "Innovation in the Slowdown Part 6: Overcoming Innovation Resistance During a Recession",
-      excerpt: "How to overcome Innovation resistance during the recession. Innovation is a fundamental driver of business success and growth, irrespective of economic circumstances.",
-      category: 'Leadership',
-      author: "Sairam Bollapragada",
-      readTime: "6 min read",
-      date: "May 19, 2023",
-      featured: true,
-      source: 'wordpress',
-      wordpressUrl: 'https://itservicesdelivery.wordpress.com/2023/05/19/innovation-in-the-slowdown-part-6-overcoming-innovation-resistance-during-a-recession/',
-      coachingContext: 'Excellent for leaders navigating organizational change and innovation',
-      status: 'approved' // Only approved content appears to visitors
     }
   ];
 
@@ -68,7 +54,6 @@ export default function BlogsSection() {
       coachingContext: 'Essential for leaders driving digital change in their organizations',
       status: 'approved' // Only approved content appears to visitors
     }
-    // Note: li-2 is not approved yet, so it won't appear to visitors
   ];
 
   // Original PTC coaching content with full content
@@ -129,153 +114,6 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
       readTime: "6 min read",
       date: "March 18, 2024",
       featured: true,
-      source: 'ptc'
-    },
-    {
-      id: 3,
-      title: "Mindful Decision Making: The Coach's Guide to Better Choices",
-      excerpt: "Master the art of making clear, confident decisions under pressure using mindfulness techniques and strategic thinking frameworks.",
-      fullContent: `Decision-making under pressure is one of the most critical skills for leaders. When stakes are high and time is limited, the ability to make clear, confident choices can determine success or failure.
-
-**The Mindful Decision Framework:**
-
-1. **Pause and Breathe**: Before reacting, take a moment to center yourself. Deep breathing activates the parasympathetic nervous system, allowing for clearer thinking.
-
-2. **Clarify the Core Issue**: Often, what appears to be the problem is actually a symptom. Ask "What is the real issue here?" and "What outcome do I truly want?"
-
-3. **Gather Essential Information**: In time-pressured situations, focus on the most critical data points. What information is absolutely necessary for this decision?
-
-4. **Consider Multiple Perspectives**: How would different stakeholders view this decision? What are the potential unintended consequences?
-
-5. **Trust Your Intuition**: After analyzing the facts, what does your gut tell you? Intuition is often the integration of years of experience and pattern recognition.
-
-6. **Make the Decision**: Once you've gone through the process, commit fully to your choice. Second-guessing yourself undermines confidence and effectiveness.
-
-**Common Decision Traps to Avoid:**
-- Analysis paralysis
-- Confirmation bias
-- Sunk cost fallacy
-- Groupthink
-- Emotional decision-making
-
-The key is developing a consistent decision-making process that you can rely on even under pressure. Practice this framework with smaller decisions to build confidence for high-stakes situations.`,
-      category: 'coaching',
-      author: "Sairam Bollapragada",
-      readTime: "7 min read",
-      date: "March 15, 2024",
-      featured: true,
-      source: 'ptc'
-    },
-    {
-      id: 4,
-      title: "Building High-Performance Teams: The Leadership Blueprint",
-      excerpt: "Discover the key principles for creating teams that consistently deliver exceptional results and exceed expectations.",
-      fullContent: `High-performance teams don't happen by accident. They're the result of intentional leadership, clear processes, and a culture that fosters excellence. Here's how to build teams that consistently exceed expectations.
-
-**The High-Performance Team Framework:**
-
-1. **Clear Vision and Goals**: Every team member must understand not just what they're doing, but why it matters. Connect individual tasks to larger organizational objectives.
-
-2. **Right People, Right Roles**: Focus on strengths rather than trying to fix weaknesses. Place people in roles that leverage their natural talents and provide growth opportunities.
-
-3. **Psychological Safety**: Create an environment where team members feel safe to take risks, ask questions, and admit mistakes without fear of judgment or retribution.
-
-4. **Effective Communication**: Establish clear communication protocols, regular check-ins, and feedback mechanisms. Ensure information flows freely in all directions.
-
-5. **Accountability and Ownership**: Each team member should have clear responsibilities and be held accountable for their commitments. Ownership drives engagement and results.
-
-6. **Continuous Learning**: Foster a growth mindset where mistakes are learning opportunities and innovation is encouraged.
-
-**Key Leadership Behaviors:**
-- Lead by example
-- Provide regular feedback
-- Remove obstacles
-- Celebrate wins
-- Invest in development
-
-Building high-performance teams is an ongoing process that requires consistent attention and adaptation. The investment in team development pays dividends in engagement, productivity, and results.`,
-      category: 'leadership',
-      author: "Sairam Bollapragada",
-      readTime: "9 min read",
-      date: "March 12, 2024",
-      featured: false,
-      source: 'ptc'
-    },
-    {
-      id: 5,
-      title: "Goal Achievement Mastery: From Vision to Reality",
-      excerpt: "Master the science of goal setting and achievement with proven methodologies and accountability systems.",
-      fullContent: `Goal achievement is both an art and a science. While many people set goals, few consistently achieve them. The difference lies in the systems and processes you put in place to bridge the gap between vision and reality.
-
-**The SMART-ER Goal Framework:**
-
-1. **Specific**: Vague goals lead to vague results. Define exactly what you want to achieve, when, and how you'll measure success.
-
-2. **Measurable**: Establish clear metrics and milestones. What gets measured gets managed, and what gets managed gets improved.
-
-3. **Achievable**: Set goals that stretch you but remain within the realm of possibility. Unrealistic goals lead to frustration and abandonment.
-
-4. **Relevant**: Ensure your goals align with your values, long-term vision, and current priorities. Relevance drives motivation.
-
-5. **Time-bound**: Set specific deadlines and create urgency. Without time constraints, goals often remain dreams.
-
-6. **Evaluated**: Regularly assess progress and adjust strategies as needed. What's working? What needs to change?
-
-7. **Reviewed**: Schedule regular goal reviews to celebrate progress, identify obstacles, and maintain momentum.
-
-**The Implementation System:**
-
-- Break large goals into smaller, manageable tasks
-- Schedule regular progress reviews
-- Create accountability partnerships
-- Celebrate small wins along the way
-- Learn from setbacks and adjust strategies
-
-Remember, goal achievement is not about perfection—it's about progress. Focus on consistent action toward your objectives, and the results will follow.`,
-      category: 'personal-growth',
-      author: "Sairam Bollapragada",
-      readTime: "5 min read",
-      date: "March 10, 2024",
-      featured: false,
-      source: 'ptc'
-    },
-    {
-      id: 6,
-      title: "Digital Transformation Leadership: Thriving in the Age of Change",
-      excerpt: "Navigate the complexities of digital transformation with leadership strategies that drive innovation and organizational success.",
-      fullContent: `Digital transformation is not just about technology—it's about fundamentally changing how organizations operate, compete, and create value. Leaders who successfully navigate this transformation understand that it's primarily a human challenge requiring new ways of thinking and leading.
-
-**The Digital Leadership Mindset:**
-
-1. **Embrace Continuous Learning**: Technology evolves rapidly. Leaders must commit to ongoing education and stay current with digital trends and opportunities.
-
-2. **Foster Innovation Culture**: Create environments where experimentation is encouraged, failure is viewed as learning, and new ideas are welcomed.
-
-3. **Build Digital Literacy**: While you don't need to be a technical expert, understanding digital concepts and their business implications is crucial.
-
-4. **Lead Through Change**: Digital transformation often requires significant organizational change. Leaders must communicate vision, manage resistance, and maintain momentum.
-
-**Key Success Factors:**
-
-- **Customer-Centric Approach**: Use digital tools to better understand and serve customers
-- **Data-Driven Decisions**: Leverage analytics and insights to inform strategic choices
-- **Agile Methodologies**: Adopt flexible approaches to project management and product development
-- **Talent Development**: Invest in upskilling your team for the digital future
-- **Partnership Strategy**: Collaborate with technology partners and startups to accelerate innovation
-
-**Common Pitfalls to Avoid:**
-- Focusing on technology without considering people and processes
-- Underestimating the change management required
-- Neglecting cybersecurity and data privacy
-- Moving too fast without proper planning
-- Ignoring the importance of digital culture
-
-Successful digital transformation requires balancing innovation with stability, speed with quality, and technology with human needs. The leaders who master this balance will thrive in the digital age.`,
-      category: 'transformation',
-      author: "Sairam Bollapragada",
-      readTime: "10 min read",
-      date: "March 8, 2024",
-      featured: false,
       source: 'ptc'
     }
   ];

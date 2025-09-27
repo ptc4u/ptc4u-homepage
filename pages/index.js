@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
@@ -12,12 +13,13 @@ import ImageWatermark from '../components/ImageWatermark';
 import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
-import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
+import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
 import QuickActionsSection from '../components/QuickActionsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
 import BlogsSection from '../components/BlogsSection';
 import PhilosophySection from '../components/PhilosophySection';
 import JourneyFormSection from '../components/JourneyFormSection';
+import JobsSection from '../components/JobsSection';
 import MobileDropdown from '../components/MobileDropdown';
 import useDeviceDetection from '../components/useDeviceDetection';
 
@@ -28,6 +30,9 @@ import useDeviceDetection from '../components/useDeviceDetection';
  */
 export default function Home() {
   const { isMobile, isLoading } = useDeviceDetection();
+  const router = useRouter();
+  
+  // Removed welcome page redirect - landing page loads directly
   
   // Ensure page scrolls to hero section on every refresh
   useEffect(() => {
@@ -81,9 +86,9 @@ export default function Home() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         <PTCFactsSection />
-        <GlobalCalendlyWidget />
+        <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto pt-24" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>
@@ -140,6 +145,13 @@ export default function Home() {
           </div>
           
           {/* Divider line after testimonials */}
+          <div className="section-divider"></div>
+          
+          <div id="careers">
+            <JobsSection />
+          </div>
+          
+          {/* Divider line after careers */}
           <div className="section-divider"></div>
           
           <div id="contact">

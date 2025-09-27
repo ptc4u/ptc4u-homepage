@@ -1,24 +1,33 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
-import AboutCoachSection from '../components/AboutCoachSection';
+import WordPressContentManager from '../components/WordPressContentManager';
+import AdminAuth from '../components/AdminAuth';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 
-export default function AboutPage() {
+export default function ContentManagerPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleAuthentication = (authenticated) => {
+    setIsAuthenticated(authenticated);
+  };
+
   return (
     <>
       <Head>
-        <title>About Your Coach - Pinnacle Thrive Coaching</title>
+        <title>Content Manager - Pinnacle Thrive Coaching</title>
         <meta
           name="description"
-          content="Meet your transformational coach at Pinnacle Thrive Coaching. Learn about our experienced coach's background, methodology, and commitment to your success."
+          content="Admin access to manage and curate content for the PTC website. Restricted access for content management."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
@@ -28,7 +37,11 @@ export default function AboutPage() {
         <PTCFactsSection />
         <GlobalGoogleCalendarWidget />
         <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
-          <AboutCoachSection />
+          {isAuthenticated ? (
+            <WordPressContentManager />
+          ) : (
+            <AdminAuth onAuthenticated={handleAuthentication} />
+          )}
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

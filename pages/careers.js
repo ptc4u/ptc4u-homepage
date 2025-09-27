@@ -4,21 +4,22 @@ import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
-import AboutCoachSection from '../components/AboutCoachSection';
+import JobsSection from '../components/JobsSection';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 
-export default function AboutPage() {
+export default function CareersPage() {
   return (
     <>
       <Head>
-        <title>About Your Coach - Pinnacle Thrive Coaching</title>
+        <title>Careers - Join Our Team | Pinnacle Thrive Coaching</title>
         <meta
           name="description"
-          content="Meet your transformational coach at Pinnacle Thrive Coaching. Learn about our experienced coach's background, methodology, and commitment to your success."
+          content="Join our team at Pinnacle Thrive Coaching. We're hiring Sales Executives and Technical Interns. Be part of our mission to transform lives and careers."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="careers, jobs, hiring, sales executive, technical intern, Pinnacle Thrive Coaching" />
       </Head>
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
@@ -28,7 +29,7 @@ export default function AboutPage() {
         <PTCFactsSection />
         <GlobalGoogleCalendarWidget />
         <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
-          <AboutCoachSection />
+          <JobsSection />
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

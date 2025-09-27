@@ -43,7 +43,9 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://instagram.com/ask.ptc4u"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black hover:text-black transition-colors"
                 aria-label="Instagram"
               >

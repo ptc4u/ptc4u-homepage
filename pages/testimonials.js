@@ -3,8 +3,8 @@ import NavBar from '../components/NavBar';
 import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
-import GlobalCalendlyWidget from '../components/GlobalCalendlyWidget';
-import ThreeDGoldenPlaqueTestimonials from '../components/ThreeDGoldenPlaqueTestimonials.jsx';
+import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
+import SingleWindowTestimonials from '../components/SingleWindowTestimonials.jsx';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
@@ -26,9 +26,9 @@ export default function TestimonialsPage() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         <PTCFactsSection />
-        <GlobalCalendlyWidget />
-        <main className="flex-grow pt-24 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
-          <ThreeDGoldenPlaqueTestimonials />
+        <GlobalGoogleCalendarWidget />
+        <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto" style={{ height: 'calc(100vh - 80px)' }}>
+          <SingleWindowTestimonials />
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

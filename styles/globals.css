@@ -218,6 +218,48 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.5px 0 !important;
 }
 
+/* New callout badge styling */
+.new-callout {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  animation: newPulse 2s ease-in-out infinite;
+  z-index: 10;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.new-callout::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #dc2626;
+}
+
+@keyframes newPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.5);
+  }
+}
+
 /* Hide name/header elements to reclaim space */
 .calendly-inline-widget iframe .calendly-popup-header,
 .calendly-inline-widget iframe .calendly-popup-header-content,

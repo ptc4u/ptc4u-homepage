@@ -2,8 +2,8 @@ import '../styles/globals.css';
 import ImageWatermark from '../components/ImageWatermark';
 
 /**
- * The custom App component initializes pages. We import global styles here so
- * Tailwind's base and utility classes are available throughout the app.
+ * The custom App component initializes pages with global styles and watermark.
+ * This is the original landing page setup without authentication requirements.
  */
 export default function MyApp({ Component, pageProps }) {
   return (

@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const CalendlyWidget = () => {
   const calendlyRef = useRef(null);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Load Calendly script if not already loaded
@@ -9,6 +10,13 @@ const CalendlyWidget = () => {
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
       script.async = true;
+      script.onload = () => {
+        console.log('Calendly script loaded successfully');
+      };
+      script.onerror = (error) => {
+        console.error('Failed to load Calendly script:', error);
+        setHasError(true);
+      };
       document.head.appendChild(script);
     }
 
@@ -16,17 +24,58 @@ const CalendlyWidget = () => {
     if (typeof window !== 'undefined') {
       const checkCalendly = setInterval(() => {
         if (window.Calendly) {
-          console.log('Calendly script loaded');
+          console.log('Calendly script loaded and available');
           clearInterval(checkCalendly);
           // Hide loading state
           const loadingElement = document.getElementById('calendly-loading');
           if (loadingElement) {
             loadingElement.style.display = 'none';
           }
+          
+          // Initialize the widget with a small delay to ensure DOM is ready
+          setTimeout(() => {
+            try {
+              console.log('Attempting to initialize Calendly widget...');
+              console.log('Parent element:', calendlyRef.current);
+              console.log('Calendly object:', window.Calendly);
+              
+              if (calendlyRef.current) {
+                // Try to validate the URL first
+                fetch('https://calendly.com/bsairam-2002/30min', { method: 'HEAD' })
+                  .then(response => {
+                    if (response.ok) {
+                      console.log('Calendly URL is valid, initializing widget...');
+                      window.Calendly.initInlineWidget({
+                        url: 'https://calendly.com/bsairam-2002/30min',
+                        parentElement: calendlyRef.current,
+                        minWidth: '280px',
+                        height: '500px',
+                        prefill: {},
+                        utm: {}
+                      });
+                      console.log('Calendly widget initialized successfully');
+                    } else {
+                      console.error('Calendly URL returned error:', response.status);
+                      setHasError(true);
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error validating Calendly URL:', error);
+                    setHasError(true);
+                  });
+              } else {
+                console.error('Parent element not found for Calendly widget');
+                setHasError(true);
+              }
+            } catch (error) {
+              console.error('Error initializing Calendly widget:', error);
+              setHasError(true);
+            }
+          }, 100);
         }
       }, 100);
 
-      // Cleanup after 10 seconds
+      // Cleanup after 5 seconds (reduced timeout)
       setTimeout(() => {
         clearInterval(checkCalendly);
         // Hide loading state after timeout
@@ -34,15 +83,42 @@ const CalendlyWidget = () => {
         if (loadingElement) {
           loadingElement.style.display = 'none';
         }
-      }, 10000);
+        console.log('Calendly loading timeout reached - showing fallback');
+        setHasError(true);
+      }, 5000);
     }
   }, []);
+
+  if (hasError) {
+    return (
+      <div className="w-full h-full bg-white flex items-center justify-center p-4">
+        <div className="text-center">
+          <div className="text-blue-500 mb-2">📅</div>
+          <p className="text-sm text-gray-600 mb-2">Schedule Your Session</p>
+          <p className="text-xs text-gray-500 mb-3">Click below to book your 30-minute coaching session</p>
+          <a 
+            href="https://calendly.com/bsairam-2002/30min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors mb-2"
+          >
+            Book Now
+          </a>
+          <p className="text-xs text-gray-400">Opens in new window</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-full bg-white">
       <div 
+        ref={calendlyRef}
         className="calendly-inline-widget w-full h-full bg-white" 
         data-url="https://calendly.com/bsairam-2002/30min"
+        data-auto-load="false"
+        data-embed-type="inline"
+        data-embed-widget="inline"
         style={{
           minWidth: '280px', 
           height: '500px', 

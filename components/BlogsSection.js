@@ -320,21 +320,50 @@ Successful digital transformation requires balancing innovation with stability, 
           </p>
         </div>
 
-        {/* Search Bar */}
+        {/* Search and Filter Section - Optimized Layout */}
         <div className="mb-12">
-          <div className="flex justify-center">
-            <div className="relative max-w-md">
-              <input
-                type="text"
-                placeholder="Search blogs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
-              />
-              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            {/* Search Bar - Left aligned for better space utilization */}
+            <div className="flex-1 max-w-lg">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search articles, topics, or keywords..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-3 pl-12 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                />
+                <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
             </div>
+
+            {/* Category Filter - Right aligned */}
+            <div className="flex flex-wrap gap-2 lg:flex-nowrap">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                    selectedCategory === category.id
+                      ? 'bg-purple-600 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {/* Results Counter */}
+          <div className="mt-4 text-center">
+            <span className="text-sm text-gray-600">
+              Showing {filteredBlogs.length} of {latestArticles.length} articles
+              {searchTerm && ` matching "${searchTerm}"`}
+              {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
+            </span>
           </div>
         </div>
 
@@ -344,28 +373,44 @@ Successful digital transformation requires balancing innovation with stability, 
             Latest <span className="text-black">Articles</span>
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {filteredBlogs.map((blog) => (
               <article
                 key={blog.id}
-                className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col"
                 onClick={() => handleArticleClick(blog)}
               >
-                {/* Content Source Indicator */}
-                {blog.source === 'wordpress' && (
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
-                      From WordPress
+                {/* Content Source Indicator - Enhanced visibility */}
+                <div className="absolute top-4 right-4 z-10">
+                  {blog.source === 'wordpress' && (
+                    <span className="bg-white border-2 border-blue-500 text-blue-700 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
+                      <img 
+                        src="/images/wp.png" 
+                        alt="WordPress" 
+                        className="w-4 h-4 object-contain"
+                      />
+                      WordPress
                     </span>
-                  </div>
-                )}
-                {blog.source === 'linkedin' && (
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
-                      From LinkedIn
+                  )}
+                  {blog.source === 'linkedin' && (
+                    <span className="bg-white border-2 border-blue-600 text-blue-800 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                      LinkedIn
                     </span>
-                  </div>
-                )}
+                  )}
+                  {blog.source === 'ptc' && (
+                    <span className="bg-white border-2 border-purple-600 text-purple-700 px-3 py-2 rounded-lg text-xs font-semibold shadow-lg flex items-center gap-2">
+                      <img 
+                        src="/rndPTClogo.png" 
+                        alt="PTC" 
+                        className="w-4 h-4 object-contain"
+                      />
+                      PTC Original
+                    </span>
+                  )}
+                </div>
 
                 {/* Category */}
                 <div className="mb-4 text-center">
@@ -379,20 +424,20 @@ Successful digital transformation requires balancing innovation with stability, 
                   {blog.title}
                 </h4>
 
-                {/* Excerpt (Intro part only) */}
-                <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                {/* Excerpt (Intro part only) - Flex grow to fill space */}
+                <p className="text-gray-700 mb-4 text-sm leading-relaxed flex-grow">
                   {blog.excerpt}
                 </p>
 
                 {/* Click to read more indicator */}
-                <div className="text-center">
+                <div className="text-center mb-4">
                   <span className="text-purple-600 text-sm font-medium hover:text-purple-800 transition-colors">
                     Click to read full article →
                   </span>
                 </div>
 
-                {/* Author & Meta */}
-                <div className="text-center mt-4">
+                {/* Author & Meta - Pushed to bottom */}
+                <div className="text-center mt-auto">
                   <div className="text-sm text-gray-600 mb-2">
                     By <span className="font-semibold">{blog.author}</span>
                   </div>
@@ -435,10 +480,35 @@ Successful digital transformation requires balancing innovation with stability, 
               {/* Modal Header */}
               <div className="flex justify-between items-start mb-6">
                 <div className="flex-1">
-                  <div className="mb-4">
+                  <div className="mb-4 flex items-center gap-3">
                     <span className="inline-block bg-gray-100 text-black px-3 py-1 rounded text-sm font-medium">
                       {selectedArticle.category}
                     </span>
+                    {/* Source indicator in modal */}
+                    {selectedArticle.source === 'wordpress' && (
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.655-.98 1.42-1.805 2.25-2.445C13.44 2.825 10.26 1.5 6.5 1.5c-1.03 0-2.05.15-3.02.44 1.27 1.19 2.18 2.66 2.66 4.34-.5.15-1.05.25-1.64.25-1.5 0-2.8-.5-3.8-1.4C.5 5.5 0 7.2 0 9c0 2.2 1.2 4.1 3 5.2-.5-1.5-.5-3.1 0-4.6 1.5-1.5 3.5-2.4 5.5-2.4 1.1 0 2.1.3 3 .8.9-.5 1.9-.8 3-.8 2 0 4 1 5.5 2.4.5 1.5.5 3.1 0 4.6 1.8-1.1 3-3 3-5.2 0-1.8-.5-3.5-1.4-4.8-1-.9-2.3-1.4-3.8-1.4-.6 0-1.1-.1-1.6-.25.5-1.7 1.4-3.15 2.7-4.35-.97-.29-1.99-.44-3.02-.44-3.76 0-6.94 1.325-9.188 3.485.83.64 1.595 1.465 2.25 2.445.655.98 1.18 2.02 1.57 3.1.39 1.08.58 2.22.58 3.4 0 1.18-.19 2.32-.58 3.4-.39 1.08-.915 2.12-1.57 3.1-.655.98-1.42 1.805-2.25 2.445C3.56 21.175 6.74 22.5 10.5 22.5c1.03 0 2.05-.15 3.02-.44-1.27-1.19-2.18-2.66-2.66-4.34.5-.15 1.05-.25 1.64-.25 1.5 0 2.8.5 3.8 1.4 1 .9 1.4 2.1 1.4 3.8 0 2.2-1.2 4.1-3 5.2.5-1.5.5-3.1 0-4.6-1.5-1.5-3.5-2.4-5.5-2.4-1.1 0-2.1.3-3 .8-.9.5-1.9.8-3 .8-2 0-4-1-5.5-2.4-.5-1.5-.5-3.1 0-4.6-1.8 1.1-3 3-3 5.2 0 1.8.5 3.5 1.4 4.8 1 .9 2.3 1.4 3.8 1.4.6 0 1.1-.1 1.6-.25-.5 1.7-1.4 3.15-2.7 4.35.97.29 1.99.44 3.02.44 3.76 0 6.94-1.325 9.188-3.485-.83-.64-1.595-1.465-2.25-2.445-.655-.98-1.18-2.02-1.57-3.1-.39-1.08-.58-2.22-.58-3.4 0-1.18.19-2.32.58-3.4.39-1.08.915-2.12 1.57-3.1z"/>
+                        </svg>
+                        WordPress
+                      </span>
+                    )}
+                    {selectedArticle.source === 'linkedin' && (
+                      <span className="bg-blue-700 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                      </span>
+                    )}
+                    {selectedArticle.source === 'ptc' && (
+                      <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        PTC Original
+                      </span>
+                    )}
                   </div>
                   <h2 className="text-2xl font-bold text-black mb-4">
                     {selectedArticle.title}

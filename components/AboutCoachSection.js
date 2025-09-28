@@ -11,9 +11,9 @@ export default function AboutCoachSection() {
   // Updated image array with the specific Sai images
   const saiImages = [
     '/images/Sai4.jpg',
-    '/images/Sai5.jpg', 
-    '/images/sai6.jpeg',
-    '/images/sai7.jpeg'
+    '/images/saisnpsht8.jpg',
+    '/images/SAIPP1.jpg',
+    '/images/Sai4.jpg'
   ];
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function AboutCoachSection() {
   };
 
   return (
-    <section className="py-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
+    <section className="py-8 mt-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center">
@@ -54,10 +54,14 @@ export default function AboutCoachSection() {
               <img
                 src={saiImages[currentImageIndex]}
                 alt={`Sairam Bollapragada - Pinnacle Thrive Coaching ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                className="w-full h-full object-contain transition-all duration-500 ease-in-out"
                 onError={(e) => {
+                  console.error(`Failed to load image: ${saiImages[currentImageIndex]}`);
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'block';
+                }}
+                onLoad={() => {
+                  console.log(`Successfully loaded image: ${saiImages[currentImageIndex]}`);
                 }}
               />
               {/* Fallback if image doesn't load */}

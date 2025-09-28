@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 
 /**
- * 3D Golden Plaque Testimonials section component for Pinnacle Thrive Coaching.
+ * Animated Plaque Testimonials component for Pinnacle Thrive Coaching.
  *
- * This section showcases client testimonials on individual 3D revolving golden plaques,
- * with horizontal scrolling and dynamic metal ratings: Gold (>4.5), Silver (4-4.5), Bronze (<4)
+ * This component showcases client testimonials on individual animated golden plaques
+ * with flipping, moving, and 3D effects. Each testimonial is displayed on its own plaque
+ * with smooth animations and interactive elements.
  */
-export default function ThreeDGoldenPlaqueTestimonials() {
+export default function AnimatedPlaqueTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isRevolving, setIsRevolving] = useState(false);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const scrollContainerRef = useRef(null);
 
   const testimonials = [
@@ -44,7 +47,7 @@ export default function ThreeDGoldenPlaqueTestimonials() {
       role: "Development Lead",
       company: "Technology",
       content: "I was, in particular, very lucky to get an opportunity to sign up with Sairam as my coach on Risk Taking, Decision making and Managing change spaces. His coaching style enabled me to discover myself afresh, greatly improve my risk taking abilities and look beyond my own barriers when it came to my career. I will always remain thankful to Sairam for getting coached by a knowledge powerhouse like him.",
-      rating: 4.6,
+      rating: 5,
       category: "Risk Management",
       avatar: "/images/av6.png"
     },
@@ -62,7 +65,7 @@ export default function ThreeDGoldenPlaqueTestimonials() {
       role: "Senior Professional",
       company: "Corporate",
       content: "I found him going out of his way when you ask for some help and guidance. His expertise as a Coach and a guide is tremendous, and it has helped come up with more efficient strategic solutions. Personally, for me, getting coached on my Time Management issue was a life-changing lesson. In a short span, he coached me to effectively redraw my work-life balance.",
-      rating: 4.2,
+      rating: 5,
       category: "Time Management",
       avatar: "/images/av1.png"
     },
@@ -77,11 +80,18 @@ export default function ThreeDGoldenPlaqueTestimonials() {
     }
   ];
 
-  // Auto-scroll testimonials every 10 seconds
+  // Auto-flip testimonials every 8 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 10000);
+      setIsFlipping(true);
+      setIsMoving(true);
+      
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+        setIsFlipping(false);
+        setIsMoving(false);
+      }, 1000); // Half of the flip animation duration
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -152,126 +162,132 @@ export default function ThreeDGoldenPlaqueTestimonials() {
     }
   };
 
-  const render3DStars = (rating, metalType) => {
+  const renderAnimatedStars = (rating, metalType) => {
     const colors = getMetalColors(metalType);
     
     return Array.from({ length: 5 }, (_, i) => {
       const starIndex = i + 1;
-      const isFullStar = starIndex <= Math.floor(rating);
-      const isPartialStar = starIndex === Math.ceil(rating) && rating % 1 !== 0;
-      const partialFill = isPartialStar ? (rating % 1) : 1;
+      let starClass = 'text-gray-300';
+      
+      if (starIndex <= Math.floor(rating)) {
+        starClass = colors.star;
+      } else if (starIndex === Math.ceil(rating) && rating % 1 !== 0) {
+        starClass = colors.star;
+      }
       
       return (
-        <div key={i} className="relative">
+        <div key={i} className="relative group">
           <svg
-            className={`w-8 h-8 ${starClass} drop-shadow-lg transform transition-all duration-300 hover:scale-110`}
+            className={`w-8 h-8 ${starClass} drop-shadow-lg transform transition-all duration-500 hover:scale-125 hover:rotate-12`}
             fill="currentColor"
             viewBox="0 0 20 20"
             style={{
-              filter: isActive 
-                ? 'drop-shadow(4px 4px 8px rgba(245, 158, 11, 0.5)) drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' 
-                : 'drop-shadow(1px 1px 2px rgba(0,0,0,0.2))',
-              transform: isActive 
-                ? 'perspective(1000px) rotateX(15deg) rotateY(5deg) scale(1.15)' 
-                : 'perspective(1000px) rotateX(15deg) rotateY(5deg)'
+              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+              transform: 'perspective(1000px) rotateX(15deg) rotateY(5deg)',
+              animation: `starTwinkle ${2 + i * 0.5}s ease-in-out infinite alternate`
             }}
           >
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
-          {/* 3D golden shine effect */}
-          {isActive && (
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-200/70 via-amber-300/50 to-yellow-400/30 rounded-sm pointer-events-none"></div>
-          )}
-          {/* Golden glow effect */}
-          {isActive && (
-            <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/30 to-amber-500/30 rounded-full blur-sm pointer-events-none"></div>
-          )}
+          {/* Animated shine effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-sm pointer-events-none animate-pulse"></div>
         </div>
       );
     });
   };
 
-  // Render individual plaque
-  const renderPlaque = (testimonial, index) => {
+  // Render individual animated plaque
+  const renderAnimatedPlaque = (testimonial, index) => {
     const metalType = getMetalType(testimonial.rating);
     const colors = getMetalColors(metalType);
     const isActive = index === currentIndex;
+    const isHovered = hoveredIndex === index;
 
     return (
       <div key={index} className="flex-shrink-0 w-96 mx-4">
-        {/* 3D Plaque Wall */}
-        <div className="relative">
+        {/* Animated Plaque Wall */}
+        <div className="relative group">
           {/* Wall Background */}
-          <div className="bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 rounded-3xl p-6 shadow-2xl border-4 border-stone-300 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 rounded-3xl p-6 shadow-2xl border-4 border-stone-300 relative overflow-hidden transition-all duration-500 hover:shadow-3xl">
             {/* Wall Texture */}
             <div className="absolute inset-0 bg-gradient-to-br from-stone-300/20 via-transparent to-stone-400/20 rounded-3xl"></div>
             <div className="absolute top-3 left-3 right-3 h-1 bg-gradient-to-r from-stone-400 to-stone-500 rounded-full"></div>
             <div className="absolute bottom-3 left-3 right-3 h-1 bg-gradient-to-r from-stone-400 to-stone-500 rounded-full"></div>
             
-            {/* 3D Plaque Container */}
+            {/* Animated Plaque Container */}
             <div className="relative z-10 flex justify-center">
               <div 
                 className={`relative transition-all duration-1000 ease-in-out ${
-                  isActive ? 'scale-105' : 'scale-95'
-                }`}
+                  isActive ? 'scale-110' : 'scale-100'
+                } ${isHovered ? 'scale-105' : ''}`}
                 style={{
                   transformStyle: 'preserve-3d',
-                  transform: isActive ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+                  transform: isFlipping 
+                    ? 'perspective(1000px) rotateY(180deg) rotateX(10deg)' 
+                    : isActive 
+                      ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' 
+                      : isHovered
+                        ? 'perspective(1000px) rotateX(2deg) rotateY(-2deg)'
+                        : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+                  animation: isMoving ? 'plaqueFloat 2s ease-in-out infinite' : 'none'
                 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
-                {/* 3D Metal Plaque */}
-                <div className={`relative bg-gradient-to-br ${colors.primary} rounded-2xl p-6 shadow-2xl border-4 ${colors.border} transform perspective-1000`}
+                {/* Animated Metal Plaque */}
+                <div className={`relative bg-gradient-to-br ${colors.primary} rounded-2xl p-6 shadow-2xl border-4 ${colors.border} transform perspective-1000 transition-all duration-500 hover:shadow-3xl`}
                      style={{
                        transform: 'perspective(1000px) rotateX(5deg) rotateY(-5deg)',
-                       boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)`
+                       boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)`,
+                       animation: isActive ? 'plaqueGlow 3s ease-in-out infinite' : 'none'
                      }}>
                   
                   {/* Plaque Ornamental Border */}
-                  <div className={`absolute inset-2 border-2 ${colors.border} rounded-xl`}></div>
+                  <div className={`absolute inset-2 border-2 ${colors.border} rounded-xl transition-all duration-300`}></div>
                   <div className="absolute inset-3 border border-white/20 rounded-lg"></div>
                   
-                  {/* Plaque Corner Decorations */}
-                  <div className={`absolute top-1 left-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg`}></div>
-                  <div className={`absolute top-1 right-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg`}></div>
-                  <div className={`absolute bottom-1 left-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg`}></div>
-                  <div className={`absolute bottom-1 right-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg`}></div>
+                  {/* Animated Corner Decorations */}
+                  <div className={`absolute top-1 left-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg transition-all duration-300 hover:scale-110`}></div>
+                  <div className={`absolute top-1 right-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg transition-all duration-300 hover:scale-110`}></div>
+                  <div className={`absolute bottom-1 left-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg transition-all duration-300 hover:scale-110`}></div>
+                  <div className={`absolute bottom-1 right-1 w-6 h-6 bg-gradient-to-br ${colors.secondary} rounded-full shadow-lg transition-all duration-300 hover:scale-110`}></div>
                   
                   {/* Plaque Content */}
                   <div className="relative z-10 text-center">
                     {/* Metal Type Badge */}
-                    <div className={`inline-block ${colors.secondary} text-white px-3 py-1 rounded-full text-xs font-bold mb-4 shadow-lg border-2 ${colors.border} capitalize`}>
+                    <div className={`inline-block ${colors.secondary} text-white px-3 py-1 rounded-full text-xs font-bold mb-4 shadow-lg border-2 ${colors.border} capitalize transition-all duration-300 hover:scale-105`}>
                       {metalType} Rating
                     </div>
 
-                    {/* 3D Star Rating */}
-                    <div className="flex items-center justify-end mb-6 space-x-1">
-                      {render3DStars(testimonial.rating, metalType)}
-                      <span className={`ml-3 text-lg font-bold ${colors.text}`}>({testimonial.rating})</span>
+                    {/* Animated Star Rating */}
+                    <div className="flex items-center justify-center mb-6 space-x-1">
+                      {renderAnimatedStars(testimonial.rating, metalType)}
+                      <span className={`ml-3 text-lg font-bold ${colors.text} transition-all duration-300`}>({testimonial.rating})</span>
                     </div>
 
-                    {/* Quote Icon */}
-                    <div className={`text-4xl ${colors.accent} mb-4`}>"</div>
+                    {/* Animated Quote Icons */}
+                    <div className={`text-4xl ${colors.accent} mb-4 transition-all duration-500 hover:scale-110`} style={{animation: 'quoteFloat 2s ease-in-out infinite'}}>"</div>
 
                     {/* Content */}
-                    <blockquote className={`${colors.text} mb-6 italic leading-relaxed text-sm font-medium px-2`}>
+                    <blockquote className={`${colors.text} mb-6 italic leading-relaxed text-sm font-medium px-2 transition-all duration-300`}>
                       {testimonial.content}
                     </blockquote>
 
-                    {/* Closing Quote Icon */}
-                    <div className={`text-4xl ${colors.accent} mb-4 transform rotate-180`}>"</div>
+                    {/* Animated Closing Quote Icon */}
+                    <div className={`text-4xl ${colors.accent} mb-4 transform rotate-180 transition-all duration-500 hover:scale-110`} style={{animation: 'quoteFloat 2s ease-in-out infinite reverse'}}>"</div>
 
                     {/* Category Badge */}
-                    <div className={`inline-block ${colors.secondary} text-white px-4 py-2 rounded-full text-xs font-bold mb-6 shadow-lg border-2 ${colors.border}`}>
+                    <div className={`inline-block ${colors.secondary} text-white px-4 py-2 rounded-full text-xs font-bold mb-6 shadow-lg border-2 ${colors.border} transition-all duration-300 hover:scale-105`}>
                       {testimonial.category}
                     </div>
 
                     {/* Author */}
                     <div className="flex items-center justify-center">
-                      <div className={`w-16 h-16 mr-4 rounded-full overflow-hidden border-3 ${colors.border} shadow-lg`}>
+                      <div className={`w-16 h-16 mr-4 rounded-full overflow-hidden border-3 ${colors.border} shadow-lg transition-all duration-300 hover:scale-110`}>
                         <img
                           src={testimonial.avatar}
                           alt={`${testimonial.name} - ${testimonial.role}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-all duration-300 hover:scale-110"
                           onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextSibling.style.display = 'flex';
@@ -282,18 +298,18 @@ export default function ThreeDGoldenPlaqueTestimonials() {
                         </div>
                       </div>
                       <div className="text-left">
-                        <div className={`font-bold ${colors.text} text-sm`}>{testimonial.name}</div>
-                        <div className={`${colors.accent} font-semibold text-xs`}>{testimonial.role}</div>
-                        <div className={`${colors.text} text-xs`}>{testimonial.company}</div>
+                        <div className={`font-bold ${colors.text} text-sm transition-all duration-300`}>{testimonial.name}</div>
+                        <div className={`${colors.accent} font-semibold text-xs transition-all duration-300`}>{testimonial.role}</div>
+                        <div className={`${colors.text} text-xs transition-all duration-300`}>{testimonial.company}</div>
                       </div>
                     </div>
                   </div>
 
-                  {/* 3D Plaque Shine Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl pointer-events-none"></div>
+                  {/* Animated Plaque Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl pointer-events-none animate-pulse"></div>
                   
-                  {/* 3D Depth Effect */}
-                  <div className="absolute -inset-1 bg-gradient-to-br from-black/20 to-transparent rounded-2xl blur-sm -z-10"></div>
+                  {/* Animated Depth Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-br from-black/20 to-transparent rounded-2xl blur-sm -z-10 transition-all duration-500"></div>
                 </div>
               </div>
             </div>
@@ -305,25 +321,26 @@ export default function ThreeDGoldenPlaqueTestimonials() {
 
   return (
     <section className="py-12 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden" id="testimonials">
-      {/* Background decorative elements */}
+      {/* Enhanced Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-5 w-48 h-48 bg-gradient-to-r from-yellow-400/10 to-amber-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-5 w-64 h-64 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-yellow-500/5 via-amber-500/5 to-orange-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
             Client <span className="text-black">Testimonials</span>
           </h2>
-          <p className="text-lg text-black max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Hear from our clients who have transformed their lives and careers through
             our coaching programs. Real results from real people.
           </p>
         </div>
 
-        {/* Horizontal Scrolling Plaques */}
+        {/* Horizontal Scrolling Animated Plaques */}
         <div className="mb-8">
           <div 
             ref={scrollContainerRef}
@@ -334,11 +351,11 @@ export default function ThreeDGoldenPlaqueTestimonials() {
               msOverflowStyle: 'none'
             }}
           >
-            {testimonials.map((testimonial, index) => renderPlaque(testimonial, index))}
+            {testimonials.map((testimonial, index) => renderAnimatedPlaque(testimonial, index))}
           </div>
         </div>
 
-        {/* Navigation Dots */}
+        {/* Enhanced Navigation Dots */}
         <div className="flex justify-center space-x-3 mb-16">
           {testimonials.map((_, index) => {
             const dotMetalType = getMetalType(testimonials[index].rating);
@@ -348,9 +365,15 @@ export default function ThreeDGoldenPlaqueTestimonials() {
               <button
                 key={index}
                 onClick={() => {
-                  setCurrentIndex(index);
+                  setIsFlipping(true);
+                  setIsMoving(true);
+                  setTimeout(() => {
+                    setCurrentIndex(index);
+                    setIsFlipping(false);
+                    setIsMoving(false);
+                  }, 500);
                 }}
-                className={`w-4 h-4 rounded-full transition-all duration-300 shadow-lg ${
+                className={`w-4 h-4 rounded-full transition-all duration-300 shadow-lg hover:scale-125 ${
                   index === currentIndex 
                     ? `bg-gradient-to-r ${dotColors.primary} scale-125 ${dotColors.shadow}` 
                     : 'bg-stone-300 hover:bg-stone-400'
@@ -361,12 +384,25 @@ export default function ThreeDGoldenPlaqueTestimonials() {
           })}
         </div>
 
-
         <style jsx>{`
-          @keyframes revolve {
-            0% { transform: rotateY(0deg); }
-            50% { transform: rotateY(90deg); }
-            100% { transform: rotateY(0deg); }
+          @keyframes starTwinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+          }
+          
+          @keyframes plaqueFloat {
+            0%, 100% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
+            50% { transform: translateY(-10px) rotateX(8deg) rotateY(-8deg); }
+          }
+          
+          @keyframes plaqueGlow {
+            0%, 100% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+            50% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 215, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+          }
+          
+          @keyframes quoteFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
           }
           
           .perspective-1000 {

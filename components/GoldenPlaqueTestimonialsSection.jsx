@@ -76,7 +76,7 @@ export default function GoldenPlaqueTestimonialsSection() {
     }
   ];
 
-  // Auto-revolve testimonials every 6 seconds
+  // Auto-revolve testimonials every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIsRevolving(true);
@@ -84,7 +84,7 @@ export default function GoldenPlaqueTestimonialsSection() {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
         setIsRevolving(false);
       }, 800); // Half of the revolve animation duration
-    }, 6000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -92,25 +92,40 @@ export default function GoldenPlaqueTestimonialsSection() {
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => {
       const starIndex = i + 1;
-      let starClass = 'text-gray-300';
-      
-      if (starIndex <= Math.floor(rating)) {
-        // Full star
-        starClass = 'text-yellow-500';
-      } else if (starIndex === Math.ceil(rating) && rating % 1 !== 0) {
-        // Half star for ratings like 4.5
-        starClass = 'text-yellow-500';
-      }
+      const isFullStar = starIndex <= Math.floor(rating);
+      const isPartialStar = starIndex === Math.ceil(rating) && rating % 1 !== 0;
+      const partialFill = isPartialStar ? (rating % 1) : 1;
       
       return (
-        <svg
-          key={i}
-          className={`w-6 h-6 ${starClass} drop-shadow-sm`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
+        <div key={i} className="relative w-6 h-6">
+          {/* Background star (always gray) */}
+          <div className="w-6 h-6 bg-gray-300 rounded-sm absolute inset-0 opacity-30"></div>
+          
+          {/* Golden star image (full or partial) */}
+          {(isFullStar || isPartialStar) && (
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src="/images/gldstr.jpeg"
+                alt="Golden star"
+                className="w-6 h-6 absolute inset-0 object-cover"
+                style={{
+                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+                  transform: 'perspective(1000px) rotateX(15deg) rotateY(5deg) scale(1.1)'
+                }}
+              />
+              
+              {/* Right-justified partial star mask */}
+              {isPartialStar && (
+                <div 
+                  className="absolute inset-0 bg-white"
+                  style={{
+                    clipPath: `polygon(${partialFill * 100}% 0, 100% 0, 100% 100%, ${partialFill * 100}% 100%)`
+                  }}
+                ></div>
+              )}
+            </div>
+          )}
+        </div>
       );
     });
   };
@@ -173,7 +188,7 @@ export default function GoldenPlaqueTestimonialsSection() {
                     {/* Plaque Content */}
                     <div className="relative z-10 text-center">
                       {/* Rating */}
-                      <div className="flex items-center justify-center mb-6">
+                      <div className="flex items-center justify-end mb-6">
                         {renderStars(currentTestimonial.rating)}
                         <span className="ml-3 text-lg font-bold text-amber-900">({currentTestimonial.rating})</span>
                       </div>

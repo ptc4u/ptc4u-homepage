@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import ProcessSection from '../components/ProcessSection';
-import TestimonialsSection from '../components/TestimonialsSection';
+import FlippingTestimonialsSection from '../components/FlippingTestimonialsSection';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
@@ -140,7 +140,7 @@ export default function Home() {
           <div className="section-divider"></div>
           
           <div id="testimonials">
-            <TestimonialsSection />
+            <FlippingTestimonialsSection />
           </div>
           
           {/* Divider line after testimonials */}

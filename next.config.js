@@ -7,7 +7,8 @@
  */
 const nextConfig = {
   reactStrictMode: true,
-  // Layout optimization deployment
+  // Layout optimization deployment - v2.0
+  // Force production deployment with proper padding
 };
 
 module.exports = nextConfig;

@@ -9,7 +9,7 @@ export default function PhilosophySection() {
       letter: "R",
       title: "Reflect",
       description: "When was the last time you paused to think about you – not deadlines, not others' expectations, but your own journey? Reflecting helps you uncover what's working, what's draining you, and what's quietly holding you back. Without reflection, you're just running faster on the same treadmill. With reflection, you finally see the path to the life and career you truly want.",
-      icon: "🔍",
+      icon: "",
       details: [
         "Pause and think about your own journey",
         "Uncover what's working and what's draining you",
@@ -21,7 +21,7 @@ export default function PhilosophySection() {
       letter: "R",
       title: "Reboot",
       description: "Imagine pressing a reset button on the stress, the chaos, and the self-doubt. Rebooting doesn't mean starting over – it means clearing the clutter, shifting your energy, and creating space for new growth. It's your chance to recharge, to breathe again, and to approach challenges with clarity instead of overwhelm.",
-      icon: "🔄",
+      icon: "",
       details: [
         "Press reset on stress, chaos, and self-doubt",
         "Clear the clutter and shift your energy",
@@ -33,7 +33,7 @@ export default function PhilosophySection() {
       letter: "R",
       title: "Reinvent",
       description: "This is where real transformation happens. Reinventing means taking control of your story – shaping your career, your leadership, and your life into what you've always envisioned. It's not about becoming someone else; it's about becoming the best version of you. Reinventing is where you stop surviving… and start thriving.",
-      icon: "🚀",
+      icon: "",
       details: [
         "Take control of your story",
         "Shape your career, leadership, and life",
@@ -44,7 +44,7 @@ export default function PhilosophySection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-emerald-50 min-h-screen" id="philosophy">
+    <section className="py-20 mt-8 bg-gradient-to-br from-purple-50 via-white to-emerald-50 min-h-screen" id="philosophy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">

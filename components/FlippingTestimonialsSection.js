@@ -135,7 +135,7 @@ export default function FlippingTestimonialsSection() {
     <section className="py-20 bg-white" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 pt-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
             Client <span className="text-black">Testimonials</span>
           </h2>

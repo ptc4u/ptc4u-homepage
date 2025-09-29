@@ -16,7 +16,7 @@ export default function MobileDropdown() {
   const navigationItems = [
     { id: 'about-coach', label: 'About Your Coach' },
     { id: 'testimonials', label: 'Client Testimonials' },
-    { id: 'blogs', label: 'Blogs' },
+    { id: 'blogs', label: 'Articles & Insights' },
     { id: 'philosophy', label: "PTC's 3R Pillars" }
   ];
 
@@ -94,7 +94,7 @@ export default function MobileDropdown() {
       {/* Dropdown Toggle Button */}
       <button
         onClick={toggleDropdown}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 button-text-white"
       >
         {isOpen ? (
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -3,22 +3,13 @@ import { useState } from 'react';
 /**
  * Blogs section component for Pinnacle Thrive Coaching.
  *
- * Features grid layout, categories, search bar, and preview of latest blogs.
+ * Features grid layout, search bar, and preview of latest blogs.
  * Shows 6 latest articles with intro parts and clickable headings for full content.
  */
 export default function BlogsSection() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedArticle, setSelectedArticle] = useState(null);
 
-  const categories = [
-    { id: 'all', name: 'All Categories' },
-    { id: 'leadership', name: 'Leadership' },
-    { id: 'career', name: 'Career Development' },
-    { id: 'personal-growth', name: 'Personal Growth' },
-    { id: 'coaching', name: 'Coaching Insights' },
-    { id: 'transformation', name: 'Transformation' }
-  ];
 
   // APPROVED WordPress content (only approved content appears to visitors)
   const wordpressContent = [
@@ -188,8 +179,7 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
   const filteredBlogs = latestArticles.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || blog.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    return matchesSearch;
   });
 
   const handleArticleClick = (article) => {
@@ -201,12 +191,12 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
   };
 
   return (
-    <section className="py-8 bg-white rounded-2xl shadow-lg" id="blogs">
+    <section className="py-8 mt-12 bg-white rounded-2xl shadow-lg" id="blogs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Fixed spacing to avoid navigation overlap */}
-        <div className="text-center mb-8 pt-4">
+        <div className="text-center mb-8 pt-16 sm:pt-20 lg:pt-24">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4 font-helvetica">
-            PTC Blogs and Insights
+            Articles & Insights
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
             Discover valuable insights, practical strategies, and transformative perspectives
@@ -233,22 +223,6 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
               </div>
             </div>
 
-            {/* Category Filter - Right aligned */}
-            <div className="flex flex-wrap gap-2 lg:flex-nowrap">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                    selectedCategory === category.id
-                      ? 'bg-purple-600 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
           </div>
           
           {/* Results Counter */}
@@ -256,7 +230,6 @@ Remember, career growth is not always linear. Sometimes lateral moves or skill-b
             <span className="text-sm text-gray-600">
               Showing {filteredBlogs.length} of {latestArticles.length} articles
               {searchTerm && ` matching "${searchTerm}"`}
-              {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
             </span>
           </div>
         </div>

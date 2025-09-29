@@ -20,8 +20,8 @@ export default function AdditionalMarqueeSection() {
   ];
 
   return (
-    <div className="fixed left-4 top-1/2 transform translate-y-64 z-40 hidden lg:block">
-      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-r-2xl shadow-2xl border-r-4 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '260px', height: '50px' }}>
+    <div className="fixed left-8 top-1/2 transform translate-y-64 z-40 hidden lg:block">
+      <div className="bg-gradient-to-b from-purple-400 to-purple-500 rounded-2xl shadow-2xl border-2 border-purple-600 overflow-hidden backdrop-blur-sm" style={{ width: '260px', height: '50px' }}>
         {/* Horizontal Scrolling Content */}
         <div className="relative h-full overflow-hidden flex items-center justify-center">
           <div className="flex items-center animate-horizontal-marquee">

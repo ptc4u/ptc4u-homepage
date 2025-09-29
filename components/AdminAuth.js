@@ -61,7 +61,7 @@ export default function AdminAuth({ onAuthenticated }) {
           <p className="text-gray-600 mb-6">You have access to the content management system.</p>
           <button
             onClick={handleLogout}
-            className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+            className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors button-text-white"
           >
             Logout
           </button>
@@ -107,7 +107,7 @@ export default function AdminAuth({ onAuthenticated }) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+          className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 button-text-white"
         >
           {isLoading ? 'Authenticating...' : 'Access Content Manager'}
         </button>

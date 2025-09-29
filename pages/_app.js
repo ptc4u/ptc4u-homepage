@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import ImageWatermark from '../components/ImageWatermark';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 /**
  * The custom App component initializes pages with global styles and watermark.
@@ -7,7 +8,7 @@ import ImageWatermark from '../components/ImageWatermark';
  */
 export default function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <ErrorBoundary>
       {/* 
         Watermark Options:
         1. Use SVG design: <ImageWatermark />
@@ -17,6 +18,6 @@ export default function MyApp({ Component, pageProps }) {
       */}
       <ImageWatermark imageSrc="/images/watermark.png" opacity={0.15} />
       <Component {...pageProps} />
-    </>
+    </ErrorBoundary>
   );
 }

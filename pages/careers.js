@@ -2,7 +2,6 @@ import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
-import PTCFactsSection from '../components/PTCFactsSection';
 import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
 import JobsSection from '../components/JobsSection';
 import QuickActionsSection from '../components/QuickActionsSection';
@@ -26,9 +25,8 @@ export default function CareersPage() {
         <NavBar />
         <MarqueeSection />
         <AdditionalMarqueeSection />
-        <PTCFactsSection />
         <GlobalGoogleCalendarWidget />
-        <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto flex items-center justify-center" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow pt-36 sm:pt-40 lg:pt-44 px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto flex items-center justify-center" style={{ height: 'calc(100vh - 80px)' }}>
           <JobsSection />
         </main>
         

@@ -8,14 +8,14 @@ export default function ToolsSection() {
     {
       title: "Goal Setting Template",
       description: "Structured template to help you set clear, achievable goals with measurable milestones.",
-      icon: "🎯",
+      icon: "",
       category: "Planning",
       downloadUrl: "#"
     },
     {
       title: "Leadership Assessment",
       description: "Comprehensive self-assessment tool to evaluate your leadership strengths and areas for growth.",
-      icon: "👑",
+      icon: "",
       category: "Leadership",
       downloadUrl: "#"
     },
@@ -40,7 +40,7 @@ export default function ToolsSection() {
     {
       title: "Career Planning Workbook",
       description: "Step-by-step workbook to plan your career path and identify growth opportunities.",
-      icon: "📚",
+      icon: "",
       category: "Career",
       downloadUrl: "#"
     }

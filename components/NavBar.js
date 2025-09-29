@@ -96,7 +96,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Left Navigation Tabs */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -127,7 +127,7 @@ export default function NavBar() {
               }}
               className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
-              Blogs
+              Articles & Insights
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button
@@ -168,7 +168,7 @@ export default function NavBar() {
                 <div className="text-sm sm:text-lg lg:text-2xl font-bold text-black">
                   <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
                 </div>
-                <div className="text-xs text-black font-semibold mb-1">Reflect. Reboot. Reinvent</div>
+                <div className="text-sm font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
                 <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
               </div>
             </div>
@@ -177,8 +177,8 @@ export default function NavBar() {
             <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
           </div>
 
-          {/* Right Navigation Tabs - Hidden on mobile */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Right Navigation Tabs */}
+          <div className="flex items-center space-x-4">
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -215,6 +215,13 @@ export default function NavBar() {
               {contactDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-purple-200/50 py-2 z-50">
                   <a
+                    href="/request-forms"
+                    className="block px-4 py-2 text-sm text-black hover:bg-purple-50 hover:text-purple-600 transition-colors"
+                    onClick={() => setContactDropdownOpen(false)}
+                  >
+                    Request Forms
+                  </a>
+                  <a
                     href="mailto:ask@ptc4u.com"
                     className="block px-4 py-2 text-sm text-black hover:bg-purple-50 hover:text-purple-600 transition-colors"
                   >
@@ -238,7 +245,16 @@ export default function NavBar() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                navigateToSection('journey-form', '/journey');
+                console.log('NavBar: Start Your Journey button clicked');
+                // Emit event to show journey options
+                const event = new CustomEvent('showJourneyOptions');
+                window.dispatchEvent(event);
+                console.log('NavBar: showJourneyOptions event dispatched');
+                // Scroll to journey options section
+                const journeySection = document.getElementById('journey-options');
+                if (journeySection) {
+                  journeySection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               className="bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-6 py-2 rounded-xl font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 button-text-white min-w-[180px]"
             >
@@ -306,7 +322,7 @@ export default function NavBar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="sm:hidden">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-purple-600 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
@@ -327,7 +343,7 @@ export default function NavBar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden">
+          <div className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-neutral-200">
               <button
                 onClick={(e) => {
@@ -359,7 +375,7 @@ export default function NavBar() {
                 }}
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
               >
-                Blogs
+                Articles & Insights
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
@@ -373,6 +389,14 @@ export default function NavBar() {
                 PTC's 3R Pillars
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
+              <a
+                href="/request-forms"
+                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Request Forms
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </a>
               <a
                 href="mailto:ask@ptc4u.com"
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"

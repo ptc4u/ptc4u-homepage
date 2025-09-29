@@ -42,7 +42,7 @@ export default function AboutCoachSection() {
     <section className="py-8 mt-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center">
+        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center mt-16">
           About Your <span className="text-black">Coach</span>
         </h2>
         

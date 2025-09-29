@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Test</title>
+</head>
+<body>
+    <h1>Button Test Page</h1>
+    
+    <div>
+        <h2>Test Journey Options</h2>
+        <button onclick="testJourneyOption('discovery')">Discovery Session</button>
+        <button onclick="testJourneyOption('essentials')">PTC Essentials</button>
+        <button onclick="testJourneyOption('pro')">PTC Pro</button>
+        <button onclick="testJourneyOption('unsure')">Unsure</button>
+        <button onclick="testJourneyOption('workshop')">Workshop Request</button>
+        <button onclick="testJourneyOption('partnership')">Partnership Request</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function testJourneyOption(option) {
+            console.log('Testing option:', option);
+            document.getElementById('result').innerHTML = 'Selected: ' + option;
+            
+            // Test the event system
+            const event = new CustomEvent('selectJourneyOption', { detail: option });
+            window.dispatchEvent(event);
+        }
+
+        // Listen for the event
+        window.addEventListener('selectJourneyOption', function(event) {
+            console.log('Event received:', event.detail);
+            document.getElementById('result').innerHTML += '<br>Event received: ' + event.detail;
+        });
+    </script>
+</body>
+</html>

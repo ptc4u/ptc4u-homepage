@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { validateFormData, createMailtoLink, openMailtoWithFallback } from './FormUtils';
 
 /**
  * Contact form component for Pinnacle Thrive Coaching.
@@ -28,6 +29,7 @@ export default function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
   const [showCallbackForm, setShowCallbackForm] = useState(false);
 
   const handleInputChange = (e) => {
@@ -86,10 +88,54 @@ Please call me back at your convenience. Thank you!`;
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    // Clear previous validation errors
+    setValidationErrors({});
+    
+    // Validate form data
+    const validationRules = {
+      firstName: { required: 'First name is required' },
+      lastName: { required: 'Last name is required' },
+      email: { required: 'Email is required', email: true },
+      message: { required: 'Message is required' }
+    };
+    
+    const errors = validateFormData(formData, validationRules);
+    
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
       setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Create email content
+      const emailContent = `
+New Contact Form Submission
+
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Interest: ${formData.service}
+Preferred Contact: ${formData.preferredContact}
+Timezone: ${formData.timezone}
+Urgency: ${formData.urgency}
+Message: ${formData.message}
+
+---
+This message was submitted through the PTC website.
+      `;
+
+      // Create mailto link with fallback
+      const subject = 'Contact Form - ' + formData.firstName + ' ' + formData.lastName;
+      const mailtoLink = createMailtoLink('ask@ptc4u.com', subject, emailContent);
+      
+      // Open email client with fallback
+      openMailtoWithFallback(mailtoLink, emailContent);
+      
+      // Set success status
       setSubmitStatus('success');
+      
+      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
@@ -101,7 +147,12 @@ Please call me back at your convenience. Thank you!`;
         timezone: '',
         urgency: 'medium'
       });
-    }, 2000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -153,7 +204,7 @@ Please call me back at your convenience. Thank you!`;
       <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white p-12 rounded-2xl shadow-lg border border-emerald-200/50">
-            <div className="text-6xl mb-6">🎉</div>
+            <div className="text-6xl mb-6"></div>
             <h2 className="text-3xl font-bold text-black mb-4">Thank You!</h2>
             <p className="text-lg text-black mb-8">
               Your message has been sent successfully. We'll get back to you within 24 hours
@@ -161,7 +212,7 @@ Please call me back at your convenience. Thank you!`;
             </p>
             <button
               onClick={() => setSubmitStatus(null)}
-              className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
             >
               Send Another Message
             </button>
@@ -171,8 +222,30 @@ Please call me back at your convenience. Thank you!`;
     );
   }
 
+  if (submitStatus === 'error') {
+    return (
+      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white p-12 rounded-2xl shadow-lg border border-red-200/50">
+            <div className="text-6xl mb-6">❌</div>
+            <h2 className="text-3xl font-bold text-black mb-4">Submission Error</h2>
+            <p className="text-lg text-black mb-8">
+              There was an error submitting your request. Please check your information and try again, or contact us directly.
+            </p>
+            <button
+              onClick={() => setSubmitStatus(null)}
+              className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="py-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact">
+    <section className="py-8 mt-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
@@ -201,9 +274,14 @@ Please call me back at your convenience. Thank you!`;
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${
+                    validationErrors.firstName ? 'border-red-500' : 'border-slate-300'
+                  }`}
                   placeholder="Your first name"
                 />
+                {validationErrors.firstName && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.firstName}</p>
+                )}
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-black mb-2">
@@ -216,9 +294,14 @@ Please call me back at your convenience. Thank you!`;
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${
+                    validationErrors.lastName ? 'border-red-500' : 'border-slate-300'
+                  }`}
                   placeholder="Your last name"
                 />
+                {validationErrors.lastName && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.lastName}</p>
+                )}
               </div>
             </div>
 
@@ -235,9 +318,14 @@ Please call me back at your convenience. Thank you!`;
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${
+                    validationErrors.email ? 'border-red-500' : 'border-slate-300'
+                  }`}
                   placeholder="your.email@example.com"
                 />
+                {validationErrors.email && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
+                )}
               </div>
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
@@ -324,9 +412,14 @@ Please call me back at your convenience. Thank you!`;
                 onChange={handleInputChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${
+                  validationErrors.message ? 'border-red-500' : 'border-slate-300'
+                }`}
                 placeholder="Describe what you're looking to achieve and any challenges you're facing..."
               />
+              {validationErrors.message && (
+                <p className="mt-1 text-sm text-red-600">{validationErrors.message}</p>
+              )}
             </div>
 
             {/* Preferred Contact Method */}
@@ -365,7 +458,7 @@ Please call me back at your convenience. Thank you!`;
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed button-text-white"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
@@ -402,9 +495,9 @@ Please call me back at your convenience. Thank you!`;
             {!showCallbackForm ? (
               <button
                 onClick={() => setShowCallbackForm(true)}
-                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 button-text-white"
               >
-                📞 Request Call Back
+                Request Call Back
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -476,9 +569,9 @@ Please call me back at your convenience. Thank you!`;
                   <div className="flex space-x-3 pt-2">
                     <button
                       type="submit"
-                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 button-text-white"
                     >
-                      📱 Send via WhatsApp
+                      Send via WhatsApp
                     </button>
                     <button
                       type="button"

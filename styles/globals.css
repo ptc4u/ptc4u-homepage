@@ -37,8 +37,57 @@ body {
 }
 
 /* Exception for button text - white color */
-.button-text-white {
+.button-text-white,
+button.button-text-white,
+button .button-text-white {
   color: white !important;
+}
+
+/* Force white text on all buttons with colored backgrounds */
+button[class*="bg-"],
+button[class*="from-"],
+button[class*="to-"] {
+  color: white !important;
+}
+
+/* Ensure navigation menu items are visible with black text */
+nav button {
+  color: black !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+
+/* Override any white text on navigation buttons */
+nav button:not(.button-text-white) {
+  color: black !important;
+}
+
+/* Ensure navigation links are black */
+nav a {
+  color: black !important;
+}
+
+/* Force black text on all navigation elements */
+nav .text-black,
+nav button.text-black,
+nav a.text-black {
+  color: black !important;
+}
+
+/* Override any global white text rules for navigation */
+nav * {
+  color: black !important;
+}
+
+/* Exception: Keep button-text-white class for colored buttons */
+nav .button-text-white {
+  color: white !important;
+}
+
+/* Exception for Reflect. Reboot. Reinvent text - blue color */
+.reflect-text {
+  color: #1e40af !important;
 }
 
 /* Heading styles - Helvetica, Size 14-18, black color */

@@ -18,7 +18,10 @@ import QuickActionsSection from '../components/QuickActionsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
 import BlogsSection from '../components/BlogsSection';
 import PhilosophySection from '../components/PhilosophySection';
+import dynamic from 'next/dynamic';
+
 import JourneyFormSection from '../components/JourneyFormSection';
+import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
 import MobileDropdown from '../components/MobileDropdown';
 import useDeviceDetection from '../components/useDeviceDetection';
@@ -87,13 +90,16 @@ export default function Home() {
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto pt-24 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-72 lg:pr-96 pb-24 overflow-y-auto pt-24 sm:pt-28 lg:pt-32 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>
           
           {/* Divider line after hero */}
           <div className="section-divider"></div>
+          
+          {/* Journey Options Section */}
+          <JourneyOptionsSection />
           
           {/* QuickActionsSection is now fixed at bottom of page */}
           

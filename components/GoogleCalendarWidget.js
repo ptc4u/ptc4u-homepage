@@ -65,7 +65,7 @@ const GoogleCalendarWidget = () => {
     return (
       <div className="w-full h-full bg-white flex items-center justify-center p-4">
         <div className="text-center">
-          <div className="text-blue-500 mb-2">📅</div>
+          <div className="text-blue-500 mb-2"></div>
           <p className="text-sm text-gray-600 mb-2">Schedule Your Session</p>
           <p className="text-xs text-gray-500 mb-3">Click below to view our calendar</p>
           <a 

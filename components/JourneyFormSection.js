@@ -13,8 +13,8 @@ export default function JourneyFormSection() {
   };
 
   return (
-    <section className="pt-48 sm:pt-52 lg:pt-56 pb-6 bg-gradient-to-br from-purple-50 via-white to-emerald-50 rounded-2xl shadow-lg" id="journey">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="pt-48 sm:pt-52 lg:pt-56 pb-6 bg-gradient-to-br from-purple-50 via-white to-emerald-50 rounded-2xl shadow-lg flex items-center justify-center min-h-screen" id="journey">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-3">
             Choose Your <span className="text-black">Journey</span>

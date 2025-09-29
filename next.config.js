@@ -7,8 +7,9 @@
  */
 const nextConfig = {
   reactStrictMode: true,
-  // Layout optimization deployment - v2.0
+  // Layout optimization deployment - v3.0
   // Force production deployment with proper padding
+  // Ensure ptc4u.com matches localhost:3000 exactly
 };
 
 module.exports = nextConfig;

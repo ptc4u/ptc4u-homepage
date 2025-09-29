@@ -25,7 +25,7 @@ export default function ContactPage() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
-        <main className="flex-grow pt-24 sm:pt-28 lg:pt-32 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-16 pb-24 overflow-y-auto flex items-center justify-center" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-16 pb-24 overflow-y-auto flex items-center justify-center" style={{ height: 'calc(100vh - 80px)' }}>
           <ContactForm />
         </main>
         

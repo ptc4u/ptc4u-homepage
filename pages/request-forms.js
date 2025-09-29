@@ -45,7 +45,7 @@ export default function RequestFormsPage() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         
-        <main className="flex-grow pt-24 sm:pt-28 lg:pt-32 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-16 pb-24 overflow-y-auto">
+        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-16 pb-24 overflow-y-auto">
           <div className="max-w-7xl mx-auto">
             {!activeForm ? (
               // Form Selection Screen

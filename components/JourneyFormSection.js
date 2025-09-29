@@ -13,7 +13,7 @@ export default function JourneyFormSection() {
   };
 
   return (
-    <section className="pt-24 sm:pt-28 lg:pt-32 pb-6 bg-gradient-to-br from-purple-50 via-white to-emerald-50 rounded-2xl shadow-lg" id="journey">
+    <section className="pt-32 sm:pt-36 lg:pt-40 pb-6 bg-gradient-to-br from-purple-50 via-white to-emerald-50 rounded-2xl shadow-lg" id="journey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-3">

@@ -7,6 +7,7 @@
  */
 const nextConfig = {
   reactStrictMode: true,
+  // Layout optimization deployment
 };
 
 module.exports = nextConfig;

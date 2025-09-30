@@ -25,7 +25,7 @@ export default function PhilosophyPage() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
-        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-16 pb-24">
+        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-80 pb-24">
           <PhilosophySection />
         </main>
         

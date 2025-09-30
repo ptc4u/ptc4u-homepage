@@ -7,7 +7,7 @@ import StableMonthlyCalendar from './StableMonthlyCalendar';
  */
 export default function GlobalGoogleCalendarWidget() {
   return (
-    <div className="fixed right-4 top-1/3 transform -translate-y-1/4 z-50 hidden lg:block bg-white rounded-2xl shadow-2xl p-2">
+    <div className="fixed right-4 top-1/3 transform -translate-y-1/4 z-50 hidden lg:block bg-white rounded-2xl shadow-2xl p-2 max-w-sm" style={{ maxWidth: '320px', maxHeight: '400px' }}>
       {/* Booking Tag */}
       <div className="mb-2 text-center">
         <span className="bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 min-w-[120px] sm:min-w-[140px] group button-text-white">

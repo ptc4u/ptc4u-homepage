@@ -366,3 +366,27 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 !important;
   visibility: hidden !important;
 }
+
+/* Fixed calendar widget positioning fixes */
+.fixed.right-4 {
+  right: 1rem !important;
+  max-width: 320px !important;
+  max-height: 400px !important;
+  overflow: hidden !important;
+}
+
+/* Ensure main content doesn't overlap with fixed widgets */
+.lg\:pr-80 {
+  padding-right: 20rem !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .lg\:pr-80 {
+    padding-right: 1rem !important;
+  }
+  
+  .fixed.right-4 {
+    display: none !important;
+  }
+}

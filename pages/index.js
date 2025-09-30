@@ -91,7 +91,7 @@ export default function Home() {
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-80 pb-24 overflow-y-auto pt-16 sm:pt-20 lg:pt-24 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-16 sm:pt-20 lg:pt-24 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
           <div id="hero">
             <HeroSection />
           </div>

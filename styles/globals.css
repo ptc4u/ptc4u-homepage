@@ -376,13 +376,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ensure main content doesn't overlap with fixed widgets */
-.lg\:pr-80 {
-  padding-right: 20rem !important;
+.lg\:pr-20 {
+  padding-right: 5rem !important;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 1024px) {
-  .lg\:pr-80 {
+  .lg\:pr-20 {
     padding-right: 1rem !important;
   }
   

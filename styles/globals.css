@@ -30,6 +30,14 @@ body {
   color: black !important;
 }
 
+/* Navbar exceptions - allow custom colors */
+nav button,
+nav div,
+nav span,
+nav a {
+  color: inherit !important;
+}
+
 /* Exception for Pinnacle text - Tan Pearl font and deep purple */
 .pinnacle-text {
   font-family: 'Playfair Display', serif !important;
@@ -95,6 +103,25 @@ nav * {
 /* Exception: Keep button-text-white class for colored buttons */
 nav .button-text-white {
   color: white !important;
+}
+
+/* Force navigation button text to be visible and black */
+nav button:not(.button-text-white) {
+  color: black !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure all navigation text is black and visible */
+nav button,
+nav a,
+nav span,
+nav div {
+  color: black !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Exception for Reflect. Reboot. Reinvent text - blue color */

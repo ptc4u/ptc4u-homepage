@@ -25,15 +25,12 @@ import JourneyFormSection from '../components/JourneyFormSection';
 import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
 import MobileDropdown from '../components/MobileDropdown';
-import useDeviceDetection from '../components/useDeviceDetection';
-
 /**
  * The home page of the Pinnacle Thrive Coaching website. It stitches together
  * several composable sections and injects appropriate metadata via the
  * Head component. Each section is defined in the components folder.
  */
 export default function Home() {
-  const { isMobile, isLoading } = useDeviceDetection();
   const router = useRouter();
   
   // Removed welcome page redirect - landing page loads directly
@@ -91,7 +88,7 @@ export default function Home() {
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-16 sm:pt-20 lg:pt-24 flex flex-col" style={{ height: 'calc(100vh - 80px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-32 sm:pt-36 lg:pt-40 flex flex-col" style={{ height: 'calc(100vh - 120px)' }}>
           <div id="hero">
             <HeroSection />
           </div>
@@ -173,8 +170,8 @@ export default function Home() {
         
         <Footer />
         
-        {/* Mobile Dropdown - Only show on mobile devices */}
-        {!isLoading && isMobile && <MobileDropdown />}
+        {/* Mobile Dropdown - Temporarily disabled to fix hydration */}
+        {/* <MobileDropdown /> */}
       </div>
     </>
   );

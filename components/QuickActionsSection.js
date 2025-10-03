@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import useDeviceDetection from './useDeviceDetection';
+import { useState, useEffect } from 'react';
 import DiscoverySessionForm from './DiscoverySessionForm';
 import PTCEssentialsForm from './PTCEssentialsForm';
 
@@ -10,7 +9,18 @@ import PTCEssentialsForm from './PTCEssentialsForm';
  */
 export default function QuickActionsSection() {
   const [selectedAction, setSelectedAction] = useState(null);
-  const { isMobile, isLoading } = useDeviceDetection();
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsLoading(false);
+    };
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   const actions = [
     {

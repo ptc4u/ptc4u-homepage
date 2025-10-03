@@ -79,7 +79,7 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-center h-24 sm:h-28 lg:h-32">
+        <div className="flex items-center justify-center h-28 sm:h-32 lg:h-36">
           {/* Centered Navigation Container */}
           <div className="flex items-center space-x-12 lg:space-x-20">
             {/* Left Navigation Items */}
@@ -146,7 +146,7 @@ export default function NavBar() {
             </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-20 sm:h-24 lg:h-28 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
             
             {/* Center Logo & Company Name */}
             <div
@@ -161,25 +161,25 @@ export default function NavBar() {
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-10 sm:h-12 lg:h-14 w-auto object-contain rounded-lg mr-1"
+                className="h-14 sm:h-16 lg:h-18 w-auto object-contain rounded-lg mr-2"
               />
               <div className="text-center flex flex-col justify-center pt-2">
-                <div className="text-base sm:text-lg lg:text-xl font-bold mb-1">
-                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-2xl text-purple-800 font-semibold">Pinnacle</span>
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
+                  <span className="font-tan-pearl text-xl sm:text-2xl lg:text-3xl text-purple-800 font-semibold">Pinnacle</span>
                 </div>
-                <div className="text-base sm:text-lg lg:text-xl font-bold mb-1">
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
                   <span className="text-black font-semibold">Thrive Coaching</span>
                 </div>
-                <div className="text-sm font-semibold mb-1 reflect-text text-black whitespace-nowrap">Reflect. Reboot. Reinvent</div>
-                <div className="text-xs text-black font-medium">Transform Your Life & Career</div>
+                <div className="text-base font-semibold mb-1 reflect-text text-black whitespace-nowrap">Reflect. Reboot. Reinvent</div>
+                <div className="text-sm text-black font-medium">Transform Your Life & Career</div>
               </div>
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-20 sm:h-24 lg:h-28 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
 
             {/* Right Navigation Items */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-3">
             {/* Contact PTC Dropdown */}
             <div className="relative">
               <button

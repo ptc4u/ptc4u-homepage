@@ -18,7 +18,7 @@ export default function MarqueeSection() {
   ];
 
   return (
-    <div className="fixed left-8 top-1/3 transform -translate-y-1/4 z-40 hidden lg:block">
+    <div className="fixed left-6 top-1/3 transform -translate-y-1/4 z-40 hidden lg:block">
       <div className="bg-gradient-to-b from-blue-400 to-blue-500 rounded-r-2xl shadow-2xl border-r-4 border-blue-600 overflow-hidden backdrop-blur-sm" style={{ width: '260px', height: '460px' }}>
         {/* Header */}
         <div className="bg-blue-600 px-4 py-3 text-center border-b border-blue-700">

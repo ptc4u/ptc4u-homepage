@@ -17,7 +17,7 @@ export default function HeroSection() {
         <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-blue-400/6 to-purple-400/6 rounded-full blur-2xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 py-20 lg:py-28">
+      <div className="relative max-w-7xl mx-auto px-4 py-16 lg:py-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge removed as requested */}
 

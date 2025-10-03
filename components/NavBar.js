@@ -81,7 +81,7 @@ export default function NavBar() {
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-center h-28 sm:h-32 lg:h-36">
           {/* Centered Navigation Container */}
-          <div className="flex items-center space-x-12 lg:space-x-20">
+          <div className="flex items-center justify-center space-x-8 lg:space-x-16 w-full max-w-7xl">
             {/* Left Navigation Items */}
             <div className="flex items-center space-x-6">
               <button
@@ -146,24 +146,24 @@ export default function NavBar() {
             </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm flex-shrink-0"></div>
             
-            {/* Center Logo & Company Name */}
+            {/* Center Logo & Company Name - Centered between vertical lines */}
             <div
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 navigateToHomepage();
               }}
-              className="flex items-center space-x-6 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
+              className="flex items-center justify-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-3 -m-3 min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] flex-1"
               style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-14 sm:h-16 lg:h-18 w-auto object-contain rounded-lg mr-2"
+                className="h-16 sm:h-18 lg:h-20 w-auto object-contain rounded-lg flex-shrink-0"
               />
-              <div className="text-center flex flex-col justify-center pt-2">
+              <div className="text-center flex flex-col justify-center items-center flex-1">
                 <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
                   <span className="font-tan-pearl text-xl sm:text-2xl lg:text-3xl text-purple-800 font-semibold">Pinnacle</span>
                 </div>
@@ -176,7 +176,7 @@ export default function NavBar() {
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm flex-shrink-0"></div>
 
             {/* Right Navigation Items */}
             <div className="flex items-center space-x-3">

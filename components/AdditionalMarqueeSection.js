@@ -16,7 +16,7 @@ export default function AdditionalMarqueeSection() {
     "Develop emotional intelligence",
     "Accelerate career growth",
     "Live with purpose",
-    "PTC Facts: 103 clients, 95% success rate, 1000 coaching hours, 4.9 Client Rating"
+    "PTC Facts: 103 clients, 95% success rate, 1000 coaching hours, 4.65 Client Rating"
   ];
 
   return (

@@ -25,8 +25,10 @@ export default function PhilosophyPage() {
         <MarqueeSection />
         <AdditionalMarqueeSection />
         <GlobalGoogleCalendarWidget />
-        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24">
-          <PhilosophySection />
+        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center" style={{ height: 'calc(100vh - 80px)' }}>
+          <div className="max-w-7xl mx-auto w-full">
+            <PhilosophySection />
+          </div>
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

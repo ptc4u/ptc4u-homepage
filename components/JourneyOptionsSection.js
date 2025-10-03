@@ -10,6 +10,20 @@ export default function JourneyOptionsSection() {
   const [showOptions, setShowOptions] = useState(false);
   const router = useRouter();
 
+  // Check for URL parameter to automatically show journey options
+  useEffect(() => {
+    if (router.query.showJourney === 'true') {
+      setShowOptions(true);
+      // Scroll to the journey options section
+      setTimeout(() => {
+        const journeySection = document.getElementById('journey-options');
+        if (journeySection) {
+          journeySection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [router.query.showJourney]);
+
   const journeyOptions = [
     {
       id: 'discovery',

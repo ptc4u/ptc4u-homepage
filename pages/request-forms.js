@@ -51,6 +51,17 @@ export default function RequestFormsPage() {
               // Form Selection Screen
               <section className="py-16 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg">
                 <div className="text-center mb-10">
+                  <div className="mb-6">
+                    <a
+                      href="/?showJourney=true"
+                      className="inline-flex items-center text-black hover:text-black font-medium transition-colors"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      Back to Start Your Journey
+                    </a>
+                  </div>
                   <h1 className="text-3xl lg:text-4xl font-bold text-black mb-4">
                     Choose Your <span className="text-black">Coaching Journey</span>
                   </h1>

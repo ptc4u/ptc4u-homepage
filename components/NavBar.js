@@ -94,16 +94,17 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
-          {/* Left Navigation Tabs */}
-          <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-center h-16 sm:h-20 lg:h-24">
+          {/* All Navigation Elements - Centered */}
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Left Navigation Items */}
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 navigateToSection('about-coach', '/about');
               }}
-              className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               About Your Coach
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
@@ -114,7 +115,7 @@ export default function NavBar() {
                 e.stopPropagation();
                 navigateToSection('testimonials', '/testimonials');
               }}
-              className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               Client Testimonials
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
@@ -125,7 +126,7 @@ export default function NavBar() {
                 e.stopPropagation();
                 navigateToSection('blogs', '/blogs');
               }}
-              className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               Articles & Insights
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
@@ -136,18 +137,31 @@ export default function NavBar() {
                 e.stopPropagation();
                 navigateToSection('philosophy', '/philosophy');
               }}
-              className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
             >
               PTC's 3R Pillars
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
             </button>
-          </div>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsMenuOpen(false);
+                window.location.href = '/careers';
+              }}
+              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+            >
+              Careers
+              {newSections.careers && (
+                <span className="new-callout">NEW</span>
+              )}
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+            </button>
 
-          {/* Center Logo & Company Name */}
-          <div className="flex-shrink-0 flex items-center">
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-3 sm:mr-6 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-2 sm:mx-4 shadow-sm"></div>
             
+            {/* Center Logo & Company Name */}
             <div
               onClick={(e) => {
                 console.log('Logo clicked - event triggered on page:', window.location.pathname);
@@ -156,45 +170,27 @@ export default function NavBar() {
                 console.log('About to call navigateToHomepage');
                 navigateToHomepage();
               }}
-              className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
+              className="flex items-center space-x-2 sm:space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-1 sm:p-2 -m-1 sm:-m-2"
               style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
+                className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
               />
               <div className="text-center">
-                <div className="text-sm sm:text-lg lg:text-2xl font-bold text-black">
-                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
+                <div className="text-xs sm:text-sm lg:text-lg font-bold text-black">
+                  <span className="font-tan-pearl text-sm sm:text-base lg:text-xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
                 </div>
-                <div className="text-sm font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
-                <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
+                <div className="text-xs font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
+                <div className="text-xs text-black font-medium">Transform Your Life & Career</div>
               </div>
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
-          </div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-2 sm:mx-4 shadow-sm"></div>
 
-          {/* Right Navigation Tabs */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsMenuOpen(false);
-                window.location.href = '/careers';
-              }}
-              className="text-black hover:text-purple-600 px-4 py-2 pb-6 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 cursor-pointer relative group"
-            >
-              Careers
-              {newSections.careers && (
-                <span className="new-callout">NEW</span>
-              )}
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
-            
+            {/* Right Navigation Items */}
             {/* Contact PTC Dropdown */}
             <div className="relative">
               <button
@@ -389,6 +385,21 @@ export default function NavBar() {
                 PTC's 3R Pillars
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMenuOpen(false);
+                  window.location.href = '/careers';
+                }}
+                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+              >
+                Careers
+                {newSections.careers && (
+                  <span className="new-callout">NEW</span>
+                )}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
               <a
                 href="/request-forms"
                 className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
@@ -405,21 +416,6 @@ export default function NavBar() {
                 Contact PTC
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </a>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setIsMenuOpen(false);
-                  window.location.href = '/careers';
-                }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 pb-6 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
-              >
-                Careers
-                {newSections.careers && (
-                  <span className="new-callout">NEW</span>
-                )}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-              </button>
             </div>
           </div>
         )}

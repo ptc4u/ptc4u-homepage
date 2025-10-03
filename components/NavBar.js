@@ -95,71 +95,73 @@ export default function NavBar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-16 sm:h-20 lg:h-24">
-          {/* All Navigation Elements - Centered */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          {/* Centered Navigation Container */}
+          <div className="flex items-center space-x-4 lg:space-x-6">
             {/* Left Navigation Items */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateToSection('about-coach', '/about');
-              }}
-              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
-            >
-              About Your Coach
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateToSection('testimonials', '/testimonials');
-              }}
-              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
-            >
-              Client Testimonials
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateToSection('blogs', '/blogs');
-              }}
-              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
-            >
-              Articles & Insights
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateToSection('philosophy', '/philosophy');
-              }}
-              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
-            >
-              PTC's 3R Pillars
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsMenuOpen(false);
-                window.location.href = '/careers';
-              }}
-              className="text-black hover:text-purple-600 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
-            >
-              Careers
-              {newSections.careers && (
-                <span className="new-callout">NEW</span>
-              )}
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-            </button>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('about-coach', '/about');
+                }}
+                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              >
+                About Your Coach
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('testimonials', '/testimonials');
+                }}
+                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              >
+                Client Testimonials
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('blogs', '/blogs');
+                }}
+                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              >
+                Articles & Insights
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigateToSection('philosophy', '/philosophy');
+                }}
+                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              >
+                PTC's 3R Pillars
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMenuOpen(false);
+                  window.location.href = '/careers';
+                }}
+                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
+              >
+                Careers
+                {newSections.careers && (
+                  <span className="new-callout">NEW</span>
+                )}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+              </button>
+            </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-2 sm:mx-4 shadow-sm"></div>
+            <div className="hidden lg:block w-1 h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-4 shadow-sm"></div>
             
             {/* Center Logo & Company Name */}
             <div
@@ -170,27 +172,28 @@ export default function NavBar() {
                 console.log('About to call navigateToHomepage');
                 navigateToHomepage();
               }}
-              className="flex items-center space-x-2 sm:space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-1 sm:p-2 -m-1 sm:-m-2"
+              className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
               style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
+                className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
               />
               <div className="text-center">
-                <div className="text-xs sm:text-sm lg:text-lg font-bold text-black">
-                  <span className="font-tan-pearl text-sm sm:text-base lg:text-xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
+                <div className="text-sm sm:text-lg lg:text-2xl font-bold text-black">
+                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
                 </div>
-                <div className="text-xs font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
-                <div className="text-xs text-black font-medium">Transform Your Life & Career</div>
+                <div className="text-sm font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
+                <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
               </div>
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-2 sm:mx-4 shadow-sm"></div>
+            <div className="hidden lg:block w-1 h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mx-4 shadow-sm"></div>
 
             {/* Right Navigation Items */}
+            <div className="flex items-center space-x-3">
             {/* Contact PTC Dropdown */}
             <div className="relative">
               <button
@@ -314,6 +317,7 @@ export default function NavBar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </a>
+            </div>
             </div>
           </div>
 

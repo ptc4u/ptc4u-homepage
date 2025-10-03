@@ -25,7 +25,7 @@ export default function HeroSection() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-900 mb-10 leading-tight">
             <div className="font-chancery">Warm Greetings from</div>
             <div className="mt-2">
-              <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-blue-900">Thrive Coaching</span>
+              <span className="font-tan-pearl text-purple-800 text-3xl sm:text-4xl lg:text-5xl">Pinnacle</span> <span className="text-blue-900 text-2xl sm:text-3xl lg:text-4xl">Thrive Coaching</span>
             </div>
           </h1>
 

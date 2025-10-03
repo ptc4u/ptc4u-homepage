@@ -163,7 +163,7 @@ export default function NavBar() {
                 alt="PTC Logo" 
                 className="h-10 sm:h-12 lg:h-14 w-auto object-contain rounded-lg mr-1"
               />
-              <div className="text-left flex flex-col justify-center pt-2">
+              <div className="text-center flex flex-col justify-center pt-2">
                 <div className="text-base sm:text-lg lg:text-xl font-bold mb-1">
                   <span className="font-tan-pearl text-lg sm:text-xl lg:text-2xl text-purple-800 font-semibold">Pinnacle</span>
                 </div>

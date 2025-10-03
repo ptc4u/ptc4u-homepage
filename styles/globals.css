@@ -36,33 +36,11 @@ body {
   color: #4c1d95 !important; /* Deep purple */
 }
 
-/* Specific override for Pinnacle text in navigation */
-nav .text-center span.font-tan-pearl,
-nav .text-center .font-tan-pearl,
-nav div.text-center span.font-tan-pearl,
-nav span.font-tan-pearl,
+/* Pinnacle text styling - consolidated rules */
+.font-tan-pearl,
 nav .font-tan-pearl,
-nav div span.font-tan-pearl {
-  font-family: 'Playfair Display', serif !important;
-  color: #4c1d95 !important; /* Deep purple */
-  font-weight: 600 !important;
-  display: inline !important;
-  visibility: visible !important;
-}
-
-/* Even more specific override for navigation Pinnacle text */
-nav div.text-center div span.font-tan-pearl,
-nav div.text-center div .font-tan-pearl {
-  font-family: 'Playfair Display', serif !important;
-  color: #4c1d95 !important; /* Deep purple */
-  font-weight: 600 !important;
-  display: inline !important;
-  visibility: visible !important;
-}
-
-/* Maximum specificity override for Pinnacle text */
-nav div.text-center div.text-sm.sm\\:text-lg.lg\\:text-2xl.font-bold span.font-tan-pearl,
-nav div.text-center div.text-sm.sm\\:text-lg.lg\\:text-2xl.font-bold .font-tan-pearl {
+nav span.font-tan-pearl,
+nav div .font-tan-pearl {
   font-family: 'Playfair Display', serif !important;
   color: #4c1d95 !important; /* Deep purple */
   font-weight: 600 !important;
@@ -217,19 +195,6 @@ h1, h2, h3, h4, h5, h6 {
   perspective: 1000px;
 }
 
-/* Tan Pearl font class for Pinnacle text - Higher specificity to override global black text */
-.font-tan-pearl,
-span.font-tan-pearl,
-div .font-tan-pearl,
-nav .font-tan-pearl,
-nav span.font-tan-pearl,
-nav div .font-tan-pearl,
-nav .text-center .font-tan-pearl,
-nav .text-center span.font-tan-pearl {
-  font-family: 'Playfair Display', serif !important;
-  color: #4c1d95 !important; /* Deep purple */
-  font-weight: 600 !important;
-}
 
 /* Section divider lines */
 .section-divider {

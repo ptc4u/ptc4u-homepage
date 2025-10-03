@@ -17,7 +17,7 @@ export default function NavBar() {
 
   // Safety check for router - but don't prevent rendering
   if (!router) {
-    console.warn('Router not available yet, using fallback navigation');
+    // Router not available yet, using fallback navigation
   }
 
   // Track which sections have "New" content
@@ -38,21 +38,13 @@ export default function NavBar() {
 
   // Navigate to homepage function
   const navigateToHomepage = () => {
-    console.log('=== navigateToHomepage function called ===');
-    console.log('Navigate to homepage clicked');
-    console.log('Current pathname:', window.location.pathname);
-    console.log('Current URL:', window.location.href);
-    console.log('Window object available:', typeof window !== 'undefined');
-    
     // Close mobile menu if open
     setIsMenuOpen(false);
     
     // Always navigate to homepage - simplified logic
-    console.log('Navigating to homepage from:', window.location.pathname);
     try {
       window.location.href = '/';
     } catch (error) {
-      console.error('Navigation error:', error);
       // Fallback
       window.location.replace('/');
     }
@@ -60,8 +52,6 @@ export default function NavBar() {
 
   // Smart navigation function that handles both scrolling and page navigation
   const navigateToSection = (sectionId, pagePath = null) => {
-    console.log(`Navigation attempt: sectionId=${sectionId}, pagePath=${pagePath}, currentPath=${router?.pathname || 'unknown'}`);
-    
     // Close mobile menu
     setIsMenuOpen(false);
     
@@ -69,21 +59,16 @@ export default function NavBar() {
     if (router?.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
-        console.log(`Found section element, scrolling to: ${sectionId}`);
         element.scrollIntoView({ 
           behavior: 'smooth',
           block: 'start'
         });
         return;
-      } else {
-        console.log(`Section element not found: ${sectionId}, navigating to page: ${pagePath}`);
       }
     }
     
     // If we're not on the home page, section doesn't exist, or no element found, navigate to the page
     if (pagePath) {
-      console.log(`Navigating to: ${pagePath}`);
-      
       // Use window.location for more reliable navigation
       if (window.location.pathname !== pagePath) {
         window.location.href = pagePath;
@@ -166,10 +151,8 @@ export default function NavBar() {
             {/* Center Logo & Company Name */}
             <div
               onClick={(e) => {
-                console.log('Logo clicked - event triggered on page:', window.location.pathname);
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('About to call navigateToHomepage');
                 navigateToHomepage();
               }}
               className="flex items-center space-x-6 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
@@ -247,11 +230,9 @@ export default function NavBar() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('NavBar: Start Your Journey button clicked');
                 // Emit event to show journey options
                 const event = new CustomEvent('showJourneyOptions');
                 window.dispatchEvent(event);
-                console.log('NavBar: showJourneyOptions event dispatched');
                 // Scroll to journey options section
                 const journeySection = document.getElementById('journey-options');
                 if (journeySection) {

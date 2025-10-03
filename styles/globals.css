@@ -388,11 +388,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Ensure main content doesn't overlap with fixed widgets */
 .lg\:pr-20 {
-  padding-right: 6rem !important;
+  padding-right: 5rem !important;
 }
 
 .lg\:pl-16 {
-  padding-left: 5rem !important;
+  padding-left: 4rem !important;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -435,10 +435,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Force proper spacing for fixed widgets on production */
 @media (min-width: 1024px) {
   main {
-    margin-left: 300px !important;
-    margin-right: 350px !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+    margin-left: 320px !important;
+    margin-right: 360px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: calc(100vw - 680px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   /* Ensure content doesn't overlap with fixed elements */
@@ -452,9 +455,20 @@ h1, h2, h3, h4, h5, h6 {
   
   /* Additional safety margin for content areas */
   .main-content-area {
-    margin-left: 300px !important;
-    margin-right: 350px !important;
+    margin-left: 320px !important;
+    margin-right: 360px !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+  
+  /* Perfect centering for main content */
+  .centered-content {
+    margin-left: 320px !important;
+    margin-right: 360px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    max-width: calc(100vw - 720px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }

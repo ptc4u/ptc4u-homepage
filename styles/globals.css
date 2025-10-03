@@ -451,6 +451,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: calc(100vw - 680px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    padding-right: 1rem !important;
   }
   
   /* Ensure content doesn't overlap with fixed elements */
@@ -504,5 +505,35 @@ h1, h2, h3, h4, h5, h6 {
     display: flex !important;
     align-items: center !important;
     gap: 0.5rem !important;
+  }
+  
+  /* Ensure admin icon is visible */
+  nav a[href="/admin"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+  }
+  
+  /* Ensure all social media icons are visible */
+  nav .flex.items-center.space-x-2 > * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Ensure right navigation section has enough space */
+  nav > div > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+  }
+  
+  /* Ensure admin icon container is visible */
+  nav .flex.items-center.space-x-2 {
+    min-width: 200px !important;
+    justify-content: flex-end !important;
   }
 }

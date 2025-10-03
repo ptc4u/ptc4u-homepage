@@ -17,20 +17,20 @@ export default function HeroSection() {
         <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-blue-400/6 to-purple-400/6 rounded-full blur-2xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 py-16 lg:py-20">
+      <div className="relative max-w-7xl mx-auto px-4 py-12 lg:py-16">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge removed as requested */}
 
           {/* Main Heading */}
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-900 mb-10 leading-tight">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-900 mb-10 leading-tight">
             <div className="font-chancery">Warm Greetings from</div>
             <div className="mt-2">
-              <span className="font-tan-pearl text-purple-800 text-3xl sm:text-4xl lg:text-5xl">Pinnacle</span> <span className="text-blue-900 text-2xl sm:text-3xl lg:text-4xl">Thrive Coaching</span>
+              <span className="font-tan-pearl text-purple-800 text-2xl sm:text-3xl lg:text-4xl">Pinnacle</span> <span className="text-blue-900 text-xl sm:text-2xl lg:text-3xl">Thrive Coaching</span>
             </div>
           </h1>
 
           {/* Welcome Message */}
-          <div className="text-lg sm:text-xl lg:text-2xl text-black mb-16 leading-relaxed max-w-4xl mx-auto font-normal space-y-6">
+          <div className="text-base sm:text-lg lg:text-xl text-black mb-16 leading-relaxed max-w-4xl mx-auto font-normal space-y-6">
             <p>
               This is your space to pause, breathe, and rediscover yourself.
             </p>
@@ -44,13 +44,13 @@ export default function HeroSection() {
               At PTC, we believe in your potential, your resilience, and your ability to rise higher than you ever imagined.
             </p>
             
-            <p className="font-semibold text-purple-800 mt-16">
+            <p className="font-semibold text-purple-800 mt-8">
               Your journey to Reflect, Reboot, and Reinvent starts here.
             </p>
           </div>
 
           {/* Trust Indicators and Rating/Repeatability */}
-          <div className="mt-32 text-center">
+          <div className="mt-16 text-center">
             <p className="text-black text-sm mb-6 font-medium">Trusted by professionals worldwide</p>
             <div className="flex items-center justify-center space-x-4 text-black flex-wrap gap-2">
               <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ 30+ Years Experience</span>

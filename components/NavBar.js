@@ -94,7 +94,7 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-center h-20 sm:h-24 lg:h-28">
+        <div className="flex items-center justify-center h-24 sm:h-28 lg:h-32">
           {/* Centered Navigation Container */}
           <div className="flex items-center space-x-12 lg:space-x-20">
             {/* Left Navigation Items */}
@@ -161,7 +161,7 @@ export default function NavBar() {
             </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-20 sm:h-24 lg:h-28 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
             
             {/* Center Logo & Company Name */}
             <div
@@ -193,7 +193,7 @@ export default function NavBar() {
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-20 sm:h-24 lg:h-28 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
 
             {/* Right Navigation Items */}
             <div className="flex items-center space-x-6">
@@ -286,7 +286,7 @@ export default function NavBar() {
               >
                 <img 
                   src="/images/wp.png" 
-                  alt="" 
+                  alt="WordPress" 
                   className="w-5 h-5 object-contain"
                 />
               </a>

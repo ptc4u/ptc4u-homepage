@@ -345,9 +345,9 @@ nav .text-center span.font-tan-pearl {
 /* New callout badge styling */
 .new-callout {
   position: absolute;
-  top: 50%;
-  right: -8px;
-  transform: translateY(-50%);
+  top: 100%;
+  right: 0;
+  transform: translateY(0);
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: black;
   font-size: 9px;

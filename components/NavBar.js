@@ -181,7 +181,7 @@ export default function NavBar() {
                 className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
               />
               <div className="text-center">
-                <div className="text-sm sm:text-lg lg:text-2xl font-bold text-black">
+                <div className="text-sm sm:text-lg lg:text-2xl font-bold">
                   <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
                 </div>
                 <div className="text-sm font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>

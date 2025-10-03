@@ -93,12 +93,12 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-16 sm:h-20 lg:h-24">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-center h-20 sm:h-24 lg:h-28">
           {/* Centered Navigation Container */}
-          <div className="flex items-center space-x-6 lg:space-x-8">
+          <div className="flex items-center space-x-12 lg:space-x-20">
             {/* Left Navigation Items */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-6">
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -161,7 +161,7 @@ export default function NavBar() {
             </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-3 sm:mr-6 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-0 shadow-sm"></div>
             
             {/* Center Logo & Company Name */}
             <div
@@ -172,28 +172,31 @@ export default function NavBar() {
                 console.log('About to call navigateToHomepage');
                 navigateToHomepage();
               }}
-              className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
+              className="flex items-center space-x-6 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-2 -m-2"
               style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
+                className="h-10 sm:h-12 lg:h-14 w-auto object-contain rounded-lg mr-1"
               />
-              <div className="text-center">
-                <div className="text-sm sm:text-lg lg:text-2xl font-bold">
-                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-3xl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>
+              <div className="text-left flex flex-col justify-center pt-2">
+                <div className="text-base sm:text-lg lg:text-xl font-bold mb-1">
+                  <span className="font-tan-pearl text-lg sm:text-xl lg:text-2xl text-purple-800 font-semibold">Pinnacle</span>
                 </div>
-                <div className="text-sm font-semibold mb-1 reflect-text">Reflect. Reboot. Reinvent</div>
-                <div className="text-xs sm:text-sm text-black font-medium">Transform Your Life & Career</div>
+                <div className="text-base sm:text-lg lg:text-xl font-bold mb-1">
+                  <span className="text-black font-semibold">Thrive Coaching</span>
+                </div>
+                <div className="text-sm font-semibold mb-1 reflect-text text-black whitespace-nowrap">Reflect. Reboot. Reinvent</div>
+                <div className="text-xs text-black font-medium">Transform Your Life & Career</div>
               </div>
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-8 sm:ml-16 shadow-sm"></div>
 
             {/* Right Navigation Items */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-6">
             {/* Contact PTC Dropdown */}
             <div className="relative">
               <button
@@ -255,7 +258,7 @@ export default function NavBar() {
                   journeySection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-6 py-2 rounded-xl font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 button-text-white min-w-[180px]"
+              className="bg-blue-500 border-2 border-blue-500 hover:border-blue-600 text-white hover:text-white px-5 py-2 rounded-xl font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 button-text-white min-w-[170px]"
             >
               Start Your PTC Journey Now!
             </button>

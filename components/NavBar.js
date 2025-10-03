@@ -77,7 +77,9 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gradient-to-r from-purple-200/30 to-blue-200/30 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-lg">
+      {/* Full-width border at bottom */}
+      <div className="w-full h-0.5 bg-gradient-to-r from-purple-200/30 to-blue-200/30"></div>
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-center h-28 sm:h-32 lg:h-36">
           {/* Centered Navigation Container */}

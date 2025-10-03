@@ -161,7 +161,7 @@ export default function NavBar() {
             </div>
 
             {/* Vertical line before logo */}
-            <div className="hidden lg:block w-1 h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 mr-3 sm:mr-6 shadow-sm"></div>
             
             {/* Center Logo & Company Name */}
             <div
@@ -190,7 +190,7 @@ export default function NavBar() {
             </div>
             
             {/* Vertical line after company name */}
-            <div className="hidden lg:block w-1 h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm"></div>
+            <div className="hidden sm:block w-1 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 ml-3 sm:ml-6 shadow-sm"></div>
 
             {/* Right Navigation Items */}
             <div className="flex items-center space-x-3">

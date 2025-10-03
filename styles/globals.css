@@ -486,4 +486,26 @@ h1, h2, h3, h4, h5, h6 {
     display: flex !important;
     visibility: visible !important;
   }
+  
+  /* Ensure social media icons show only icons, no text */
+  nav .flex.items-center.space-x-2 {
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+  
+  nav .flex.items-center.space-x-2 * {
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+  
+  /* Hide any text that might appear in social media icons */
+  nav .flex.items-center.space-x-2 a {
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+  }
+  
+  nav .flex.items-center.space-x-2 a svg,
+  nav .flex.items-center.space-x-2 a img {
+    text-indent: 0 !important;
+  }
 }

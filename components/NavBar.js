@@ -284,7 +284,7 @@ export default function NavBar() {
               >
                 <img 
                   src="/images/wp.png" 
-                  alt="WordPress" 
+                  alt="" 
                   className="w-5 h-5 object-contain"
                 />
               </a>

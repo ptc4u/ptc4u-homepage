@@ -245,7 +245,7 @@ This message was submitted through the PTC website.
   }
 
   return (
-    <section className="py-8 mt-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact" style={{ paddingTop: '98px' }}>
+    <section className="py-8 mt-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact" style={{ paddingTop: '160px' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">

@@ -84,11 +84,13 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
         <NavBar />
-        <MarqueeSection />
-        <AdditionalMarqueeSection />
+        <div className="hidden lg:block">
+          <MarqueeSection />
+          <AdditionalMarqueeSection />
+        </div>
         <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-32 sm:pt-36 lg:pt-40 flex flex-col" style={{ height: 'calc(100vh - 120px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-28 sm:pt-32 lg:pt-36 flex flex-col" style={{ height: 'calc(100vh - 120px)' }}>
           <div id="hero">
             <HeroSection />
           </div>

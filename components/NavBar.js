@@ -50,36 +50,26 @@ export default function NavBar() {
     }
   };
 
-  // Smart navigation function that handles both scrolling and page navigation
+  // Simple navigation function
   const navigateToSection = (sectionId, pagePath = null) => {
     // Close mobile menu
     setIsMenuOpen(false);
     
-    // If we're on the home page, try to scroll to the section first
-    if (router?.pathname === '/') {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-        return;
-      }
-    }
+    // Try to find element and scroll to it
+    const element = document.getElementById(sectionId);
     
-    // If we're not on the home page, section doesn't exist, or no element found, navigate to the page
-    if (pagePath) {
-      // Use window.location for more reliable navigation
-      if (window.location.pathname !== pagePath) {
-        window.location.href = pagePath;
-      }
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else if (pagePath) {
+      window.location.href = pagePath;
     }
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-lg">
-      {/* Full-width border at bottom */}
-      <div className="w-full h-0.5 bg-gradient-to-r from-purple-200/30 to-blue-200/30"></div>
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-center h-28 sm:h-32 lg:h-36">
           {/* Centered Navigation Container */}
@@ -134,8 +124,7 @@ export default function NavBar() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMenuOpen(false);
-                  window.location.href = '/careers';
+                  navigateToSection('careers', '/careers');
                 }}
                 className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-50 cursor-pointer relative group"
               >
@@ -157,13 +146,13 @@ export default function NavBar() {
                 e.stopPropagation();
                 navigateToHomepage();
               }}
-              className="flex items-center justify-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-3 -m-3 min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] flex-1"
+              className="flex items-center justify-center space-x-6 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-lg p-3 -m-3 min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] flex-1"
               style={{ cursor: 'pointer', userSelect: 'none' }}
             >
               <img 
                 src="/rndPTClogo.png" 
                 alt="PTC Logo" 
-                className="h-16 sm:h-18 lg:h-20 w-auto object-contain rounded-lg flex-shrink-0"
+                className="h-20 sm:h-22 lg:h-24 w-auto object-contain rounded-lg flex-shrink-0"
               />
               <div className="text-center flex flex-col justify-center items-center flex-1">
                 <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-1">
@@ -327,20 +316,19 @@ export default function NavBar() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Simplified */}
         {isMenuOpen && (
-          <div className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-neutral-200">
+          <div className="sm:hidden mobile-menu">
+            <div className="px-4 py-4 space-y-1">
               <button
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
                   navigateToSection('about-coach', '/about');
                 }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 About Your Coach
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
                 onClick={(e) => {
@@ -348,10 +336,9 @@ export default function NavBar() {
                   e.stopPropagation();
                   navigateToSection('testimonials', '/testimonials');
                 }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 Client Testimonials
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
                 onClick={(e) => {
@@ -359,10 +346,9 @@ export default function NavBar() {
                   e.stopPropagation();
                   navigateToSection('blogs', '/blogs');
                 }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 Articles & Insights
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
                 onClick={(e) => {
@@ -370,41 +356,36 @@ export default function NavBar() {
                   e.stopPropagation();
                   navigateToSection('philosophy', '/philosophy');
                 }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 PTC's 3R Pillars
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <button
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMenuOpen(false);
-                  window.location.href = '/careers';
+                  navigateToSection('careers', '/careers');
                 }}
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 Careers
                 {newSections.careers && (
-                  <span className="new-callout">NEW</span>
+                  <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NEW</span>
                 )}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               <a
                 href="/request-forms"
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Request Forms
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </a>
               <a
                 href="mailto:ask@ptc4u.com"
-                className="text-black hover:text-purple-600 hover:bg-purple-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full text-left relative group"
+                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact PTC
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </a>
             </div>
           </div>

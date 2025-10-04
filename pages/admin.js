@@ -38,6 +38,60 @@ export default function AdminPage() {
               Content Manager
             </Link>
 
+            {/* Preview Buttons */}
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                href="/admin-preview"
+                className="flex items-center justify-center px-3 py-2 border border-purple-300 text-sm font-medium rounded-lg text-purple-700 bg-purple-50 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors"
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Preview Login
+              </Link>
+              
+              <Link
+                href="/content-manager-preview"
+                className="flex items-center justify-center px-3 py-2 border border-purple-300 text-sm font-medium rounded-lg text-purple-700 bg-purple-50 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors"
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Preview Manager
+              </Link>
+            </div>
+
+            {/* Publish Now Button */}
+            <button
+              onClick={async () => {
+                try {
+                  const response = await fetch('/api/publish-content', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                  });
+                  
+                  if (response.ok) {
+                    alert('Content published successfully! Approved articles are now live on the blog page.');
+                  } else {
+                    alert('Failed to publish content. Please try again.');
+                  }
+                } catch (error) {
+                  console.error('Publish error:', error);
+                  alert('Error publishing content. Please try again.');
+                }
+              }}
+              className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+              Publish Now
+            </button>
+
             <Link
               href="/"
               className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -47,6 +101,24 @@ export default function AdminPage() {
               </svg>
               View Website
             </Link>
+
+            {/* Exit Admin Button */}
+            <button
+              onClick={() => {
+                // Clear all admin sessions
+                sessionStorage.removeItem('ptc_admin_authenticated');
+                localStorage.removeItem('ptc_site_authenticated');
+                localStorage.removeItem('ptc_auth_timestamp');
+                // Redirect to home page
+                window.location.href = '/';
+              }}
+              className="w-full flex items-center justify-center px-4 py-3 border border-red-300 text-base font-medium rounded-lg text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Exit Admin
+            </button>
           </div>
 
           <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">

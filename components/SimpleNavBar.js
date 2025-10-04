@@ -118,7 +118,7 @@ export default function SimpleNavBar() {
         transform: 'translate(-50%, -50%)',
         display: 'flex',
         alignItems: 'center',
-        gap: '24px',
+        gap: '32px',
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         backdropFilter: 'blur(8px)',
         padding: '16px 32px',
@@ -131,7 +131,7 @@ export default function SimpleNavBar() {
           src="/rndPTClogo.png"
           alt="PTC Logo"
           style={{ 
-            height: '72px', 
+            height: '80px', 
             width: 'auto', 
             objectFit: 'contain', 
             borderRadius: '8px' 

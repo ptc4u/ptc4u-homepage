@@ -39,10 +39,10 @@ export default function AboutCoachSection() {
   };
 
   return (
-    <section className="py-8 mt-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
+    <section className="pt-16 pb-2 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center mt-16">
+        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center">
           About Your <span className="text-black">Coach</span>
         </h2>
         

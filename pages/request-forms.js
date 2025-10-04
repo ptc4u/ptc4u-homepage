@@ -42,10 +42,12 @@ export default function RequestFormsPage() {
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
         <NavBar />
-        <MarqueeSection />
-        <AdditionalMarqueeSection />
+        <div className="hidden lg:block">
+          <MarqueeSection />
+          <AdditionalMarqueeSection />
+        </div>
         
-        <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto">
+        <main className="flex-grow pt-28 sm:pt-32 lg:pt-36 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto">
           <div className="max-w-5xl mx-auto">
             {!activeForm ? (
               // Form Selection Screen

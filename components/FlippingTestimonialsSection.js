@@ -132,7 +132,7 @@ export default function FlippingTestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-white" id="testimonials">
+    <section className="py-20 pt-16 bg-white" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20 pt-8">
@@ -147,7 +147,7 @@ export default function FlippingTestimonialsSection() {
 
         {/* Flipping Testimonial Card */}
         <div className="flex justify-center mb-16">
-          <div className="relative w-full max-w-4xl">
+          <div className="relative w-full max-w-6xl">
             <div 
               className={`bg-gradient-to-br from-purple-50 to-white p-10 rounded-3xl border border-purple-200/50 shadow-xl transition-all duration-600 transform ${
                 isFlipping ? 'rotateY-180' : 'rotateY-0'

@@ -59,12 +59,20 @@ export default function AdminAuth({ onAuthenticated }) {
           </div>
           <h2 className="text-2xl font-bold text-black mb-2">Admin Authenticated</h2>
           <p className="text-gray-600 mb-6">You have access to the content management system.</p>
-          <button
-            onClick={handleLogout}
-            className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors button-text-white"
-          >
-            Logout
-          </button>
+          
+          {/* Enhanced Close Admin Button */}
+          <div className="space-y-3">
+            <button
+              onClick={handleLogout}
+              className="w-full bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium flex items-center justify-center space-x-2 shadow-lg"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              <span>Close Admin Session</span>
+            </button>
+            <p className="text-xs text-gray-500">This will end your admin session and return you to the admin dashboard</p>
+          </div>
         </div>
       </div>
     );

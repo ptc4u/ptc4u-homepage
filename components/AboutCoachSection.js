@@ -39,7 +39,7 @@ export default function AboutCoachSection() {
   };
 
   return (
-    <section className="pb-2 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about" style={{ paddingTop: '98px' }}>
+    <section className="pb-2 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-lg" id="about" style={{ paddingTop: '160px' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8 text-center">

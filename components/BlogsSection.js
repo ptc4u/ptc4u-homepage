@@ -53,7 +53,7 @@ export default function BlogsSection() {
   // Show loading state
   if (isLoading) {
     return (
-      <section className="pt-1 pb-2 bg-white rounded-2xl shadow-lg" id="blogs">
+      <section className="pb-2 bg-white rounded-2xl shadow-lg" id="blogs" style={{ paddingTop: '160px' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4 font-helvetica">
@@ -76,7 +76,7 @@ export default function BlogsSection() {
   // Show error state
   if (error) {
     return (
-      <section className="pt-1 pb-2 bg-white rounded-2xl shadow-lg" id="blogs">
+      <section className="pb-2 bg-white rounded-2xl shadow-lg" id="blogs" style={{ paddingTop: '160px' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4 font-helvetica">
@@ -143,7 +143,7 @@ export default function BlogsSection() {
   };
 
   return (
-    <section className="pt-1 pb-2 bg-white rounded-2xl shadow-lg" id="blogs">
+    <section className="pb-2 bg-white rounded-2xl shadow-lg" id="blogs" style={{ paddingTop: '160px' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Fixed spacing to avoid navigation overlap */}
         <div className="text-center mb-8">

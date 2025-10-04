@@ -28,7 +28,9 @@ export default function AboutPage() {
         </div>
         <GlobalGoogleCalendarWidget />
         <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center page-main-content">
-          <AboutCoachSection />
+          <div className="max-w-7xl mx-auto w-full">
+            <AboutCoachSection />
+          </div>
         </main>
         
         {/* Fixed QuickActionsSection at bottom */}

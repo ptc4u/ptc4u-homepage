@@ -132,7 +132,7 @@ export default function FlippingTestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 pt-20 bg-white" id="testimonials">
+    <section className="py-20 pt-24 bg-white" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20 pt-8">

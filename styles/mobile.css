@@ -1,0 +1,374 @@
+/* 
+ * Mobile-Specific Styles for Pinnacle Thrive Coaching
+ * 
+ * This file contains ONLY mobile styles and should be loaded conditionally
+ * to avoid conflicts with desktop/laptop styles.
+ * 
+ * Usage: Load this file only on mobile devices using device detection
+ * or for mobile preview mode in admin interface
+ */
+
+/* Mobile Preview Mode - Applied when admin toggles mobile preview */
+body.mobile-preview-mode {
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f8fafc;
+}
+
+body.mobile-preview-mode * {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+body.mobile-preview-mode main, 
+body.mobile-preview-mode nav, 
+body.mobile-preview-mode .main-content, 
+body.mobile-preview-mode .main-content-area, 
+body.mobile-preview-mode .centered-content {
+  margin: 0;
+  padding: 0.75rem;
+  max-width: 100vw;
+  width: 100%;
+  background: transparent;
+}
+
+body.mobile-preview-mode .desktop-only, 
+body.mobile-preview-mode .lg\:block, 
+body.mobile-preview-mode .xl\:block, 
+body.mobile-preview-mode .hidden.lg\:block,
+body.mobile-preview-mode .fixed.right-8, 
+body.mobile-preview-mode .fixed.right-4, 
+body.mobile-preview-mode .fixed.left-8, 
+body.mobile-preview-mode .fixed.left-4 {
+  display: none !important;
+}
+
+body.mobile-preview-mode .mobile-only {
+  display: block !important;
+}
+
+/* === MOBILE RESET & BASE === */
+@media (max-width: 1023px) {
+  /* Core mobile reset */
+  * {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #f8fafc;
+  }
+  
+  /* === LAYOUT SIMPLIFICATION === */
+  main, nav, .main-content, .main-content-area, .centered-content {
+    margin: 0;
+    padding: 0.75rem;
+    max-width: 100vw;
+    width: 100%;
+    background: transparent;
+  }
+  
+  /* Hide desktop-only elements */
+  .desktop-only, 
+  .lg\:block, 
+  .xl\:block, 
+  .hidden.lg\:block,
+  .fixed.right-8, 
+  .fixed.right-4, 
+  .fixed.left-8, 
+  .fixed.left-4 {
+    display: none !important;
+  }
+  
+  /* Show mobile-only elements */
+  .mobile-only {
+    display: block !important;
+  }
+  
+  /* === TYPOGRAPHY SIMPLIFICATION === */
+  h1 { 
+    font-size: 1.5rem; 
+    line-height: 1.2; 
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+  
+  h2 { 
+    font-size: 1.25rem; 
+    line-height: 1.2; 
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  h3 { 
+    font-size: 1.125rem; 
+    line-height: 1.2; 
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  h4, h5, h6 { 
+    font-size: 1rem; 
+    line-height: 1.2; 
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  p, div, span {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4b5563;
+  }
+  
+  /* === SPACING SIMPLIFICATION === */
+  .py-20, .py-16, .py-12, .py-8 { 
+    padding: 0.75rem 0; 
+  }
+  
+  .px-4, .px-6, .px-8, .px-12, .px-16, .px-20 { 
+    padding: 0 0.75rem; 
+  }
+  
+  .pt-16, .pt-20, .pt-24, .pt-28, .pt-32, .pt-36, .pt-40 { 
+    padding-top: 0.75rem; 
+  }
+  
+  .pb-16, .pb-20, .pb-24 { 
+    padding-bottom: 0.75rem; 
+  }
+  
+  .mb-16, .mb-20, .mb-24 { 
+    margin-bottom: 0.75rem; 
+  }
+  
+  .mt-16, .mt-20, .mt-24 { 
+    margin-top: 0.75rem; 
+  }
+  
+  /* === GRID SIMPLIFICATION === */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4, 
+  .lg\:grid-cols-2, .lg\:grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  /* === CARD SIMPLIFICATION === */
+  .bg-white.rounded-2xl, 
+  .bg-white.rounded-xl, 
+  .bg-white.rounded-lg {
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+  }
+  
+  /* === BUTTON SIMPLIFICATION === */
+  button, .btn, [role="button"] {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin: 0.25rem 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* === FORM SIMPLIFICATION === */
+  input, textarea, select {
+    min-height: 44px;
+    padding: 0.75rem;
+    font-size: 16px;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  /* === NAVIGATION SIMPLIFICATION === */
+  nav {
+    padding: 0.5rem;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  
+  /* === CONTENT SIMPLIFICATION === */
+  .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
+    max-width: 100%;
+    padding: 0.75rem;
+    margin: 0;
+  }
+  
+  /* === IMAGE SIMPLIFICATION === */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+  
+  /* === LIST SIMPLIFICATION === */
+  ul, ol {
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  li {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* === MOBILE-SPECIFIC UTILITIES === */
+  .mobile-hidden { 
+    display: none; 
+  }
+  
+  .mobile-block { 
+    display: block; 
+  }
+  
+  .mobile-flex { 
+    display: flex; 
+  }
+  
+  .mobile-center { 
+    text-align: center; 
+  }
+  
+  .mobile-full { 
+    width: 100%; 
+  }
+  
+  /* === TOUCH OPTIMIZATION === */
+  a, button, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* === SCROLL OPTIMIZATION === */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* === MOBILE-SPECIFIC ENHANCEMENTS === */
+  .mobile-simplified {
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .mobile-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 0.75rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .mobile-button {
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+  
+  .mobile-button:hover {
+    background: #4f46e5;
+  }
+  
+  .mobile-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #374151;
+  }
+  
+  .mobile-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  /* === MOBILE LAYOUT IMPROVEMENTS === */
+  .mobile-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mobile-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* === MOBILE FORM IMPROVEMENTS === */
+  .mobile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mobile-form input,
+  .mobile-form textarea,
+  .mobile-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    min-height: 48px;
+  }
+  
+  .mobile-form input:focus,
+  .mobile-form textarea:focus,
+  .mobile-form select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  /* === FOOTER SIMPLIFICATION === */
+  footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+}

@@ -9,9 +9,11 @@ import AdminAuth from '../components/AdminAuth';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
+import PreviewButtons from '../components/PreviewButtons';
 
 export default function ContentManagerPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentDevice, setCurrentDevice] = useState('laptop');
 
   const handleAuthentication = (authenticated) => {
     setIsAuthenticated(authenticated);
@@ -28,6 +30,7 @@ export default function ContentManagerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      <PreviewButtons onPreviewChange={setCurrentDevice} currentDevice={currentDevice} />
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
         <NavBar />

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 // Layout optimization - ensure production matches localhost padding
 import NavBar from '../components/NavBar';
@@ -25,6 +25,8 @@ import JourneyFormSection from '../components/JourneyFormSection';
 import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
 import MobileDropdown from '../components/MobileDropdown';
+import DevicePreviewToggle from '../components/DevicePreviewToggle';
+import PreviewButtons from '../components/PreviewButtons';
 /**
  * The home page of the Pinnacle Thrive Coaching website. It stitches together
  * several composable sections and injects appropriate metadata via the
@@ -32,6 +34,7 @@ import MobileDropdown from '../components/MobileDropdown';
  */
 export default function Home() {
   const router = useRouter();
+  const [currentDevice, setCurrentDevice] = useState('laptop');
   
   // Removed welcome page redirect - landing page loads directly
   
@@ -81,7 +84,9 @@ export default function Home() {
 
       </Head>
       <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
-      <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
+      <PreviewButtons onPreviewChange={setCurrentDevice} currentDevice={currentDevice} />
+      <DevicePreviewToggle>
+        <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
         <NavBar />
         <div className="hidden lg:block">
@@ -174,7 +179,8 @@ export default function Home() {
         
         {/* Mobile Dropdown - Temporarily disabled to fix hydration */}
         {/* <MobileDropdown /> */}
-      </div>
+        </div>
+      </DevicePreviewToggle>
     </>
   );
 }

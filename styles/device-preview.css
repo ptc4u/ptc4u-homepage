@@ -1,0 +1,140 @@
+/* Device Preview Styles */
+
+/* Laptop Preview (Default) */
+.laptop-preview {
+  width: 100%;
+  max-width: none;
+}
+
+/* Device-specific preview containers */
+.laptop-preview-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+}
+
+.laptop-preview {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tablet-preview-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+}
+
+.tablet-preview {
+  width: 768px;
+  height: 1024px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+.mobile-preview-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+}
+
+.mobile-preview {
+  width: 375px;
+  height: 667px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transform: scale(0.7);
+  transform-origin: center;
+}
+
+/* Tablet Preview */
+.tablet-preview-mode .tablet-preview {
+  width: 768px;
+  max-width: 768px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Mobile Preview */
+.mobile-preview-mode .mobile-preview {
+  width: 375px;
+  max-width: 375px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Device-specific responsive adjustments */
+.tablet-preview-mode {
+  /* Tablet-specific styles */
+}
+
+.mobile-preview-mode {
+  /* Mobile-specific styles */
+}
+
+/* Smooth transitions between device modes */
+.device-preview-container {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ensure proper scrolling on smaller devices */
+.tablet-preview-mode .tablet-preview,
+.mobile-preview-mode .mobile-preview {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Hide scrollbars on preview containers for cleaner look */
+.tablet-preview-mode .tablet-preview::-webkit-scrollbar,
+.mobile-preview-mode .mobile-preview::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tablet-preview-mode .tablet-preview::-webkit-scrollbar-track,
+.mobile-preview-mode .mobile-preview::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.tablet-preview-mode .tablet-preview::-webkit-scrollbar-thumb,
+.mobile-preview-mode .mobile-preview::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+/* Responsive adjustments for the preview toggle itself */
+@media (max-width: 640px) {
+  .device-preview-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+  
+  .device-preview-toggle button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}

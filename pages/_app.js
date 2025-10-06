@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/device-preview.css';
 import ImageWatermark from '../components/ImageWatermark';
 import ErrorBoundary from '../components/ErrorBoundary';
 

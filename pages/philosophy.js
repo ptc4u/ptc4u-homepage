@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import MarqueeSection from '../components/MarqueeSection';
 import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
@@ -21,6 +22,7 @@ export default function PhilosophyPage() {
       </Head>
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
+        <UniversalHomeIcon />
         <NavBar />
         <div className="hidden lg:block">
           <MarqueeSection />

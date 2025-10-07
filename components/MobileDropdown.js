@@ -16,8 +16,7 @@ export default function MobileDropdown() {
   const navigationItems = [
     { id: 'about-coach', label: 'About Your Coach' },
     { id: 'testimonials', label: 'Client Testimonials' },
-    { id: 'blogs', label: 'Articles & Insights' },
-    { id: 'philosophy', label: "PTC's 3R Pillars" }
+    { id: 'blogs', label: 'Articles & Insights' }
   ];
 
   // Quick action items

@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 
 /**
  * Welcome landing page for Pinnacle Thrive Coaching.
@@ -35,7 +37,10 @@ export default function WelcomePage() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <UniversalHomeIcon />
+        <NavBar />
+        <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl w-full text-center">
           {/* Welcome Header */}
           <div className="mb-12">
@@ -128,6 +133,7 @@ export default function WelcomePage() {
               Reflect • Reboot • Reinvent
             </p>
           </div>
+        </div>
         </div>
       </div>
     </>

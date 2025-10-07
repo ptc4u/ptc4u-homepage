@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import WorkshopRequestForm from '../components/WorkshopRequestForm';
 import PartnershipRequestForm from '../components/PartnershipRequestForm';
 import { createMailtoLink, openMailtoWithFallback } from '../components/FormUtils';
@@ -40,7 +42,11 @@ export default function DebugForms() {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex flex-col">
+      <UniversalHomeIcon />
+      <NavBar />
+      <main className="flex-grow flex items-center justify-center px-4 py-8">
+        <div style={{ padding: '20px', maxWidth: '800px', width: '100%' }}>
       <h1>Form Debug Page</h1>
       
       <div style={{ marginBottom: '20px' }}>
@@ -143,6 +149,8 @@ export default function DebugForms() {
           )}
         </div>
       </div>
+      </div>
+      </main>
     </div>
   );
 }

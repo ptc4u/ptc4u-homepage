@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import '../styles/device-preview.css';
+import '../styles/minimalist.css';
 import ImageWatermark from '../components/ImageWatermark';
 import ErrorBoundary from '../components/ErrorBoundary';
 

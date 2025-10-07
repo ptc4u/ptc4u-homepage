@@ -2,11 +2,9 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
-import MarqueeSection from '../components/MarqueeSection';
-import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import WorkshopRequestForm from '../components/WorkshopRequestForm';
 import PartnershipRequestForm from '../components/PartnershipRequestForm';
-import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 
@@ -26,7 +24,7 @@ export default function RequestFormsPage() {
   };
 
   const handleBackToSelection = () => {
-    setActiveForm(null);
+    router.push('/?showJourney=true');
   };
 
   return (
@@ -41,13 +39,12 @@ export default function RequestFormsPage() {
       </Head>
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
+        <UniversalHomeIcon />
         <NavBar />
         <div className="hidden lg:block">
-          <MarqueeSection />
-          <AdditionalMarqueeSection />
         </div>
         
-        <main className="flex-grow pt-28 sm:pt-32 lg:pt-36 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto">
+        <main className="flex-grow pt-32 sm:pt-36 lg:pt-40 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center">
           <div className="max-w-5xl mx-auto">
             {!activeForm ? (
               // Form Selection Screen
@@ -55,13 +52,13 @@ export default function RequestFormsPage() {
                 <div className="text-center mb-10">
                   <div className="mb-6">
                     <a
-                      href="/?showJourney=true"
+                      href="/#services"
                       className="inline-flex items-center text-black hover:text-black font-medium transition-colors"
                     >
                       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
-                      Back to Start Your Journey
+                      Back to Services
                     </a>
                   </div>
                   <h1 className="text-3xl lg:text-4xl font-bold text-black mb-4">
@@ -168,7 +165,7 @@ export default function RequestFormsPage() {
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    Back to Form Selection
+                    Back to Services
                   </button>
                 </div>
 
@@ -178,9 +175,6 @@ export default function RequestFormsPage() {
             )}
           </div>
         </main>
-        
-        {/* Fixed QuickActionsSection at bottom */}
-        <QuickActionsSection />
         
         <Footer />
       </div>

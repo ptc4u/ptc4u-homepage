@@ -8,24 +8,24 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <span className="text-2xl font-bold text-black">
-                <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-black">Thrive</span>
+              <span className="text-2xl font-bold text-gray-800">
+                <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-gray-800">Thrive</span>
               </span>
             </div>
-            <p className="text-black mb-6 max-w-md">
+            <p className="text-gray-700 mb-6 max-w-md">
               Transform your life and career with expert coaching. We help you break through barriers,
               discover your potential, and create lasting change through personalized guidance.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-black hover:text-black transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-black hover:text-black transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@ export default function Footer() {
                 href="https://instagram.com/ask.ptc4u"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-black hover:text-black transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-black hover:text-black transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -67,25 +67,25 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-black">Services</h3>
+            <h3 className="text-lg font-semibold mb-6 text-gray-800">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-black hover:text-black transition-colors">
+                <a href="#services" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Life Coaching
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-black hover:text-black transition-colors">
+                <a href="#services" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Corporate Coaching
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-black hover:text-black transition-colors">
+                <a href="#services" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Goal Achievement
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-black hover:text-black transition-colors">
+                <a href="#services" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Performance Coaching
                 </a>
               </li>
@@ -94,25 +94,25 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-black">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6 text-gray-800">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#process" className="text-black hover:text-black transition-colors">
+                <a href="#process" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Our Process
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-black hover:text-black transition-colors">
+                <a href="#testimonials" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Client Testimonials
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-black hover:text-black transition-colors">
+                <a href="#contact" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-black transition-colors">
+                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
                   Free Resources
                 </a>
               </li>
@@ -121,19 +121,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-slate-800 mt-12 pt-8">
+        <div className="border-t border-gray-300 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-black text-sm mb-4 md:mb-0">
-              © {currentYear} <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-black">Thrive Coaching</span>. All rights reserved.
+            <div className="text-gray-700 text-sm mb-4 md:mb-0">
+              © {currentYear} <span className="font-tan-pearl text-purple-800">Pinnacle</span> <span className="text-gray-800">Thrive Coaching</span>. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-black hover:text-black transition-colors">
+              <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-black hover:text-black transition-colors">
+              <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-black hover:text-black transition-colors">
+              <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
                 Cookie Policy
               </a>
             </div>

@@ -77,7 +77,7 @@ export default function QuickActionsSection() {
 
   return (
     <>
-      <section className="fixed bottom-0 left-0 right-0 z-40 py-4 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 shadow-lg">
+      <section className="relative z-40 py-4 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 shadow-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {actions.map((action) => (
@@ -108,7 +108,7 @@ export default function QuickActionsSection() {
               </h2>
               <button
                 onClick={handleCloseModal}
-                className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
+                className="text-gray-600 hover:text-gray-800 text-2xl font-bold bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 ×
               </button>

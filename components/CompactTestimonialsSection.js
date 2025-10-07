@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Flipping Testimonials section component for Pinnacle Thrive Coaching.
- *
- * This section showcases client testimonials with a flipping card animation.
+ * Compact Testimonials section component for About Your Coach page.
+ * 
+ * This is a smaller version of the testimonials section designed to fit
+ * within the About Your Coach page layout with ratings positioned at top right.
  */
-export default function FlippingTestimonialsSection() {
+export default function CompactTestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
 
@@ -75,7 +76,7 @@ export default function FlippingTestimonialsSection() {
     }
   ];
 
-  // Auto-flip testimonials every 10 seconds
+  // Auto-flip testimonials every 20 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIsFlipping(true);
@@ -83,7 +84,7 @@ export default function FlippingTestimonialsSection() {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
         setIsFlipping(false);
       }, 300); // Half of the flip animation duration
-    }, 10000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -96,9 +97,9 @@ export default function FlippingTestimonialsSection() {
       const partialFill = isPartialStar ? (rating % 1) : 1;
       
       return (
-        <div key={i} className="relative w-6 h-6">
+        <div key={i} className="relative w-4 h-4">
           {/* Background star (always gray) */}
-          <div className="w-6 h-6 bg-gray-300 rounded-sm absolute inset-0 opacity-30"></div>
+          <div className="w-4 h-4 bg-gray-300 rounded-sm absolute inset-0 opacity-30"></div>
           
           {/* Golden star image (full or partial) */}
           {(isFullStar || isPartialStar) && (
@@ -106,9 +107,9 @@ export default function FlippingTestimonialsSection() {
               <img
                 src="/images/gldstr.jpeg"
                 alt="Golden star"
-                className="w-6 h-6 absolute inset-0 object-cover"
+                className="w-4 h-4 absolute inset-0 object-cover"
                 style={{
-                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.3))'
                 }}
               />
               
@@ -131,104 +132,92 @@ export default function FlippingTestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-white relative z-10" id="testimonials" style={{ paddingTop: '160px' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-20 pt-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            Client <span className="text-black">Testimonials</span>
-          </h2>
-          <p className="text-xl text-black max-w-4xl mx-auto font-medium">
-            Hear from our clients who have transformed their lives and careers through
-            our coaching programs. Real results from real people.
-          </p>
-        </div>
-
-        {/* Flipping Testimonial Card */}
-        <div className="flex justify-center mb-16">
-          <div className="relative w-full max-w-6xl">
-            <div 
-              className={`bg-gradient-to-br from-purple-50 to-white p-10 rounded-3xl border border-purple-200/50 shadow-xl transition-all duration-600 transform ${
-                isFlipping ? 'rotateY-180' : 'rotateY-0'
-              }`}
-              style={{
-                transform: isFlipping ? 'rotateY(180deg)' : 'rotateY(0deg)'
-              }}
-            >
-              {/* Rating */}
-              <div className="flex items-center justify-end mb-4">
+    <div className="h-full flex flex-col">
+      {/* Compact Testimonial Card */}
+      <div className="flex-grow flex items-center">
+        <div className="relative w-full">
+          <div 
+            className={`bg-white p-4 rounded-lg border border-purple-200/50 shadow-md transition-all duration-600 transform ${
+              isFlipping ? 'rotateY-180' : 'rotateY-0'
+            }`}
+            style={{
+              transform: isFlipping ? 'rotateY(180deg)' : 'rotateY(0deg)'
+            }}
+          >
+            {/* Rating positioned at top right */}
+            <div className="flex items-center justify-end mb-3">
+              <div className="flex items-center space-x-1">
                 {renderStars(currentTestimonial.rating)}
-                <span className="ml-2 text-sm text-black">({currentTestimonial.rating})</span>
               </div>
+              <span className="ml-2 text-xs text-gray-600">({currentTestimonial.rating})</span>
+            </div>
 
-              {/* Content */}
-              <blockquote className="text-black mb-6 italic leading-relaxed text-lg">
-                "{currentTestimonial.content}"
-              </blockquote>
+            {/* Content */}
+            <blockquote className="text-black mb-4 italic leading-relaxed text-base">
+              "{currentTestimonial.content}"
+            </blockquote>
 
-              {/* Category Badge */}
-              <div className="inline-block bg-gray-100 text-black px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                {currentTestimonial.category}
+            {/* Category Badge */}
+            <div className="inline-block bg-gray-100 text-black px-3 py-1 rounded-full text-xs font-semibold mb-3">
+              {currentTestimonial.category}
+            </div>
+
+            {/* Author */}
+            <div className="flex items-center">
+              <div className="w-10 h-10 mr-3 rounded-full overflow-hidden">
+                <img
+                  src={currentTestimonial.avatar}
+                  alt={`${currentTestimonial.name} - ${currentTestimonial.role}`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-purple-100 to-emerald-100 flex items-center justify-center text-sm">
+                  {currentTestimonial.name.charAt(0)}
+                </div>
               </div>
-
-              {/* Author */}
-              <div className="flex items-center">
-                <div className="w-16 h-16 mr-6 rounded-full overflow-hidden">
-                  <img
-                    src={currentTestimonial.avatar}
-                    alt={`${currentTestimonial.name} - ${currentTestimonial.role}`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-emerald-100 flex items-center justify-center text-2xl">
-                    {currentTestimonial.name.charAt(0)}
-                  </div>
-                </div>
-                <div>
-                  <div className="font-semibold text-black text-lg">{currentTestimonial.name}</div>
-                  <div className="text-sm text-black">{currentTestimonial.role}</div>
-                  <div className="text-sm text-black">{currentTestimonial.company}</div>
-                </div>
+              <div>
+                <div className="font-semibold text-black text-base">{currentTestimonial.name}</div>
+                <div className="text-sm text-gray-600">{currentTestimonial.role}</div>
+                <div className="text-sm text-gray-600">{currentTestimonial.company}</div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Navigation Dots */}
-        <div className="flex justify-center space-x-2 mb-16">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setIsFlipping(true);
-                setTimeout(() => {
-                  setCurrentIndex(index);
-                  setIsFlipping(false);
-                }, 300);
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
-              }`}
-            />
-          ))}
-        </div>
-
-
-        <style jsx>{`
-          @keyframes flip {
-            0% { transform: rotateY(0deg); }
-            50% { transform: rotateY(90deg); }
-            100% { transform: rotateY(0deg); }
-          }
-          
-          .rotateY-180 {
-            animation: flip 0.6s ease-in-out;
-          }
-        `}</style>
       </div>
-    </section>
+
+      {/* Navigation Dots */}
+      <div className="flex justify-center space-x-1 mt-3">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setIsFlipping(true);
+              setTimeout(() => {
+                setCurrentIndex(index);
+                setIsFlipping(false);
+              }, 300);
+            }}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+
+      <style jsx>{`
+        @keyframes flip {
+          0% { transform: rotateY(0deg); }
+          50% { transform: rotateY(90deg); }
+          100% { transform: rotateY(0deg); }
+        }
+        
+        .rotateY-180 {
+          animation: flip 0.6s ease-in-out;
+        }
+      `}</style>
+    </div>
   );
 }

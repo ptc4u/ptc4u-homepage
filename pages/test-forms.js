@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import { createMailtoLink, openMailtoWithFallback } from '../components/FormUtils';
 
 export default function TestForms() {
@@ -43,7 +45,11 @@ This is a test submission.
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex flex-col">
+      <UniversalHomeIcon />
+      <NavBar />
+      <main className="flex-grow flex items-center justify-center px-4 py-8">
+        <div style={{ padding: '20px', maxWidth: '600px', width: '100%' }}>
       <h1>Form Functionality Test</h1>
       
       <div style={{ marginBottom: '20px' }}>
@@ -83,6 +89,8 @@ This is a test submission.
           <li>Check the browser console for any error messages</li>
         </ol>
       </div>
+      </div>
+      </main>
     </div>
   );
 }

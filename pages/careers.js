@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
-import MarqueeSection from '../components/MarqueeSection';
-import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
 import JobsSection from '../components/JobsSection';
 import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
+import GlobalFormHandler from '../components/GlobalFormHandler';
 
 export default function CareersPage() {
   return (
@@ -22,10 +22,9 @@ export default function CareersPage() {
       </Head>
       <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
         <ImageWatermark />
+        <UniversalHomeIcon />
         <NavBar />
         <div className="hidden lg:block">
-          <MarqueeSection />
-          <AdditionalMarqueeSection />
         </div>
         <GlobalGoogleCalendarWidget />
         <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center page-main-content">
@@ -38,6 +37,9 @@ export default function CareersPage() {
         <QuickActionsSection />
         
         <Footer />
+        
+        {/* Global Form Handler for service options */}
+        <GlobalFormHandler />
       </div>
     </>
   );

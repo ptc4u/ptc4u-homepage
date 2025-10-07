@@ -109,11 +109,11 @@ export default function JourneyOptionsSection() {
   }
 
   return (
-    <section className="pt-16 pb-12 bg-gradient-to-br from-blue-50 to-purple-50" id="journey-options">
+    <section className="pt-8 pb-8 bg-gradient-to-br from-blue-50 to-purple-50" id="journey-options">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+        <div className="text-center mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
             Choose Your <span className="text-black">Journey</span>
           </h2>
           <p className="text-xl text-black max-w-4xl mx-auto font-medium">
@@ -123,23 +123,23 @@ export default function JourneyOptionsSection() {
         </div>
 
         {/* Four Quadrants Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
           {journeyOptions.map((option, index) => (
             <button
               key={option.id}
               onClick={() => handleJourneyOption(option.id)}
-              className={`${option.bgColor} ${option.borderColor} border-2 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 text-left group animate-fade-in-up`}
+              className={`${option.bgColor} ${option.borderColor} border-2 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 text-left group animate-fade-in-up`}
               style={{
                 animationDelay: `${index * 200}ms`,
                 animationFillMode: 'both'
               }}
             >
               <div className="flex items-start space-x-6">
-                <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{option.icon}</div>
+                <div className="text-4xl group-hover:scale-110 transition-transform duration-300">{option.icon}</div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-black mb-2">{option.title}</h3>
-                  <p className="text-lg font-semibold text-black mb-4">{option.subtitle}</p>
-                  <p className="text-black leading-relaxed">{option.description}</p>
+                  <p className="text-lg font-semibold text-black mb-2">{option.subtitle}</p>
+                  <p className="text-base text-black leading-relaxed">{option.description}</p>
                 </div>
               </div>
             </button>
@@ -147,10 +147,10 @@ export default function JourneyOptionsSection() {
         </div>
 
         {/* Thin Bar Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto mt-8">
+        <div className="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto mt-6">
           <button
             onClick={() => handleJourneyOption('workshop')}
-            className="flex-1 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white py-4 px-8 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up button-text-white"
+            className="flex-1 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up button-text-white"
             style={{
               animationDelay: '800ms',
               animationFillMode: 'both'
@@ -160,7 +160,7 @@ export default function JourneyOptionsSection() {
           </button>
           <button
             onClick={() => handleJourneyOption('partnership')}
-            className="flex-1 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white py-4 px-8 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up button-text-white"
+            className="flex-1 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white py-3 px-6 rounded-lg font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up button-text-white"
             style={{
               animationDelay: '1000ms',
               animationFillMode: 'both'

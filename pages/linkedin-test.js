@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 
 /**
  * LinkedIn Content Test Page
@@ -49,8 +51,11 @@ export default function LinkedInTest() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <UniversalHomeIcon />
+      <NavBar />
+      <main className="flex-grow flex items-center justify-center py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h1 className="text-3xl font-bold text-black mb-6">
             LinkedIn Content Test
@@ -152,6 +157,8 @@ export default function LinkedInTest() {
           </div>
         </div>
       </div>
+      </div>
+      </main>
     </div>
   );
 }

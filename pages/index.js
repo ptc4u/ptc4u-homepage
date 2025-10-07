@@ -4,29 +4,21 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 // Layout optimization - ensure production matches localhost padding
 import NavBar from '../components/NavBar';
+import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import HeroSection from '../components/HeroSection';
-import ServicesSection from '../components/ServicesSection';
-import ProcessSection from '../components/ProcessSection';
 import FlippingTestimonialsSection from '../components/FlippingTestimonialsSection';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
-import MarqueeSection from '../components/MarqueeSection';
-import AdditionalMarqueeSection from '../components/AdditionalMarqueeSection';
 import PTCFactsSection from '../components/PTCFactsSection';
-import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
-import QuickActionsSection from '../components/QuickActionsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
-import BlogsSection from '../components/BlogsSection';
-import PhilosophySection from '../components/PhilosophySection';
+import ArticlesInsightsSection from '../components/ArticlesInsightsSection';
 import dynamic from 'next/dynamic';
 
-import JourneyFormSection from '../components/JourneyFormSection';
 import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
 import MobileDropdown from '../components/MobileDropdown';
-import DevicePreviewToggle from '../components/DevicePreviewToggle';
-import PreviewButtons from '../components/PreviewButtons';
+import GlobalFormHandler from '../components/GlobalFormHandler';
 /**
  * The home page of the Pinnacle Thrive Coaching website. It stitches together
  * several composable sections and injects appropriate metadata via the
@@ -35,6 +27,14 @@ import PreviewButtons from '../components/PreviewButtons';
 export default function Home() {
   const router = useRouter();
   const [currentDevice, setCurrentDevice] = useState('laptop');
+  
+  // Redirect to minimalist version if on port 3001
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.port === '3001') {
+      router.push('/minimalist');
+    }
+  }, [router]);
+
   
   // Removed welcome page redirect - landing page loads directly
   
@@ -84,18 +84,12 @@ export default function Home() {
 
       </Head>
       <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
-      <PreviewButtons onPreviewChange={setCurrentDevice} currentDevice={currentDevice} />
-      <DevicePreviewToggle>
-        <div className="flex flex-col min-h-screen bg-neutral-50 relative z-50">
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative z-50" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%)' }}>
         <ImageWatermark />
+        <UniversalHomeIcon />
         <NavBar />
-        <div className="hidden lg:block">
-          <MarqueeSection />
-          <AdditionalMarqueeSection />
-        </div>
-        <GlobalGoogleCalendarWidget />
         
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto pt-28 sm:pt-32 lg:pt-36 flex flex-col" style={{ height: 'calc(100vh - 120px)' }}>
+        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 flex flex-col items-center justify-center" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%)' }}>
           <div id="hero">
             <HeroSection />
           </div>
@@ -106,7 +100,6 @@ export default function Home() {
           {/* Journey Options Section */}
           <JourneyOptionsSection />
           
-          {/* QuickActionsSection is now fixed at bottom of page */}
           
           <div id="about-coach">
             <AboutCoachSection />
@@ -116,46 +109,15 @@ export default function Home() {
           <div className="section-divider"></div>
           
           <div id="blogs">
-            <BlogsSection />
+            <ArticlesInsightsSection />
           </div>
           
           {/* Divider line after blogs */}
           <div className="section-divider"></div>
           
-          <div id="philosophy">
-            <PhilosophySection />
-          </div>
           
-          {/* Divider line after philosophy */}
-          <div className="section-divider"></div>
           
-          <div id="journey-form">
-            <JourneyFormSection />
-          </div>
           
-          {/* Divider line after journey form */}
-          <div className="section-divider"></div>
-          
-          <div id="services">
-            <ServicesSection />
-          </div>
-          
-          {/* Divider line after services */}
-          <div className="section-divider"></div>
-          
-          <div id="process">
-            <ProcessSection />
-          </div>
-          
-          {/* Divider line after process */}
-          <div className="section-divider"></div>
-          
-          <div id="testimonials">
-            <FlippingTestimonialsSection />
-          </div>
-          
-          {/* Divider line after testimonials */}
-          <div className="section-divider"></div>
           
           <div id="careers">
             <JobsSection />
@@ -169,9 +131,6 @@ export default function Home() {
           </div>
         </main>
         
-        {/* Fixed QuickActionsSection at bottom */}
-        <QuickActionsSection />
-        
         {/* Divider line before footer */}
         <div className="section-divider-thick"></div>
         
@@ -179,8 +138,10 @@ export default function Home() {
         
         {/* Mobile Dropdown - Temporarily disabled to fix hydration */}
         {/* <MobileDropdown /> */}
+        
+        {/* Global Form Handler for service options */}
+        <GlobalFormHandler />
         </div>
-      </DevicePreviewToggle>
     </>
   );
 }

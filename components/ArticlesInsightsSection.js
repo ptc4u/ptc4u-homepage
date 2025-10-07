@@ -1,5 +1,5 @@
 /**
- * Articles & Insights section component for Pinnacle Thrive Coaching.
+ * PTC Knowledge Base section component for Pinnacle Thrive Coaching.
  * 
  * Features 4 tiles: LinkedIn, WordPress, Instagram, and PTC's 3R Pillars
  */
@@ -14,7 +14,7 @@ export default function ArticlesInsightsSection() {
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
       ),
-      link: 'https://www.linkedin.com/company/pinnacle-thrive-coaching/',
+      link: 'https://www.linkedin.com/company/pinnacle-thrive-coaching/?viewAsMember=true',
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
       hoverColor: 'hover:bg-blue-100'
@@ -73,12 +73,12 @@ export default function ArticlesInsightsSection() {
   ];
 
   return (
-    <section className="py-8 mt-12 bg-white rounded-2xl shadow-lg" id="blogs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 mt-12 bg-white rounded-2xl shadow-lg" id="blogs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4 font-helvetica">
-            Articles & Insights
+            PTC Knowledge Base
           </h2>
           <p className="text-lg text-gray-600">
             Explore our content across different platforms
@@ -86,23 +86,23 @@ export default function ArticlesInsightsSection() {
         </div>
 
         {/* 4-Tile Grid - 2x2 Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {tiles.map((tile) => (
             <a
               key={tile.id}
               href={tile.link}
               target={tile.id === 'ptc-pillars' ? '_self' : '_blank'}
               rel={tile.id === 'ptc-pillars' ? '' : 'noopener noreferrer'}
-              className={`block p-6 rounded-xl border-2 ${tile.bgColor} ${tile.borderColor} ${tile.hoverColor} transition-all duration-300 hover:shadow-lg group`}
+              className={`block p-8 rounded-xl border-2 ${tile.bgColor} ${tile.borderColor} ${tile.hoverColor} transition-all duration-300 hover:shadow-lg group`}
             >
               <div className="text-center">
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-6">
                   {tile.icon}
                 </div>
-                <h3 className="text-xl font-bold text-black mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-purple-600 transition-colors">
                   {tile.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-base">
                   {tile.description}
                 </p>
               </div>

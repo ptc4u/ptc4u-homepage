@@ -85,7 +85,7 @@ export default function SimpleNavBar() {
             e.target.style.color = 'black';
           }}
         >
-          Articles & Insights
+          PTC Knowledge Base
         </div>
         <div 
           style={{

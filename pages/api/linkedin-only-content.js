@@ -1,6 +1,6 @@
 /**
  * LinkedIn-only content API
- * Returns the latest LinkedIn articles for the Articles & Insights page
+ * Returns the latest LinkedIn articles for the PTC Knowledge Base page
  * Fetches real content with actual publication dates
  */
 

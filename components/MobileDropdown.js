@@ -16,7 +16,7 @@ export default function MobileDropdown() {
   const navigationItems = [
     { id: 'about-coach', label: 'About Your Coach' },
     { id: 'testimonials', label: 'Client Testimonials' },
-    { id: 'blogs', label: 'Articles & Insights' }
+    { id: 'blogs', label: 'PTC Knowledge Base' }
   ];
 
   // Quick action items

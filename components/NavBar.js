@@ -117,7 +117,7 @@ export default function NavBar() {
   return (
     <nav className="relative z-50 bg-gradient-to-r from-white via-purple-50/30 to-white backdrop-blur-lg shadow-xl border-b border-purple-100/50">
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-center h-32 sm:h-36 lg:h-40">
+        <div className="flex items-center justify-center h-32 sm:h-36 lg:h-40 pr-20 sm:pr-24">
           {/* Centered Navigation Container */}
           <div className="flex items-center justify-center space-x-8 lg:space-x-16 w-full max-w-7xl">
             {/* Left Navigation Items */}
@@ -141,7 +141,7 @@ export default function NavBar() {
                 }}
                 className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg hover:shadow-md cursor-pointer relative group"
               >
-                Articles & Insights
+                PTC Knowledge Base
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
               </button>
               
@@ -257,7 +257,7 @@ export default function NavBar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="sm:hidden">
+          <div className="sm:hidden absolute left-4 top-1/2 transform -translate-y-1/2">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
@@ -323,7 +323,7 @@ export default function NavBar() {
                 }}
                 className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
               >
-                Articles & Insights
+                PTC Knowledge Base
               </button>
               <div className="border-t border-gray-200 my-2"></div>
               <button

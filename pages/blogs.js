@@ -11,7 +11,7 @@ export default function BlogsPage() {
   return (
     <>
       <Head>
-        <title>Articles & Insights - Pinnacle Thrive Coaching</title>
+        <title>PTC Knowledge Base - Pinnacle Thrive Coaching</title>
         <meta
           name="description"
           content="Latest insights and articles from Pinnacle Thrive Coaching LinkedIn content. Leadership development, career growth, and professional transformation."

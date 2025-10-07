@@ -157,7 +157,6 @@ export default function LinkedInTest() {
           </div>
         </div>
       </div>
-      </div>
       </main>
     </div>
   );

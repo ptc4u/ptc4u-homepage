@@ -80,7 +80,7 @@ const ImageWatermark = ({ imageSrc = '/rndPTClogo.png', opacity = 0.15, size = '
 
       {/* Additional subtle watermark text */}
       <div className="absolute bottom-8 right-8 text-blue-400 opacity-20 font-light text-sm pointer-events-none">
-        <span className="font-tan-pearl text-blue-500">Pinnacle</span> Thrive Coaching
+        <span className="font-tan-pearl text-purple-500">Pinnacle</span> Thrive Coaching
       </div>
     </div>
   );

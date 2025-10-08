@@ -150,7 +150,7 @@ This request was submitted through the PTC website.
         </p>
         <button
           onClick={() => setSubmitStatus(null)}
-          className="bg-purple-400 hover:bg-purple-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
+          className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
         >
           Submit Another Request
         </button>
@@ -168,7 +168,7 @@ This request was submitted through the PTC website.
         </p>
         <button
           onClick={() => setSubmitStatus(null)}
-          className="bg-purple-400 hover:bg-purple-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
+          className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors button-text-white"
         >
           Try Again
         </button>
@@ -177,7 +177,7 @@ This request was submitted through the PTC website.
   }
 
   return (
-    <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-purple-200/50">
+    <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-blue-200/50">
       <div className="text-center mb-6 sm:mb-8">
         <div className="text-4xl sm:text-6xl mb-4"></div>
         <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
@@ -202,7 +202,7 @@ This request was submitted through the PTC website.
               value={formData.fullName}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="Your full name"
             />
           </div>
@@ -217,7 +217,7 @@ This request was submitted through the PTC website.
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="your.email@example.com"
             />
           </div>
@@ -236,7 +236,7 @@ This request was submitted through the PTC website.
               value={formData.phone}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="+1 (555) 123-4567"
             />
           </div>
@@ -251,7 +251,7 @@ This request was submitted through the PTC website.
               value={formData.timezone}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="e.g., EST, PST, GMT+5:30"
             />
           </div>
@@ -270,7 +270,7 @@ This request was submitted through the PTC website.
               value={formData.currentRole}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="e.g., Software Engineer, Manager, Director"
             />
           </div>
@@ -284,7 +284,7 @@ This request was submitted through the PTC website.
               name="company"
               value={formData.company}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="Your company name"
             />
           </div>
@@ -302,7 +302,7 @@ This request was submitted through the PTC website.
               value={formData.experience}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             >
               {experienceLevels.map((level) => (
                 <option key={level.value} value={level.value}>
@@ -321,7 +321,7 @@ This request was submitted through the PTC website.
               value={formData.preferredSchedule}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             >
               {scheduleOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -394,7 +394,7 @@ This request was submitted through the PTC website.
               value={formData.commitment}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             >
               {commitmentLevels.map((level) => (
                 <option key={level.value} value={level.value}>
@@ -413,7 +413,7 @@ This request was submitted through the PTC website.
               value={formData.howHeard}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             >
               {howHeardOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -445,7 +445,7 @@ This request was submitted through the PTC website.
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-purple-400 to-purple-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed button-text-white"
+            className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed button-text-white"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center">
@@ -462,7 +462,7 @@ This request was submitted through the PTC website.
         </div>
 
         {/* CTA Message */}
-        <div className="text-center mt-6 p-4 bg-purple-50 rounded-lg">
+        <div className="text-center mt-6 p-4 bg-blue-50 rounded-lg">
           <p className="text-black font-medium">
             Focused, impactful, and results-driven—six powerful sessions to help you reflect, reboot, and reinvent your career path.
           </p>

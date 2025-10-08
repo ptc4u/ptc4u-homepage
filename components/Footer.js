@@ -55,22 +55,22 @@ export default function Footer() {
             <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-800">Services</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   Discovery Session
                 </a>
               </li>
               <li>
-                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   PTC Essentials
                 </a>
               </li>
               <li>
-                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   PTC Professional
                 </a>
               </li>
               <li>
-                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   Executive Workshops
                 </a>
               </li>
@@ -82,22 +82,22 @@ export default function Footer() {
             <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-800">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="#about-coach" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#about-coach" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   About Coach
                 </a>
               </li>
               <li>
-                <a href="#blogs" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
-                  Knowledge Base
+                <a href="#blogs" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
+                  <span className="text-blue-700">Knowledge</span> Base
                 </a>
               </li>
               <li>
-                <a href="#careers" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#careers" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   Join Us
                 </a>
               </li>
               <li>
-                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#journey" className="text-sm sm:text-base text-gray-700 hover:text-blue-600 transition-colors">
                   Get Started
                 </a>
               </li>
@@ -114,10 +114,10 @@ export default function Footer() {
               <span className="text-gray-800">Thrive Coaching</span>. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
-              <a href="mailto:ask@ptc4u.com" className="text-gray-700 hover:text-purple-600 transition-colors">
+              <a href="mailto:ask@ptc4u.com" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Contact Us
               </a>
-              <a href="https://www.linkedin.com/company/pinnacle-thrive-coaching/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-purple-600 transition-colors">
+              <a href="https://www.linkedin.com/company/pinnacle-thrive-coaching/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
                 LinkedIn
               </a>
             </div>

@@ -86,7 +86,7 @@ export default function JourneyOptionsSection() {
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-            Choose Your <span className="text-purple-700">Journey</span>
+            Choose Your <span className="text-blue-700">Journey</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Select the path that best fits your current needs and begin your transformation journey with Pinnacle Thrive Coaching.

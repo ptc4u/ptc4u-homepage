@@ -42,7 +42,7 @@ export default function AboutCoachSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 text-center leading-tight">
-          About Your <span className="text-purple-700">Coach</span>
+          About Your <span className="text-blue-700">Coach</span>
         </h2>
 
         {/* Top Row - Picture and About Coach Section */}

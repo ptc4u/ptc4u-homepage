@@ -24,11 +24,11 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="font-tan-pearl bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent">Pinnacle</span>
-              <span className="text-slate-900 ml-3">Thrive Coaching</span>
+              <span className="font-tan-pearl text-purple-800">Pinnacle</span>
+              <span className="text-slate-900 ml-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Thrive Coaching</span>
             </h1>
 
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-6"></div>
           </div>
 
           {/* Narrative Story Block */}
@@ -37,7 +37,7 @@ export default function HeroSection() {
               {/* Opening Quote */}
               <div className="text-center mb-12">
                 <div className="max-w-6xl mx-auto px-4">
-                  <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-purple-700 leading-tight italic">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-blue-700 leading-tight italic">
                     This is your space to pause, breathe, and rediscover yourself.
                   </p>
                 </div>

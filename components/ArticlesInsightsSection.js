@@ -79,7 +79,7 @@ export default function ArticlesInsightsSection() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 leading-tight">
-            PTC Knowledge Base
+            PTC <span className="text-blue-700">Knowledge</span> Base
           </h2>
           <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
             Explore our content across different platforms

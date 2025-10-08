@@ -1,63 +1,104 @@
-
 /**
  * Hero section component for Pinnacle Thrive Coaching.
- *
- * This section introduces Pinnacle Thrive Coaching with compelling messaging that reflects
- * life and corporate coaching services. Features a modern, clean design with coaching-focused
- * visual hierarchy and messaging.
+ * Executive-focused design for senior tech and corporate leaders.
+ * Clean, minimal, and sophisticated layout.
  */
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-emerald-50 via-white to-purple-50 overflow-hidden pt-20" id="hero">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-emerald-500/8 to-blue-500/8 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-emerald-500/5 via-purple-500/5 to-blue-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-blue-400/6 to-purple-400/6 rounded-full blur-2xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+    <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20" id="hero">
+      {/* Minimal background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-slate-100/30 rounded-full blur-2xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-blue-50/40 rounded-full blur-2xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge removed as requested */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
 
-          {/* Main Heading */}
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-blue-900 mb-8 sm:mb-10 leading-tight">
-            <div className="font-chancery">Warm Greetings from</div>
-            <div className="mt-2">
-              <span className="font-tan-pearl text-purple-800 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Pinnacle</span> <span className="text-blue-900 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">Thrive Coaching</span>
+          {/* Executive Header */}
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="mb-8">
+              <span className="text-lg sm:text-xl font-tan-pearl text-slate-600 italic tracking-wide">
+                Warm Greetings from
+              </span>
             </div>
-          </h1>
 
-          {/* Welcome Message */}
-          <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-black mb-12 sm:mb-16 leading-relaxed max-w-4xl mx-auto font-normal space-y-4 sm:space-y-6">
-            <p>
-              This is your space to pause, breathe, and rediscover yourself.
-            </p>
-            <p>
-              Here, we don't just talk about goals — we walk with you as you reshape your career, your leadership, and your life.
-            </p>
-            <p>
-              Every story of transformation begins with a single step, and yours can begin today.
-            </p>
-            <p>
-              At PTC, we believe in your potential, your resilience, and your ability to rise higher than you ever imagined.
-            </p>
-            
-            <p className="font-semibold text-purple-800 mt-6 sm:mt-8">
-              Your journey to Reflect, Reboot, and Reinvent starts here.
-            </p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <span className="font-tan-pearl bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent">Pinnacle</span>
+              <span className="text-slate-900 ml-3">Thrive Coaching</span>
+            </h1>
+
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           </div>
 
-          {/* Trust Indicators and Rating/Repeatability */}
-          <div className="mt-12 sm:mt-16 text-center">
-            <p className="text-black text-xs sm:text-sm mb-4 sm:mb-6 font-medium">Trusted by professionals worldwide</p>
-            <div className="flex items-center justify-center space-x-2 sm:space-x-4 text-black flex-wrap gap-1 sm:gap-2">
-              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ 30+ Years Experience</span>
-              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ Fortune 500 Leadership</span>
-              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">✓ Published Author</span>
-              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">4.65/5 Rating</span>
-              <span className="text-xs bg-white/80 px-4 py-2 rounded-full shadow-sm border border-purple-200/50 backdrop-blur-sm">95% Repeatability</span>
+          {/* Narrative Story Block */}
+          <div className="mb-8 sm:mb-12">
+            <div className="max-w-5xl mx-auto">
+              {/* Opening Quote */}
+              <div className="text-center mb-12">
+                <div className="max-w-6xl mx-auto px-4">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-purple-700 leading-tight italic">
+                    This is your space to pause, breathe, and rediscover yourself.
+                  </p>
+                </div>
+              </div>
+
+              {/* Story Flow */}
+              <div className="max-w-4xl mx-auto">
+                {/* Story Paragraphs */}
+                <div className="text-left">
+                  <p className="text-xl sm:text-2xl text-black leading-relaxed font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>
+                    Here, we don't just talk about goals — <em>we walk with you</em> as you reshape your career, your leadership, and your life. Every story of transformation begins with a single step, and yours can begin today. At PTC, we believe in <em>your potential</em>, <em>your resilience</em>, and your ability to rise higher than you ever imagined.
+                  </p>
+                </div>
+
+                {/* The Call to Action */}
+                <div className="text-center pt-12">
+                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-8 border border-slate-200">
+                    <div className="relative">
+                      <div className="absolute -top-2 -left-2 text-4xl text-purple-300 font-serif">"</div>
+                      <p className="text-xl sm:text-2xl font-semibold text-slate-900 leading-tight italic px-6">
+                        Your journey to <span className="bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent font-bold">Reflect, Reboot, and Reinvent</span> starts here.
+                      </p>
+                      <div className="absolute -bottom-2 -right-2 text-4xl text-purple-300 font-serif">"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Credentials */}
+          <div className="text-center">
+            <p className="text-sm font-medium text-slate-600 mb-6">
+              Professional Credentials
+            </p>
+
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                <div className="text-xl sm:text-2xl font-semibold text-slate-800 mb-1">30+</div>
+                <div className="text-xs font-medium text-slate-600">Years Experience</div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                <div className="text-xl sm:text-2xl font-semibold text-slate-800 mb-1">F500</div>
+                <div className="text-xs font-medium text-slate-600">Fortune 500 Leadership</div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                <div className="text-xl sm:text-2xl font-semibold text-slate-800 mb-1">Author</div>
+                <div className="text-xs font-medium text-slate-600">Published Works</div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                <div className="text-xl sm:text-2xl font-semibold text-slate-800 mb-1">4.65</div>
+                <div className="text-xs font-medium text-slate-600">Client Rating</div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg col-span-2 lg:col-span-1">
+                <div className="text-xl sm:text-2xl font-semibold text-slate-800 mb-1">95%</div>
+                <div className="text-xs font-medium text-slate-600">Success Rate</div>
+              </div>
             </div>
           </div>
         </div>

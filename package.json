@@ -4,15 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:redesign": "next dev -p 3001",
-    "dev:both": "concurrently \"npm run dev\" \"npm run dev:redesign\"",
-    "dev:all": "concurrently \"npm run dev\" \"npm run dev:redesign\"",
-    "dev:current": "node dev-helper.js current",
-    "dev:new": "node dev-helper.js redesign",
-    "dev:all": "node dev-helper.js both",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "next": "14.2.3",
@@ -21,7 +16,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
-    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.3",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.3.0"
   }

@@ -1,373 +1,199 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import useDeviceDetection from './useDeviceDetection';
 import PTCCalendar from './PTCCalendar';
 
-/**
- * Navigation bar component for Pinnacle Thrive Coaching.
- *
- * Features centered PTC logo with company name flanked by navigation tabs.
- * Now includes smooth scrolling navigation to sections on the same page.
- */
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
-  const [hoverTimeout, setHoverTimeout] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
-  const { isMobile } = useDeviceDetection();
 
-  // Safety check for router - but don't prevent rendering
-  if (!router) {
-    // Router not available yet, using fallback navigation
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Track which sections have "New" content
-  // To add a "NEW" callout to any menu item:
-  // 1. Set the corresponding section to true in newSections
-  // 2. Add the newSections check in the button JSX (see Careers example below)
-  const newSections = {
-    careers: true, // Careers section is newly added
-    // Add other sections here when they get updated
-    // philosophy: false,
-    // services: false,
-    // testimonials: false,
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Handle hover with delay to prevent flickering
-  const handleMouseEnter = (dropdownType) => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-      setHoverTimeout(null);
-    }
-    if (dropdownType === 'contact') {
-      setContactDropdownOpen(true);
-    }
-  };
-
-  const handleMouseLeave = (dropdownType) => {
-    const timeout = setTimeout(() => {
-      if (dropdownType === 'contact') {
-        setContactDropdownOpen(false);
-      }
-    }, 150); // 150ms delay
-    setHoverTimeout(timeout);
-  };
-
-
-  // Navigate to homepage function
-  const navigateToHomepage = () => {
-    // Close mobile menu if open
+  const scrollToSection = (sectionId) => {
     setIsMenuOpen(false);
-    
-    // Always navigate to homepage - simplified logic
-    try {
-      window.location.href = '/';
-    } catch (error) {
-      // Fallback
-      window.location.replace('/');
-    }
-  };
-
-  // Simple navigation function
-  const navigateToSection = (sectionId, pagePath = null) => {
-    // Close mobile menu
-    setIsMenuOpen(false);
-    
-    // Try to find element and scroll to it
     const element = document.getElementById(sectionId);
-    
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    } else if (pagePath) {
-      window.location.href = pagePath;
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
+  const navigateToHome = () => {
+    setIsMenuOpen(false);
+    router.push('/');
+  };
 
-  // Handle outside clicks to close dropdowns
+  const showServices = () => {
+    setIsMenuOpen(false);
+    router.push('/?showJourney=true');
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest('.relative')) {
-        setContactDropdownOpen(false);
-        setAboutDropdownOpen(false);
+      if (isMenuOpen && !event.target.closest('nav')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    document.addEventListener('keydown', handleEscapeKey);
 
-  // Cleanup timeout on unmount
-  useEffect(() => {
     return () => {
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout);
-      }
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscapeKey);
     };
-  }, [hoverTimeout]);
+  }, [isMenuOpen]);
 
   return (
-    <nav className="relative z-50 bg-gradient-to-r from-white via-purple-50/30 to-white backdrop-blur-lg shadow-xl border-b border-purple-100/50">
-      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-center h-32 sm:h-36 lg:h-40 pr-20 sm:pr-24">
-          {/* Centered Navigation Container */}
-          <div className="flex items-center justify-center space-x-8 lg:space-x-16 w-full max-w-7xl">
-            {/* Left Navigation Items */}
-            <div className="flex items-center space-x-6">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('about-coach', '/about');
-                }}
-                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg hover:shadow-md cursor-pointer relative group"
-              >
-                About Your Coach
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('blogs', '/blogs');
-                }}
-                className="text-black hover:text-purple-600 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg hover:shadow-md cursor-pointer relative group"
-              >
-                PTC Knowledge Base
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-              </button>
-              
-              {/* Services Button */}
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  router.push('/?showJourney=true');
-                }}
-                className="text-black hover:text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg flex items-center relative group"
-              >
-                Services
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-              </button>
-            </div>
-
-            {/* Vertical line before logo */}
-            <div className="hidden sm:block w-1 h-28 sm:h-32 lg:h-36 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm flex-shrink-0"></div>
-            
-            {/* Center Logo & Company Name - Enhanced with creative styling */}
-            <div
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateToHomepage();
-              }}
-              className="flex items-center justify-center space-x-8 hover:scale-105 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-2xl p-4 min-w-[320px] sm:min-w-[380px] lg:min-w-[420px] flex-1 bg-gradient-to-br from-white via-purple-50/40 to-blue-50/40 shadow-lg border border-purple-100/60 hover:shadow-xl hover:border-purple-200/80 overflow-hidden"
-              style={{ cursor: 'pointer', userSelect: 'none' }}
-            >
-              <div className="relative">
-                <img 
-                  src="/rndPTClogo.png" 
-                  alt="PTC Logo" 
-                  className="h-24 sm:h-26 lg:h-28 w-auto object-contain rounded-xl flex-shrink-0 shadow-md"
-                />
-              </div>
-              <div className="text-center flex flex-col justify-center items-center flex-1 px-4">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">
-                  <span className="font-tan-pearl text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-purple-800 via-purple-700 to-purple-800 bg-clip-text text-transparent font-semibold drop-shadow-sm">Pinnacle</span>
-                </div>
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">
-                  <span className="text-black font-semibold drop-shadow-sm">Thrive Coaching</span>
-                </div>
-                <div className="text-base font-semibold reflect-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">Reflect. Reboot. Reinvent</div>
-                <div className="text-sm text-gray-600 font-medium -mb-2">Transform Your Life & Career</div>
-              </div>
-            </div>
-            
-            {/* Vertical line after company name */}
-            <div className="hidden sm:block w-1 h-28 sm:h-32 lg:h-36 bg-gradient-to-b from-purple-600 via-purple-700 to-blue-600 shadow-sm flex-shrink-0"></div>
-
-            {/* Right Navigation Items */}
-            <div className="flex items-center space-x-6">
-              {/* Join Us Link */}
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('careers', '/careers');
-                }}
-                className="text-black hover:text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg flex items-center relative group"
-              >
-                Join Us (New)
-                {newSections.careers && (
-                  <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NEW</span>
-                )}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-              </button>
-              
-              {/* Contact PTC Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleMouseEnter('contact')}
-                onMouseLeave={() => handleMouseLeave('contact')}
-              >
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setContactDropdownOpen(!contactDropdownOpen);
-                  }}
-                  className="text-black hover:text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-purple-100 hover:shadow-lg flex items-center relative group"
-                >
-                  Contact PTC
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
-                </button>
-                
-                {contactDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-purple-200/50 py-2 z-50">
-                    <a
-                      href="mailto:ask@ptc4u.com"
-                      className="block px-4 py-2 text-sm text-black hover:bg-purple-100 hover:shadow-lg hover:shadow-md hover:text-purple-600 transition-colors"
-                    >
-                      ask@ptc4u.com
-                    </a>
-                    <a
-                      href="https://wa.me/919845106272"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block px-4 py-2 text-sm text-black hover:bg-purple-100 hover:shadow-lg hover:shadow-md hover:text-purple-600 transition-colors"
-                    >
-                      WhatsApp
-                    </a>
-                  </div>
-                )}
-              </div>
-              
-              {/* PTC Calendar Button */}
-              <PTCCalendar />
-              
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="sm:hidden absolute left-4 top-1/2 transform -translate-y-1/2">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-gradient-to-r from-gray-100/98 to-white/98 backdrop-blur-xl shadow-2xl border-b-2 border-gray-300/70'
+        : 'bg-gradient-to-r from-gray-100/95 to-white/95 backdrop-blur-lg shadow-xl border-b-2 border-gray-300/60'
+    }`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 items-center h-20 gap-4">
+          {/* Left Side - Hamburger Menu Button */}
+          <div className="flex justify-start">
             <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-md text-slate-700 hover:text-purple-600 hover:bg-purple-50/50 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors duration-200"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
-              {!isMenuOpen ? (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {isMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
             </button>
           </div>
+
+          {/* Center - Logo & Brand - Always Centered */}
+          <div className="flex justify-center">
+            <div
+              onClick={navigateToHome}
+              className="flex items-center space-x-2 sm:space-x-4 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl cursor-pointer
+                         bg-gradient-to-r from-white via-slate-50/50 to-white
+                         border border-slate-200/60 shadow-lg
+                         hover:shadow-xl hover:border-slate-300/80 hover:scale-105
+                         transition-all duration-300 group"
+            >
+              <div className="relative flex-shrink-0">
+                <img
+                  src="/rndPTClogo.png"
+                  alt="PTC Logo"
+                  className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 object-contain rounded-lg shadow-sm"
+                />
+              </div>
+              <div className="text-center min-w-0">
+                <div className="text-sm sm:text-base lg:text-lg font-bold truncate">
+                  <span className="font-tan-pearl text-purple-700">Pinnacle</span>
+                  {' '}
+                  <span className="text-slate-800">Thrive Coaching</span>
+                </div>
+                <div className="text-xs font-medium reflect-text hidden sm:block">
+                  Reflect. Reboot. Reinvent
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Calendar Button Only */}
+          <div className="flex justify-end items-center">
+            <PTCCalendar />
+          </div>
         </div>
 
-        {/* Mobile Navigation - Simplified */}
+        {/* Dropdown Menu */}
         {isMenuOpen && (
-          <div className="sm:hidden mobile-menu">
-            <div className="px-4 py-4 space-y-1">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('about-coach', '/about');
-                }}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-              >
-                About Your Coach
-              </button>
-              <div className="border-t border-gray-200 my-2"></div>
-              <div className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wide">Join Us (New)</div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('careers', '/careers');
-                }}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-              >
-                Open Positions
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('careers', '/careers');
-                }}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-              >
-                Careers
-                {newSections.careers && (
-                  <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NEW</span>
-                )}
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('blogs', '/blogs');
-                }}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-              >
-                PTC Knowledge Base
-              </button>
-              <div className="border-t border-gray-200 my-2"></div>
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  router.push('/?showJourney=true');
-                }}
-                className="w-full text-left px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wide hover:text-purple-600 hover:bg-purple-100 rounded-lg transition-colors"
-              >
-                Services
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  navigateToSection('careers', '/careers');
-                }}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-              >
-                Careers
-                {newSections.careers && (
-                  <span className="ml-2 inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NEW</span>
-                )}
-              </button>
-              <a
-                href="/request-forms"
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Request Forms
-              </a>
-              <a
-                href="mailto:ask@ptc4u.com"
-                className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-100 hover:shadow-lg hover:shadow-md rounded-lg transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact PTC
-              </a>
+          <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-gray-100 via-white to-gray-50 shadow-2xl border-b-2 border-gray-400/60 py-4 backdrop-blur-sm">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="space-y-1">
+                <button
+                  onClick={() => scrollToSection('about-coach')}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  About Your Coach
+                </button>
+                <button
+                  onClick={showServices}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => scrollToSection('blogs')}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  PTC Knowledge Base
+                </button>
+                <button
+                  onClick={() => scrollToSection('testimonials')}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  Testimonials
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  Contact
+                </button>
+                <button
+                  onClick={() => scrollToSection('careers')}
+                  className="w-full text-left px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 font-medium border border-transparent hover:border-gray-200/50"
+                >
+                  Join Us
+                </button>
+
+                <div className="pt-2 mt-2 border-t border-gray-300/60">
+                  <div className="text-sm font-semibold text-slate-600 px-4 py-2">Contact PTC</div>
+                  <a
+                    href="mailto:ask@ptc4u.com"
+                    className="flex items-center w-full px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 border border-transparent hover:border-gray-200/50"
+                  >
+                    <svg className="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    ask@ptc4u.com
+                  </a>
+                  <a
+                    href="https://wa.me/919845106272"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center w-full px-4 py-3 text-slate-800 hover:text-purple-600 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 rounded-lg transition-all duration-200 border border-transparent hover:border-gray-200/50"
+                  >
+                    <svg className="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                </div>
+
+                <div className="pt-2 mt-2 border-t border-gray-300/60 px-4">
+                  <PTCCalendar asDiv={true} />
+                </div>
+              </div>
             </div>
           </div>
         )}
       </div>
-
     </nav>
   );
 }
-

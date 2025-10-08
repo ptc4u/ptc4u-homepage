@@ -1,251 +1,198 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chancery:wght@400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Global styles for the Pinnacle Thrive Coaching landing page.
- *
- * In addition to pulling in Tailwind's base, component and utility layers,
- * we define a sensible default font stack and smooth scrolling to improve
- * the browsing experience. These styles apply across all pages and
- * components.
- */
-html {
-  scroll-behavior: smooth;
-  zoom: 1.1; /* Increased zoom to 110% for better visibility */
+/* ===================================
+   BASE STYLES
+   =================================== */
+
+:root {
+  /* Main Background Gradient - Soft, Professional */
+  --gradient-bg: linear-gradient(135deg, #f0f4f8 0%, #e6f0f7 25%, #dce7f0 50%, #d3dde8 75%, #cad4df 100%);
+
+  /* Color Palette */
+  --color-primary: #2563eb;        /* Professional Blue */
+  --color-secondary: #7c3aed;      /* Purple */
+  --color-accent: #059669;         /* Emerald Green */
+  --color-text: #0f172a;           /* Darker Slate */
+  --color-text-light: #334155;     /* Darker Medium Slate */
+
+  /* Background Colors */
+  --section-bg: #ffffff;           /* Pure White for sections */
+  --card-bg: #f8fafc;              /* Light Slate for cards */
+  --card-hover-bg: #f1f5f9;        /* Hover state */
+
+  /* Accent Gradients */
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+  /* Shadow Colors */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
 }
 
-/* Mobile preview mode */
-.mobile-preview {
-  zoom: 0.5;
-  transform-origin: top left;
-  width: 200%;
-  height: 200%;
-  overflow: hidden;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  @apply text-black;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
-  min-height: 100vh;
-  font-family: 'Georgia', serif;
+  @apply text-slate-900;
+  background: var(--gradient-bg);
+  background-attachment: fixed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-/* Ensure full background coverage */
-html, body {
-  height: 100%;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
-  background-attachment: fixed;
-}
-
-/* Prevent any black spaces */
-* {
-  background-color: transparent;
-}
-
-/* Ensure all containers have proper background */
-#__next {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
   min-height: 100vh;
+  overflow-x: hidden;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-/* Fix any potential black spaces in main content */
-main {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
+/* Main content wrapper styling */
+#__next {
+  min-height: 100vh;
+  background: transparent;
 }
 
-/* Ensure all sections have proper background */
-section, div, article, aside, header, footer {
-  background-color: transparent;
-}
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
 
-/* Prevent any black backgrounds */
-.no-bg {
-  background: none !important;
-}
-
-/* Ensure consistent background across all elements */
-*:not([class*="bg-"]) {
-  background-color: transparent;
-}
-
-/* Force background on any potentially black elements */
-[style*="background: black"], 
-[style*="background-color: black"],
-[style*="background: #000"],
-[style*="background-color: #000"] {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%) !important;
-}
-
-/* Global text color override - ensure all text is black */
-* {
-  color: black !important;
-}
-
-/* Navbar exceptions - allow custom colors */
-nav button,
-nav div,
-nav span,
-nav a {
-  color: inherit !important;
-}
-
-/* Exception for Pinnacle text - Tan Pearl font and deep purple */
-.pinnacle-text {
-  font-family: 'Playfair Display', serif !important;
-  color: #4c1d95 !important; /* Deep purple */
-}
-
-/* Pinnacle text styling - consolidated rules */
-.font-tan-pearl,
-nav .font-tan-pearl,
-nav span.font-tan-pearl,
-nav div .font-tan-pearl {
-  font-family: 'Playfair Display', serif !important;
-  color: #4c1d95 !important; /* Deep purple */
-  font-weight: 600 !important;
-  display: inline !important;
-  visibility: visible !important;
-}
-
-/* Exception for button text - white color */
-.button-text-white,
-button.button-text-white,
-button .button-text-white {
-  color: white !important;
-}
-
-/* Force white text on all buttons with colored backgrounds */
-button[class*="bg-"],
-button[class*="from-"],
-button[class*="to-"] {
-  color: white !important;
-}
-
-/* Ensure navigation menu items are visible with black text */
-nav button {
-  color: black !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: inline-flex !important;
-}
-
-/* Override any white text on navigation buttons */
-nav button:not(.button-text-white) {
-  color: black !important;
-}
-
-/* Ensure navigation links are black */
-nav a {
-  color: black !important;
-}
-
-/* Force black text on all navigation elements */
-nav .text-black,
-nav button.text-black,
-nav a.text-black {
-  color: black !important;
-}
-
-/* Override any global white text rules for navigation */
-nav * {
-  color: black !important;
-}
-
-/* Exception: Keep button-text-white class for colored buttons */
-nav .button-text-white {
-  color: white !important;
-}
-
-/* Force navigation button text to be visible and black */
-nav button:not(.button-text-white) {
-  color: black !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: inline-flex !important;
-  font-weight: 600 !important;
-}
-
-/* Ensure all navigation text is black and visible */
-nav button,
-nav a,
-nav span,
-nav div {
-  color: black !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Exception for Reflect. Reboot. Reinvent text - blue color */
-.reflect-text {
-  color: #1e40af !important;
-}
-
-/* Heading styles - Helvetica, Size 14-18, black color */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 18px;
-  line-height: 1.4;
-  color: black;
+  @apply text-slate-900;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
-/* Subheading styles - Georgia, Size 12-14, black color */
-.subheading {
-  font-family: 'Georgia', serif;
-  font-size: 14px;
-  color: black;
-  line-height: 1.5;
+h1 { @apply text-3xl sm:text-4xl lg:text-5xl font-bold; }
+h2 { @apply text-2xl sm:text-3xl lg:text-4xl font-bold; }
+h3 { @apply text-xl sm:text-2xl lg:text-3xl font-semibold; }
+h4 { @apply text-lg sm:text-xl lg:text-2xl font-semibold; }
+h5 { @apply text-base sm:text-lg lg:text-xl font-semibold; }
+h6 { @apply text-sm sm:text-base lg:text-lg font-medium; }
+
+p {
+  @apply text-base leading-relaxed text-slate-800;
+  font-weight: 500;
 }
 
-/* Chancery font for warm greetings */
-.font-chancery {
-  font-family: 'Chancery', 'Apple Chancery', 'Zapf Chancery', cursive;
+.font-tan-pearl {
+  font-family: 'Playfair Display', serif;
 }
 
-/* Custom scrollbar styles - Always visible */
-.scrollbar-thin {
-  scrollbar-width: auto;
+/* ===================================
+   LAYOUT & SPACING
+   =================================== */
+
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1280px;
 }
 
-.scrollbar-thin::-webkit-scrollbar {
-  width: 8px;
-  display: block;
+        .section {
+          @apply py-8 sm:py-12 lg:py-16;
+        }
+
+/* ===================================
+   COMPONENTS
+   =================================== */
+
+        /* Buttons */
+        .btn {
+          @apply px-6 py-3 rounded-lg font-semibold transition-colors duration-200;
+          @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        }
+
+        .btn-primary {
+          background: var(--gradient-primary);
+          @apply text-white shadow-md hover:shadow-lg;
+        }
+
+        .btn-secondary {
+          background: var(--gradient-secondary);
+          @apply text-white shadow-md hover:shadow-lg;
+        }
+
+        .btn-accent {
+          background: var(--gradient-accent);
+          @apply text-white shadow-md hover:shadow-lg;
+        }
+
+.btn-outline {
+  @apply bg-transparent border-2 border-slate-300 text-slate-700;
+  @apply hover:bg-slate-50 hover:border-slate-400;
 }
 
-.scrollbar-thumb-gray-400::-webkit-scrollbar-thumb {
-  background-color: #9ca3af;
-  border-radius: 4px;
-  border: 1px solid #6b7280;
+        /* Cards & Sections */
+        .card {
+          background: rgba(255, 255, 255, 0.99);
+          @apply rounded-xl shadow-md border border-slate-300/70;
+          @apply transition-shadow duration-200 hover:shadow-lg;
+          backdrop-filter: blur(8px);
+        }
+
+        .section-card {
+          background: rgba(255, 255, 255, 0.99);
+          @apply rounded-xl shadow-md border border-slate-300/70;
+          @apply transition-shadow duration-200 hover:shadow-lg;
+          backdrop-filter: blur(8px);
+        }
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.scrollbar-track-gray-200::-webkit-scrollbar-track {
-  background-color: #e5e7eb;
-  border-radius: 4px;
+/* Forms */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg;
+  @apply focus:ring-2 focus:ring-purple-500 focus:border-purple-500;
+  @apply transition-colors;
 }
 
-/* Force scrollbar to always be visible */
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: #9ca3af !important;
-  border-radius: 4px !important;
-  border: 1px solid #6b7280 !important;
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
 }
 
-.scrollbar-thin::-webkit-scrollbar-track {
-  background-color: #e5e7eb !important;
-  border-radius: 4px !important;
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+.reflect-text {
+  background: linear-gradient(45deg, #7c3aed, #3b82f6, #059669);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
 }
 
-/* Custom animations */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -262,12 +209,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@keyframes revolve {
-  0% { transform: rotateY(0deg); }
-  50% { transform: rotateY(90deg); }
-  100% { transform: rotateY(0deg); }
-}
-
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -276,446 +217,157 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-.perspective-1000 {
-  perspective: 1000px;
+/* ===================================
+   BACKGROUNDS & PATTERNS
+   =================================== */
+
+/* Decorative pattern overlay */
+.bg-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(5, 150, 105, 0.06) 0%, transparent 50%);
 }
 
-/* Section divider lines */
+/* Gradient overlays for sections */
+.gradient-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.03) 0%,
+    rgba(124, 58, 237, 0.03) 50%,
+    rgba(5, 150, 105, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+/* ===================================
+   UTILITIES
+   =================================== */
+
+/* Section dividers */
 .section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #d1d5db, transparent);
-  opacity: 0.6;
-  margin: 0.5rem 0;
+  @apply w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent;
+  @apply opacity-60 my-8;
 }
 
 .section-divider-thick {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #9ca3af, transparent);
-  opacity: 0.8;
-  margin: 1rem 0;
+  @apply w-full h-0.5 bg-gradient-to-r from-transparent via-gray-400 to-transparent;
+  @apply opacity-80 my-12;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  @apply bg-gray-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  @apply bg-gray-300 rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  @apply bg-gray-400;
 }
 
-/* Calendly Widget Background Fix - Compact */
-.calendly-inline-widget {
-  background-color: white !important;
-  background: white !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
 
-.calendly-inline-widget iframe {
-  background-color: white !important;
-  background: white !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Override any Calendly default styling */
-[data-calendly-widget] {
-  background-color: white !important;
-  background: white !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-[data-calendly-widget] iframe {
-  background-color: white !important;
-  background: white !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Compact Calendly styling */
-.calendly-inline-widget iframe {
-  transform: scale(0.95) !important;
-  transform-origin: top left !important;
-}
-
-/* Adjust vertical gaps within Calendly widget */
-.calendly-inline-widget iframe {
-  line-height: 1.2 !important;
-}
-
-/* Target Calendly content for tighter spacing */
-.calendly-inline-widget iframe * {
-  line-height: 1.0 !important;
-  margin-top: 1px !important;
-  margin-bottom: 1px !important;
-}
-
-/* Specific spacing adjustments for Calendly elements */
-.calendly-inline-widget iframe .calendly-event {
-  margin-bottom: 2px !important;
-}
-
-.calendly-inline-widget iframe .calendly-event-title {
-  margin-bottom: 1px !important;
-}
-
-.calendly-inline-widget iframe .calendly-event-time {
-  margin-bottom: 1px !important;
-}
-
-.calendly-inline-widget iframe .calendly-event-duration {
-  margin-bottom: 2px !important;
-}
-
-/* Additional Calendly spacing controls */
-.calendly-inline-widget iframe .calendly-popup-content {
-  padding: 4px !important;
-}
-
-.calendly-inline-widget iframe .calendly-popup-content * {
-  margin: 0.5px 0 !important;
-}
-
-/* New callout badge styling - Updated positioning */
-.new-callout {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  transform: translateY(0);
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: black;
-  font-size: 9px;
-  font-weight: 700;
-  padding: 2px 5px;
-  border-radius: 8px;
-  border: 2px solid #3b82f6;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
-  animation: newPulse 2s ease-in-out infinite;
-  z-index: 10;
-  white-space: nowrap;
-}
-
-.new-callout::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -6px;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 4px solid #3b82f6;
-}
-
-@keyframes newPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+/* Mobile: 320px - 639px */
+@media (max-width: 639px) {
+  html {
+    font-size: 14px;
   }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.5);
+
+  .container {
+    @apply px-4;
+  }
+
+  .section {
+    @apply py-8;
   }
 }
 
-/* Hide name/header elements to reclaim space */
-.calendly-inline-widget iframe .calendly-popup-header,
-.calendly-inline-widget iframe .calendly-popup-header-content,
-.calendly-inline-widget iframe .calendly-popup-header-content h1,
-.calendly-inline-widget iframe .calendly-popup-header-content h2,
-.calendly-inline-widget iframe .calendly-popup-header-content h3,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text *,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text p,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text div,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text span,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text strong,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text b,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text em,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text i,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text .calendly-popup-header-text-content,
-.calendly-inline-widget iframe .calendly-popup-header-content .calendly-popup-header-text .calendly-popup-header-text-content * {
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: hidden !important;
-}
-
-/* Fixed calendar widget positioning fixes */
-.fixed.right-8 {
-  right: 2rem !important;
-  max-width: 320px !important;
-  max-height: 400px !important;
-  overflow: hidden !important;
-}
-
-/* Calendar widget rounded corners */
-.calendar-widget-container {
-  border-radius: 16px !important;
-  overflow: hidden !important;
-}
-
-.calendar-widget-container iframe {
-  border-radius: 0 0 16px 16px !important;
-  overflow: hidden !important;
-}
-
-/* Ensure main content doesn't overlap with fixed widgets */
-.lg\:pr-20 {
-  padding-right: 5rem !important;
-}
-
-.lg\:pl-16 {
-  padding-left: 4rem !important;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 1024px) {
-  .lg\:pr-20 {
-    padding-right: 1rem !important;
+/* Tablet: 640px - 1023px */
+@media (min-width: 640px) and (max-width: 1023px) {
+  html {
+    font-size: 15px;
   }
-  
-  .fixed.right-4 {
-    display: none !important;
+
+  .container {
+    @apply px-6;
+  }
+
+  .section {
+    @apply py-12;
   }
 }
 
-/* Ensure consistent page layout and prevent spillover */
-.page-container {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-.main-content {
-  max-width: 100%;
-  width: 100%;
-}
-
-/* Articles grid specific styles */
-.articles-grid {
-  display: grid !important;
-  width: 100% !important;
-}
-
-/* Ensure articles grid works on all screen sizes */
+/* Desktop: 1024px+ */
 @media (min-width: 1024px) {
-  .articles-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem !important;
+  html {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 1023px) and (min-width: 768px) {
-  .articles-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.25rem !important;
+/* ===================================
+   BRAND-SPECIFIC STYLES
+   =================================== */
+
+/* Pinnacle text styling */
+.pinnacle-text {
+  font-family: 'Playfair Display', serif;
+  @apply text-purple-800 font-semibold;
+}
+
+/* Reflect, Reboot, Reinvent text */
+.reflect-text {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-purple-500;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@media (max-width: 767px) {
-  .articles-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-}
+/* ===================================
+   PRINT STYLES
+   =================================== */
 
-/* Article popup modal styles */
-.article-modal {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  z-index: 9999 !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 1rem !important;
-}
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
 
-.article-modal-content {
-  background: white !important;
-  border-radius: 0.5rem !important;
-  max-width: 56rem !important;
-  width: 100% !important;
-  max-height: 90vh !important;
-  overflow: hidden !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.article-modal-content .modal-scrollable-content {
-  flex: 1 !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  padding: 1.5rem !important;
-  max-height: calc(90vh - 2rem) !important;
-}
-
-.article-modal-content .modal-scrollable-content::-webkit-scrollbar {
-  width: 8px !important;
-}
-
-.article-modal-content .modal-scrollable-content::-webkit-scrollbar-track {
-  background: #f1f5f9 !important;
-  border-radius: 4px !important;
-}
-
-.article-modal-content .modal-scrollable-content::-webkit-scrollbar-thumb {
-  background: #cbd5e1 !important;
-  border-radius: 4px !important;
-}
-
-.article-modal-content .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8 !important;
-}
-
-/* Additional responsive padding for better mobile experience */
-@media (max-width: 768px) {
-  .main-content {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+  .no-print {
+    display: none;
   }
-  
-  /* Ensure articles grid works on mobile */
-  .articles-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .main-content {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-  }
-}
-
-/* Force proper spacing for fixed widgets on production - DESKTOP ONLY */
-@media (min-width: 1024px) {
-  main {
-    margin-left: 320px !important;
-    margin-right: 360px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    max-width: calc(100vw - 680px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* Ensure articles grid layout works properly */
-  main #articles-insights .articles-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem !important;
-  }
-  
-  @media (max-width: 1280px) {
-    main #articles-insights .articles-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-  }
-  
-  /* Navigation bar adjustments for fixed widgets */
-  nav {
-    margin-left: 320px !important;
-    margin-right: 360px !important;
-    max-width: calc(100vw - 680px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* Ensure content doesn't overlap with fixed elements */
-  .fixed.left-8 {
-    left: 2rem !important;
-  }
-  
-  .fixed.right-8 {
-    right: 2rem !important;
-  }
-  
-  /* Additional safety margin for content areas */
-  .main-content-area {
-    margin-left: 320px !important;
-    margin-right: 360px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  
-  /* Perfect centering for main content */
-  .centered-content {
-    margin-left: 320px !important;
-    margin-right: 360px !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    max-width: calc(100vw - 720px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-/* Page main content positioning for laptop */
-.page-main-content {
-  height: calc(100vh - 200px) !important;
-  padding-top: 160px !important; /* one line below navbar bottom */
-}
-
-@media (min-width: 640px) {
-  .page-main-content {
-    padding-top: 160px !important; /* one line below navbar bottom */
-  }
-}
-
-@media (min-width: 1024px) {
-  .page-main-content {
-    padding-top: 160px !important; /* one line below navbar bottom */
-  }
-}
-  
-  /* Simple fix for admin icon visibility */
-  nav a[href="/admin"] {
-    display: flex !important;
-    visibility: visible !important;
-  }
-  
-  /* Ensure social media icons show only icons, no text */
-  nav .flex.items-center.space-x-2 {
-    font-size: 0 !important;
-    line-height: 0 !important;
-  }
-  
-  nav .flex.items-center.space-x-2 * {
-    font-size: 0 !important;
-    line-height: 0 !important;
-  }
-  
-  /* Hide any text that might appear in social media icons */
-  nav .flex.items-center.space-x-2 a {
-    text-indent: -9999px !important;
-    overflow: hidden !important;
-  }
-  
-  nav .flex.items-center.space-x-2 a svg,
-  nav .flex.items-center.space-x-2 a img {
-    text-indent: 0 !important;
   }

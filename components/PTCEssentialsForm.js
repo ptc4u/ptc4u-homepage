@@ -3,7 +3,7 @@ import { createMailtoLink, openMailtoWithFallback } from './FormUtils';
 
 /**
  * PTC Essentials Signup Form component for Pinnacle Thrive Coaching.
- * 
+ *
  * This component provides a form for signing up for the 6-session coaching program.
  */
 export default function PTCEssentialsForm() {
@@ -73,13 +73,13 @@ This request was submitted through the PTC website.
       // Create mailto link with improved fallback
       const subject = 'PTC Essentials Signup - ' + formData.fullName;
       const mailtoLink = createMailtoLink('ask@ptc4u.com', subject, emailContent);
-      
+
       // Open email client with fallback
       openMailtoWithFallback(mailtoLink, emailContent);
-      
+
       // Set success status
       setSubmitStatus('success');
-      
+
       // Reset form
       setFormData({
         fullName: '',
@@ -145,7 +145,7 @@ This request was submitted through the PTC website.
         <div className="text-6xl mb-6"></div>
         <h2 className="text-3xl font-bold text-black mb-4">PTC Essentials Signup Submitted!</h2>
         <p className="text-lg text-black mb-8">
-          Your PTC Essentials signup request has been sent to our team. We'll contact you within 24 hours 
+          Your PTC Essentials signup request has been sent to our team. We'll contact you within 24 hours
           to discuss your 6-session coaching program and get you started on your transformation journey.
         </p>
         <button
@@ -177,20 +177,20 @@ This request was submitted through the PTC website.
   }
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg border border-purple-200/50">
-      <div className="text-center mb-8">
-        <div className="text-6xl mb-4"></div>
-        <h2 className="text-3xl font-bold text-black mb-4">
+    <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-purple-200/50">
+      <div className="text-center mb-6 sm:mb-8">
+        <div className="text-4xl sm:text-6xl mb-4"></div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
           PTC <span className="text-black">Essentials</span> Signup
         </h2>
-        <p className="text-lg text-black">
+        <p className="text-base sm:text-lg text-black">
           Focused, impactful, and results-driven—six powerful sessions to help you reflect, reboot, and reinvent your career path.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Personal Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="fullName" className="block text-sm font-medium text-black mb-2">
               Full Name *
@@ -224,7 +224,7 @@ This request was submitted through the PTC website.
         </div>
 
         {/* Contact Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
               Phone Number *
@@ -258,7 +258,7 @@ This request was submitted through the PTC website.
         </div>
 
         {/* Professional Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="currentRole" className="block text-sm font-medium text-black mb-2">
               Current Role *
@@ -291,7 +291,7 @@ This request was submitted through the PTC website.
         </div>
 
         {/* Experience and Scheduling */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="experience" className="block text-sm font-medium text-black mb-2">
               Years of Experience *
@@ -383,7 +383,7 @@ This request was submitted through the PTC website.
         </div>
 
         {/* Commitment and Referral */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="commitment" className="block text-sm font-medium text-black mb-2">
               Commitment Level *
@@ -445,7 +445,7 @@ This request was submitted through the PTC website.
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-purple-400 to-purple-500 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed button-text-white"
+            className="w-full bg-gradient-to-r from-purple-400 to-purple-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed button-text-white"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center">

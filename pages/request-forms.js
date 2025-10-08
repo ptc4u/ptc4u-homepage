@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import NavBar from '../components/NavBar';
 import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import WorkshopRequestForm from '../components/WorkshopRequestForm';
@@ -43,7 +44,7 @@ export default function RequestFormsPage() {
         <NavBar />
         <div className="hidden lg:block">
         </div>
-        
+
         <main className="flex-grow pt-32 sm:pt-36 lg:pt-40 px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center">
           <div className="max-w-5xl mx-auto">
             {!activeForm ? (
@@ -51,7 +52,7 @@ export default function RequestFormsPage() {
               <section className="py-16 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg">
                 <div className="text-center mb-10">
                   <div className="mb-6">
-                    <a
+                    <Link
                       href="/#services"
                       className="inline-flex items-center text-black hover:text-black font-medium transition-colors"
                     >
@@ -59,14 +60,14 @@ export default function RequestFormsPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                       Back to Services
-                    </a>
+                    </Link>
                   </div>
                   <h1 className="text-3xl lg:text-4xl font-bold text-black mb-4">
                     Choose Your <span className="text-black">Coaching Journey</span>
                   </h1>
                   <p className="text-base text-black max-w-2xl mx-auto">
-                    Select the type of coaching engagement that best fits your needs. 
-                    Whether you're looking for a one-time workshop or a long-term partnership, 
+                    Select the type of coaching engagement that best fits your needs.
+                    Whether you're looking for a one-time workshop or a long-term partnership,
                     we're here to help you achieve your goals.
                   </p>
                 </div>
@@ -80,11 +81,11 @@ export default function RequestFormsPage() {
                         Request a <span className="text-black">Coaching Workshop</span>
                       </h2>
                       <p className="text-sm text-black mb-5">
-                        Perfect for corporates and individuals seeking a one-time or short-term workshop 
+                        Perfect for corporates and individuals seeking a one-time or short-term workshop
                         to address specific challenges or goals.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-3 mb-6">
                       <div className="flex items-start">
                         <span className="text-blue-500 mr-2 text-sm">✓</span>
@@ -120,11 +121,11 @@ export default function RequestFormsPage() {
                         Request a <span className="text-black">Long-Term Partnership</span>
                       </h2>
                       <p className="text-sm text-black mb-5">
-                        Ideal for organizations seeking ongoing coaching engagement (6-12 months+) 
+                        Ideal for organizations seeking ongoing coaching engagement (6-12 months+)
                         to drive sustained transformation and growth.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-3 mb-6">
                       <div className="flex items-start">
                         <span className="text-emerald-500 mr-2 text-sm">✓</span>
@@ -175,7 +176,7 @@ export default function RequestFormsPage() {
             )}
           </div>
         </main>
-        
+
         <Footer />
       </div>
     </>

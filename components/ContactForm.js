@@ -57,7 +57,7 @@ Phone: ${fullPhoneNumber}
 Message: ${data.message}
 
 Please call me back at your convenience. Thank you!`;
-    
+
     return encodeURIComponent(message);
   };
 
@@ -67,13 +67,13 @@ Please call me back at your convenience. Thank you!`;
       alert('Please fill in your name and phone number.');
       return;
     }
-    
+
     const whatsappMessage = generateWhatsAppMessage(callbackData);
     const whatsappUrl = `https://wa.me/919845106272?text=${whatsappMessage}`;
-    
+
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
-    
+
     // Reset form
     setCallbackData({
       name: '',
@@ -90,7 +90,7 @@ Please call me back at your convenience. Thank you!`;
 
     // Clear previous validation errors
     setValidationErrors({});
-    
+
     // Validate form data
     const validationRules = {
       firstName: { required: 'First name is required' },
@@ -98,9 +98,9 @@ Please call me back at your convenience. Thank you!`;
       email: { required: 'Email is required', email: true },
       message: { required: 'Message is required' }
     };
-    
+
     const errors = validateFormData(formData, validationRules);
-    
+
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
       setIsSubmitting(false);
@@ -128,13 +128,13 @@ This message was submitted through the PTC website.
       // Create mailto link with fallback
       const subject = 'Contact Form - ' + formData.firstName + ' ' + formData.lastName;
       const mailtoLink = createMailtoLink('ask@ptc4u.com', subject, emailContent);
-      
+
       // Open email client with fallback
       openMailtoWithFallback(mailtoLink, emailContent);
-      
+
       // Set success status
       setSubmitStatus('success');
-      
+
       // Reset form
       setFormData({
         firstName: '',
@@ -148,7 +148,6 @@ This message was submitted through the PTC website.
         urgency: 'medium'
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -171,41 +170,41 @@ This message was submitted through the PTC website.
   ];
 
   const countryCodes = [
-    { value: '+91', label: '+91 (India)', flag: '🇮🇳' },
-    { value: '+1', label: '+1 (USA/Canada)', flag: '🇺🇸' },
-    { value: '+44', label: '+44 (UK)', flag: '🇬🇧' },
-    { value: '+61', label: '+61 (Australia)', flag: '🇦🇺' },
-    { value: '+49', label: '+49 (Germany)', flag: '🇩🇪' },
-    { value: '+33', label: '+33 (France)', flag: '🇫🇷' },
-    { value: '+81', label: '+81 (Japan)', flag: '🇯🇵' },
-    { value: '+86', label: '+86 (China)', flag: '🇨🇳' },
-    { value: '+55', label: '+55 (Brazil)', flag: '🇧🇷' },
-    { value: '+7', label: '+7 (Russia)', flag: '🇷🇺' },
-    { value: '+971', label: '+971 (UAE)', flag: '🇦🇪' },
-    { value: '+966', label: '+966 (Saudi Arabia)', flag: '🇸🇦' },
-    { value: '+65', label: '+65 (Singapore)', flag: '🇸🇬' },
-    { value: '+60', label: '+60 (Malaysia)', flag: '🇲🇾' },
-    { value: '+66', label: '+66 (Thailand)', flag: '🇹🇭' },
-    { value: '+63', label: '+63 (Philippines)', flag: '🇵🇭' },
-    { value: '+84', label: '+84 (Vietnam)', flag: '🇻🇳' },
-    { value: '+62', label: '+62 (Indonesia)', flag: '🇮🇩' },
-    { value: '+880', label: '+880 (Bangladesh)', flag: '🇧🇩' },
-    { value: '+92', label: '+92 (Pakistan)', flag: '🇵🇰' },
-    { value: '+94', label: '+94 (Sri Lanka)', flag: '🇱🇰' },
-    { value: '+977', label: '+977 (Nepal)', flag: '🇳🇵' },
-    { value: '+975', label: '+975 (Bhutan)', flag: '🇧🇹' },
-    { value: '+960', label: '+960 (Maldives)', flag: '🇲🇻' }
+    { value: '+91', label: '+91 (India)' },
+    { value: '+1', label: '+1 (USA/Canada)' },
+    { value: '+44', label: '+44 (UK)' },
+    { value: '+61', label: '+61 (Australia)' },
+    { value: '+49', label: '+49 (Germany)' },
+    { value: '+33', label: '+33 (France)' },
+    { value: '+81', label: '+81 (Japan)' },
+    { value: '+86', label: '+86 (China)' },
+    { value: '+55', label: '+55 (Brazil)' },
+    { value: '+7', label: '+7 (Russia)' },
+    { value: '+971', label: '+971 (UAE)' },
+    { value: '+966', label: '+966 (Saudi Arabia)' },
+    { value: '+65', label: '+65 (Singapore)' },
+    { value: '+60', label: '+60 (Malaysia)' },
+    { value: '+66', label: '+66 (Thailand)' },
+    { value: '+63', label: '+63 (Philippines)' },
+    { value: '+84', label: '+84 (Vietnam)' },
+    { value: '+62', label: '+62 (Indonesia)' },
+    { value: '+880', label: '+880 (Bangladesh)' },
+    { value: '+92', label: '+92 (Pakistan)' },
+    { value: '+94', label: '+94 (Sri Lanka)' },
+    { value: '+977', label: '+977 (Nepal)' },
+    { value: '+975', label: '+975 (Bhutan)' },
+    { value: '+960', label: '+960 (Maldives)' }
   ];
 
 
 
   if (submitStatus === 'success') {
-    return (
-      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
+  return (
+    <section className="section bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl" id="contact">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white p-12 rounded-2xl shadow-lg border border-emerald-200/50">
-            <div className="text-6xl mb-6"></div>
-            <h2 className="text-3xl font-bold text-black mb-4">Thank You!</h2>
+          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-lg border border-emerald-200/50">
+            <div className="text-4xl sm:text-6xl mb-6">✓</div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
             <p className="text-lg text-black mb-8">
               Your message has been sent successfully. We'll get back to you within 24 hours
               to schedule your free discovery call and discuss how we can help you reach your goals.
@@ -223,12 +222,12 @@ This message was submitted through the PTC website.
   }
 
   if (submitStatus === 'error') {
-    return (
-      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-purple-50" id="contact">
+  return (
+    <section className="section bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl" id="contact">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white p-12 rounded-2xl shadow-lg border border-red-200/50">
-            <div className="text-6xl mb-6">❌</div>
-            <h2 className="text-3xl font-bold text-black mb-4">Submission Error</h2>
+          <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-lg border border-red-200/50">
+            <div className="text-4xl sm:text-6xl mb-6">✗</div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Submission Error</h2>
             <p className="text-lg text-black mb-8">
               There was an error submitting your request. Please check your information and try again, or contact us directly.
             </p>
@@ -245,7 +244,7 @@ This message was submitted through the PTC website.
   }
 
   return (
-    <section className="py-8 mt-8 bg-gradient-to-br from-emerald-50 via-white to-purple-50 rounded-2xl shadow-lg" id="contact" style={{ paddingTop: '160px' }}>
+    <section className="section card" id="contact">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
@@ -491,7 +490,7 @@ This message was submitted through the PTC website.
             <p className="text-lg text-black mb-6 max-w-2xl mx-auto">
               If you'd prefer to speak with us directly, we're happy to call you back at your convenience.
             </p>
-            
+
             {!showCallbackForm ? (
               <button
                 onClick={() => setShowCallbackForm(true)}
@@ -520,7 +519,7 @@ This message was submitted through the PTC website.
                       placeholder="Enter your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="callbackPhone" className="block text-sm font-medium text-black mb-2 text-left">
                       Phone Number *
@@ -534,7 +533,7 @@ This message was submitted through the PTC website.
                       >
                         {countryCodes.map((code) => (
                           <option key={code.value} value={code.value}>
-                            {code.flag} {code.value}
+                            {code.label}
                           </option>
                         ))}
                       </select>
@@ -550,7 +549,7 @@ This message was submitted through the PTC website.
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="callbackMessage" className="block text-sm font-medium text-black mb-2 text-left">
                       Message (Optional)
@@ -565,7 +564,7 @@ This message was submitted through the PTC website.
                       placeholder="Tell us briefly what you'd like to discuss..."
                     />
                   </div>
-                  
+
                   <div className="flex space-x-3 pt-2">
                     <button
                       type="submit"
@@ -584,7 +583,7 @@ This message was submitted through the PTC website.
                 </form>
               </div>
             )}
-            
+
             <p className="text-sm text-black mt-4">
               Or call us directly: <a href="tel:+919845106272" className="text-black hover:text-black font-semibold">+91 98451 06272</a>
             </p>

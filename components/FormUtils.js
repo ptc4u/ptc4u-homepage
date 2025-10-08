@@ -20,35 +20,23 @@ export const createMailtoLink = (email, subject, body) => {
 };
 
 export const openMailtoWithFallback = (mailtoLink, fallbackMessage) => {
-  console.log('Attempting to open mailto link:', mailtoLink);
-  
-  // Try multiple approaches for better compatibility
-  
-  // Approach 1: Try window.open first (for popup blockers)
   try {
     const opened = window.open(mailtoLink, '_blank');
     if (opened && !opened.closed) {
-      console.log('Successfully opened email client via window.open');
       return;
     }
   } catch (error) {
-    console.log('window.open failed, trying alternative:', error);
+    // Continue to fallback
   }
-  
-  // Approach 2: Try direct location change
+
   try {
-    console.log('Trying direct location change...');
     window.location.href = mailtoLink;
-    
-    // Set a timeout to check if the mailto worked
+
     setTimeout(() => {
-      console.log('Mailto timeout reached, showing fallback dialog');
-      // If we're still on the same page after 2 seconds, show fallback
       showFallbackDialog(fallbackMessage);
     }, 2000);
-    
+
   } catch (error) {
-    console.error('Error opening mailto link:', error);
     showFallbackDialog(fallbackMessage);
   }
 };
@@ -80,14 +68,14 @@ export const showFallbackDialog = (message) => {
       </div>
     </div>
   `;
-  
+
   document.body.appendChild(modal);
-  
+
   // Add event listeners
   const copyBtn = modal.querySelector('#copyBtn');
   const whatsappBtn = modal.querySelector('#whatsappBtn');
   const closeBtn = modal.querySelector('#closeBtn');
-  
+
   copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(message);
@@ -100,32 +88,31 @@ export const showFallbackDialog = (message) => {
         copyBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
       }, 2000);
     } catch (err) {
-      console.error('Failed to copy: ', err);
-      copyBtn.textContent = '❌ Copy Failed';
+      copyBtn.textContent = 'Copy Failed';
       setTimeout(() => {
         copyBtn.textContent = 'Copy to Clipboard';
       }, 2000);
     }
   });
-  
+
   whatsappBtn.addEventListener('click', () => {
     const whatsappMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919845106272?text=${whatsappMessage}`;
     window.open(whatsappUrl, '_blank');
     modal.remove();
   });
-  
+
   closeBtn.addEventListener('click', () => {
     modal.remove();
   });
-  
+
   // Close on backdrop click
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.remove();
     }
   });
-  
+
   // Auto-remove after 60 seconds
   setTimeout(() => {
     if (modal.parentNode) {
@@ -136,23 +123,23 @@ export const showFallbackDialog = (message) => {
 
 export const validateRequiredFields = (formData, requiredFields) => {
   const errors = {};
-  
+
   requiredFields.forEach(field => {
     if (!formData[field] || formData[field].trim() === '') {
       errors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
     }
   });
-  
+
   return errors;
 };
 
 export const validateFormData = (formData, validationRules) => {
   const errors = {};
-  
+
   Object.keys(validationRules).forEach(field => {
     const value = formData[field];
     const rules = validationRules[field];
-    
+
     if (rules.required && (!value || value.trim() === '')) {
       errors[field] = rules.required;
     } else if (value && rules.email && !validateEmail(value)) {
@@ -161,13 +148,13 @@ export const validateFormData = (formData, validationRules) => {
       errors[field] = 'Please enter a valid phone number';
     }
   });
-  
+
   return errors;
 };
 
 export const createWhatsAppMessage = (formData, formType) => {
   let message = `Hi! I would like to ${formType} from Pinnacle Thrive Coaching.\n\n`;
-  
+
   // Add form-specific fields
   Object.keys(formData).forEach(key => {
     if (formData[key] && formData[key].trim() !== '') {
@@ -175,9 +162,9 @@ export const createWhatsAppMessage = (formData, formType) => {
       message += `${label}: ${formData[key]}\n`;
     }
   });
-  
+
   message += `\nPlease contact me at your convenience. Thank you!`;
-  
+
   return encodeURIComponent(message);
 };
 

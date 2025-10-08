@@ -1,53 +1,26 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-// Layout optimization - ensure production matches localhost padding
+import { useEffect } from 'react';
+
 import NavBar from '../components/NavBar';
 import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import HeroSection from '../components/HeroSection';
-import FlippingTestimonialsSection from '../components/FlippingTestimonialsSection';
-import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
-import PTCFactsSection from '../components/PTCFactsSection';
 import AboutCoachSection from '../components/AboutCoachSection';
 import ArticlesInsightsSection from '../components/ArticlesInsightsSection';
-import dynamic from 'next/dynamic';
-
 import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
-import MobileDropdown from '../components/MobileDropdown';
 import GlobalFormHandler from '../components/GlobalFormHandler';
+
 /**
- * The home page of the Pinnacle Thrive Coaching website. It stitches together
- * several composable sections and injects appropriate metadata via the
- * Head component. Each section is defined in the components folder.
+ * The home page of Pinnacle Thrive Coaching website.
+ * Renders key sections including hero, services, about, blog, careers, and contact.
  */
 export default function Home() {
-  const router = useRouter();
-  const [currentDevice, setCurrentDevice] = useState('laptop');
-  
-  // Redirect to minimalist version if on port 3001
+  // Scroll to top on mount
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.port === '3001') {
-      router.push('/minimalist');
-    }
-  }, [router]);
-
-  
-  // Removed welcome page redirect - landing page loads directly
-  
-  // Ensure page scrolls to hero section on every refresh
-  useEffect(() => {
-    // Scroll to top of the page on component mount (page refresh)
-    window.scrollTo(0, 0);
-    
-    // Also scroll the main content area to top
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
-      mainElement.scrollTop = 0;
-    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
   return (
@@ -64,84 +37,75 @@ export default function Home() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pinnaclethrivecoaching.com/" />
+        <meta property="og:url" content="https://ptc4u.com/" />
         <meta property="og:title" content="Pinnacle Thrive Coaching - Transform Your Life & Career" />
         <meta property="og:description" content="Transform your life and career with expert coaching. Reach your full potential with personalized guidance and proven strategies." />
         <meta property="og:image" content="/images/og-image.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://pinnaclethrivecoaching.com/" />
+        <meta property="twitter:url" content="https://ptc4u.com/" />
         <meta property="twitter:title" content="Pinnacle Thrive Coaching - Transform Your Life & Career" />
         <meta property="twitter:description" content="Transform your life and career with expert coaching. Reach your full potential with personalized guidance and proven strategies." />
         <meta property="twitter:image" content="/images/og-image.png" />
 
-        {/* Favicon */}
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-
+        {/* Favicon - Using PTC Logo */}
+        <link rel="icon" type="image/png" href="/rndPTClogo.png" />
+        <link rel="apple-touch-icon" href="/rndPTClogo.png" />
+        <link rel="shortcut icon" href="/rndPTClogo.png" />
       </Head>
-      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
-      <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative z-50" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%)' }}>
-        <ImageWatermark />
+
+
+      <div className="min-h-screen" style={{ background: 'var(--gradient-bg)' }}>
+                <ImageWatermark size="xl" opacity={0.12} />
         <UniversalHomeIcon />
         <NavBar />
-        
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 flex flex-col items-center justify-center" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%)' }}>
-          <div id="hero">
+
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-20">
+          {/* Hero Section */}
+          <section id="hero" className="section">
             <HeroSection />
-          </div>
-          
-          {/* Divider line after hero */}
-          <div className="section-divider"></div>
-          
-          {/* Journey Options Section */}
-          <JourneyOptionsSection />
-          
-          
-          <div id="about-coach">
+          </section>
+
+          <div className="section-divider" />
+
+          {/* About Coach Section */}
+          <section id="about-coach" className="section">
             <AboutCoachSection />
-          </div>
-          
-          {/* Divider line after about coach */}
-          <div className="section-divider"></div>
-          
-          <div id="blogs">
+          </section>
+
+          <div className="section-divider" />
+
+          {/* Journey Options Section */}
+          <section id="journey" className="section">
+            <JourneyOptionsSection />
+          </section>
+
+          <div className="section-divider" />
+
+          {/* Knowledge Base Section */}
+          <section id="blogs" className="section">
             <ArticlesInsightsSection />
-          </div>
-          
-          {/* Divider line after blogs */}
-          <div className="section-divider"></div>
-          
-          
-          
-          
-          
-          <div id="careers">
+          </section>
+
+          <div className="section-divider" />
+
+          {/* Careers Section */}
+          <section id="careers" className="section">
             <JobsSection />
-          </div>
-          
-          {/* Divider line after careers */}
-          <div className="section-divider"></div>
-          
-          <div id="contact">
-            <ContactForm />
-          </div>
+          </section>
+
+          <div className="section-divider" />
+
         </main>
-        
-        {/* Divider line before footer */}
-        <div className="section-divider-thick"></div>
-        
+
+        <div className="section-divider-thick" />
+
         <Footer />
-        
-        {/* Mobile Dropdown - Temporarily disabled to fix hydration */}
-        {/* <MobileDropdown /> */}
-        
+
         {/* Global Form Handler for service options */}
         <GlobalFormHandler />
-        </div>
+      </div>
     </>
   );
 }

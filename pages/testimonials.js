@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import UniversalHomeIcon from '../components/UniversalHomeIcon';
-import GlobalGoogleCalendarWidget from '../components/GlobalGoogleCalendarWidget';
-import FlippingTestimonialsSection from '../components/FlippingTestimonialsSection';
-import QuickActionsSection from '../components/QuickActionsSection';
 import Footer from '../components/Footer';
 import ImageWatermark from '../components/ImageWatermark';
 import GlobalFormHandler from '../components/GlobalFormHandler';
@@ -25,15 +22,11 @@ export default function TestimonialsPage() {
         <NavBar />
         <div className="hidden lg:block">
         </div>
-        <GlobalGoogleCalendarWidget />
         <main className="flex-grow px-4 sm:px-6 lg:px-8 lg:pl-16 lg:pr-20 pb-24 overflow-y-auto flex items-center justify-center page-main-content">
           <div className="max-w-7xl mx-auto w-full">
-            <FlippingTestimonialsSection />
           </div>
         </main>
         
-        {/* Fixed QuickActionsSection at bottom */}
-        <QuickActionsSection />
         
         <Footer />
         

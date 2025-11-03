@@ -1,12 +1,48 @@
 /**
  * Admin Login Modal component for quick password entry
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function AdminLoginModal({ isOpen, onClose, onSuccess }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Reset state when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setPassword('');
+      setError('');
+      setLoading(false);
+    }
+  }, [isOpen]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -62,8 +98,22 @@ export default function AdminLoginModal({ isOpen, onClose, onSuccess }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6 relative">
+    <div 
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+      onClick={(e) => {
+        // Close modal when clicking backdrop
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="admin-login-title"
+    >
+      <div 
+        className="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6 relative z-[10000]"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close button */}
         <button
           onClick={handleClose}
@@ -76,7 +126,7 @@ export default function AdminLoginModal({ isOpen, onClose, onSuccess }) {
         </button>
 
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Admin Login</h2>
+          <h2 id="admin-login-title" className="text-2xl font-bold text-gray-800 mb-2">Admin Login</h2>
           <p className="text-gray-600 text-sm">Enter your password to access visitor counter</p>
         </div>
 

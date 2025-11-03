@@ -73,7 +73,9 @@ export default function Home() {
     setIsAdmin(true);
   };
 
-  const handleWidgetClick = () => {
+  const handleWidgetClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (isAdmin) {
       router.push('/admin/analytics');
     } else {
@@ -194,11 +196,13 @@ export default function Home() {
         </div>
 
         {/* Admin Login Modal */}
-        <AdminLoginModal
-          isOpen={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
-          onSuccess={handleLoginSuccess}
-        />
+        {showLoginModal && (
+          <AdminLoginModal
+            isOpen={showLoginModal}
+            onClose={() => setShowLoginModal(false)}
+            onSuccess={handleLoginSuccess}
+          />
+        )}
       </div>
     </>
   );

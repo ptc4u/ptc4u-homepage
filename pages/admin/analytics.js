@@ -37,6 +37,8 @@ export default function AnalyticsDashboard() {
   const handleLogout = () => {
     sessionStorage.removeItem('admin_authenticated');
     sessionStorage.removeItem('admin_token');
+    // Dispatch custom event to notify components of logout
+    window.dispatchEvent(new Event('adminLogout'));
     router.push('/admin/login');
   };
 

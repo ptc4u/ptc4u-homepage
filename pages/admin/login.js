@@ -35,6 +35,9 @@ export default function AdminLogin() {
         sessionStorage.setItem('admin_authenticated', 'true');
         sessionStorage.setItem('admin_token', data.token || 'authenticated');
         
+        // Dispatch custom event to notify components of login
+        window.dispatchEvent(new Event('adminLogin'));
+        
         // Redirect to analytics dashboard
         router.push('/admin/analytics');
       } else {

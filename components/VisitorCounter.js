@@ -1,12 +1,51 @@
 /**
  * VisitorCounter component for displaying personalized visitor number.
  * Shows "You are visitor number #X" for each unique visitor.
+ * Only visible to authenticated admin users. Clickable to login or view analytics.
  */
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-export default function VisitorCounter() {
+export default function VisitorCounter({ onLoginClick }) {
+  const router = useRouter();
   const [visitorNumber, setVisitorNumber] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    // Check if user is authenticated as admin
+    const checkAdminAuth = () => {
+      if (typeof window !== 'undefined') {
+        const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
+        const token = sessionStorage.getItem('admin_token');
+        setIsAdmin(isAuth && !!token);
+      }
+    };
+
+    checkAdminAuth();
+    
+    // Listen for storage changes (in case user logs in/out in another tab)
+    const handleStorageChange = (e) => {
+      if (e.key === 'admin_authenticated' || e.key === 'admin_token') {
+        checkAdminAuth();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    // Listen for custom login/logout events
+    window.addEventListener('adminLogin', checkAdminAuth);
+    window.addEventListener('adminLogout', checkAdminAuth);
+    
+    // Also check periodically (for same-tab login)
+    const interval = setInterval(checkAdminAuth, 1000);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('adminLogin', checkAdminAuth);
+      window.removeEventListener('adminLogout', checkAdminAuth);
+      clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     // Track visitor count (only once per session)
@@ -45,8 +84,36 @@ export default function VisitorCounter() {
       }
     };
 
-    trackVisitor();
-  }, []);
+    if (isAdmin) {
+      trackVisitor();
+    } else {
+      setLoading(false);
+    }
+  }, [isAdmin]);
+
+  // Show login prompt icon if not admin
+  if (!isAdmin) {
+    const handleLoginClick = () => {
+      if (onLoginClick) {
+        onLoginClick();
+      }
+    };
+
+    return (
+      <div 
+        className="cursor-pointer hover:opacity-80 transition-opacity"
+        onClick={handleLoginClick}
+        title="Click to login as admin"
+      >
+        <div className="flex flex-col items-center text-center">
+          <svg className="w-6 h-6 text-purple-800 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <div className="text-xs text-gray-600">Login</div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -64,8 +131,19 @@ export default function VisitorCounter() {
     );
   }
 
+  const handleClick = () => {
+    if (isAdmin) {
+      // Navigate to analytics dashboard when admin clicks
+      router.push('/admin/analytics');
+    }
+  };
+
   return (
-    <div className="text-gray-800 text-xs sm:text-sm md:text-base font-medium">
+    <div 
+      className="text-gray-800 text-xs sm:text-sm md:text-base font-medium cursor-pointer hover:opacity-80 transition-opacity"
+      onClick={handleClick}
+      title={isAdmin ? "Click to view analytics dashboard" : "Click to login as admin"}
+    >
       <div className="text-purple-800 font-bold text-lg">#{visitorNumber.toLocaleString()}</div>
       <div className="text-gray-600 text-xs">Visitor</div>
     </div>

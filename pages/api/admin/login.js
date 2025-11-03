@@ -10,9 +10,9 @@ export default function handler(req, res) {
   try {
     const { password } = req.body;
 
-    // Get password from environment variable or use default for development
-    // Set ADMIN_PASSWORD environment variable in production
-    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+    // Get password from environment variable or use default
+    // Set ADMIN_PASSWORD environment variable in production to override
+    const adminPassword = process.env.ADMIN_PASSWORD || 'Mani*123';
 
     if (!password || password !== adminPassword) {
       return res.status(401).json({ error: 'Invalid password' });

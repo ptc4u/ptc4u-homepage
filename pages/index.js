@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
 import UniversalHomeIcon from '../components/UniversalHomeIcon';
 import HeroSection from '../components/HeroSection';
@@ -20,10 +21,47 @@ import AdminLoginModal from '../components/AdminLoginModal';
  */
 export default function Home() {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const router = useRouter();
 
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
+  // Check admin authentication status
+  useEffect(() => {
+    const checkAdminAuth = () => {
+      if (typeof window !== 'undefined') {
+        const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
+        const token = sessionStorage.getItem('admin_token');
+        setIsAdmin(isAuth && !!token);
+      }
+    };
+
+    checkAdminAuth();
+
+    // Listen for login/logout events
+    const handleAuthChange = () => {
+      checkAdminAuth();
+    };
+
+    window.addEventListener('adminLogin', handleAuthChange);
+    window.addEventListener('adminLogout', handleAuthChange);
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'admin_authenticated' || e.key === 'admin_token') {
+        checkAdminAuth();
+      }
+    });
+
+    // Check periodically
+    const interval = setInterval(checkAdminAuth, 1000);
+
+    return () => {
+      window.removeEventListener('adminLogin', handleAuthChange);
+      window.removeEventListener('adminLogout', handleAuthChange);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleLoginClick = () => {
@@ -32,6 +70,15 @@ export default function Home() {
 
   const handleLoginSuccess = () => {
     setShowLoginModal(false);
+    setIsAdmin(true);
+  };
+
+  const handleWidgetClick = () => {
+    if (isAdmin) {
+      router.push('/admin/analytics');
+    } else {
+      handleLoginClick();
+    }
   };
 
   return (
@@ -119,7 +166,11 @@ export default function Home() {
 
         {/* Fixed Visitor Counter - Right Side (Desktop) */}
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:block">
-          <div className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-4 py-3 hover:shadow-2xl transition-shadow">
+          <div 
+            className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-4 py-3 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
+            onClick={handleWidgetClick}
+            title={isAdmin ? "Click to view analytics dashboard" : "Click to login as admin"}
+          >
             <div className="flex flex-col items-center text-center">
               <div className="mb-2">
                 <svg className="w-8 h-8 text-purple-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +184,11 @@ export default function Home() {
 
         {/* Fixed Visitor Counter - Bottom Right (Mobile) */}
         <div className="fixed bottom-4 right-4 z-40 md:hidden">
-          <div className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-3 py-2 hover:shadow-2xl transition-shadow">
+          <div 
+            className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-3 py-2 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
+            onClick={handleWidgetClick}
+            title={isAdmin ? "Click to view analytics dashboard" : "Click to login as admin"}
+          >
             <VisitorCounter onLoginClick={handleLoginClick} />
           </div>
         </div>

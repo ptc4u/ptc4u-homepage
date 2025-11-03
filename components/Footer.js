@@ -1,3 +1,5 @@
+import VisitorCounter from './VisitorCounter';
+
 /**
  * Footer component for Pinnacle Thrive Coaching.
  * Provides navigation links, contact information, and social media links.
@@ -113,13 +115,18 @@ export default function Footer() {
               <span className="font-tan-pearl text-purple-800">Pinnacle</span>{' '}
               <span className="text-gray-800">Thrive Coaching</span>. All rights reserved.
             </div>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
-              <a href="mailto:ask@ptc4u.com" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Contact Us
-              </a>
-              <a href="https://www.linkedin.com/company/pinnacle-thrive-coaching/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
-                LinkedIn
-              </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <div className="bg-white/80 backdrop-blur-sm border border-purple-300 rounded-lg px-4 py-2 shadow-sm">
+                <VisitorCounter />
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
+                <a href="mailto:ask@ptc4u.com" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  Contact Us
+                </a>
+                <a href="https://www.linkedin.com/company/pinnacle-thrive-coaching/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </div>

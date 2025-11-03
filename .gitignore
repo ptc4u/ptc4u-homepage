@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# visitor counter data
+visitor-count.json
+
+# analytics data
+analytics-data.json

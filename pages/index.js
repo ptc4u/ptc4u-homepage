@@ -166,7 +166,7 @@ export default function Home() {
         {/* Global Form Handler for service options */}
         <GlobalFormHandler />
 
-        {/* Fixed Visitor Counter - Right Side (Desktop) */}
+        {/* Fixed Visitor Counter - Right Side (Desktop Only) */}
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:block">
           <div 
             className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-4 py-3 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
@@ -181,17 +181,6 @@ export default function Home() {
               </div>
               <VisitorCounter onLoginClick={handleLoginClick} />
             </div>
-          </div>
-        </div>
-
-        {/* Fixed Visitor Counter - Bottom Right (Mobile) */}
-        <div className="fixed bottom-4 right-4 z-40 md:hidden">
-          <div 
-            className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-3 py-2 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
-            onClick={handleWidgetClick}
-            title={isAdmin ? "Click to view analytics dashboard" : "Click to login as admin"}
-          >
-            <VisitorCounter onLoginClick={handleLoginClick} />
           </div>
         </div>
 

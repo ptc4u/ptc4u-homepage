@@ -109,9 +109,9 @@ export default function CompactTestimonialsSection() {
       const partialFill = isPartialStar ? (rating % 1) : 1;
 
       return (
-        <div key={i} className="relative w-4 h-4">
+        <div key={i} className="relative w-3 h-3 sm:w-4 sm:h-4">
           {/* Background star (always gray) */}
-          <div className="w-4 h-4 bg-gray-300 rounded-sm absolute inset-0 opacity-30"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gray-300 rounded-sm absolute inset-0 opacity-30"></div>
 
           {/* Golden star image (full or partial) */}
           {(isFullStar || isPartialStar) && (
@@ -119,7 +119,7 @@ export default function CompactTestimonialsSection() {
               <img
                 src="/images/gldstr.jpeg"
                 alt="Golden star"
-                className="w-4 h-4 absolute inset-0 object-cover"
+                className="w-3 h-3 sm:w-4 sm:h-4 absolute inset-0 object-cover"
                 style={{
                   filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.3))'
                 }}
@@ -146,33 +146,33 @@ export default function CompactTestimonialsSection() {
   return (
     <div className="h-full flex flex-col">
       {/* Navigation Arrows */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-2 sm:mb-3 md:mb-4">
         <button
           onClick={prevTestimonial}
           disabled={isSliding}
-          className={`p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 hover:bg-slate-50 hover:scale-110 ${
+          className={`p-1 sm:p-1.5 md:p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 hover:bg-slate-50 hover:scale-110 ${
             isSliding ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
           }`}
           aria-label="Previous testimonial"
         >
-          <svg className="w-5 h-5 text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        <div className="text-sm text-slate-500 font-medium transition-colors duration-200">
+        <div className="text-xs sm:text-sm text-slate-500 font-medium transition-colors duration-200">
           {currentIndex + 1} of {testimonials.length}
         </div>
 
         <button
           onClick={nextTestimonial}
           disabled={isSliding}
-          className={`p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 hover:bg-slate-50 hover:scale-110 ${
+          className={`p-1 sm:p-1.5 md:p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 hover:bg-slate-50 hover:scale-110 ${
             isSliding ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
           }`}
           aria-label="Next testimonial"
         >
-          <svg className="w-5 h-5 text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -182,7 +182,7 @@ export default function CompactTestimonialsSection() {
       <div className="flex-grow flex items-center">
         <div className="relative w-full overflow-hidden">
           <div
-            className={`bg-white p-4 rounded-lg border border-purple-200/50 shadow-md transition-all duration-700 ease-in-out transform ${
+            className={`bg-white p-2 sm:p-3 md:p-4 rounded-lg border border-purple-200/50 shadow-md transition-all duration-700 ease-in-out transform ${
               isSliding ? 'translate-x-full opacity-0 scale-95' : 'translate-x-0 opacity-100 scale-100'
             }`}
             style={{
@@ -191,29 +191,29 @@ export default function CompactTestimonialsSection() {
             }}
           >
             {/* Rating positioned at top right */}
-            <div className="flex items-center justify-end mb-3">
-              <div className="flex items-center space-x-1">
+            <div className="flex items-center justify-end mb-2 sm:mb-3">
+              <div className="flex items-center space-x-0.5 sm:space-x-1">
                 {renderStars(currentTestimonial.rating)}
               </div>
-              <span className="ml-2 text-xs text-gray-600">({currentTestimonial.rating})</span>
+              <span className="ml-1 sm:ml-2 text-[10px] sm:text-xs text-gray-600">({currentTestimonial.rating})</span>
             </div>
 
             {/* Content */}
-            <blockquote className="text-black mb-4 italic leading-relaxed text-base">
+            <blockquote className="text-black mb-3 sm:mb-4 italic leading-relaxed text-xs sm:text-sm md:text-base">
               "{currentTestimonial.content}"
             </blockquote>
 
             {/* Category Badge */}
-            <div className="inline-block bg-gray-100 text-black px-3 py-1 rounded-full text-xs font-semibold mb-3">
+            <div className="inline-block bg-gray-100 text-black px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold mb-2 sm:mb-3">
               {currentTestimonial.category}
             </div>
 
             {/* Author */}
             <div className="flex items-center">
               <div>
-                <div className="font-semibold text-black text-base">{currentTestimonial.name}</div>
-                <div className="text-sm text-gray-600">{currentTestimonial.role}</div>
-                <div className="text-sm text-gray-600">{currentTestimonial.company}</div>
+                <div className="font-semibold text-black text-xs sm:text-sm md:text-base">{currentTestimonial.name}</div>
+                <div className="text-[10px] sm:text-xs text-gray-600">{currentTestimonial.role}</div>
+                <div className="text-[10px] sm:text-xs text-gray-600">{currentTestimonial.company}</div>
               </div>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function CompactTestimonialsSection() {
       </div>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center space-x-2 mt-3">
+      <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-2 sm:mt-3">
         {testimonials.map((_, index) => (
           <button
             key={index}
@@ -234,7 +234,7 @@ export default function CompactTestimonialsSection() {
               }, 400);
             }}
             disabled={isSliding}
-            className={`w-2 h-2 rounded-full transition-all duration-500 ease-in-out transform ${
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-500 ease-in-out transform ${
               index === currentIndex
                 ? 'bg-blue-600 scale-125 shadow-md'
                 : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'

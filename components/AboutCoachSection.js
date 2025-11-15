@@ -129,8 +129,8 @@ export default function AboutCoachSection() {
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
           {/* Testimonials */}
           <div className="w-full lg:w-3/4">
-            <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-200/50 h-96 sm:h-[28rem] flex flex-col">
-              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4">
+            <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl border border-gray-200/50 h-[420px] sm:h-[28rem] flex flex-col">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 sm:mb-2 md:mb-4">
                 <span className="text-gray-900">Client</span> Testimonials
               </h4>
               <div className="flex-grow overflow-hidden">

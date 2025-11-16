@@ -72,7 +72,7 @@ export default function AnalyticsDashboard() {
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
           <div className="mb-8 flex justify-between items-start">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Analytics Dashboard</h1>
+              <h1 className="text-3xl font-bold text-blue-700 mb-2">Analytics Dashboard</h1>
               <p className="text-gray-600">Website traffic and user behavior insights</p>
               <p className="text-sm text-gray-500 mt-2">
                 Last updated: {new Date(stats.summary.lastUpdated).toLocaleString()}

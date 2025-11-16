@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import CompactTestimonialsSection from './CompactTestimonialsSection';
 
 /**
@@ -7,6 +8,8 @@ import CompactTestimonialsSection from './CompactTestimonialsSection';
  * Fully responsive across all device sizes.
  */
 export default function AboutCoachSection() {
+  const router = useRouter();
+  const isHomePage = router.pathname === '/';
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const saiImages = [
@@ -41,8 +44,8 @@ export default function AboutCoachSection() {
     <section className="section section-card" id="about">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 text-center leading-tight">
-          About Your <span className="text-blue-700">Coach</span>
+        <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-center leading-tight ${isHomePage ? 'text-slate-900' : 'text-blue-700'}`}>
+          About Your <span className={isHomePage ? 'text-blue-700' : 'text-blue-700'}>Coach</span>
         </h2>
 
         {/* Top Row - Picture and About Coach Section */}

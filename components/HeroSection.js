@@ -28,7 +28,7 @@ export default function HeroSection() {
               <span className="text-slate-900 ml-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Thrive Coaching</span>
             </h1>
 
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-4"></div>
+            <div className="w-32 sm:w-40 md:w-48 h-1.5 sm:h-2 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-4"></div>
           </div>
 
           {/* Narrative Story Block */}

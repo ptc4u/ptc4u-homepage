@@ -62,8 +62,8 @@ export default function RequestFormsPage() {
                       Back to Services
                     </Link>
                   </div>
-                  <h1 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-                    Choose Your <span className="text-black">Coaching Journey</span>
+                  <h1 className="text-3xl lg:text-4xl font-bold text-blue-700 mb-4">
+                    Choose Your <span className="text-blue-700">Coaching Journey</span>
                   </h1>
                   <p className="text-base text-black max-w-2xl mx-auto">
                     Select the type of coaching engagement that best fits your needs.

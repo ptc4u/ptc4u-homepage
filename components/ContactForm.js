@@ -248,8 +248,8 @@ This message was submitted through the PTC website.
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
-            Start Your <span className="text-black">Transformation</span> Today
+          <h2 className="text-4xl lg:text-5xl font-bold text-blue-700 mb-4">
+            Start Your <span className="text-blue-700">Transformation</span> Today
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below

@@ -103,8 +103,8 @@ export default function AboutCoachSection() {
           {/* About Coach Section */}
           <div className="w-full lg:w-2/3">
             <div className="bg-white rounded-lg sm:rounded-xl shadow-md border border-gray-200/50 p-4 sm:p-6 h-64 sm:h-80 flex flex-col">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
-                <span className="text-gray-900">Sairam</span> Bollapragada
+              <h3 className={`text-xl sm:text-2xl font-bold mb-3 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>
+                <span className={isHomePage ? 'text-gray-900' : 'text-blue-700'}>Sairam</span> Bollapragada
               </h3>
 
               <div className="text-gray-900 space-y-3 sm:space-y-4 flex-grow overflow-y-auto text-sm sm:text-base">
@@ -133,8 +133,8 @@ export default function AboutCoachSection() {
           {/* Testimonials */}
           <div className="w-full lg:w-3/4">
             <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl border border-gray-200/50 h-[420px] sm:h-[28rem] flex flex-col">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 sm:mb-2 md:mb-4">
-                <span className="text-gray-900">Client</span> Testimonials
+              <h4 className={`text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 md:mb-4 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>
+                <span className={isHomePage ? 'text-gray-900' : 'text-blue-700'}>Client</span> Testimonials
               </h4>
               <div className="flex-grow overflow-hidden">
                 <CompactTestimonialsSection />
@@ -152,7 +152,7 @@ export default function AboutCoachSection() {
                   className="w-16 h-20 sm:w-20 sm:h-24 object-cover rounded-lg mx-auto shadow-md"
                 />
               </div>
-              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2">
+              <h4 className={`text-base sm:text-lg font-bold mb-2 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>
                 Self Development Book by Sairam
               </h4>
               <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4">

@@ -105,7 +105,7 @@ export default function ArticlesInsightsSection() {
                 <div className={`flex justify-center mb-4 sm:mb-6 ${tile.iconColor || ''}`}>
                   {tile.icon}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-purple-600 transition-colors">
+                <h3 className={`text-xl sm:text-2xl font-bold mb-2 sm:mb-3 transition-colors ${isHomePage ? 'text-gray-900 group-hover:text-purple-600' : 'text-blue-700 group-hover:text-blue-800'}`}>
                   {tile.title}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600">

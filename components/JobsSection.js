@@ -79,7 +79,7 @@ export default function JobsSection() {
               {/* Content Container */}
               <div className="flex-1 flex flex-col">
                 {/* Job Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 pr-16 sm:pr-20">
+                <h3 className={`text-lg sm:text-xl font-bold mb-3 pr-16 sm:pr-20 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>
                   {job.title}
                 </h3>
 
@@ -100,7 +100,7 @@ export default function JobsSection() {
 
                 {/* Requirements */}
                 <div className="mb-4 flex-1">
-                  <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">Requirements:</h4>
+                  <h4 className={`text-sm sm:text-base font-semibold mb-2 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>Requirements:</h4>
                   <ul className="space-y-1 sm:space-y-2">
                     {job.requirements.map((requirement, reqIndex) => (
                       <li key={reqIndex} className="flex items-start">
@@ -132,7 +132,7 @@ export default function JobsSection() {
 
         {/* Call to Action */}
         <div className="text-center bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl border border-blue-200 shadow-md">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+          <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 ${isHomePage ? 'text-gray-900' : 'text-blue-700'}`}>
             Don&apos;t See Your Perfect Role?
           </h3>
           <p className="text-sm sm:text-base text-gray-900 mb-3 sm:mb-4">

@@ -117,7 +117,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="bg-white/80 backdrop-blur-sm border border-purple-300 rounded-lg px-4 py-2 shadow-sm">
-                <VisitorCounter onLoginClick={() => window.location.href = '/admin/login'} />
+                <VisitorCounter />
               </div>
               <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
                 <a href="mailto:ask@ptc4u.com" className="text-gray-700 hover:text-blue-600 transition-colors">

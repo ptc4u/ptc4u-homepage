@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import ImageWatermark from '../../components/ImageWatermark';
@@ -12,35 +11,14 @@ export default function AnalyticsDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [authenticated, setAuthenticated] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
-    // Check authentication
-    const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
-    const token = sessionStorage.getItem('admin_token');
-
-    if (!isAuth || !token) {
-      // Redirect to login if not authenticated
-      router.push('/admin/login');
-      return;
-    }
-
-    setAuthenticated(true);
     fetchAnalytics();
     
     // Refresh every 30 seconds
     const interval = setInterval(fetchAnalytics, 30000);
     return () => clearInterval(interval);
-  }, [router]);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem('admin_authenticated');
-    sessionStorage.removeItem('admin_token');
-    // Dispatch custom event to notify components of logout
-    window.dispatchEvent(new Event('adminLogout'));
-    router.push('/admin/login');
-  };
+  }, []);
 
   const fetchAnalytics = async () => {
     try {
@@ -59,16 +37,6 @@ export default function AnalyticsDashboard() {
       setLoading(false);
     }
   };
-
-  if (!authenticated) {
-    return (
-      <div className="min-h-screen bg-neutral-50">
-        <div className="flex items-center justify-center h-screen">
-          <div className="text-gray-700">Checking authentication...</div>
-        </div>
-      </div>
-    );
-  }
 
   if (loading) {
     return (
@@ -110,12 +78,6 @@ export default function AnalyticsDashboard() {
                 Last updated: {new Date(stats.summary.lastUpdated).toLocaleString()}
               </p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
-            >
-              Logout
-            </button>
           </div>
 
           {/* Summary Cards */}

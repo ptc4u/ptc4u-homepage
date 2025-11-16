@@ -13,16 +13,12 @@ import JourneyOptionsSection from '../components/JourneyOptionsSection';
 import JobsSection from '../components/JobsSection';
 import GlobalFormHandler from '../components/GlobalFormHandler';
 import VisitorCounter from '../components/VisitorCounter';
-import AdminLoginModal from '../components/AdminLoginModal';
 
 /**
  * The home page of Pinnacle Thrive Coaching website.
  * Renders key sections including hero, services, about, blog, careers, and contact.
  */
 export default function Home() {
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isLocalhost, setIsLocalhost] = useState(false);
   const router = useRouter();
 
   // Scroll to top on mount
@@ -30,66 +26,10 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  // Check if running on localhost
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      setIsLocalhost(hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0');
-    }
-  }, []);
-
-  // Check admin authentication status
-  useEffect(() => {
-    const checkAdminAuth = () => {
-      if (typeof window !== 'undefined') {
-        const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
-        const token = sessionStorage.getItem('admin_token');
-        setIsAdmin(isAuth && !!token);
-      }
-    };
-
-    checkAdminAuth();
-
-    // Listen for login/logout events
-    const handleAuthChange = () => {
-      checkAdminAuth();
-    };
-
-    window.addEventListener('adminLogin', handleAuthChange);
-    window.addEventListener('adminLogout', handleAuthChange);
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'admin_authenticated' || e.key === 'admin_token') {
-        checkAdminAuth();
-      }
-    });
-
-    // Check periodically
-    const interval = setInterval(checkAdminAuth, 1000);
-
-    return () => {
-      window.removeEventListener('adminLogin', handleAuthChange);
-      window.removeEventListener('adminLogout', handleAuthChange);
-      clearInterval(interval);
-    };
-  }, []);
-
-  const handleLoginClick = () => {
-    setShowLoginModal(true);
-  };
-
-  const handleLoginSuccess = () => {
-    setShowLoginModal(false);
-    setIsAdmin(true);
-  };
-
   const handleWidgetClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (isAdmin || isLocalhost) {
-      router.push('/admin/analytics');
-    } else {
-      handleLoginClick();
-    }
+    router.push('/admin/analytics');
   };
 
   return (
@@ -180,7 +120,7 @@ export default function Home() {
           <div 
             className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-4 py-3 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
             onClick={handleWidgetClick}
-            title={isAdmin ? "Click to view analytics dashboard" : "Click to login as admin"}
+            title="Click to view analytics dashboard"
           >
             <div className="flex flex-col items-center text-center">
               <div className="mb-2">
@@ -188,19 +128,11 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <VisitorCounter onLoginClick={handleLoginClick} />
+              <VisitorCounter />
             </div>
           </div>
         </div>
 
-        {/* Admin Login Modal */}
-        {showLoginModal && (
-          <AdminLoginModal
-            isOpen={showLoginModal}
-            onClose={() => setShowLoginModal(false)}
-            onSuccess={handleLoginSuccess}
-          />
-        )}
       </div>
     </>
   );

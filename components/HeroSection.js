@@ -17,7 +17,7 @@ export default function HeroSection() {
 
           {/* Executive Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <div className="mb-8">
+            <div className="mb-8 -mt-8 sm:-mt-12">
               <span className="text-lg sm:text-xl font-tan-pearl text-slate-600 italic tracking-wide">
                 Warm Greetings from
               </span>
@@ -32,7 +32,7 @@ export default function HeroSection() {
           </div>
 
           {/* Narrative Story Block */}
-          <div className="mb-0">
+          <div className="mb-8 sm:mb-12">
             <div className="max-w-5xl mx-auto">
               {/* Opening Quote */}
               <div className="text-center mb-12">

@@ -70,7 +70,7 @@ export default function Home() {
         <UniversalHomeIcon />
         <NavBar />
 
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-20">
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-20">
           {/* Hero Section */}
           <section id="hero" className="section">
             <HeroSection />
@@ -115,21 +115,14 @@ export default function Home() {
         {/* Global Form Handler for service options */}
         <GlobalFormHandler />
 
-        {/* Fixed Visitor Counter - Right Side (Desktop Only) */}
-        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+        {/* Fixed Visitor Counter - Bottom of Screen */}
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-purple-600 shadow-lg">
           <div 
-            className="bg-white border-2 border-purple-600 rounded-lg shadow-xl px-4 py-3 hover:shadow-2xl hover:scale-105 transition-all cursor-pointer select-none active:scale-95"
+            className="container mx-auto px-4 py-3 cursor-pointer hover:bg-purple-50 transition-colors"
             onClick={handleWidgetClick}
             title="Click to view analytics dashboard"
           >
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-2">
-                <svg className="w-8 h-8 text-purple-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <VisitorCounter />
-            </div>
+            <VisitorCounter />
           </div>
         </div>
 

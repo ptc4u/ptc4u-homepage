@@ -53,7 +53,7 @@ export default function VisitorCounter() {
 
   if (loading) {
     return (
-      <div className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">
+      <div className="text-gray-700 text-sm sm:text-base md:text-lg font-medium text-center">
         <span className="text-purple-800">Loading...</span>
       </div>
     );
@@ -61,7 +61,7 @@ export default function VisitorCounter() {
 
   if (visitorNumber === null) {
     return (
-      <div className="text-gray-700 text-xs sm:text-sm md:text-base font-medium">
+      <div className="text-gray-700 text-sm sm:text-base md:text-lg font-medium text-center">
         <span className="text-purple-800">---</span>
       </div>
     );
@@ -74,12 +74,11 @@ export default function VisitorCounter() {
 
   return (
     <div 
-      className="text-gray-800 text-xs sm:text-sm md:text-base font-medium cursor-pointer"
+      className="text-gray-800 text-sm sm:text-base md:text-lg font-medium cursor-pointer text-center"
       onClick={handleClick}
     >
-      <div className="text-purple-800 font-bold text-lg">#{visitorNumber.toLocaleString()}</div>
-      <div className="text-gray-600 text-xs">Visitor</div>
-      <div className="text-gray-500 text-xs mt-1 italic">Click to view analytics</div>
+      <span className="text-gray-800">You are visitor </span>
+      <span className="text-purple-800 font-bold">#{visitorNumber.toLocaleString()}</span>
     </div>
   );
 }

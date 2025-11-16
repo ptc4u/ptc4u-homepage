@@ -1,3 +1,6 @@
+import React from 'react';
+import { useRouter } from 'next/router';
+
 /**
  * Jobs/Careers section component for Pinnacle Thrive Coaching.
  * Displays current job openings with "Hiring Now" highlights.

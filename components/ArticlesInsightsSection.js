@@ -1,3 +1,6 @@
+import React from 'react';
+import { useRouter } from 'next/router';
+
 /**
  * PTC Knowledge Base section component for Pinnacle Thrive Coaching.
  * Features 4 tiles: LinkedIn, WordPress, Instagram, and PTC's 3R Pillars.

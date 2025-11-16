@@ -32,7 +32,7 @@ export default function HeroSection() {
           </div>
 
           {/* Narrative Story Block */}
-          <div className="mb-8 sm:mb-12">
+          <div className="mb-0">
             <div className="max-w-5xl mx-auto">
               {/* Opening Quote */}
               <div className="text-center mb-12">

@@ -70,7 +70,7 @@ export default function Home() {
         <UniversalHomeIcon />
         <NavBar />
 
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-20">
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-18">
           {/* Hero Section */}
           <section id="hero" className="section">
             <HeroSection />

@@ -22,11 +22,20 @@ import AdminLoginModal from '../components/AdminLoginModal';
 export default function Home() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLocalhost, setIsLocalhost] = useState(false);
   const router = useRouter();
 
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
+  // Check if running on localhost
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      setIsLocalhost(hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0');
+    }
   }, []);
 
   // Check admin authentication status
@@ -76,7 +85,7 @@ export default function Home() {
   const handleWidgetClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (isAdmin) {
+    if (isAdmin || isLocalhost) {
       router.push('/admin/analytics');
     } else {
       handleLoginClick();

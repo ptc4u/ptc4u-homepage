@@ -11,8 +11,15 @@ export default function VisitorCounter({ onLoginClick }) {
   const [visitorNumber, setVisitorNumber] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLocalhost, setIsLocalhost] = useState(false);
 
   useEffect(() => {
+    // Check if running on localhost
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      setIsLocalhost(hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0');
+    }
+
     // Check if user is authenticated as admin
     const checkAdminAuth = () => {
       if (typeof window !== 'undefined') {
@@ -84,15 +91,16 @@ export default function VisitorCounter({ onLoginClick }) {
       }
     };
 
-    if (isAdmin) {
+    // Show counter if admin OR if on localhost
+    if (isAdmin || isLocalhost) {
       trackVisitor();
     } else {
       setLoading(false);
     }
-  }, [isAdmin]);
+  }, [isAdmin, isLocalhost]);
 
-  // Show login prompt icon if not admin
-  if (!isAdmin) {
+  // Show login prompt icon if not admin and not on localhost
+  if (!isAdmin && !isLocalhost) {
     return (
       <div className="flex flex-col items-center text-center">
         <svg className="w-6 h-6 text-purple-800 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,11 +128,30 @@ export default function VisitorCounter({ onLoginClick }) {
     );
   }
 
+  const handleClick = () => {
+    if (isAdmin) {
+      // Navigate to analytics dashboard when admin clicks
+      router.push('/admin/analytics');
+    } else if (isLocalhost) {
+      // On localhost, clicking can still navigate to analytics (for testing)
+      router.push('/admin/analytics');
+    }
+  };
+
   return (
-    <div className="text-gray-800 text-xs sm:text-sm md:text-base font-medium">
+    <div 
+      className="text-gray-800 text-xs sm:text-sm md:text-base font-medium"
+      onClick={isLocalhost ? handleClick : undefined}
+      style={isLocalhost ? { cursor: 'pointer' } : {}}
+    >
       <div className="text-purple-800 font-bold text-lg">#{visitorNumber.toLocaleString()}</div>
       <div className="text-gray-600 text-xs">Visitor</div>
-      <div className="text-gray-500 text-xs mt-1 italic">Click to view analytics</div>
+      {isAdmin && (
+        <div className="text-gray-500 text-xs mt-1 italic">Click to view analytics</div>
+      )}
+      {isLocalhost && !isAdmin && (
+        <div className="text-gray-500 text-xs mt-1 italic">Localhost - Click to view analytics</div>
+      )}
     </div>
   );
 }

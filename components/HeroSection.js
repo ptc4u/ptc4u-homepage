@@ -5,7 +5,7 @@
  */
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20" id="hero">
+    <section className="relative overflow-hidden py-6 sm:py-8 lg:py-10" id="hero">
       {/* Minimal background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-slate-100/30 rounded-full blur-2xl" />
@@ -16,26 +16,26 @@ export default function HeroSection() {
         <div className="max-w-6xl mx-auto">
 
           {/* Executive Header */}
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="mb-8 -mt-8 sm:-mt-12">
+          <div className="text-center mb-4 sm:mb-6">
+            <div className="mb-4 -mt-8 sm:-mt-12">
               <span className="text-lg sm:text-xl font-tan-pearl text-slate-600 italic tracking-wide">
                 Warm Greetings from
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               <span className="font-tan-pearl text-purple-800">Pinnacle</span>
               <span className="text-slate-900 ml-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Thrive Coaching</span>
             </h1>
 
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-4"></div>
           </div>
 
           {/* Narrative Story Block */}
-          <div className="mb-8 sm:mb-12">
+          <div className="mb-4 sm:mb-6">
             <div className="max-w-5xl mx-auto">
               {/* Opening Quote */}
-              <div className="text-center mb-12">
+              <div className="text-center mb-6">
                 <div className="max-w-6xl mx-auto px-4">
                   <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-blue-700 leading-tight italic">
                     This is your space to pause, breathe, and rediscover yourself.
@@ -53,7 +53,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* The Call to Action */}
-                <div className="text-center pt-12">
+                <div className="text-center pt-6">
                   <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-8 border border-slate-200">
                     <div className="relative">
                       <div className="absolute -top-2 -left-2 text-4xl text-purple-300 font-serif">"</div>

@@ -173,8 +173,8 @@ This request was submitted through the PTC website.
   return (
     <div className="bg-white p-8 rounded-2xl shadow-lg border border-purple-200/50">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-black mb-4">
-          Request a <span className="text-black">Long-Term Coaching Partnership</span>
+        <h2 className="text-3xl font-bold text-blue-700 mb-4">
+          Request a <span className="">Long-Term Coaching Partnership</span>
         </h2>
         <p className="text-lg text-black">
           For organizations seeking an ongoing coaching engagement (6-12 months+).

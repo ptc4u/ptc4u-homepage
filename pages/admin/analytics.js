@@ -111,7 +111,7 @@ export default function AnalyticsDashboard() {
           {/* Time-based Statistics */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Page Views Over Time</h2>
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">Page Views Over Time</h2>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Yesterday</span>
@@ -130,7 +130,7 @@ export default function AnalyticsDashboard() {
 
             {/* Hourly Distribution */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Hourly Traffic (Last 24h)</h2>
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">Hourly Traffic (Last 24h)</h2>
               <div className="space-y-1">
                 {stats.timeBased.hourlyViews.map(({ hour, count }, index) => (
                   <div key={index} className="flex items-center">
@@ -152,7 +152,7 @@ export default function AnalyticsDashboard() {
 
           {/* Top Pages */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Top Pages</h2>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">Top Pages</h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -178,7 +178,7 @@ export default function AnalyticsDashboard() {
           {/* Traffic Sources */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Top Referrers</h2>
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">Top Referrers</h2>
               <div className="space-y-2">
                 {stats.traffic.topReferrers.map((referrer, index) => (
                   <div key={index} className="flex justify-between items-center">
@@ -197,7 +197,7 @@ export default function AnalyticsDashboard() {
 
             {/* Device Types */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Device Types</h2>
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">Device Types</h2>
               <div className="space-y-3">
                 <div>
                   <div className="flex justify-between mb-1">
@@ -247,7 +247,7 @@ export default function AnalyticsDashboard() {
 
           {/* Browsers */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Top Browsers</h2>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">Top Browsers</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.devices.topBrowsers.map((browser, index) => (
                 <div key={index} className="text-center p-3 bg-gray-50 rounded">
@@ -260,7 +260,7 @@ export default function AnalyticsDashboard() {
 
           {/* Scroll Depth */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">User Engagement (Scroll Depth)</h2>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">User Engagement (Scroll Depth)</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center p-4 bg-blue-50 rounded">
                 <div className="text-sm text-gray-600 mb-1">25% Scrolled</div>
@@ -292,12 +292,12 @@ export default function AnalyticsDashboard() {
           {/* Demographics Section */}
           {stats.demographics && (
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Demographic Data</h2>
+              <h2 className="text-2xl font-bold text-blue-700 mb-6">Demographic Data</h2>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 {/* Top Countries */}
                 <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Top Countries</h3>
+                  <h3 className="text-xl font-semibold text-blue-700 mb-4">Top Countries</h3>
                   <div className="space-y-2 max-h-96 overflow-y-auto">
                     {stats.demographics.topCountries && stats.demographics.topCountries.length > 0 ? (
                       stats.demographics.topCountries.map((country, index) => (
@@ -314,7 +314,7 @@ export default function AnalyticsDashboard() {
 
                 {/* Top Cities */}
                 <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Top Cities</h3>
+                  <h3 className="text-xl font-semibold text-blue-700 mb-4">Top Cities</h3>
                   <div className="space-y-2 max-h-96 overflow-y-auto">
                     {stats.demographics.topCities && stats.demographics.topCities.length > 0 ? (
                       stats.demographics.topCities.map((city, index) => (
@@ -333,7 +333,7 @@ export default function AnalyticsDashboard() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 {/* Top Languages */}
                 <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Languages</h3>
+                  <h3 className="text-xl font-semibold text-blue-700 mb-4">Languages</h3>
                   <div className="space-y-3">
                     {stats.demographics.topLanguages && stats.demographics.topLanguages.length > 0 ? (
                       stats.demographics.topLanguages.map((lang, index) => (
@@ -360,7 +360,7 @@ export default function AnalyticsDashboard() {
 
                 {/* Top Timezones */}
                 <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Top Timezones</h3>
+                  <h3 className="text-xl font-semibold text-blue-700 mb-4">Top Timezones</h3>
                   <div className="space-y-2 max-h-80 overflow-y-auto">
                     {stats.demographics.topTimezones && stats.demographics.topTimezones.length > 0 ? (
                       stats.demographics.topTimezones.map((tz, index) => (
@@ -378,7 +378,7 @@ export default function AnalyticsDashboard() {
 
               {/* Screen Resolutions */}
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Screen Resolutions</h3>
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">Screen Resolutions</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {stats.demographics.screenResolutions && stats.demographics.screenResolutions.length > 0 ? (
                     stats.demographics.screenResolutions.map((res, index) => (

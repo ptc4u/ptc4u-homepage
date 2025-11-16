@@ -249,7 +249,7 @@ This message was submitted through the PTC website.
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-blue-700 mb-4">
-            Start Your <span className="text-blue-700">Transformation</span> Today
+            Start Your <span className="">Transformation</span> Today
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto">
             Ready to break through barriers and achieve your goals? Fill out the form below

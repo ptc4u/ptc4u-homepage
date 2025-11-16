@@ -45,7 +45,7 @@ export default function AboutCoachSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-center leading-tight ${isHomePage ? 'text-slate-900' : 'text-blue-700'}`}>
-          About Your <span className={isHomePage ? 'text-blue-700' : 'text-blue-700'}>Coach</span>
+          About Your <span className={isHomePage ? 'text-blue-700' : ''}>Coach</span>
         </h2>
 
         {/* Top Row - Picture and About Coach Section */}

@@ -155,8 +155,8 @@ This request was submitted through the PTC website.
     <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-blue-200/50">
       <div className="text-center mb-6 sm:mb-8">
         <div className="text-4xl sm:text-6xl mb-4"></div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-          Book Your <span className="text-black">Discovery Session</span>
+        <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-4">
+          Book Your <span className="">Discovery Session</span>
         </h2>
         <p className="text-base sm:text-lg text-black">
           Free 30-minute consultation to discover how coaching can unlock clarity, growth, and direction for your career.

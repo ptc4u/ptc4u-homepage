@@ -54,7 +54,7 @@ export default function JobsSection() {
             HIRING NOW
           </div>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight ${isHomePage ? 'text-slate-900' : 'text-blue-700'}`}>
-            Join Our <span className="text-blue-700">Team</span>
+            Join Our <span className={isHomePage ? 'text-blue-700' : ''}>Team</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-4xl mx-auto font-medium">
             Be part of our mission to transform lives and careers. We&apos;re looking for passionate individuals

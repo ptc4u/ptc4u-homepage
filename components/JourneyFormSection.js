@@ -17,7 +17,7 @@ export default function JourneyFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-blue-700 mb-3">
-            Choose Your <span className="text-blue-700">Journey</span>
+            Choose Your <span className="">Journey</span>
           </h2>
           <p className="text-lg text-black max-w-3xl mx-auto font-medium">
             Select the path that best fits your current needs and begin your transformation journey 

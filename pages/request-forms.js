@@ -77,8 +77,8 @@ export default function RequestFormsPage() {
                   <div className="bg-white p-6 rounded-2xl shadow-xl border border-purple-200/50 hover:shadow-2xl transition-all duration-300">
                     <div className="text-center mb-5">
                       <div className="text-4xl mb-3"></div>
-                      <h2 className="text-xl font-bold text-black mb-3">
-                        Request a <span className="text-black">Coaching Workshop</span>
+                      <h2 className="text-xl font-bold text-blue-700 mb-3">
+                        Request a <span className="">Coaching Workshop</span>
                       </h2>
                       <p className="text-sm text-black mb-5">
                         Perfect for corporates and individuals seeking a one-time or short-term workshop
@@ -117,8 +117,8 @@ export default function RequestFormsPage() {
                   <div className="bg-white p-6 rounded-2xl shadow-xl border border-emerald-200/50 hover:shadow-2xl transition-all duration-300">
                     <div className="text-center mb-5">
                       <div className="text-4xl mb-3"></div>
-                      <h2 className="text-xl font-bold text-black mb-3">
-                        Request a <span className="text-black">Long-Term Partnership</span>
+                      <h2 className="text-xl font-bold text-blue-700 mb-3">
+                        Request a <span className="">Long-Term Partnership</span>
                       </h2>
                       <p className="text-sm text-black mb-5">
                         Ideal for organizations seeking ongoing coaching engagement (6-12 months+)
